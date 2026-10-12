@@ -1,11 +1,11 @@
-# SatClip paper (IEEE conference format)
+# EvidEO paper (formerly SatClip) (IEEE conference format)
 
-- `satclip.tex`, `refs.bib`: the paper (IEEEtran conference class, 6 pages). Build with `latexmk -pdf satclip.tex`.
-- `satclip.pdf`: compiled copy.
+- `evideo.tex`, `refs.bib`: the paper (IEEEtran conference class, 6 pages). Build with `latexmk -pdf evideo.tex`.
+- `evideo.pdf`: compiled copy.
 - `analysis/experiments.py`: every number in the paper, from the committed per-chip rows in `training/calibration/reports/`. Writes `analysis/results.json`. Seeded and deterministic.
 - `analysis/figures.py`: all figures in `figures/` (PDF for the paper, PNG for slides).
 
-Rebuild everything: `python paper/analysis/experiments.py && python paper/analysis/figures.py && cd paper && latexmk -pdf satclip.tex`
+Rebuild everything: `python paper/analysis/experiments.py && python paper/analysis/figures.py && cd paper && latexmk -pdf evideo.tex`
 
 ## Honest assessment (2026-10-12)
 
@@ -27,5 +27,5 @@ What a reviewer will attack, and how the paper answers:
 **On "copyrighting the tech"** (not legal advice; we are not lawyers):
 - The code and paper text are already protected by copyright automatically. The repo is under the BSD 2-Clause licence, which lets anyone reuse the code with attribution. If you want to keep commercial control, change the licence for future versions before more people fork it (past BSD releases stay BSD).
 - Ideas and methods are not covered by copyright. Patents cover methods, but in India "computer programmes per se" are excluded (Patents Act section 3(k)), the method combines known parts (thresholding, Platt scaling, abstention), and the repo has been public since 4 October 2026, which counts as prior disclosure in most jurisdictions. A patent is therefore unlikely to be worth pursuing.
-- What you can protect cheaply: the name "SatClip" as a trademark, and priority as authors by publishing (arXiv now, venue later). Publication is also a defensive move that stops others patenting the same combination.
+- What you can protect cheaply: the name "EvidEO" as a trademark (the old name "SatClip" collides with SatCLIP, Klemmer et al., AAAI 2025, archive A226, so it was dropped), and priority as authors by publishing (arXiv now, venue later). Publication is also a defensive move that stops others patenting the same combination.
 - If SIH rules or your institute have IP terms for hackathon or student work, check those before licensing decisions.

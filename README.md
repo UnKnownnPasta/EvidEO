@@ -1,5 +1,8 @@
 # SatClip
 
+> **Renamed 2026-10-12: the project is now EvidEO.** "SatClip" collides with SatCLIP (Klemmer et al., AAAI 2025, Microsoft; archive A226). The paper (`paper/evideo.tex`) and short deck (`deck/why/`) use the new name; the code package, older docs and the GitHub repo name still say satclip until they are migrated.
+
+
 **Ask a plain question about any place in India and two dates. Get back an answer you can check.**
 
 SatClip is Team Stardust's Smart India Hackathon 2026 project for problem statement **SIH26167**: "SatQueryAI: an interactive vision-language assistant for multimodal remote sensing image analysis through text queries".

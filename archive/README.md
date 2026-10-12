@@ -35,7 +35,7 @@ A verified, annotated archive of research that shapes SatClip. One file per pape
 
 <!-- CATALOG:START -->
 
-Total papers: **225**
+Total papers: **227**
 
 | Category | Count |
 |---|---|
@@ -43,7 +43,7 @@ Total papers: **225**
 | data-infrastructure | 12 |
 | efficient-inference | 12 |
 | eo-agents | 15 |
-| eo-foundation | 18 |
+| eo-foundation | 19 |
 | historical | 10 |
 | human-factors | 14 |
 | indian-context | 16 |
@@ -52,7 +52,7 @@ Total papers: **225**
 | rs-vlm | 28 |
 | sar-optical-fusion | 17 |
 | trust-calibration | 21 |
-| upcoming | 12 |
+| upcoming | 13 |
 
 ### change-detection
 
@@ -153,6 +153,7 @@ Total papers: **225**
 | 156 | [Multi-Label Guided Soft Contrastive Learning for Efficient Earth Observation Pretraining](papers/156-softcon.md) ([source](https://arxiv.org/abs/2405.20462)) | 2024 | recent | Small SAR and multispectral backbones (ResNet50, ViT-S) that match larger models on BigEarthNet: the most CPU-practical pretrained SAR encoder candidate for a learned land-cover or water head |
 | 157 | [SatlasPretrain: A Large-Scale Dataset for Remote Sensing Image Understanding](papers/157-satlaspretrain.md) ([source](https://arxiv.org/abs/2211.15660)) | 2023 | recent | Supervised multi-task pretraining on 302M labels gives strong Sentinel-2 backbones; useful for optical land-cover and structure instruments, but optical-only and US-heavy at high resolution |
 | 158 | [Scale-MAE: A Scale-Aware Masked Autoencoder for Multiscale Geospatial Representation Learning](papers/158-scale-mae.md) ([source](https://arxiv.org/abs/2212.14532)) | 2023 | recent | Encoding ground sample distance into positional embeddings makes features robust across resolutions; a design lesson for any SatClip learned head that mixes 10 m Sentinel with finer imagery |
+| 226 | [SatCLIP: Global, General-Purpose Location Embeddings with Satellite Imagery](papers/226-satclip-location-embeddings.md) ([source](https://arxiv.org/abs/2311.17179)) | 2025 | recent | Prior art for the NAME, not the method: SatCLIP is Microsoft's contrastive location encoder (AAAI 2025). Our project was called SatClip until 2026-10-12, a collision we missed for nine runs; it is now renamed EvidEO. Methodologically unrelated, but useful as a location prior |
 
 ### historical
 
@@ -348,5 +349,6 @@ Total papers: **225**
 | 183 | [FloodReasonBench: Benchmarking VLM Reasoning Segmentation for Embodied Flood Response at the Edge](papers/183-floodreasonbench.md) ([source](https://arxiv.org/abs/2608.15410)) | 2026 | upcoming | Upcoming flood benchmark where a responder's plain-language request returns a pixel mask (people, buildings, vehicles), with flood fine-tuning lifting LISA from 0.72 to 0.84 gIoU and Jetson latency and energy measured; useful edge-deployment pattern for SatClip, but it uses close-range imagery not satellites and has only 100 test samples |
 | 224 | [The Mirage of Calibrated Confidence: Trajectory-Independence of Verbalized Confidence in Vision-Language Models](papers/224-mirage-calibrated-confidence-vlm.md) ([source](https://arxiv.org/abs/2609.18453)) | 2026 | upcoming | A VLM's spoken confidence barely changes with what its reasoning actually contains, and RL calibration training improved ECE while making confidence even less tied to the reasoning; SatClip must never use the VLM's self-reported confidence for the meter and should test any confidence signal by perturbing its evidence |
 | 225 | [ToolChain-CRC: Conformal Risk Control for Agentic AI Under Retrieval and Tool-Use Drift](papers/225-toolchain-crc-agents.md) ([source](https://arxiv.org/abs/2606.18467)) | 2026 | upcoming | Calibrates an accept-or-intervene rule over the whole agent trajectory (retrieval, tool calls, synthesis) rather than the final answer, with a conformal guarantee on the risk of accepted runs; SatClip's abstention should score scene search, preprocessing and mask steps, not just the final number |
+| 227 | [Land cover and flood type govern the detection limits of satellite-based flood mapping across diverse global flood events](papers/227-land-cover-flood-type-detection-limits.md) ([source](https://arxiv.org/abs/2606.07780)) | 2026 | upcoming | Across 19 unseen flood events, Prithvi-EO-2.0 detection depends on land cover and flood type (cropland IoU 52%, tree cover and built-up about 4%, riverine F1 0.69 vs flash and cyclone about 0.55); a plausible mechanism for EvidEO's region-dependent over-confidence, and support for per-regime calibration |
 
 <!-- CATALOG:END -->

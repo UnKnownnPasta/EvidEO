@@ -26,7 +26,7 @@ Code and data: \url{https://github.com/UnKnownnPasta/satclip}}
 \maketitle
 
 \begin{abstract}
-Vision-language assistants for remote sensing answer fluently but localise, count and handle radar poorly, and none of them tells a non-expert when not to trust an answer. We present SatClip, an open, CPU-only system that answers plain-language questions about floods in Indian districts with an \emph{evidence card}: an area measured from the actual Sentinel-1 scene by a transparent instrument, the scene identifiers and dates, a mask, a calibrated confidence, and a receipt that re-runs to an identical output hash. Below a stated confidence the system abstains instead of guessing. We evaluate at the level of the answer a user receives, not the pixel. On the held-out Sen1Floods11 test split, publishing only answers with calibrated confidence of at least 0.60 cuts the share of wrong area answers from 45\% to 26\% while answering 43\% of questions. Leave-one-event-out analysis shows that a calibration fitted on other regions is systematically over-confident on South Asian monsoon events (India $+20$, Pakistan $+29$, Sri Lanka $+10$ points), so an assistant calibrated globally would publish half of its Indian answers with more than half of them wrong. Re-fitting only the intercept on as few as eight local labelled chips removes the over-confidence, but honest coverage on Indian chips then falls to about 13\%. For flood change, regime-specific calibration lowers expected calibration error from 0.255 to 0.041 and exposes that positive change answers are right only 27\% of the time. The lesson is that trustworthy assistants need local calibration data and better instruments more than larger language models. All eight receipts in our end-to-end demo re-ran to identical outputs.
+Vision-language assistants for remote sensing answer fluently but localise, count and handle radar poorly, and none of them tells a non-expert when not to trust an answer. We present EvidEO, an open, CPU-only system that answers plain-language questions about floods in Indian districts with an \emph{evidence card}: an area measured from the actual Sentinel-1 scene by a transparent instrument, the scene identifiers and dates, a mask, a calibrated confidence, and a receipt that re-runs to an identical output hash. Below a stated confidence the system abstains instead of guessing. We evaluate at the level of the answer a user receives, not the pixel. On the held-out Sen1Floods11 test split, publishing only answers with calibrated confidence of at least 0.60 cuts the share of wrong area answers from 45\% to 26\% while answering 43\% of questions. Leave-one-event-out analysis shows that a calibration fitted on other regions is systematically over-confident on South Asian monsoon events (India $+20$, Pakistan $+29$, Sri Lanka $+10$ points), so an assistant calibrated globally would publish half of its Indian answers with more than half of them wrong. Re-fitting only the intercept on as few as eight local labelled chips removes the over-confidence, but honest coverage on Indian chips then falls to about 13\%. For flood change, regime-specific calibration lowers expected calibration error from 0.255 to 0.041 and exposes that positive change answers are right only 27\% of the time. The lesson is that trustworthy assistants need local calibration data and better instruments more than larger language models. All eight receipts in our end-to-end demo re-ran to identical outputs.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -39,7 +39,7 @@ A district disaster official in Assam during the monsoon has a short, local ques
 
 Remote-sensing vision-language models (RS-VLMs) such as GeoChat~\cite{kuckreja2024geochat}, EarthGPT~\cite{zhang2024earthgpt}, LHRS-Bot~\cite{muhtar2024lhrsbot} and EarthDial~\cite{soni2025earthdial} promise exactly this kind of plain-language access. Benchmarks, however, show that they are weakest where officials need precision (Fig.~\ref{fig:landscape}). GPT-4V localises the referred object at IoU 0.5 only 7.6\% of the time on DIOR-RSVG, against 76.8\% for a supervised specialist~\cite{zhang2024vleo}; on GEOBench-VLM the best referring-expression score is 34\%~\cite{danish2025geobench}; experts judge between 36\% and 69\% of RS-VLM answers free of hallucination~\cite{zhou2026rshallu}. None of these systems attaches a calibrated probability to an answer or declines to answer when evidence is weak. A fluent wrong area figure is worse than no figure, because people rely on automation in proportion to how confident it appears~\cite{lee2004trust}.
 
-We therefore invert the usual design. In SatClip, \emph{instruments answer and the language model only asks and explains}: a versioned SAR water instrument produces every number, a calibration map turns its quality score into a probability that the published area is within tolerance, and the system abstains below a threshold. Our contributions are:
+We therefore invert the usual design. In EvidEO, \emph{instruments answer and the language model only asks and explains}: a versioned SAR water instrument produces every number, a calibration map turns its quality score into a probability that the published area is within tolerance, and the system abstains below a threshold. Our contributions are:
 \begin{enumerate}
 \item An open, CPU-only evidence-card system on public STAC catalogues~\cite{stac2024} and Cloud Optimized GeoTIFFs~\cite{ogc2023cog}, with automatic SAR selection under monsoon cloud and receipts that reproduce bit-for-bit (Section~\ref{sec:system}).
 \item An \emph{answer-level} evaluation protocol for area questions, using risk-coverage curves and calibration error on hand-labelled flood chips from Sen1Floods11~\cite{bonafilia2020sen1floods11} and Kuro Siwo~\cite{bountos2024kurosiwo} (Section~\ref{sec:protocol}).
@@ -85,7 +85,7 @@ We do not claim a better flood detector; our detector performs at the level of t
 \draw[arr] (i) -- node[below, font=\tiny]{$r$} (c); \draw[arr] (c) -- (g);
 \draw[arr] (i.south) |- (r.east); \draw[arr] (g.south) |- (r.west);
 \end{tikzpicture}}
-\caption{SatClip answer path. Every number comes from an instrument; the language layer only parses the question and phrases the card.}
+\caption{EvidEO answer path. Every number comes from an instrument; the language layer only parses the question and phrases the card.}
 \label{fig:arch}
 \end{figure}
 
@@ -129,7 +129,7 @@ Method & Test & Bolivia \\
 \midrule
 Otsu-VH thresholding (published) & 0.359 & 0.386 \\
 Best FCN-ResNet50, S1 input (published) & 0.408 & 0.387 \\
-SatClip SAR water v1.1 (ours) & 0.362 & 0.434 \\
+EvidEO SAR water v1.1 (ours) & 0.362 & 0.434 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -159,7 +159,7 @@ SatClip SAR water v1.1 (ours) & 0.362 & 0.434 \\
 \label{fig:loeo}
 \end{figure}
 
-\textbf{Calibration does not travel.} Fig.~\ref{fig:loeo} shows that a map fitted on other regions is over-confident on India by 20 points, Pakistan by 29 and Sri Lanka by 10, and under-confident on the USA by 31. For India this means 52\% of chips would be published with 55\% of those wrong (Table~\ref{tab:sel}), worse than the test split's unfiltered error. Within India the raw score still ranks answers better than chance (AUROC 0.65), so the failure is mostly an offset, not a reversal. We cannot isolate the cause from these data; plausible contributors are paddy and wet soil with low backscatter, vegetated and urban flooding, and terrain, which a planned version will mask with HAND.
+\textbf{Calibration does not travel.} Fig.~\ref{fig:loeo} shows that a map fitted on other regions is over-confident on India by 20 points, Pakistan by 29 and Sri Lanka by 10, and under-confident on the USA by 31. For India this means 52\% of chips would be published with 55\% of those wrong (Table~\ref{tab:sel}), worse than the test split's unfiltered error. Within India the raw score still ranks answers better than chance (AUROC 0.65), so the failure is mostly an offset, not a reversal. We cannot isolate the cause from these data; plausible contributors are paddy and wet soil with low backscatter, vegetated and urban flooding, and terrain, which a planned version will mask with HAND. A recent study of 19 unseen flood events found detection near zero under tree cover and in built-up areas but far better on cropland and riverine floods~\cite{kolluru2026limits}, which suggests calibrating offsets per land-cover and flood-type regime rather than per region.
 
 \begin{table}[t]
 \centering
@@ -210,7 +210,7 @@ India, 8 local chips$^\dagger$ & 56 & 0.64 & 0.164 & 0.13 & 0.28 \\
 
 \section{Conclusion}
 
-An assistant that answers every question is easy to build and hard to trust. SatClip answers plain-language flood questions with measured, receipted, calibrated evidence cards and abstains when the radar does not support an answer. Our experiments show that such abstention works on held-out data, that calibration fitted elsewhere is over-confident on South Asian floods, and that a handful of local labels fixes the confidence while revealing how much the instrument can honestly answer. We release the system, the per-chip results and the analysis scripts so that others can test their assistants at the level of the answer.
+An assistant that answers every question is easy to build and hard to trust. EvidEO answers plain-language flood questions with measured, receipted, calibrated evidence cards and abstains when the radar does not support an answer. Our experiments show that such abstention works on held-out data, that calibration fitted elsewhere is over-confident on South Asian floods, and that a handful of local labels fixes the confidence while revealing how much the instrument can honestly answer. We release the system, the per-chip results and the analysis scripts so that others can test their assistants at the level of the answer.
 
 \section*{Acknowledgment}
 We thank the creators of Sen1Floods11 and Kuro Siwo for open hand-labelled data, and ESA Copernicus, Element84 and Microsoft Planetary Computer for open access to Sentinel data.

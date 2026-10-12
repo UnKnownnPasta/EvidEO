@@ -1,4 +1,4 @@
-// Builds deck/why/SatClip-why-it-matters.pptx (6 slides). Run from repo root:
+// Builds deck/why/EvidEO-why-it-matters.pptx (6 slides). Run from repo root:
 //   node deck/why/build_why.js
 // Numbers come from paper/analysis/results.json (run paper/analysis/experiments.py first).
 const path = require("path");
@@ -13,11 +13,11 @@ const SKILL = process.env.PPTX_SKILL;
 const { applyTheme } = require(path.join(SKILL, "scripts/apply_theme.js"));
 const ROOT = path.resolve(__dirname, "../..");
 const R = JSON.parse(fs.readFileSync(path.join(ROOT, "paper/analysis/results.json"), "utf8"));
-const OUT = path.join(__dirname, "SatClip-why-it-matters.pptx");
+const OUT = path.join(__dirname, "EvidEO-why-it-matters.pptx");
 
 const HEX = { navy: "1F5A99", ink: "1E2430", muted: "5B6472", line: "C9D3E0", tint: "EEF3F9", orange: "D9822B", teal: "2A9D8F", gray: "9A9A9A", white: "FFFFFF", sand: "F4E6D6" };
 const THEME = {
-  name: "SatClip Plain",
+  name: "EvidEO Plain",
   headFontFace: "Times New Roman",
   bodyFontFace: "Calibri",
   colors: { dk1: HEX.ink, lt1: HEX.white, dk2: HEX.navy, lt2: HEX.tint, accent1: HEX.navy, accent2: HEX.orange, accent3: HEX.teal,
@@ -33,17 +33,17 @@ async function icon(Comp, color, size = 256) {
 (async () => {
   const pres = new pptxgen();
   pres.layout = "LAYOUT_16x9"; // 10 x 5.625 in
-  pres.title = "SatClip: why it matters";
+  pres.title = "EvidEO: why it matters";
   pres.author = "Team Stardust";
   pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
   const C = pres.SchemeColor;
 
   // ---------- layouts ----------
   const frame = [
-    { text: { text: "Sat", options: { x: 8.45, y: 0.2, w: 0.6, h: 0.42, align: "right", valign: "middle", fontSize: 18, bold: true, color: C.accent1, fontFace: "Calibri", margin: 0 } } },
-    { text: { text: "Clip", options: { x: 9.05, y: 0.2, w: 0.65, h: 0.42, align: "left", valign: "middle", fontSize: 18, bold: true, color: C.accent2, fontFace: "Calibri", margin: 0 } } },
+    { text: { text: "Evid", options: { x: 8.25, y: 0.2, w: 0.8, h: 0.42, align: "right", valign: "middle", fontSize: 18, bold: true, color: C.accent1, fontFace: "Calibri", margin: 0 } } },
+    { text: { text: "EO", options: { x: 9.05, y: 0.2, w: 0.65, h: 0.42, align: "left", valign: "middle", fontSize: 18, bold: true, color: C.accent2, fontFace: "Calibri", margin: 0 } } },
     { rect: { x: 0, y: 5.3, w: 10, h: 0.325, fill: { color: C.accent1 } } },
-    { text: { text: "SatClip  |  measured satellite answers you can check", options: { x: 0.3, y: 5.3, w: 7, h: 0.325, fontSize: 10, color: C.background1, valign: "middle", margin: 0 } } },
+    { text: { text: "EvidEO  |  measured satellite answers you can check", options: { x: 0.3, y: 5.3, w: 7, h: 0.325, fontSize: 10, color: C.background1, valign: "middle", margin: 0 } } },
   ];
 
   // title placeholder for content slides
@@ -75,23 +75,23 @@ async function icon(Comp, color, size = 256) {
   const pct = v => Math.round(v * 100);
 
   // ===== Slide 1: title =====
-  pres.addSection({ title: "Why SatClip" });
-  let s = pres.addSlide({ masterName: "TITLE", sectionTitle: "Why SatClip" });
-  s.addImage({ path: path.join(ROOT, "paper/figures/fig_barpeta_map.png"), x: 5.75, y: 0.45, w: 3.85, h: 4.13, objectName: "Barpeta map", altText: "SatClip map of Sentinel-1 water over Barpeta district, 11 July 2024" });
+  pres.addSection({ title: "Why EvidEO" });
+  let s = pres.addSlide({ masterName: "TITLE", sectionTitle: "Why EvidEO" });
+  s.addImage({ path: path.join(ROOT, "paper/figures/fig_barpeta_map.png"), x: 5.75, y: 0.45, w: 3.85, h: 4.13, objectName: "Barpeta map", altText: "EvidEO map of Sentinel-1 water over Barpeta district, 11 July 2024" });
   s.addShape(pres.shapes.ROUNDED_RECTANGLE, { x: 0.5, y: 0.5, w: 1.15, h: 0.42, rectRadius: 0.21, fill: { color: C.background1 }, line: { color: C.accent1, width: 1.25 } });
   s.addText("Stardust", { x: 0.5, y: 0.5, w: 1.15, h: 0.42, align: "center", valign: "middle", fontSize: 12, margin: 0, isTextBox: true, color: C.text1 });
-  s.addText([{ text: "Sat", options: { color: C.accent1 } }, { text: "Clip", options: { color: C.accent2 } }],
+  s.addText([{ text: "Evid", options: { color: C.accent1 } }, { text: "EO", options: { color: C.accent2 } }],
             { x: 0.5, y: 1.15, w: 5, h: 0.9, fontSize: 48, bold: true, fontFace: "Times New Roman", margin: 0, isTextBox: true });
-  s.addText("Satellite answers you can check", { x: 0.5, y: 2.05, w: 5.1, h: 0.5, fontSize: 22, color: C.text1, fontFace: "Times New Roman", margin: 0, isTextBox: true });
+  s.addText("Evidence first, or no answer", { x: 0.5, y: 2.05, w: 5.1, h: 0.5, fontSize: 22, color: C.text1, fontFace: "Times New Roman", margin: 0, isTextBox: true });
   s.addText("Ask about floods in any Indian district in plain words. Get an area measured from the actual Sentinel-1 radar pass, with scene, date, map and a calibrated confidence, or an honest \"not enough evidence\".",
             { x: 0.5, y: 2.7, w: 5.0, h: 1.05, fontSize: 14, color: HEX.muted, margin: 0, isTextBox: true, valign: "top" });
   s.addText("Sai Bhuwan S  ·  Yashita Mandavilli  ·  Raj Venkat  ·  Nikhil S Rao  ·  Shashwat Mittal  ·  Sasanuru Anirudh",
             { x: 0.5, y: 4.15, w: 5.0, h: 0.6, fontSize: 11, color: C.text1, margin: 0, isTextBox: true });
   s.addText("Barpeta, Assam · Sentinel-1 · 11 Jul 2024 · live run", { x: 5.75, y: 4.62, w: 3.85, h: 0.3, fontSize: 10, color: HEX.muted, align: "right", margin: 0, isTextBox: true });
-  s.addNotes("SatClip in one line: plain-language flood questions answered with measured, checkable evidence, or an honest refusal. The map on the right is a real run on the Sentinel-1 pass over Barpeta on 11 July 2024. Note: that water figure includes the river and permanent wetlands; it is water extent, not verified flood extent.");
+  s.addNotes("EvidEO in one line: plain-language flood questions answered with measured, checkable evidence, or an honest refusal. The map on the right is a real run on the Sentinel-1 pass over Barpeta on 11 July 2024. Note: that water figure includes the river and permanent wetlands; it is water extent, not verified flood extent.");
 
   // ===== Slide 2: problem =====
-  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why SatClip" });
+  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why EvidEO" });
   T(s, "The Problem That Does Not Go Away");
   head(s, 0.3, 0.82, 4.55, "WHO LOSES TIME TODAY");
   head(s, 5.15, 0.82, 4.55, "WHY TODAY'S AI DOES NOT FIX IT");
@@ -130,7 +130,7 @@ async function icon(Comp, color, size = 256) {
   s.addNotes("Whose problem: district officials, insurance officers, fact-checkers. Why it lasts: questions are local and constant, answers are produced centrally; the skills gap is about tenfold; monsoon clouds return every year. Why chat AI does not fix it: it is fluent but cannot locate what you asked about, and it never tells you when to distrust it. Chart values are read from each paper's tables; benchmarks differ, so compare orders of magnitude.");
 
   // ===== Slide 3: solution =====
-  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why SatClip" });
+  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why EvidEO" });
   T(s, "Instruments Answer, AI Only Asks");
   s.addShape(pres.shapes.RECTANGLE, { x: 0.3, y: 0.85, w: 9.4, h: 0.5, fill: { color: C.background1 }, line: { color: HEX.ink, width: 1 } });
   s.addText("Every number comes from a measured, versioned instrument on the real radar pass. The language model never makes a number up.", { x: 0.4, y: 0.85, w: 9.2, h: 0.5, fontSize: 13, align: "center", valign: "middle", color: C.text1, margin: 0, isTextBox: true });
@@ -159,12 +159,12 @@ async function icon(Comp, color, size = 256) {
   box(s, 7.3, 1.55, 2.4, 3.55, "card no", HEX.sand);
   s.addText("CONFIDENCE < 0.60", { x: 7.4, y: 1.62, w: 2.2, h: 0.28, fontSize: 10, bold: true, color: "8A4A0F", margin: 0, isTextBox: true });
   s.addText([{ text: "Not enough evidence", options: { fontSize: 18, bold: true, fontFace: "Times New Roman", color: C.text1, breakLine: true } },
-             { text: "\"Did the flood spread?\" abstained at 0.23. SatClip offered what would help instead: the two single-date extents (413 and 914 km²), each published with its own confidence.", options: { fontSize: 11, color: C.text1 } }],
+             { text: "\"Did the flood spread?\" abstained at 0.23. EvidEO offered what would help instead: the two single-date extents (413 and 914 km²), each published with its own confidence.", options: { fontSize: 11, color: C.text1 } }],
             { x: 7.4, y: 1.92, w: 2.2, h: 3.05, margin: 0, isTextBox: true, valign: "top" });
-  s.addNotes("The core design flip: in chat assistants the model produces the answer. In SatClip a transparent instrument measures, a calibration fitted on hand-labelled flood chips turns its score into a probability, and the card is published only at 0.60 or above. Below that it says so and offers the next useful question. Both cards on this slide are from real runs on live Sentinel-1 data.");
+  s.addNotes("The core design flip: in chat assistants the model produces the answer. In EvidEO a transparent instrument measures, a calibration fitted on hand-labelled flood chips turns its score into a probability, and the card is published only at 0.60 or above. Below that it says so and offers the next useful question. Both cards on this slide are from real runs on live Sentinel-1 data.");
 
   // ===== Slide 4: evidence =====
-  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why SatClip" });
+  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why EvidEO" });
   T(s, "It Works on Held-Out Data");
   head(s, 0.3, 0.82, 4.55, "WHAT A USER GETS");
   head(s, 5.15, 0.82, 4.55, "RISK VS COVERAGE (82 HELD-OUT CHIPS)");
@@ -182,7 +182,7 @@ async function icon(Comp, color, size = 256) {
   const [cv, rk] = R.E1_test.curve_v11, [cv0, rk0] = R.E1_test.curve_v10;
   s.addChart(pres.charts.SCATTER, [
     { name: "coverage", values: cv.map(v => +v.toFixed(3)) },
-    { name: "SatClip v1.1 (VV + VH)", values: rk.map(v => +(v * 100).toFixed(1)) },
+    { name: "EvidEO v1.1 (VV + VH)", values: rk.map(v => +(v * 100).toFixed(1)) },
     { name: "Always answer", values: cv.map(() => +(e1.error_always_answer * 100).toFixed(1)) },
   ], {
     x: 5.15, y: 1.2, w: 4.55, h: 3.3, lineSize: 2, lineDataSymbol: "none", chartColors: [HEX.navy, HEX.orange],
@@ -194,10 +194,10 @@ async function icon(Comp, color, size = 256) {
     showLegend: true, legendPos: "b", legendFontSize: 9, legendFontFace: "+mn-lt", legendColor: HEX.ink, objectName: "risk coverage chart",
   });
   s.addText("Sen1Floods11 test split. Answer counted right if area is within ±20% of hand labels. Our detector itself is ordinary: per-chip IoU 0.36, same as the published Otsu baseline (0.36).", { x: 5.15, y: 4.5, w: 4.55, h: 0.62, fontSize: 9, color: HEX.muted, margin: 0, isTextBox: true, valign: "top" });
-  s.addNotes(`Always answering, 45% of area answers on held-out chips are wrong. Publishing only at calibrated confidence 0.60 or above, SatClip answers 43% of questions and 26% of those are wrong (95% bootstrap interval 12 to 41%). We are clear that the detector is not better than published baselines: per-chip IoU 0.362 vs 0.359 for Otsu in the Sen1Floods11 paper. The contribution is how answers are gated, receipted and reproduced.`);
+  s.addNotes(`Always answering, 45% of area answers on held-out chips are wrong. Publishing only at calibrated confidence 0.60 or above, EvidEO answers 43% of questions and 26% of those are wrong (95% bootstrap interval 12 to 41%). We are clear that the detector is not better than published baselines: per-chip IoU 0.362 vs 0.359 for Otsu in the Sen1Floods11 paper. The contribution is how answers are gated, receipted and reproduced.`);
 
   // ===== Slide 5: the finding =====
-  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why SatClip" });
+  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why EvidEO" });
   T(s, "Trust Must Be Calibrated Locally");
   const evs = Object.keys(e2).sort((a, b) => e2[b].overconfidence - e2[a].overconfidence);
   s.addChart(pres.charts.BAR, [{ name: "Over-confidence (points)", labels: evs, values: evs.map(k => Math.round(e2[k].overconfidence * 100)) }], {
@@ -209,7 +209,7 @@ async function icon(Comp, color, size = 256) {
   });
   vline(s, 5.2, 0.9, 4.25);
   s.addText([{ text: "South Asian floods fool a globally calibrated system.", options: { bold: true, breakLine: true } },
-             { text: `Fitted on other regions, SatClip would be over-confident on India by ${Math.round(e2.India.overconfidence * 100)} points and publish ${pct(e2.India.coverage)}% of Indian answers with ${pct(e2.India.error_when_published)}% of them wrong.`, options: {} }],
+             { text: `Fitted on other regions, EvidEO would be over-confident on India by ${Math.round(e2.India.overconfidence * 100)} points and publish ${pct(e2.India.coverage)}% of Indian answers with ${pct(e2.India.error_when_published)}% of them wrong.`, options: {} }],
             { x: 5.4, y: 0.9, w: 4.3, h: 1.25, fontSize: 12, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
   const fix = [["+20 → +1", "over-confidence after refitting on just 8 Indian chips"], [`${pct(e2.India.error_when_published)}% → ${pct(k8.err_pub_mean)}%`, "wrong among published Indian answers"], [`${pct(e2.India.coverage)}% → ${pct(k8.coverage_mean)}%`, "answered: the honest price of a weak instrument"]];
   fix.forEach((f, i) => {
@@ -221,10 +221,10 @@ async function icon(Comp, color, size = 256) {
   s.addNotes("This is the result we think matters beyond our system. Leave one flood event out, fit the calibration on the rest, and test on the held-out event. All three South Asian events are over-confident; the USA is under-confident. Any assistant that states a confidence without local calibration has this problem. Refitting only the intercept on eight labelled Indian chips removes the over-confidence and cuts wrong published answers from 55% to 28%, but the honest system then answers only about 13% of Indian questions. Limitation: the 64 Indian chips come from one Sen1Floods11 event.");
 
   // ===== Slide 6: why it matters =====
-  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why SatClip" });
+  s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why EvidEO" });
   T(s, "Why It Matters, and What Is Next");
   head(s, 0.3, 0.82, 5.3, "NO SYSTEM IN 225 PAPERS HAS MORE THAN TWO OF THESE");
-  const cols = ["", "SatClip", "EO-Gym", "NRSC maps", "SHRUG-FM", "RS-VLMs"];
+  const cols = ["", "EvidEO", "EO-Gym", "NRSC maps", "SHRUG-FM", "RS-VLMs"];
   const rows = [["Calibrated confidence per answer", "●", "", "", "◐", ""], ["Abstains with a next step", "●", "", "", "◐", ""], ["Scene receipts that re-run", "●", "", "◐", "", ""],
                 ["Radar chosen under cloud", "●", "●", "●", "", ""], ["CPU or offline", "●", "◐", "●", "", "◐"], ["Plain-language questions", "●", "●", "", "", "●"]];
   const cell = (t, i, j) => ({ text: t, options: { bold: j === 1 || i === 0, color: j === 1 ? HEX.navy : HEX.ink, align: j === 0 ? "left" : "center", fill: { color: i === 0 ? HEX.tint : HEX.white }, fontSize: j === 0 ? 10 : (i === 0 ? 10 : 12) } });

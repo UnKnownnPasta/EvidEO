@@ -6,12 +6,14 @@ This file is the shared memory between scheduled runs. Read it first, append a r
 
 | Item | Value |
 |---|---|
-| Papers archived | 225 (IDs 001 to 225); 200-paper target reached in run 8 |
-| Next paper ID | 226 |
+| Papers archived | 227 (IDs 001 to 227); 200-paper target reached in run 8 |
+| Next paper ID | 228 |
 | Milestones done | M1 to M8 (all; M8 on 2026-10-10) |
 | Deck | `deck/satclip.pptx`, 14 slides (run 9); rebuild per `deck/README.md` |
 
 ## Conventions and decisions
+
+- **Project renamed EvidEO (2026-10-12).** "SatClip" collides with SatCLIP (Klemmer et al., AAAI 2025, Microsoft), archived as A226. Paper and short deck use EvidEO. Still to migrate: Python package `backend/satclip`, config keys, UI text, older docs and decks, and the GitHub repo name (owner renames it in GitHub Settings; GitHub redirects the old URL).
 
 - **Archive tooling.** Every paper file carries a `takeaway` field in its front matter. After adding papers, run `python tools/build_index.py`. It regenerates `archive/index.csv` and the catalog in `archive/README.md`, and fails on duplicate IDs or titles.
 - **Citation keys.** In SOLUTION.md and NOVELTY.md, `[A###]` means an archive entry and `[E##]` means a numbered claim in `docs/reference/problem-evidence.md`.
@@ -399,3 +401,5 @@ The user asked for a frank publishability check, our own result graphs, an IEEE-
 - Label chips from two or three more Indian flood events to make the local-calibration test cross-event.
 - Run a VLM (Qwen2-VL-2B or EarthDial) on the same 82 test chips as a head-to-head baseline (Colab GPU).
 - Usability study (NOVELTY condition 4).
+
+- Same session, later: renamed project to EvidEO after the user pointed out the SatCLIP collision; archived A226 (SatCLIP) and A227 (Kolluru et al. 2026, flood detection limits by land cover and flood type, now cited in the paper). Paper is `paper/evideo.tex`, deck `deck/why/EvidEO-why-it-matters.pptx`.
