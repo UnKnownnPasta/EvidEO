@@ -1,6 +1,6 @@
-# SatClip training, evaluation and calibration (M5)
+# EvidEO training, evaluation and calibration (M5)
 
-SatClip has two learned parts, and they are trained very differently because they carry different risks.
+EvidEO has two learned parts, and they are trained very differently because they carry different risks.
 
 | Part | What it does | Can it produce a number on the card? | How it is trained | Where |
 |---|---|---|---|---|
@@ -48,12 +48,12 @@ The target JSON and its validator are in [lora/schema.py](lora/schema.py). `sche
 
 ## 3. Training (GPU)
 
-Open [colab/satclip_lora.ipynb](colab/satclip_lora.ipynb) in Colab with a T4 GPU, or run:
+Open [colab/evideo_lora.ipynb](colab/evideo_lora.ipynb) in Colab with a T4 GPU, or run:
 
 ```bash
 pip install -e "backend[geo]" "transformers>=4.49" peft accelerate bitsandbytes
 python training/lora/train_lora.py --data training/data/intents/train.jsonl training/data/rsvqa_lr/train.jsonl \
-    --qlora --epochs 1 --out training/runs/satclip-lora
+    --qlora --epochs 1 --out training/runs/evideo-lora
 ```
 
 Defaults: Qwen2-VL-2B-Instruct, LoRA rank 16, alpha 32, dropout 0.05 on the language model's attention and MLP projections (the vision tower stays frozen), loss on the assistant reply only, cosine schedule, learning rate 2e-4. `--dora` uses DoRA (A148), `--merge` saves a merged model for CPU serving and quantisation (A061, A146). The script was smoke-tested end to end on CPU with a tiny random Qwen2-VL (mixed text-only and image batches, 4 steps); it has not yet been run on a real GPU.
@@ -62,9 +62,9 @@ Defaults: Qwen2-VL-2B-Instruct, LoRA rank 16, alpha 32, dropout 0.05 on the lang
 
 ```bash
 python training/eval/eval_intents.py --predictor rules                      # baseline, CPU, about 1 minute
-python training/eval/eval_intents.py --predictor hf --adapter training/runs/satclip-lora
+python training/eval/eval_intents.py --predictor hf --adapter training/runs/evideo-lora
 python training/eval/eval_vqa.py --set rsvqa_lr --predictor majority        # floor
-python training/eval/eval_vqa.py --set rsvqa_lr --predictor hf --adapter training/runs/satclip-lora
+python training/eval/eval_vqa.py --set rsvqa_lr --predictor hf --adapter training/runs/evideo-lora
 python training/eval/eval_vqa.py --convert-vrsbench VRSBench_EVAL_vqa.json VRSBench_images/   # then --set vrsbench
 ```
 

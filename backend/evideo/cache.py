@@ -9,7 +9,7 @@ from .receipt import digest
 
 
 def cache_key(tile_id: str, instrument: str, windows: list, params: dict | None = None) -> str:
-    return "satclip:tile:" + digest({"t": tile_id, "i": instrument, "w": windows, "p": params or {}})
+    return "evideo:tile:" + digest({"t": tile_id, "i": instrument, "w": windows, "p": params or {}})
 
 
 class Cache(Protocol):

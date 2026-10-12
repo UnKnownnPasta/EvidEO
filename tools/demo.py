@@ -1,4 +1,4 @@
-"""Scripted SatClip demo: six questions that show every kind of answer, run live, end to end.
+"""Scripted EvidEO demo: six questions that show every kind of answer, run live, end to end.
 
     cd backend && python ../tools/demo.py            # live run, about 5 to 15 minutes
     cd backend && python ../tools/demo.py --quick    # small boxes instead of whole districts
@@ -8,7 +8,7 @@ What it shows
   2. "did the flood spread": the change card, and when it abstains, the two follow-up extent
      questions it offers (SOLUTION risk 17) are run too
   3. a crop change answer (optical, two dates)
-  4. an ambiguous district name: SatClip asks which one, measures nothing
+  4. an ambiguous district name: EvidEO asks which one, measures nothing
   5. an out-of-scope question: refused by design
   6. a Hindi question with a Latin-script district name
 It writes docs/demo/cards.json (every card and receipt) and docs/demo/TRANSCRIPT.md.
@@ -26,8 +26,8 @@ sys.path.insert(0, str(ROOT / "backend"))
 
 from fastapi.testclient import TestClient  # noqa: E402
 
-from satclip.api.main import create_app  # noqa: E402
-from satclip.config import settings  # noqa: E402
+from evideo.api.main import create_app  # noqa: E402
+from evideo.config import settings  # noqa: E402
 
 FULL = [
     ("Flood extent, published", {"text": "How much of Barpeta was under water on 2024-07-11?"}),
@@ -115,7 +115,7 @@ def main() -> None:
     stamp = time.strftime("%Y-%m-%d %H:%M UTC", time.gmtime())
     (out / "cards.json").write_text(json.dumps({"generated": stamp, "mode": "quick" if a.quick else "full",
                                                 "runs": [{"step": s, **r} for s, r in runs]}, indent=1, ensure_ascii=False))
-    md = [f"# SatClip scripted demo ({'quick' if a.quick else 'full'} mode)", "",
+    md = [f"# EvidEO scripted demo ({'quick' if a.quick else 'full'} mode)", "",
           f"Generated {stamp} by `tools/demo.py` against the live public catalogues "
           "(Planetary Computer Sentinel-1 RTC, Earth Search Sentinel-2). Every number below was measured in this run.", ""]
     for s, r in runs:

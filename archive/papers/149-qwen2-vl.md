@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [qwen2-vl, vlm, small-vlm, 2b, dynamic-resolution, m-rope, open-weights, lora-base-model]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (WebFetch permission request timed out); title, full author list, code URL, model sizes and claims from arXiv metadata and abstract; peer-reviewed venue not checked beyond arXiv; licence of the 2B weights not verified"
-takeaway: "A strong open 2B VLM base whose dynamic-resolution input suits Sentinel chips of varying size, but SatClip should use it only for intent parsing and explanation, never for the numbers"
+takeaway: "A strong open 2B VLM base whose dynamic-resolution input suits Sentinel chips of varying size, but EvidEO should use it only for intent parsing and explanation, never for the numbers"
 ---
 
 # Qwen2-VL technical report
@@ -32,11 +32,11 @@ General multimodal benchmarks (document, chart, OCR, VQA, video and agent style 
 
 ## Limitations
 - Technical report, not peer reviewed; comparisons are vendor-run.
-- Headline claims are for 72B; 2B quality on SatClip-style tasks is unknown and must be measured.
+- Headline claims are for 72B; 2B quality on EvidEO-style tasks is unknown and must be measured.
 - Trained on RGB natural imagery; SAR and multispectral bands are out of distribution, and the model cannot be trusted to produce areas, counts or indices.
 - Licence terms for each size were not verified here and must be checked before government deployment.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Candidate base for the 2B LoRA model alongside SmolVLM (entry 063): compare both on question-to-intent exact-match, CPU latency after 4-bit quantization (entries 146, 061) and licence.
-- Dynamic resolution lets SatClip feed a preview chip at native size when explaining a result, but the explanation must cite numbers computed by the classical instruments.
+- Dynamic resolution lets EvidEO feed a preview chip at native size when explaining a result, but the explanation must cite numbers computed by the classical instruments.
 - A later Qwen2.5-VL release exists; if adopted instead, add it as a separate archive entry after verification.

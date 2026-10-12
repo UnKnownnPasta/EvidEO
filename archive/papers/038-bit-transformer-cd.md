@@ -10,7 +10,7 @@ category: change-detection
 era: recent
 tags: [transformer, bit, semantic-tokens, siamese, building-change, levir-cd, whu-cd, dsifn-cd, efficient, optical-rgb]
 verified: "2026-10-04 via https://arxiv.org/abs/2103.00208"
-takeaway: "Strong, small (about 3.5M params) learned CD baseline at 89.3 F1 on LEVIR-CD but only 69.3 on DSIFN; a cross-check at most, never the source of SatClip's number"
+takeaway: "Strong, small (about 3.5M params) learned CD baseline at 89.3 F1 on LEVIR-CD but only 69.3 on DSIFN; a cross-check at most, never the source of EvidEO's number"
 ---
 
 # Remote Sensing Image Change Detection with Transformers
@@ -30,8 +30,8 @@ From Table II of the arXiv version, BIT_S4 (ResNet18) scores F1 89.31 / IoU 80.6
 ## Limitations
 RGB only, sub-metre imagery, mostly buildings. The big gap between LEVIR-CD and DSIFN-CD scores shows how dataset-dependent learned CD is. Outputs a per-pixel score without calibration, and there is no mechanism to say "insufficient evidence". Non-commercial licence.
 
-## What it means for SatClip
-- BIT shows a learned detector can be small enough for CPU inference, but its scores do not transfer across datasets, which is exactly why SatClip keeps transparent instruments (log-ratio, index differencing, CVA) as the source of every number.
+## What it means for EvidEO
+- BIT shows a learned detector can be small enough for CPU inference, but its scores do not transfer across datasets, which is exactly why EvidEO keeps transparent instruments (log-ratio, index differencing, CVA) as the source of every number.
 - If a learned model is ever used, use it only as a secondary agreement signal on the evidence card ("instrument and model agree on 82% of the mask"), with disagreement lowering confidence or triggering abstention.
 - Report cross-dataset results, not single-benchmark F1, when evaluating any learned component; the 89 vs 69 F1 spread is the cautionary example.
 - Avoid shipping BIT weights in a product without checking licence terms.

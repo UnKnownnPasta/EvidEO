@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [vlm, sentinel-1, sentinel-2, sar, multispectral, multi-temporal, change-detection, internvl2, small-model]
 verified: "2026-10-04 via https://arxiv.org/abs/2412.15190 and https://github.com/hiyamdebary/EarthDial"
-takeaway: "Closest prior work (4B, open weights, Sentinel-1 VH plus S2 plus change); top LoRA base candidate, and SatClip must beat it on provenance, calibration and abstention"
+takeaway: "Closest prior work (4B, open weights, Sentinel-1 VH plus S2 plus change); top LoRA base candidate, and EvidEO must beat it on provenance, calibration and abstention"
 ---
 
 # EarthDial: Turning Multi-sensory Earth Observations to Interactive Dialogues
@@ -30,8 +30,8 @@ Reported in the PDF: scene classification of 88.76% on AID and 92.42% on UCMerce
 ## Limitations
 The appendix shows failures in ambiguous scenes, rare object types and subtle temporal changes. Detection mAP on small SAR targets remains low in absolute terms. Outputs are text and boxes without calibrated confidence or an abstention rule. At 4B parameters, CPU inference is possible but slow.
 
-## What it means for SatClip
-- This is the closest prior work to SatClip's scope (Sentinel-1 plus Sentinel-2, change detection, disaster use): position SatClip against it explicitly and cite it.
+## What it means for EvidEO
+- This is the closest prior work to EvidEO's scope (Sentinel-1 plus Sentinel-2, change detection, disaster use): position EvidEO against it explicitly and cite it.
 - Strong candidate base for our LoRA fine-tune: open weights, 4B size, already seen Sentinel-1 VH tokens; test a quantized build on our CPU target before committing.
 - Adopt its idea of sensor-specific input tokens so the model knows whether it is reading VH SAR or optical bands.
 - Beat it on trust, not accuracy: add scene ID, date, region mask, calibrated confidence and abstention, none of which it provides.

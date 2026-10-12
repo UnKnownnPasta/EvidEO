@@ -31,8 +31,8 @@ The abstract states that the model beats baselines and can reconstruct the surfa
 ## Limitations
 Under thick cloud the output is a SAR-guided estimate, so spectral detail (for example crop health indices) may be unreliable there. Single-date input. Model weights are TensorFlow 1/Keras era and somewhat heavy for CPU use at tile scale. No per-pixel uncertainty in the original work.
 
-## What it means for SatClip
-- DSen2-CR is the standard baseline for SAR-guided cloud filling; if SatClip adds cloud handling, it should be compared against this.
+## What it means for EvidEO
+- DSen2-CR is the standard baseline for SAR-guided cloud filling; if EvidEO adds cloud handling, it should be compared against this.
 - Borrow the residual plus cloud-adaptive loss idea: only touch cloudy pixels and keep observed pixels intact, so citations stay honest.
 - Do not compute NDVI or crop advice on reconstructed pixels; flag them and lower or withhold confidence.
 - Running it per query on CPU is likely too slow; consider precomputing for frequently queried districts or skipping in favour of SAR-native answers.

@@ -10,7 +10,7 @@ category: historical
 era: historical
 tags: [captioning, rsicd, dataset, annotation-guidelines, lstm, attention, bleu, cider, google-earth]
 verified: "2026-10-04 via https://arxiv.org/abs/1712.07835, https://ar5iv.labs.arxiv.org/html/1712.07835 and Semantic Scholar API record"
-takeaway: "Use its caption annotation rules as SatClip's caption style guide; do not trust BLEU or CIDEr without a grounding check"
+takeaway: "Use its caption annotation rules as EvidEO's caption style guide; do not trust BLEU or CIDEr without a grounding check"
 ---
 
 # Exploring Models and Data for Remote Sensing Image Caption Generation
@@ -31,8 +31,8 @@ On RSICD (as read from ar5iv tables), the best attention setting (GoogLeNet, har
 ## Limitations
 Imagery is RGB from web map services, not calibrated Sentinel data. Duplicated sentences inflate n-gram scores and caused unstable results at some training ratios. Generated captions copy frequent co-occurrence patterns from training text even when the image disagrees. No grounding, confidence or abstention.
 
-## What it means for SatClip
-- Reuse the annotation rules (no unanchored size words, relational phrasing) as the style guide for SatClip captions and LoRA training targets.
+## What it means for EvidEO
+- Reuse the annotation rules (no unanchored size words, relational phrasing) as the style guide for EvidEO captions and LoRA training targets.
 - Treat RSICD as a captioning sanity benchmark only; it is RGB, very high resolution, and China-centric, so it says little about 10 m Sentinel-2 over India.
 - Do not trust BLEU or CIDEr alone: duplicated references inflate them. Pair them with a factual grounding check against the region mask.
 - The co-occurrence hallucination they observed is exactly what calibrated abstention must catch; log caption claims that are not backed by a detector or classifier output.

@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [benchmark, eo-agents, disaster, sentinel-1, sar-flood, sen1floods11, tool-use, multi-agent, grpo, iit-bombay, executable-ground-truth]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and curl to https://arxiv.org/html/2606.17246v1 (task table, metrics, main results text, conclusion, code link); WebFetch permission request timed out"
-takeaway: "An Indian (IIT Bombay) 2026 benchmark whose answers come from executable geospatial workflows, including a 500-item Sentinel-1 SAR flood family; a ready external test for SatClip, and its own authors name uncertainty-aware reasoning as the open gap SatClip targets"
+takeaway: "An Indian (IIT Bombay) 2026 benchmark whose answers come from executable geospatial workflows, including a 500-item Sentinel-1 SAR flood family; a ready external test for EvidEO, and its own authors name uncertainty-aware reasoning as the open gap EvidEO targets"
 ---
 
 # Hasan et al. 2026, GeoDisaster benchmark and RCEA agents
@@ -38,8 +38,8 @@ Metrics cover tool-sequence fidelity, task success, answer accuracy, contract sa
 - No calibrated confidence or abstention is evaluated; the authors list uncertainty-aware reasoning as future work.
 - SAR flood items come from Sen1Floods11 chips, not live Indian scenes, and the agent stack (7B plus 18 tools) is GPU oriented.
 
-## What it means for SatClip
-- Adopt: run SatClip on the SAR flood monitoring family as an external, deterministic test; its executable answers fit SatClip's receipts well.
+## What it means for EvidEO
+- Adopt: run EvidEO on the SAR flood monitoring family as an external, deterministic test; its executable answers fit EvidEO's receipts well.
 - Adopt: copy the idea of explicit execution contracts between the parser and instruments, so each step's inputs and outputs are checked and logged.
 - Beat: add what GeoDisaster lacks: a calibrated confidence per answer and a scored abstain option, measured with a risk and coverage curve rather than an LLM judge.
 - Watch: same Indian research community (IIT Bombay VIMAGE lab); a potential collaborator or a close competitor if they add abstention.

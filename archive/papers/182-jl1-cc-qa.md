@@ -10,7 +10,7 @@ category: rs-benchmark
 era: upcoming
 tags: [change-captioning, change-vqa, jilin-1, satellite, change-masks, llm-generated-annotations, llm-judge, benchmark]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and https://arxiv.org/html/2606.31745 (dataset construction, statistics, conclusion); WebFetch permission request timed out; the paper reports no model baselines, so none are given"
-takeaway: "Adds 17,021 change captions and 20,060 open-ended change QA pairs to 5,000 Jilin-1 satellite pairs with binary masks, and its LLM judge rejected answers that invented precise percentages; a ready multi-task change set for SatClip's explainer tests but with no baselines yet and optical only"
+takeaway: "Adds 17,021 change captions and 20,060 open-ended change QA pairs to 5,000 Jilin-1 satellite pairs with binary masks, and its LLM judge rejected answers that invented precise percentages; a ready multi-task change set for EvidEO's explainer tests but with no baselines yet and optical only"
 ---
 
 # Liu et al. 2026, JL1-CC&QA
@@ -36,7 +36,7 @@ JL1-CC: 17,021 captions (68.1% pass rate). JL1-QA: 20,060 QA pairs from 24,995 g
 - Causation questions invite speculation that images alone cannot support.
 - No baselines, metrics protocol or confidence and abstention evaluation yet.
 
-## What it means for SatClip
-- Adopt: the finding that LLMs invent precise percentages is a direct warning for SatClip's explainer; numbers in SatClip answers must be copied from the evidence card, and a post-check should reject any number not present there.
-- Adopt: the magnitude, location and temporal-comparison question types are useful paraphrase seeds for SatClip's change-intent parser.
-- Avoid: answering causation questions (why did it change) from imagery; SatClip should decline or say the imagery cannot show cause.
+## What it means for EvidEO
+- Adopt: the finding that LLMs invent precise percentages is a direct warning for EvidEO's explainer; numbers in EvidEO answers must be copied from the evidence card, and a post-check should reject any number not present there.
+- Adopt: the magnitude, location and temporal-comparison question types are useful paraphrase seeds for EvidEO's change-intent parser.
+- Avoid: answering causation questions (why did it change) from imagery; EvidEO should decline or say the imagery cannot show cause.

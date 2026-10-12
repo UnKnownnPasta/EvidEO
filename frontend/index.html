@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>SatClip</title>
+  <title>EvidEO</title>
   <meta name="description" content="Ask a plain-language question about an Indian district. Get a measured answer with its satellite evidence, or an honest 'not enough evidence'.">
   <!-- Leaflet is vendored (frontend/vendor) so the UI also works on air-gapped installs. -->
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
@@ -16,7 +16,7 @@
   <header class="top clay">
     <span class="logo" aria-hidden="true"></span>
     <div class="brand">
-      <h1>SatClip</h1>
+      <h1>EvidEO</h1>
       <p class="tag">Ask about any district. Get a measured answer with its evidence, or an honest "not enough evidence".</p>
     </div>
     <span id="status" class="pill clay-sm" role="status" aria-live="polite">Connecting</span>
@@ -30,7 +30,7 @@
       <label for="q" class="label">Your question</label>
       <textarea id="q" rows="3" required minlength="3" maxlength="500" aria-describedby="q-hint q-err"
         placeholder="How much of Barpeta was under water on 2024-07-11?"></textarea>
-      <p id="q-hint" class="hint">Name a district and a date, or pick them below. SatClip answers four kinds of question: water extent, water change, crop or greenness change, and what the land looks like.</p>
+      <p id="q-hint" class="hint">Name a district and a date, or pick them below. EvidEO answers four kinds of question: water extent, water change, crop or greenness change, and what the land looks like.</p>
       <p id="q-err" class="err hidden" role="alert"></p>
 
       <div class="chips" role="group" aria-label="Example questions" id="examples"></div>
@@ -68,7 +68,7 @@
       </button>
     </form>
 
-    <!-- 2. What SatClip understood and how far it got -->
+    <!-- 2. What EvidEO understood and how far it got -->
     <section id="understood" class="clay panel hidden" aria-labelledby="u-h">
       <h2 id="u-h" class="label">I understood your question as</h2>
       <p id="understood-text" class="understood"></p>

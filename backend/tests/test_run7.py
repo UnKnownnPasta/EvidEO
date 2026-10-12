@@ -9,9 +9,9 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "training" / "lora"))
 sys.path.insert(0, str(ROOT / "training" / "calibration"))
 
-from satclip.instruments.water import classify_sar_change, classify_sar_water, fit_sar_threshold  # noqa: E402
-from satclip.models import Intent, QueryRequest  # noqa: E402
-from satclip.parser import classify_intent, dates_in_text, parse  # noqa: E402
+from evideo.instruments.water import classify_sar_change, classify_sar_water, fit_sar_threshold  # noqa: E402
+from evideo.models import Intent, QueryRequest  # noqa: E402
+from evideo.parser import classify_intent, dates_in_text, parse  # noqa: E402
 
 
 def _scene(rng, vv_water, vh_water, shape=(120, 120)):

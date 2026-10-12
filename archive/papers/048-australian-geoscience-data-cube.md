@@ -10,7 +10,7 @@ category: data-infrastructure
 era: historical
 tags: [open-data-cube, analysis-ready-data, provenance, surface-reflectance, time-series, landsat, ceos, apache-2, hpc]
 verified: "2026-10-04 via https://openresearch-repository.anu.edu.au/items/a1274cca-c22d-4a4f-8b51-726487d18bc3/full"
-takeaway: "Open Data Cube foundations: analysis-ready, provenance-tracked data plus a light index and open (Apache 2.0) code make time series trustworthy; SatClip should copy the provenance discipline, not the heavy ingest"
+takeaway: "Open Data Cube foundations: analysis-ready, provenance-tracked data plus a light index and open (Apache 2.0) code make time series trustworthy; EvidEO should copy the provenance discipline, not the heavy ingest"
 ---
 
 # The Australian Geoscience Data Cube (Lewis et al., 2017)
@@ -32,10 +32,10 @@ Showed that national-scale time-series analysis becomes practical once data are 
 - Predates the cloud-native STAC plus COG pattern; later ODC versions added STAC indexing, but the paper itself reflects the HPC era.
 - Analysis-ready preparation is mostly optical (Landsat) in this paper; SAR ARD is not its focus.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the provenance principle: every measurement on a card should carry its input scene IDs, processing level, software version and parameters, as the AGDC collection management does.
 - Avoid copying the full ingest-and-index model for the prototype; we read COG windows on demand from public STAC catalogues instead of building our own national cube.
 - Prefer analysis-ready inputs where catalogues offer them (Sentinel-2 L2A surface reflectance, radiometrically terrain-corrected Sentinel-1 where available) and say on the card which ARD level was used.
-- If SatClip later needs fast repeated district time series, the Open Data Cube (with STAC indexing) is the open option to evaluate before building our own cache.
+- If EvidEO later needs fast repeated district time series, the Open Data Cube (with STAC indexing) is the open option to evaluate before building our own cache.
 </content>
 </invoke>

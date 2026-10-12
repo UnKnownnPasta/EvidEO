@@ -34,8 +34,8 @@ From the paper's tables:
 ## Limitations
 Unpublished at verification time (no venue found). RGB optical only, low 336 px input, which the authors' own small-object numbers show is a bottleneck. Text-Mask resolution caps shape detail. No uncertainty output, no handling of absent targets is described, and no SAR or temporal input.
 
-## What it means for SatClip
-- Useful trick: a VLM can return a region as a short run-length string with no extra decoder. If SatClip ever lets the VLM select a sub-region from a user phrase ("the area near the river"), this is a cheap, CPU-feasible output format.
-- Avoid treating that region as measurement. Even with SAM refinement, mask mIoU is about 60; SatClip's flood extent must come from SAR thresholding, with the VLM only choosing which instrument mask to show.
-- Borrow the box consistency score idea for SatClip tests: check that different representations of the same answer (mask, area in hectares, bounding district) agree, and lower confidence when they do not.
-- GeoGround does not measure, date, cite scenes or abstain, so it does not challenge SatClip's evidence-card claim.
+## What it means for EvidEO
+- Useful trick: a VLM can return a region as a short run-length string with no extra decoder. If EvidEO ever lets the VLM select a sub-region from a user phrase ("the area near the river"), this is a cheap, CPU-feasible output format.
+- Avoid treating that region as measurement. Even with SAM refinement, mask mIoU is about 60; EvidEO's flood extent must come from SAR thresholding, with the VLM only choosing which instrument mask to show.
+- Borrow the box consistency score idea for EvidEO tests: check that different representations of the same answer (mask, area in hectares, bounding district) agree, and lower confidence when they do not.
+- GeoGround does not measure, date, cite scenes or abstain, so it does not challenge EvidEO's evidence-card claim.

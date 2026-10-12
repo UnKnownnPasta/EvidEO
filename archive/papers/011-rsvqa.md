@@ -33,7 +33,7 @@ As read from the paper (ar5iv render): LR test overall accuracy about 79.1%, HR 
 ## Limitations
 OSM labels are incomplete, so ground truth is noisy. Templates limit linguistic diversity. Counting is treated as classification, and the drop on the unseen city shows weak geographic transfer. No calibration or abstention.
 
-## What it means for SatClip
+## What it means for EvidEO
 - RSVQA-LR is one of the few public VQA sets built on Sentinel-2, so it is a natural first evaluation for our optical VQA path.
 - Adopt the OSM-to-template idea to auto-generate Indian question sets (e.g. from OSM plus Bhuvan layers) for district-level fine-tuning of the LoRA VLM.
 - Always run a blind-image (question-only) baseline: if the model scores well without the image, our confidence is meaningless.

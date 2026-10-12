@@ -14,7 +14,7 @@ Label source (decided in run 7, see training/README.md):
     training data. Revisit if NRSC confirms a licence.
 
 Images: Sentinel-2 L2A true colour from the dry season of 2021 (the WorldCover epoch) and, with --sar,
-a Sentinel-1 RTC false-colour image of the same chip, both through SatClip's own data layer (so the same
+a Sentinel-1 RTC false-colour image of the same chip, both through EvidEO's own data layer (so the same
 catalogues, scaling and signing as production). Chips are 256 x 256 px at 10 m, sampled inside district
 outlines. Districts follow the 80/10/10 hash split of build_intent_data.py, so test districts are unseen.
 
@@ -147,7 +147,7 @@ def osm_water_named(bbox: tuple[float, float, float, float]) -> Optional[str]:
 
 
 def pick_s2(prov, bbox) -> Optional[Any]:
-    from satclip.models import DateWindow
+    from evideo.models import DateWindow
     for a, b in WINDOWS:
         cands = sorted((s for s in prov.candidates("S2", bbox, DateWindow(start=a, end=b)) if s.covers(bbox) and s.readable),
                        key=lambda s: s.cloud_cover if s.cloud_cover is not None else 100)
@@ -159,7 +159,7 @@ def pick_s2(prov, bbox) -> Optional[Any]:
 
 
 def pick_s1(prov, bbox) -> Optional[Any]:
-    from satclip.models import DateWindow
+    from evideo.models import DateWindow
     for a, b in WINDOWS:
         for s in prov.candidates("S1", bbox, DateWindow(start=a, end=b)):
             if s.covers(bbox) and s.readable and "vv" in s.assets and "vh" in s.assets:
@@ -215,8 +215,8 @@ def main() -> None:
     ap.add_argument("--osm", action="store_true", help="add positive-only OSM named-water questions")
     ap.add_argument("--seed", type=int, default=7)
     args = ap.parse_args()
-    from satclip import gazetteer
-    from satclip.data.provider import get_provider
+    from evideo import gazetteer
+    from evideo.data.provider import get_provider
     rng = random.Random(args.seed)
     districts = list(gazetteer._data()["by_key"].values())  # noqa: SLF001
     rng.shuffle(districts)

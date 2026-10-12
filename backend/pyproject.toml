@@ -1,7 +1,7 @@
 [project]
-name = "satclip"
+name = "evideo"
 version = "0.1.0"
-description = "SatClip: plain-language questions about land, answered with evidence cards from Sentinel imagery"
+description = "EvidEO: plain-language questions about land, answered with evidence cards from Sentinel imagery"
 requires-python = ">=3.10"
 dependencies = [
   "fastapi>=0.110",
@@ -23,10 +23,10 @@ ml = ["torch>=2.2", "torchvision>=0.17", "open_clip_torch>=2.24", "huggingface_h
 dev = ["pytest>=8.0", "fakeredis>=2.20"]
 
 [tool.setuptools.packages.find]
-include = ["satclip*"]
+include = ["evideo*"]
 
 [tool.setuptools.package-data]
-satclip = ["resources/*.json"]
+evideo = ["resources/*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

@@ -1,13 +1,13 @@
-# SatClip
+# EvidEO
 
-> **Renamed 2026-10-12: the project is now EvidEO.** "SatClip" collides with SatCLIP (Klemmer et al., AAAI 2025, Microsoft; archive A226). The paper (`paper/evideo.tex`) and short deck (`deck/why/`) use the new name; the code package, older docs and the GitHub repo name still say satclip until they are migrated.
+> **Renamed 2026-10-12: the project is now EvidEO (formerly "SatClip").** The old name collides with SatCLIP (Klemmer et al., AAAI 2025, Microsoft; archive A226). Code, config (`EVIDEO_*` environment variables, `config/evideo.yaml`), UI and docs are migrated. Only the GitHub repository name, historical run logs and committed result files still carry the old name.
 
 
 **Ask a plain question about any place in India and two dates. Get back an answer you can check.**
 
-SatClip is Team Stardust's Smart India Hackathon 2026 project for problem statement **SIH26167**: "SatQueryAI: an interactive vision-language assistant for multimodal remote sensing image analysis through text queries".
+EvidEO is Team Stardust's Smart India Hackathon 2026 project for problem statement **SIH26167**: "SatQueryAI: an interactive vision-language assistant for multimodal remote sensing image analysis through text queries".
 
-Let's say a question comes to mind: *"Was Barpeta flooded after 2 July compared to mid June?"* SatClip finds the right Sentinel-1 radar or Sentinel-2 optical scenes for that area through public STAC catalogues. If clouds block the optical view, it switches to radar on its own. Then it measures the change with a transparent instrument and returns an **evidence card**. The card holds:
+Let's say a question comes to mind: *"Was Barpeta flooded after 2 July compared to mid June?"* EvidEO finds the right Sentinel-1 radar or Sentinel-2 optical scenes for that area through public STAC catalogues. If clouds block the optical view, it switches to radar on its own. Then it measures the change with a transparent instrument and returns an **evidence card**. The card holds:
 
 - the measured answer and a map mask;
 - the scene IDs and acquisition dates;
@@ -16,7 +16,7 @@ Let's say a question comes to mind: *"Was Barpeta flooded after 2 July compared 
 
 When the evidence is not good enough to reach a credible inference, it says "insufficient evidence" and tells you when the next useful satellite pass is.
 
-![SatClip answering a live flood question for Barpeta district](docs/screenshots/02-flood-extent-desktop.png)
+![EvidEO answering a live flood question for Barpeta district](docs/screenshots/02-flood-extent-desktop.png)
 
 More screens (mobile, dark mode, abstention, ambiguous district): [docs/screenshots/](docs/screenshots/).
 
@@ -24,7 +24,7 @@ More screens (mobile, dark mode, abstention, ambiguous district): [docs/screensh
 
 ```bash
 # no Docker, in-process queue
-cd backend && pip install -e ".[dev]" && uvicorn satclip.api.main:app --reload
+cd backend && pip install -e ".[dev]" && uvicorn evideo.api.main:app --reload
 # open http://localhost:8000 ; tests: python -m pytest -q
 
 # full stack with Redis and scalable workers
@@ -35,7 +35,7 @@ docker compose up --scale worker=8
 You may try entering a question in the UI, or run real questions end to end against the live catalogues:
 
 ```bash
-cd backend && python -m satclip.livecheck "How much of Barpeta was under water on 2024-07-11?"
+cd backend && python -m evideo.livecheck "How much of Barpeta was under water on 2024-07-11?"
 # About 905 sq km of Barpeta, Assam under water, 39% of the 2,335 sq km measured (low confidence, 0.62).
 # 117 tiles, about 40 s on a CPU. History: run 5 published 681 sq km at an uncalibrated 0.66; the run 6
 # Sen1Floods11 fit showed that was overconfident (abstained at 0.46); run 7 added VH to the water
@@ -65,10 +65,10 @@ See [SOLUTION.md](SOLUTION.md) for the full thesis and evidence.
 | Problem evidence brief | [docs/reference/problem-evidence.md](docs/reference/problem-evidence.md) | v1 |
 | Idea deck summary | [docs/reference/deck-notes.md](docs/reference/deck-notes.md) | done |
 | Architecture | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | M1 to M6 done (6.9 training, 6.10 quality) |
-| Prototype (FastAPI backend and claymorphism frontend) | [backend/](backend/), [frontend/](frontend/), [config/satclip.yaml](config/satclip.yaml), [docker-compose.yml](docker-compose.yml) | Working end to end on live Sentinel data: data layer (M2), five instruments with confidence, abstention and map overlays (M3); mobile-first claymorphism UI with district picker, two-date compare, evidence chips, confidence meter and map overlays (M4) |
+| Prototype (FastAPI backend and claymorphism frontend) | [backend/](backend/), [frontend/](frontend/), [config/evideo.yaml](config/evideo.yaml), [docker-compose.yml](docker-compose.yml) | Working end to end on live Sentinel data: data layer (M2), five instruments with confidence, abstention and map overlays (M3); mobile-first claymorphism UI with district picker, two-date compare, evidence chips, confidence meter and map overlays (M4) |
 | Training code (LoRA, Colab notebook, evaluation, calibration) | [training/](training/README.md) | M5 done (run 7): water extent calibrated on Sen1Floods11 (v1.1, VV or VH), water change on Kuro Siwo; LoRA pipeline, Colab notebook, Indian Q&A builder (WorldCover labels) and evaluation harness with measured baselines, including a hand-written intent test set |
 | Quality: tests, scripted demo, reproducibility, load test | [docs/QUALITY.md](docs/QUALITY.md), [docs/demo/TRANSCRIPT.md](docs/demo/TRANSCRIPT.md) | M6 done (run 8): 73 tests, six-question live demo, cold re-runs of receipts, Redis multi-process scaling |
-| Pitch deck (.pptx) | [deck/satclip.pptx](deck/satclip.pptx), [deck/README.md](deck/README.md) | M7 done (run 9): 14 slides, claymorphism, live screenshots, sourced speaker notes |
+| Pitch deck (.pptx) | [deck/why/EvidEO-why-it-matters.pptx](deck/why/EvidEO-why-it-matters.pptx) (current, 6 slides); old 14-slide claymorphism deck in [deck/legacy/](deck/legacy/) | Current deck is the 6-slide one (2026-10-12); the M7 deck is retired |
 | Innovation verification | [NOVELTY.md](NOVELTY.md) section 5, [docs/VERIFICATION.md](docs/VERIFICATION.md) | M8 done: combination claim holds over all 225 papers; every claim tied to a re-run check |
 | Plan and progress | [PLAN.md](PLAN.md), [STATE.md](STATE.md) | live |
 | Local handoff (start here) | [HANDOFF.md](HANDOFF.md) | 2026-10-10 |

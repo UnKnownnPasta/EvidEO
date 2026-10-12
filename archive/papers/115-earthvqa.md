@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [vqa, counting, relational-reasoning, segmentation-guided, rmse, city-planning, benchmark]
 verified: "2026-10-06 via https://arxiv.org/abs/2312.12222, https://arxiv.org/html/2312.12222 (v1) and https://raw.githubusercontent.com/Junjue-Wang/EarthVQA/master/README.md; AAAI 2024 acceptance taken from the arXiv comment, AAAI proceedings volume and pages not checked"
-takeaway: "Even a VQA model that is fed segmentation masks scores far lower on counting and comprehensive analysis than on yes/no judging, which backs SatClip's choice to compute counts and areas from masks and let the language model only phrase them"
+takeaway: "Even a VQA model that is fed segmentation masks scores far lower on counting and comprehensive analysis than on yes/no judging, which backs EvidEO's choice to compute counts and areas from masks and let the language model only phrase them"
 ---
 
 # EarthVQA
@@ -39,7 +39,7 @@ Most Earth vision work stops at locating and labelling objects. Planners actuall
 - Many answers are derived from the same masks the model can learn from, so it rewards mask quality more than open-ended reasoning.
 - Counting is answered as a class over small integers, not as calibrated measurements with uncertainty. The authors later extended the scope globally (EarthVL, per the README), not reviewed here.
 
-## What it means for SatClip
-- The drop from about 90% on judging to about 49% on comprehensive analysis, even with masks inside the model, supports keeping SatClip's numbers in the instruments (KI water mask, NDVI difference) and out of the VLM.
-- Copy the idea of counting from masks: SatClip's evidence card can report counts and areas computed directly from the district mask, with RMSE-style scoring in our eval rather than accuracy only.
-- Use EarthVQA's question taxonomy (judging, counting, relational, analysis) to structure SatClip's question parser tests, and route relational questions to "not supported yet" with an explicit abstention.
+## What it means for EvidEO
+- The drop from about 90% on judging to about 49% on comprehensive analysis, even with masks inside the model, supports keeping EvidEO's numbers in the instruments (KI water mask, NDVI difference) and out of the VLM.
+- Copy the idea of counting from masks: EvidEO's evidence card can report counts and areas computed directly from the district mask, with RMSE-style scoring in our eval rather than accuracy only.
+- Use EarthVQA's question taxonomy (judging, counting, relational, analysis) to structure EvidEO's question parser tests, and route relational questions to "not supported yet" with an explicit abstention.

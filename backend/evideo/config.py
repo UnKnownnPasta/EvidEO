@@ -1,6 +1,6 @@
-"""Shared settings: config/satclip.yaml plus SATCLIP_* environment overrides.
+"""Shared settings: config/evideo.yaml plus EVIDEO_* environment overrides.
 
-Nested keys are joined with a double underscore, e.g. SATCLIP_QUEUE__BACKEND=redis.
+Nested keys are joined with a double underscore, e.g. EVIDEO_QUEUE__BACKEND=redis.
 Values are parsed as YAML scalars, so numbers and booleans keep their types.
 """
 from __future__ import annotations
@@ -12,8 +12,8 @@ from typing import Any
 
 import yaml
 
-DEFAULT_PATH = Path(__file__).resolve().parents[2] / "config" / "satclip.yaml"
-PREFIX = "SATCLIP_"
+DEFAULT_PATH = Path(__file__).resolve().parents[2] / "config" / "evideo.yaml"
+PREFIX = "EVIDEO_"
 
 
 def _apply_env(cfg: dict[str, Any], environ: dict[str, str]) -> dict[str, Any]:

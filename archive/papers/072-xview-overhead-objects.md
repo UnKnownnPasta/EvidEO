@@ -10,7 +10,7 @@ category: object-detection
 era: historical
 tags: [dataset, worldview-3, overhead-imagery, fine-grained, small-objects, axis-aligned-boxes, humanitarian]
 verified: "2026-10-04 via https://export.arxiv.org/api/query?id_list=1802.07856 and https://ar5iv.labs.arxiv.org/html/1802.07856"
-takeaway: "Over 1 million objects in 60 classes from 0.3 m WorldView-3 imagery, with a weak SSD baseline; shows how hard fine-grained small-object detection is even at 0.3 m, reinforcing that SatClip should not count objects in Sentinel data"
+takeaway: "Over 1 million objects in 60 classes from 0.3 m WorldView-3 imagery, with a weak SSD baseline; shows how hard fine-grained small-object detection is even at 0.3 m, reinforcing that EvidEO should not count objects in Sentinel data"
 ---
 
 # xView: Objects in Context in Overhead Imagery
@@ -36,8 +36,8 @@ Experts annotated WorldView-3 imagery with axis-aligned bounding boxes using QGI
 - Commercial very high resolution imagery; access and licensing differ from open Sentinel data.
 - The paper is an arXiv preprint; we found no peer-reviewed venue for it.
 
-## What it means for SatClip
-- Reinforces scoping: even at 0.3 m a strong detector struggled on vehicles, so at 10 m SatClip must refuse counts of vehicles, boats or buildings and say this plainly in the abstain message.
+## What it means for EvidEO
+- Reinforces scoping: even at 0.3 m a strong detector struggled on vehicles, so at 10 m EvidEO must refuse counts of vehicles, boats or buildings and say this plainly in the abstain message.
 - Copy the QC recipe for our own validation sets: peer review, geometry checks and a gold-standard sample with explicit pass thresholds before a flood mask enters the benchmark.
-- Note the humanitarian motivation: xView-style data suits building damage work (see xBD, entry 039), which SatClip can point users to rather than attempt itself.
+- Note the humanitarian motivation: xView-style data suits building damage work (see xBD, entry 039), which EvidEO can point users to rather than attempt itself.
 - If we ever display detection outputs, report per-class performance, not a single mAP, since averages hide classes that fail completely.

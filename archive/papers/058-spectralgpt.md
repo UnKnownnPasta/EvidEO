@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [foundation-model, spectral, sentinel-2, 3d-transformer, masked-autoencoder, change-detection, segmentation, segmunich, bigearthnet]
 verified: "2026-10-04 via https://arxiv.org/abs/2311.07113 and https://github.com/danfenghong/IEEE_TPAMI_SpectralGPT"
-takeaway: "3D spatial-spectral MAE for Sentinel-2 with change detection results; reference for spectral-aware features, but GPL licence and size keep it out of SatClip core"
+takeaway: "3D spatial-spectral MAE for Sentinel-2 with change detection results; reference for spectral-aware features, but GPL licence and size keep it out of EvidEO core"
 ---
 
 # SpectralGPT: Spectral Remote Sensing Foundation Model
@@ -37,7 +37,7 @@ The abstract reports improvements over prior foundation models on all four downs
 - Code is GPL-3.0, which constrains how it can be bundled with other code.
 - Pretraining data (fMoW-Sentinel, BigEarthNet) is mostly outside India, especially BigEarthNet (Europe).
 
-## What it means for SatClip
+## What it means for EvidEO
 - Keep NDVI difference as the vegetation change instrument: it is transparent, CPU-cheap and explainable to an official, which a 600M parameter model is not.
 - SpectralGPT shows spectral structure matters; if we fine-tune anything on Sentinel-2, feed all relevant bands rather than RGB composites.
 - Avoid bundling GPL code in our core pipeline; if used, run it as a separate optional GPU service.

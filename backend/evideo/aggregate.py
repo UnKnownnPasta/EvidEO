@@ -118,7 +118,7 @@ def extent_follow_ups(job: Job) -> list[dict[str, Any]]:
     return out
 
 
-EXTENT_NEXT = ("Change areas are the least reliable number SatClip measures. Check the water extent on each "
+EXTENT_NEXT = ("Change areas are the least reliable number EvidEO measures. Check the water extent on each "
                "date instead (buttons below); each is measured and calibrated on its own.")
 
 

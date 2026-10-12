@@ -32,7 +32,7 @@ The best model, LLaVA-OneVision, reaches about 41.7% accuracy on the multiple-ch
 ## Limitations
 Multiple-choice scoring can overstate ability compared with free-form answers. The arXiv listing itself does not state a venue; ICCV 2025 is taken from the README. Coverage of SAR and Indian geography was not confirmed from the pages fetched.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Even the best open VLM is weak on geospatial tasks, so the VLM must not be our only source of truth; tool-grounded pipelines plus abstention are justified.
 - LLaVA-OneVision and Qwen2-VL are strong open candidates for our LoRA base model; check CPU feasibility of small variants.
 - Adopt the task taxonomy to structure our evaluation table, and report against a random-guess baseline as they do.

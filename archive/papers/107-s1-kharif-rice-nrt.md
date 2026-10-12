@@ -10,7 +10,7 @@ category: indian-context
 era: historical
 tags: [india, andhra-pradesh, kharif, rice, sentinel-1, random-forest, google-earth-engine, early-season, near-real-time]
 verified: "2026-10-06 via https://isprs-archives.copernicus.org/articles/XLII-4/433/2018/ (abstract and metadata) and https://api.crossref.org/works/10.5194/isprs-archives-XLII-4-433-2018; full PDF not read, so per-date accuracy tables were not checked"
-takeaway: "Kharif rice in coastal Andhra Pradesh can be mapped from Sentinel-1 alone with about 84 percent independent accuracy, and accuracy rises as each new monsoon acquisition arrives, so SatClip's sown-area answers should state how many SAR dates they used and abstain early in the season"
+takeaway: "Kharif rice in coastal Andhra Pradesh can be mapped from Sentinel-1 alone with about 84 percent independent accuracy, and accuracy rises as each new monsoon acquisition arrives, so EvidEO's sown-area answers should state how many SAR dates they used and abstain early in the season"
 ---
 
 # Near real time kharif rice mapping with Sentinel-1
@@ -32,7 +32,7 @@ Four coastal districts of Andhra Pradesh (Guntur, Krishna, East Godavari, West G
 ## Limitations
 One season and four districts only, a single classifier, and labels partly from global land cover rather than dense field surveys. Aquaculture ponds in this delta look like flooded paddy in early SAR, a known confusion the abstract lists as a separate class but does not quantify.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the incremental idea: a sown-area answer should list how many Sentinel-1 dates in the season were available, with confidence growing with dates and abstention before enough have arrived.
-- Expect confusion between transplanting-stage paddy, aquaculture and flood water; SatClip's flood instrument should mask known paddy and aquaculture or warn about them in July, which matters for Barpeta-type questions.
-- Beat: the paper gives one accuracy figure for a whole region; SatClip should give a per-district confidence and the scene list on each card.
+- Expect confusion between transplanting-stage paddy, aquaculture and flood water; EvidEO's flood instrument should mask known paddy and aquaculture or warn about them in July, which matters for Barpeta-type questions.
+- Beat: the paper gives one accuracy figure for a whole region; EvidEO should give a per-district confidence and the scene list on each card.

@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [foundation-model, masked-autoencoder, hls, landsat, sentinel-2, multi-temporal, flood-mapping, terratorch, nasa, ibm]
 verified: "2026-10-04 via https://arxiv.org/abs/2412.02732 and https://github.com/NASA-IMPACT/Prithvi-EO-2.0"
-takeaway: "Open NASA/IBM multi-temporal HLS model with flood and crop fine-tune recipes; best GPU candidate for a learned second opinion next to SatClip's optical instruments, not a CPU default"
+takeaway: "Open NASA/IBM multi-temporal HLS model with flood and crop fine-tune recipes; best GPU candidate for a learned second opinion next to EvidEO's optical instruments, not a CPU default"
 ---
 
 # Prithvi-EO-2.0: A Versatile Multi-Temporal Foundation Model for Earth Observation Applications
@@ -37,7 +37,7 @@ Per the abstract: the 600M TL model improves on the original Prithvi by 8% acros
 - 300M to 600M parameters is slow on CPU for district-scale tiles.
 - Fine-tuned heads output class scores that are not calibrated probabilities.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Do not put Prithvi in the CPU prototype; keep SAR Otsu water mapping and NDVI difference as the instruments that produce the numbers.
 - Offer it as an optional GPU instrument: the repo's flood and crop fine-tune configs could give a learned mask to compare against our Otsu or NDVI mask, and disagreement between the two can lower confidence or trigger abstention.
 - If adopted, temperature-scale its outputs on a held-out Indian set (for example Sen1Floods11 India chips, entry 022) before any number reaches an evidence card.

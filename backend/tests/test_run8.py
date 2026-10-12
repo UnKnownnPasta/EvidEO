@@ -5,10 +5,10 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from satclip.aggregate import aggregate, extent_follow_ups
-from satclip.models import DateWindow, Intent, Job, ParsedQuery, QueryRequest, TileResult, TileStatus
-from satclip.parser import parse
-from satclip.receipt import build_receipt
+from evideo.aggregate import aggregate, extent_follow_ups
+from evideo.models import DateWindow, Intent, Job, ParsedQuery, QueryRequest, TileResult, TileStatus
+from evideo.parser import parse
+from evideo.receipt import build_receipt
 
 TRUST = {"abstain_below": 0.6, "bands": [{"min": 0.8, "label": "high"}, {"min": 0.6, "label": "low"}]}
 W = [DateWindow(start=date(2024, 5, 30), end=date(2024, 6, 11)), DateWindow(start=date(2024, 7, 5), end=date(2024, 7, 17))]
@@ -80,7 +80,7 @@ def test_demo_script_covers_six_kinds_of_answer():
 
 def test_resize_is_deterministic_and_nan_aware():
     import numpy as np
-    from satclip.data.cog import _average, _nearest
+    from evideo.data.cog import _average, _nearest
     a = np.arange(36, dtype="float32").reshape(6, 6)
     a[0, 0] = np.nan
     av = _average(a, 3, 3)
@@ -93,7 +93,7 @@ def test_read_window_decimates_in_numpy(tmp_path):
     import numpy as np
     import rasterio
     from rasterio.transform import from_origin
-    from satclip.data.cog import read_window
+    from evideo.data.cog import read_window
     path = tmp_path / "t.tif"
     data = np.arange(200 * 200, dtype="uint16").reshape(200, 200) + 1
     with rasterio.open(path, "w", driver="GTiff", width=200, height=200, count=1, dtype="uint16", crs="EPSG:4326",

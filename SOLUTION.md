@@ -1,8 +1,8 @@
-# SatClip: the solution thesis
+# EvidEO: the solution thesis
 
-Version 1.8 (run 9, 2026-10-09): the pitch deck (deck/satclip.pptx), 25 more papers on terrain masks, per-pixel SAR probability, urban floods, conformal risk control and 2026 competitors (run 9 additions). Version 1.7 (run 8, 2026-10-08): measured quality (docs/QUALITY.md), the extent follow-ups that answer "did the flood spread" (risk 17), reproducible receipts, and 25 more papers (sections 9 and 10). Version 1.6 (run 7, 2026-10-07): water instrument v1.1 with VH, the change instrument's own calibration, and a harder test of the question parser (sections 4, 6 and 9). Version 1.5 (run 6) added the first fitted calibration.
+Version 1.8 (run 9, 2026-10-09): the pitch deck (deck/evideo.pptx), 25 more papers on terrain masks, per-pixel SAR probability, urban floods, conformal risk control and 2026 competitors (run 9 additions). Version 1.7 (run 8, 2026-10-08): measured quality (docs/QUALITY.md), the extent follow-ups that answer "did the flood spread" (risk 17), reproducible receipts, and 25 more papers (sections 9 and 10). Version 1.6 (run 7, 2026-10-07): water instrument v1.1 with VH, the change instrument's own calibration, and a harder test of the question parser (sections 4, 6 and 9). Version 1.5 (run 6) added the first fitted calibration.
 
-> **In one line:** SatClip answers plain-language "what happened here, and when" questions about Indian land with an **evidence card**: a measurement taken from the actual Sentinel scene by a transparent instrument, a map of where it applies, the scene IDs and dates used, a calibrated confidence, and a receipt that lets anyone re-run it. When the evidence is not good enough, it says so and tells you what would fix it.
+> **In one line:** EvidEO answers plain-language "what happened here, and when" questions about Indian land with an **evidence card**: a measurement taken from the actual Sentinel scene by a transparent instrument, a map of where it applies, the scene IDs and dates used, a calibrated confidence, and a receipt that lets anyone re-run it. When the evidence is not good enough, it says so and tells you what would fix it.
 
 Citation keys:
 
@@ -22,7 +22,7 @@ This document refines the submitted idea deck (summarised in [docs/reference/dec
 | District disaster officials (DDMA, District Magistrate's office, state relief commissioner staff) | "Which villages in my district are under water since Tuesday, and is it spreading?" | Wait for centrally produced NRSC maps through NDEM or Bhuvan [E3, E7]. In 2024 there were about 300 flood products for the whole country [E2], and turnaround varied from the same day to two days [E5, E6]. Otherwise they rely on field reports. |
 | Agriculture and crop-insurance officers (PMFBY, YES-TECH) | "Did the crop in these blocks actually suffer between sowing and harvest?" | Crop cutting experiments, which a parliamentary committee called slow and labour-intensive [E11]. Satellite yield models whose outputs farmers dispute without an independent check [E16]. Claims have stayed pending partly because data arrived late [E13]. |
 
-Run 5 adds the official channels these users already work in. NRSC flood maps reach district managers through NDEM [A102] and Bhuvan [A101]; NRSC's Assam flood hazard atlas classifies every 50 m pixel by how often it flooded in 26 years [A106]. For agriculture, YES-TECH makes satellite-derived yields count for 30% of PMFBY loss assessment and lists Sentinel-1 and EOS-04 among its inputs [A103], and FASAL already judges satellite crop estimates against government statistics by district-level deviation [A104]. SatClip therefore complements these channels: it answers the question asked today, in their vocabulary, with a receipt, and exports layers they can overlay.
+Run 5 adds the official channels these users already work in. NRSC flood maps reach district managers through NDEM [A102] and Bhuvan [A101]; NRSC's Assam flood hazard atlas classifies every 50 m pixel by how often it flooded in 26 years [A106]. For agriculture, YES-TECH makes satellite-derived yields count for 30% of PMFBY loss assessment and lists Sentinel-1 and EOS-04 among its inputs [A103], and FASAL already judges satellite crop estimates against government statistics by district-level deviation [A104]. EvidEO therefore complements these channels: it answers the question asked today, in their vocabulary, with a receipt, and exports layers they can overlay.
 
 ### Secondary users: people who must verify a claim about a place and date
 
@@ -70,11 +70,11 @@ The problem is structural, not a temporary gap waiting for a better model.
 
 ---
 
-## 3. How SatClip solves it
+## 3. How EvidEO solves it
 
 ### The core idea: instruments answer, the language model only asks and explains
 
-The deck put a fine-tuned vision-language model at the centre, generating the answers. The evidence says that is backwards for the users we serve [A001, A012, A013, A014]. SatClip inverts it.
+The deck put a fine-tuned vision-language model at the centre, generating the answers. The evidence says that is backwards for the users we serve [A001, A012, A013, A014]. EvidEO inverts it.
 
 ```
 "Was Barpeta flooded after 2 July compared to mid June?"
@@ -101,7 +101,7 @@ The deck put a fine-tuned vision-language model at the centre, generating the an
 
 ### The five deck tasks, each mapped to an instrument
 
-| Deck task | What SatClip does | Instrument (prototype, CPU) |
+| Deck task | What EvidEO does | Instrument (prototype, CPU) |
 |---|---|---|
 | Change detection (headline) | Measures what changed, where, between two dates, with an area figure and mask | Sentinel-1 log-ratio with an automatic two-class threshold whose fitted posterior gives the confidence [A036, A140], calibrated on Kuro Siwo [A041] and Sen1Floods11 [A022]; crop change compared with the change expected for the season, since normal phenology looks like loss [A145]; learned detectors (FC-Siam, ChangeFormer, AnyChange) only as proposals or cross-checks, because their 10 m Sentinel accuracy is far below their high-resolution benchmark scores [A142, A143, A144]; optical change vector analysis or index differencing calibrated on OSCD [A034, A035]; cloud mask decides the sensor [A019] |
 | Scene classification | Labels land cover for the area, with calibrated probabilities | Built in run 4 as an **experimental** instrument: RemoteCLIP zero-shot [A008] over sub-patches. On live Darbhanga data it mislabelled cropland and the card abstained (confidence 0.35). Next candidates: a BigEarthNet-trained S1/S2 classifier [A017], TerraMind [A097] or AlphaEarth embeddings [A096] with a small labelled head |
@@ -127,7 +127,7 @@ Open EO foundation models (Prithvi-EO-2.0 [A052], CROMA [A055], SSL4EO-S12 [A054
 
 ## 4. Why it is easier (the innovation)
 
-The innovation is **ease**. SatClip does not have a better model. It has a shorter, more checkable path from a question to an answer someone can act on.
+The innovation is **ease**. EvidEO does not have a better model. It has a shorter, more checkable path from a question to an answer someone can act on.
 
 1. **Easier for the user.**
    - **No GIS knowledge needed.** No sensor choice, band math, downloads or projections.
@@ -142,9 +142,9 @@ The innovation is **ease**. SatClip does not have a better model. It has a short
    - The expensive part, fine-tuning, improves the language layer, not the truth layer. The system is useful even if fine-tuning never happens.
 4. **Easier to extend.**
    - A new question type is a new instrument plus a calibration set, not a new model.
-   - Tool-using EO agents lose reliability as tool chains get longer [A024]. SatClip keeps plans short and fixed: one question type, one instrument recipe.
+   - Tool-using EO agents lose reliability as tool chains get longer [A024]. EvidEO keeps plans short and fixed: one question type, one instrument recipe.
    - Run 4 measured how large that loss is. Free-form agents pick the right tool parameters only about 26% (Earth-Agent with GPT-5 [A094]) to 35% (ThinkGeo with GPT-4o [A092]) of the time, and ThinkGeo's end-to-end answers are right under 10% of the time. A fixed router to versioned instruments with set parameters cannot make that error.
-   - Run 7 adds 2026 evidence that the field is converging on this design. In an emergency-operations benchmark, 13 frontier LLMs often chose the wrong sensor, and handing them the correct tool order helped by only 1 to 4 points [A165]; SatClip picks optical or SAR in code. Earth-Agent-Pro now restricts planning to expert-written skills, still reaching only about 66% with GPT-5 [A166]. A 2026 change-VQA agent that calls fixed rule-based tools answers proportion questions almost perfectly on ground-truth maps but only 63% to 66% on model-made maps [A172]: answer quality is capped by the instrument, which is why SatClip calibrates and abstains per instrument rather than trusting the chain.
+   - Run 7 adds 2026 evidence that the field is converging on this design. In an emergency-operations benchmark, 13 frontier LLMs often chose the wrong sensor, and handing them the correct tool order helped by only 1 to 4 points [A165]; EvidEO picks optical or SAR in code. Earth-Agent-Pro now restricts planning to expert-written skills, still reaching only about 66% with GPT-5 [A166]. A 2026 change-VQA agent that calls fixed rule-based tools answers proportion questions almost perfectly on ground-truth maps but only 63% to 66% on model-made maps [A172]: answer quality is capped by the instrument, which is why EvidEO calibrates and abstains per instrument rather than trusting the chain.
 
 Compared with existing approaches:
 
@@ -152,7 +152,7 @@ Compared with existing approaches:
 - **Agent frameworks** [A023, A024, A089, A094] chain tools, including real spectral instruments, but neither carry confidence through nor abstain, and none uses SAR when clouds block optical.
 - **Commercial assistants** (Google Earth AI [A095], Earth Copilot, ArcGIS assistants) are gated by region, licence or invitation [E49 to E51]. Google's published Earth AI system describes no refusal behaviour and attaches no scene IDs to agent answers [A095].
 
-SatClip's contribution is the combination, packaged for a non-expert: an evidence card with abstention, built on free data and running on CPU or offline. See [NOVELTY.md](NOVELTY.md) for the honest comparison.
+EvidEO's contribution is the combination, packaged for a non-expert: an evidence card with abstention, built on free data and running on CPU or offline. See [NOVELTY.md](NOVELTY.md) for the honest comparison.
 
 ---
 
@@ -188,15 +188,15 @@ SatClip's contribution is the combination, packaged for a non-expert: an evidenc
    - We run blind (image-free) baselines to expose language bias [A011].
    - We compare against NRSC products for past Indian floods where they exist.
    - We report error rates per region and per sensor.
-8. **The interface shows trust, not just numbers (M4, run 5; run 6 research).** Run 6 adds three design rules from the archive: show the area range as a few countable outcomes (a quantile dotplot or "4 in 5") rather than a density, which people read more accurately on phones [A135]; make the evidence cheap to check, because explanations only cut overreliance when checking costs less than trusting [A137], so the before and after thumbnails are one tap away; and show the defaults SatClip picked (district, window, threshold) as editable chips, the way Eviza handles ambiguity [A139]. An optional "guess first" mode for high-stakes cards is a candidate, since cognitive forcing reduces overreliance but users dislike it [A136].
+8. **The interface shows trust, not just numbers (M4, run 5; run 6 research).** Run 6 adds three design rules from the archive: show the area range as a few countable outcomes (a quantile dotplot or "4 in 5") rather than a density, which people read more accurately on phones [A135]; make the evidence cheap to check, because explanations only cut overreliance when checking costs less than trusting [A137], so the before and after thumbnails are one tap away; and show the defaults EvidEO picked (district, window, threshold) as editable chips, the way Eviza handles ambiguity [A139]. An optional "guess first" mode for high-stakes cards is a candidate, since cognitive forcing reduces overreliance but users dislike it [A136].
    The original run 5 design: The web card leads with the number and a confidence meter that draws the publication threshold as a marker, so a 0.66 answer visibly sits just above the line and a 0.56 answer visibly sits below it. Two kinds of "no" look different: "Needs one detail" (blue, the question lacks a place or date, or the district name is ambiguous, with one-tap choices) and "Not enough evidence" (amber, the satellite measurement was too weak). Uncalibrated confidence is flagged on every card until M5.
 
 ---
 
-## 7. What SatClip deliberately does not do
+## 7. What EvidEO deliberately does not do
 
 - It does not do open-ended chat about imagery. Questions outside the supported types are declined, with an example of what can be asked.
-- It does not count or detect small objects. At 10 m, cars, houses and people are out of scope, and SatClip says so.
+- It does not count or detect small objects. At 10 m, cars, houses and people are out of scope, and EvidEO says so.
 - It does not forecast. It reports what satellites observed, not what will happen.
 - It does not replace official NRSC or NDEM products or field verification. It answers the local follow-up questions those products cannot, and it links to them where they exist.
 - It does not present reconstructed or model-generated imagery as observed.
@@ -206,7 +206,7 @@ SatClip's contribution is the combination, packaged for a non-expert: an evidenc
 
 ## 8. Where this refines the deck
 
-| Deck | SatClip now | Why |
+| Deck | EvidEO now | Why |
 |---|---|---|
 | A LoRA VLM at the centre generates answers for five tasks | Instruments produce the answers; the VLM parses questions and explains results | VLMs localise and count poorly [A001, A012, A013, A014]; users need checkable numbers [E39] |
 | Five tasks presented equally | Change and condition questions lead (floods, crops); detection is narrowed to what 10 m supports | Highest user value, most mature methods [A022]; resolution limits |
@@ -226,7 +226,7 @@ SatClip's contribution is the combination, packaged for a non-expert: an evidenc
 | 5 | **Users over-trust a confidence number or a fluent explanation.** Explanations raise acceptance of wrong answers too [A067]; confidence display calibrates reliance but does not by itself raise accuracy [A070]; field experience says trust and workflow fit, not algorithms, limit EO uptake by responders [A069]. | Use plain-language confidence bands. Make abstention visible and normal. Show the map, not just the number. Keep explanations short and secondary. Use the human-AI guidelines [A066] as a UI checklist, and run UX testing with real officers. |
 | 6 | **A large platform ships a similar assistant in India.** Google Earth AI is US-gated today [E49] and, as published, chains models under a Gemini agent without refusal or per-answer scene receipts [A095]. | Openness, offline deployment, SAR-first monsoon handling and receipts are hard for a closed service to match on government infrastructure. |
 | 7 | **Scope creep back to a chatbot.** | Every new capability must arrive as an instrument plus a calibration set plus a test. |
-| 8 | **Coverage collapses at a strict risk target.** In VQA, abstention at 1% risk left under 8% of questions answered [A030]. If SatClip abstains on most real questions, users stop asking. | Publish coverage at 1%, 5% and 10% risk per instrument; pick the operating point with users; prefer instruments with a physical signal (SAR water) where coverage stays high. |
+| 8 | **Coverage collapses at a strict risk target.** In VQA, abstention at 1% risk left under 8% of questions answered [A030]. If EvidEO abstains on most real questions, users stop asking. | Publish coverage at 1%, 5% and 10% risk per instrument; pick the operating point with users; prefer instruments with a physical signal (SAR water) where coverage stays high. |
 | 9 | **The explanation layer hallucinates around correct numbers.** RS VLMs give hallucination-free answers only about 36% to 69% of the time, including wrong sensor and resolution claims [A033]; LVLMs over-claim co-occurring objects [A029]. | A deterministic check that every number, date, sensor and resolution in any generated sentence matches the evidence card; templated text when the check fails. |
 | 10 | **Foundation models overtake instruments.** Open EO foundation models with flood and crop fine-tunes exist [A052, A055]. If they become clearly more accurate on Indian events, a threshold instrument looks dated. | Keep the instrument interface model-agnostic: a fine-tuned foundation model can register as an instrument, as long as it is calibrated, versioned and carries a receipt. The evidence card, not the algorithm, is the product. |
 | 11 | **The confidence model was overconfident (confirmed run 6; run 7: water extent refitted for v1.1, water change fitted on Kuro Siwo, crop change still a placeholder because no open labelled crop-decline set exists for India).** The run 4 error model gave 0.6 to 0.7 on a bimodal flood scene; on held-out Sen1Floods11 chips, answers that cleared the 0.60 line with that score were wrong 55% of the time. | Fitted Platt map shipped (trust item 3); live Barpeta 11 July 2024 now abstains at 0.46 instead of publishing at 0.66. Refit per region and season as Indian labels arrive [A132]; fit the change instrument on Kuro Siwo [A041]. |
@@ -258,7 +258,7 @@ SatClip's contribution is the combination, packaged for a non-expert: an evidenc
 
 ## Run 8 additions (M6 quality and 25 more papers)
 
-**Risk 17 status (mitigated in the product).** An abstained "did the flood spread" card now offers "water before" and "water after" as one-tap follow-ups, each measured by the better-calibrated extent instrument. Live for Barpeta, the change card abstains at 0.23 while both extents publish: 413 sq km on 5 June 2024 (0.73) and 914 sq km on 11 July 2024 (0.62). The official gets a usable, honest answer (water more than doubled between the two passes) without SatClip claiming a change area it cannot measure well. Caveat: both extents include permanent water (risk 12).
+**Risk 17 status (mitigated in the product).** An abstained "did the flood spread" card now offers "water before" and "water after" as one-tap follow-ups, each measured by the better-calibrated extent instrument. Live for Barpeta, the change card abstains at 0.23 while both extents publish: 413 sq km on 5 June 2024 (0.73) and 914 sq km on 11 July 2024 (0.62). The official gets a usable, honest answer (water more than doubled between the two passes) without EvidEO claiming a change area it cannot measure well. Caveat: both extents include permanent water (risk 12).
 
 **Risk 15, concrete next steps from the literature.** The Copernicus GFM Bayesian method [A187] classifies each pixel against its own seasonal backscatter history and returns a posterior probability plus a no-sensitivity mask; adding a DEM raised Sen1Floods11 flood F1 from 0.63 to 0.74 in one study (figures from the authors' conference abstract) [A186]; a VV+VH CNN beat an operational rule chain by about 5 IoU points [A188]. The next water instrument should add a HAND or slope mask and a per-pixel posterior, and keep the threshold chain as the baseline it must beat.
 

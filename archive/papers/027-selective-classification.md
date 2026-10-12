@@ -30,8 +30,8 @@ On ImageNet the authors report 2% top-5 error guaranteed with 99.9% probability 
 ## Limitations
 The guarantee holds only if test data comes from the same distribution as the held-out calibration set. The quality of selection is capped by the confidence function: a poorly ranked score yields low coverage. Calibration sets must be large enough for tight bounds at low risk levels. The method addresses classification only.
 
-## What it means for SatClip
-- Use this as the formal basis for SatClip's abstention rule: choose the "answer versus abstain" threshold per instrument from a target error rate (for example 5% on flood-or-not at village level) using a held-out Indian labelled set, not by hand-tuning.
-- Plot risk-coverage curves for each instrument and report the operating point on the evidence card methodology page, so users see how often SatClip answers and how often it is wrong when it does.
+## What it means for EvidEO
+- Use this as the formal basis for EvidEO's abstention rule: choose the "answer versus abstain" threshold per instrument from a target error rate (for example 5% on flood-or-not at village level) using a held-out Indian labelled set, not by hand-tuning.
+- Plot risk-coverage curves for each instrument and report the operating point on the evidence card methodology page, so users see how often EvidEO answers and how often it is wrong when it does.
 - Keep a separate calibration set per region and season; the guarantee breaks under distribution shift, which is exactly what monsoon versus dry imagery introduces.
 - The confidence function matters more than the threshold: rank quality features such as cloud fraction, SAR incidence angle and margin from the water threshold, not just raw model scores.

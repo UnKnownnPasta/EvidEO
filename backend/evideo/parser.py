@@ -142,7 +142,7 @@ def parse(req: QueryRequest, intent: Optional[Intent] = None) -> ParsedQuery:
     when = " vs ".join(f"{w.start}..{w.end}" for w in windows) or "no dates"
     label = intent.value.replace("_", " ")
     understood = (f"{label} in {where}, {when}" if intent != Intent.unsupported
-                  else "a question outside what SatClip can measure")
+                  else "a question outside what EvidEO can measure")
     return ParsedQuery(text=req.text, intent=intent, bbox=bbox, place_name=place, windows=windows,
                        region=region, candidates=[o[0] for o in options], candidate_keys=[o[1] for o in options],
                        understood_as=understood, problems=problems)

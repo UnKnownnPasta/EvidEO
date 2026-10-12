@@ -60,7 +60,7 @@ def main():
     for c, n in sorted(cats.items()):
         lines.append(f"| {c} | {n} |")
     for c in sorted(cats):
-        lines += ["", f"### {c}", "", "| ID | Paper | Year | Era | Takeaway for SatClip |", "|---|---|---|---|---|"]
+        lines += ["", f"### {c}", "", "| ID | Paper | Year | Era | Takeaway for EvidEO |", "|---|---|---|---|---|"]
         for r in rows:
             if r["category"] == c:
                 title = r["title"].replace("|", "/")

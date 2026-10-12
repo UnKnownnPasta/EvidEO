@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [big-tech, gemini, geospatial-agent, foundation-models, flood-forecasting, population-dynamics, novelty-threat]
 verified: "2026-10-05 via https://arxiv.org/html/2510.18318v2, https://research.google/pubs/earth-ai-unlocking-geospatial-insights-with-foundation-models-and-cross-modal-reasoning/ (search listing); arXiv abs page could not be fetched, exact v1 date not confirmed (arXiv ID implies October 2025)"
-takeaway: "The closest big-tech threat: a Gemini agent that chains Google's imagery, population and flood models into answers, but with no abstention, no per-answer scene receipts and an RGB-high-res imagery focus; SatClip must win on transparent instruments, refusal and auditability"
+takeaway: "The closest big-tech threat: a Gemini agent that chains Google's imagery, population and flood models into answers, but with no abstention, no per-answer scene receipts and an RGB-high-res imagery focus; EvidEO must win on transparent instruments, refusal and auditability"
 ---
 
 # Earth AI: Unlocking Geospatial Insights with Foundation Models and Cross-Modal Reasoning
@@ -44,11 +44,11 @@ As reported (paper tables, read via the HTML version):
 - We found no discussion of abstention, refusal thresholds, or how conflicting model outputs are surfaced to the user.
 - Most models and the agent sit inside Google's commercial stack; open, reproducible access is unclear.
 
-## What it means for SatClip
-- Threat level: high on the headline claim. "Ask a plain-language question about land and get a model-backed answer" is now a Google research product. SatClip cannot claim to be the first geospatial question-answering agent.
-- How SatClip stays different, and should say so explicitly in the pitch:
-  1. Instrument-first: every number in SatClip comes from a named, inspectable method (SAR threshold, NDVI difference, log-ratio, CLIP zero-shot) on Sentinel-1/2, not from an opaque embedding or a hosted model.
-  2. Abstention: SatClip refuses below a calibrated confidence threshold; Earth AI reports confidence intervals in its tables but documents no refusal behaviour.
+## What it means for EvidEO
+- Threat level: high on the headline claim. "Ask a plain-language question about land and get a model-backed answer" is now a Google research product. EvidEO cannot claim to be the first geospatial question-answering agent.
+- How EvidEO stays different, and should say so explicitly in the pitch:
+  1. Instrument-first: every number in EvidEO comes from a named, inspectable method (SAR threshold, NDVI difference, log-ratio, CLIP zero-shot) on Sentinel-1/2, not from an opaque embedding or a hosted model.
+  2. Abstention: EvidEO refuses below a calibrated confidence threshold; Earth AI reports confidence intervals in its tables but documents no refusal behaviour.
   3. Receipts: scene IDs, acquisition dates, region masks and a reproducible receipt per answer; Earth AI answers are narrative syntheses.
   4. Free and sovereign: public STAC, open data, runnable on CPU by an Indian district office, with no dependency on a US cloud account.
   5. India district scale and monsoon flood plus crop condition, with Bhuvan / NRSC compatible outputs.

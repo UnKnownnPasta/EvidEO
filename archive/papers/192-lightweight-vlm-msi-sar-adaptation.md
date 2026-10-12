@@ -10,7 +10,7 @@ category: rs-vlm
 era: upcoming
 tags: [lora, dpo, multispectral, sar, sentinel-1, sentinel-2, rendered-views, sen1floods11, bigearthnet-v2, smolvlm2, qwen3-vl, evidence-consistency]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and curl to https://arxiv.org/html/2609.02187v1 (view list, LoRA rank, Table 1 to 3 values for Sen1Floods11 and the four backbones); WebFetch permission request timed out; no limitations section was found, so the limitations below are our own reading"
-takeaway: "Shows a small off-the-shelf VLM can read S1/S2 if bands are rendered as named images and tuned with rank-16 LoRA (Sen1Floods11 patch flood verification F1 0.53 to 0.77), but it still answers yes/no with no area, scene ID or calibrated confidence; SatClip keeps numbers in the instrument and can borrow the named-view trick for its explainer"
+takeaway: "Shows a small off-the-shelf VLM can read S1/S2 if bands are rendered as named images and tuned with rank-16 LoRA (Sen1Floods11 patch flood verification F1 0.53 to 0.77), but it still answers yes/no with no area, scene ID or calibrated confidence; EvidEO keeps numbers in the instrument and can borrow the named-view trick for its explainer"
 ---
 
 # Liu et al. 2026, lightweight LoRA adaptation of general VLMs to multispectral and SAR inputs
@@ -40,8 +40,8 @@ General VLMs have RGB vision encoders, so they cannot take raw Sentinel-2 bands 
 - No confidence calibration, no abstention and no provenance (scene IDs, dates) in outputs.
 - Small flood test set (89 patches); no Indian or out-of-region evaluation reported.
 
-## What it means for SatClip
-- Adopt: the named-view rendering plus rank-16 LoRA recipe is a cheap way to let SatClip's small explainer VLM "see" the same composites shown to officials, and the SmolVLM2-2.2B result says a CPU-sized backbone benefits too.
+## What it means for EvidEO
+- Adopt: the named-view rendering plus rank-16 LoRA recipe is a cheap way to let EvidEO's small explainer VLM "see" the same composites shown to officials, and the SmolVLM2-2.2B result says a CPU-sized backbone benefits too.
 - Adopt: the image-removal and mismatch controls are a good test that the explainer actually reads the evidence rather than guessing.
 - Avoid: do not let the VLM decide flood or no-flood; a patch-level F1 of 0.77 is a weak basis for a district figure, and the model yields no area or mask.
-- Beat: SatClip's answer carries an instrument-computed area, scene IDs, dates, a mask and a calibrated confidence with abstention; this paper has none of these.
+- Beat: EvidEO's answer carries an instrument-computed area, scene IDs, dates, a mask and a calibrated confidence with abstention; this paper has none of these.

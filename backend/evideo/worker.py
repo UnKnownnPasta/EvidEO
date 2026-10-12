@@ -37,7 +37,7 @@ def process(job: TileJob, cache: Cache) -> TileResult:
 
 
 def run_redis_worker() -> None:  # pragma: no cover - needs a Redis server
-    """Entry point for `python -m satclip.worker` in the worker container."""
+    """Entry point for `python -m evideo.worker` in the worker container."""
     from .jobqueue import RedisQueue
     from .config import settings
     q = RedisQueue.from_settings(settings())

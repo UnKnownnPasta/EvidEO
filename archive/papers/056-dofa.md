@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [foundation-model, dofa, hypernetwork, wavelength-conditioned, multi-sensor, sar, sentinel-1, sentinel-2, hyperspectral, torchgeo]
 verified: "2026-10-04 via https://arxiv.org/abs/2403.15356 and https://github.com/zhu-xlab/DOFA"
-takeaway: "One encoder for any band set via wavelength conditioning (DOFA); lets SatClip use a single learned backbone for both Sentinel-1 and Sentinel-2 in experiments"
+takeaway: "One encoder for any band set via wavelength conditioning (DOFA); lets EvidEO use a single learned backbone for both Sentinel-1 and Sentinel-2 in experiments"
 ---
 
 # Neural Plasticity-Inspired Multimodal Foundation Model for Earth Observation
@@ -41,7 +41,7 @@ The abstract reports top-tier results across downstream tasks and good transfer 
 - ViT-B is heavy for whole-district CPU inference.
 - Wavelength conditioning ignores other sensor differences (polarisation, incidence angle, processing level), so SAR inputs must be preprocessed consistently.
 
-## What it means for SatClip
+## What it means for EvidEO
 - If we add one learned backbone for experiments, DOFA is attractive because the same weights accept Sentinel-1 VV/VH and Sentinel-2 bands; this keeps the GPU pipeline simple.
 - Always pass the true band wavelengths from STAC metadata, and log them in the evidence card, so runs are reproducible.
 - Use DOFA features only for cross-checks and abstention signals; deterministic instruments still produce every reported number.

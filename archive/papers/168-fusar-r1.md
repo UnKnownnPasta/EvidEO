@@ -10,7 +10,7 @@ category: rs-vlm
 era: upcoming
 tags: [sar, reasoning, chain-of-thought, grpo, reinforcement-learning, qwen3-vl, land-cover, counting, metadata-priors, fudan]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and curl to https://arxiv.org/html/2607.16819v1 (method, Table V numbers, conclusion); WebFetch permission request timed out; backbone size and test-set sizes not stated in the text we read"
-takeaway: "The newest SAR reasoning VLM still emits bare answers with no confidence, abstention or scene receipt, and its land-cover proportion error (MAE 7.67) is too coarse for flood extent, so SatClip should keep SAR numbers in thresholds and use the VLM only to explain"
+takeaway: "The newest SAR reasoning VLM still emits bare answers with no confidence, abstention or scene receipt, and its land-cover proportion error (MAE 7.67) is too coarse for flood extent, so EvidEO should keep SAR numbers in thresholds and use the VLM only to explain"
 ---
 
 # Yang et al. 2026, FUSAR-R1 (SAR reasoning model with chain of thought and GRPO)
@@ -38,7 +38,7 @@ Six in-house evaluation tasks derived from FUSAR-GEOVL-1M: detection with JSON b
 - Reasoning traces were partly written by an LLM, so the explanations may sound expert while not being faithful to the pixels.
 - No code or weights found.
 
-## What it means for SatClip
-- Beat: SatClip's evidence card (scene ID, date, mask, calibrated confidence, abstain) is exactly what FUSAR-R1 lacks; cite it as the 2026 state of the art in SAR VLMs that still gives no provenance.
-- Adopt: its finding that resolution and location metadata are the strongest priors supports passing scene metadata (orbit, polarisation, pixel spacing, district) as structured text into SatClip's explainer prompt.
-- Avoid: a land-cover proportion MAE of 7.67 points means a VLM-read "percent flooded" can be off by several percent of a district; SatClip must keep area numbers in the SAR threshold instrument.
+## What it means for EvidEO
+- Beat: EvidEO's evidence card (scene ID, date, mask, calibrated confidence, abstain) is exactly what FUSAR-R1 lacks; cite it as the 2026 state of the art in SAR VLMs that still gives no provenance.
+- Adopt: its finding that resolution and location metadata are the strongest priors supports passing scene metadata (orbit, polarisation, pixel spacing, district) as structured text into EvidEO's explainer prompt.
+- Avoid: a land-cover proportion MAE of 7.67 points means a VLM-read "percent flooded" can be off by several percent of a district; EvidEO must keep area numbers in the SAR threshold instrument.

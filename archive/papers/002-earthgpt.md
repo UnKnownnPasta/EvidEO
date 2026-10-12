@@ -30,7 +30,7 @@ The fetched HTML version reports zero-shot scene classification of 77.37% on CLR
 ## Limitations
 The paper acknowledges difficulty on tasks that need precise pixel-level localization. SAR coverage comes from existing curated datasets, not from Sentinel-1 GRD scenes as distributed, so transfer to raw Sentinel-1 is untested here. Released model weights were not clearly stated in the repo. No calibrated confidence or abstention mechanism is described.
 
-## What it means for SatClip
+## What it means for EvidEO
 - MMRS-1M is a ready source of SAR and optical instruction pairs: mine it for our LoRA fine-tune instead of writing all templates from scratch (check per-source licenses first).
 - Its dual-encoder fusion (ViT plus CNN) is heavier than our CPU budget allows; adopt the lesson (multi-scale features help small objects) via tiling, not via a second encoder.
 - Use it as evidence that one assistant across SAR and optical is feasible, which supports our cloud-cover fallback story.

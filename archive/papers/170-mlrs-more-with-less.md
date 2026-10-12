@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [general-vlm, internvl3.5, sam3, tool-use, grpo, grto, multi-task-rl, sar, multi-temporal, ultra-high-resolution, data-scaling]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, dates, ACCV 2026 comment) and curl to https://arxiv.org/html/2607.15942v2 (method, training setup, scaling results, limitations); WebFetch permission request timed out; ACCV acceptance taken from the arXiv comment only"
-takeaway: "A plain InternVL3.5-8B trained with multi-task RL that either answers or calls SAM3 matches specialised RS VLMs, which supports SatClip's 'small model decides, a tool measures' split; but its temporal VQA got worse with training and it reports no confidence or abstention"
+takeaway: "A plain InternVL3.5-8B trained with multi-task RL that either answers or calls SAM3 matches specialised RS VLMs, which supports EvidEO's 'small model decides, a tool measures' split; but its temporal VQA got worse with training and it reports no confidence or abstention"
 ---
 
 # Ailuro et al. 2026, MLRS (general VLM plus a segmentation tool, trained with RL)
@@ -39,7 +39,7 @@ In distribution: DisasterM3, DynamicVL, SARLANG-1M, EarthReason, LaSeRS, GeoSeg-
 - SAR is read as a greyscale picture, with no calibration or physical units.
 - No confidence, abstention or scene provenance in the outputs.
 
-## What it means for SatClip
-- Adopt: strong external evidence that a general VLM that routes to a tool is enough; SatClip goes further by making the tool (SAR threshold, NDVI difference) the only source of numbers.
+## What it means for EvidEO
+- Adopt: strong external evidence that a general VLM that routes to a tool is enough; EvidEO goes further by making the tool (SAR threshold, NDVI difference) the only source of numbers.
 - Avoid: the temporal VQA regression is a warning that before/after flood or crop questions should not be answered by the VLM's own visual reading; keep change detection in classical instruments.
-- Avoid: do not fine-tune the measuring tool jointly with the language model, as MLRS's GRTO does; SatClip instruments should stay fixed and auditable so receipts can be re-run.
+- Avoid: do not fine-tune the measuring tool jointly with the language model, as MLRS's GRTO does; EvidEO instruments should stay fixed and auditable so receipts can be re-run.

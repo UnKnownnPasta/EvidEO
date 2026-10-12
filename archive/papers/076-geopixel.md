@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [vlm, pixel-grounding, segmentation, grounded-conversation, high-resolution, sam2, internlm, optical-rgb]
 verified: "2026-10-05 via https://arxiv.org/abs/2501.13925, https://arxiv.org/html/2501.13925 and https://github.com/mbzuai-oryx/GeoPixel (README states ICML 2025 acceptance)"
-takeaway: "First RS chat model that emits masks inside its answer; useful pattern for linking each claim to a region, but masks are about 52 mIoU so SatClip's region mask must still come from instruments"
+takeaway: "First RS chat model that emits masks inside its answer; useful pattern for linking each claim to a region, but masks are about 52 mIoU so EvidEO's region mask must still come from instruments"
 ---
 
 # GeoPixel: Pixel Grounding Large Multimodal Model in Remote Sensing
@@ -33,8 +33,8 @@ From the paper's tables:
 ## Limitations
 The authors report wrong mask association, confusion between instance and semantic (group) masks, repeated descriptions of similar objects, and fragmented or overlapping masks in crowded scenes. It is RGB optical only (iSAID imagery), 7B parameters, GPU-bound, and its grounding data comes from one source dataset of mostly urban, high-resolution scenes. No confidence or abstention mechanism is described.
 
-## What it means for SatClip
-- Adopt the output pattern, not the model: GeoPixel shows that linking each phrase of an explanation to a specific mask is what users of RS assistants now expect. SatClip can do the same cheaply by having the VLM cite region IDs that point to masks already produced by SAR thresholding or NDVI differencing.
+## What it means for EvidEO
+- Adopt the output pattern, not the model: GeoPixel shows that linking each phrase of an explanation to a specific mask is what users of RS assistants now expect. EvidEO can do the same cheaply by having the VLM cite region IDs that point to masks already produced by SAR thresholding or NDVI differencing.
 - Avoid using a VLM-generated mask as the evidence region. A best-in-class overall mIoU near 52 and mask recall under 40% on its own benchmark is far too loose for a district flood area figure.
-- It is optical only and built on 0.5 m class urban imagery; it says nothing about 10 m Sentinel-1 under monsoon cloud, which is SatClip's core case.
-- Comparison point for the pitch: GeoPixel grounds words in pixels but does not measure anything, attach scene IDs or dates, or abstain. SatClip's evidence card grounds numbers in instruments, which is a different and more auditable kind of grounding.
+- It is optical only and built on 0.5 m class urban imagery; it says nothing about 10 m Sentinel-1 under monsoon cloud, which is EvidEO's core case.
+- Comparison point for the pitch: GeoPixel grounds words in pixels but does not measure anything, attach scene IDs or dates, or abstain. EvidEO's evidence card grounds numbers in instruments, which is a different and more auditable kind of grounding.

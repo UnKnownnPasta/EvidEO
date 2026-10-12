@@ -5,9 +5,9 @@ RSVQA-LR: Sentinel-2 RGB tiles of the Netherlands, 256 x 256 px at 10 m, questio
   LR_split_{train,val,test}_{images,questions,answers}.json   (only entries with "active": true are used)
   Images_LR.zip -> Images_LR/{img_id}.tif
 
-Why SatClip trains on it at all: the language layer has to *explain* an evidence card in plain words
+Why EvidEO trains on it at all: the language layer has to *explain* an evidence card in plain words
 and answer simple "is there water / is it urban" follow-ups about the shown image. Counting questions
-are kept for evaluation only and are mapped to a refusal in training, because SatClip refuses counts
+are kept for evaluation only and are mapped to a refusal in training, because EvidEO refuses counts
 by design (SOLUTION.md non-goals): the model learns to say it cannot count from 10 m imagery.
 
     python training/lora/build_rsvqa.py --download            # fetch the ~110 MB LR release into training/.cache

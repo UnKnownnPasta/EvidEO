@@ -10,7 +10,7 @@ category: indian-context
 era: recent
 tags: [india, tamil-nadu, cauvery-delta, paddy, crop-type, phenology, yield, sentinel-1, sentinel-2, landsat-8, smallholder, ground-survey, dataset]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, abstract, WACV comment), curl to https://api.crossref.org (WACV DOI and pages) and curl to https://arxiv.org/html/2312.00069v1 (challenges section, project URL); WebFetch permission request timed out; per-task benchmark numbers sit in a table that did not extract cleanly and are not quoted"
-takeaway: "A ground-surveyed Indian smallholder paddy dataset (388 plots, 4 Cauvery Delta districts, Sentinel-1, Sentinel-2 and Landsat-8, 2018 to 2021) with sowing, transplanting and harvest dates; SatClip can use it as a held-out Indian set to calibrate and test crop-change answers, treating labels as noisy as the authors advise"
+takeaway: "A ground-surveyed Indian smallholder paddy dataset (388 plots, 4 Cauvery Delta districts, Sentinel-1, Sentinel-2 and Landsat-8, 2018 to 2021) with sowing, transplanting and harvest dates; EvidEO can use it as a held-out Indian set to calibrate and test crop-change answers, treating labels as noisy as the authors advise"
 ---
 
 # Sani et al. 2024, SICKLE (Cauvery Delta, Tamil Nadu)
@@ -39,7 +39,7 @@ Labelled crop datasets are plentiful in Europe and scarce in South Asia. Indian 
 - One agro-climatic region (delta paddy); not representative of rainfed or northern Indian cropping.
 - Not a flood dataset.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: use SICKLE as a held-out Indian test set for crop-change answers (paddy present or absent, transplanting shift) on Sentinel-1 and Sentinel-2, and to fit the calibration map for crop confidence on Indian smallholder conditions.
-- Adopt: its plot-size statistics justify SatClip reporting plot-level answers only above a minimum area and abstaining below it.
+- Adopt: its plot-size statistics justify EvidEO reporting plot-level answers only above a minimum area and abstaining below it.
 - Avoid: do not treat its labels as exact truth when measuring calibration; report results with that caveat.

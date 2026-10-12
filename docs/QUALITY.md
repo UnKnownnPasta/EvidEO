@@ -1,4 +1,4 @@
-# SatClip quality report (M6)
+# EvidEO quality report (M6)
 
 Run 8, 2026-10-08. Everything here was measured in this run in the cloud sandbox (2 vCPU Intel Xeon 2.1 GHz, no GPU) against the live public catalogues, unless a line says otherwise. Raw outputs are committed next to this file.
 
@@ -8,7 +8,7 @@ Run 8, 2026-10-08. Everything here was measured in this run in the cloud sandbox
 | Scripted demo, six questions | `docs/demo/TRANSCRIPT.md`, `docs/demo/cards.json` | `python ../tools/demo.py` (full districts) or `--quick` (small boxes) |
 | Receipt reproducibility | `docs/quality/reproducibility.json` | `python ../tools/reproduce.py` |
 | Load and scaling test | `docs/quality/loadtest.json` | `python ../tools/loadtest.py` |
-| Live smoke test of the catalogues | console | `python -m satclip.data.smoke` |
+| Live smoke test of the catalogues | console | `python -m evideo.data.smoke` |
 | Keyboard walkthrough and screenshots | `docs/screenshots/` | `python ../tools/ui_keyboard_check.py`, `python ../tools/screenshots.py` |
 
 ## 1. Summary
@@ -31,7 +31,7 @@ These are the acceptance cases. The first six are the scripted demo (`tools/demo
 | 4 | How much of Aurangabad was under water on 2024-08-10? | Two districts share the name: ask which one, measure nothing | "Needs one detail", two one-tap choices (Bihar, Maharashtra), 0 tiles |
 | 5 | Count the boats in Ernakulam | Outside the supported question types: refuse and suggest a supported one | Refused (`out_of_scope`), 0 tiles |
 | 6 | Barpeta में 11 जुलाई 2024 को कितना इलाका पानी में डूबा था? | Hindi wording and Hindi month name parsed; same card as question 1 | Same answer as question 1 (cache hit, 0.5 s) |
-| 7 | बारपेटा में 11 जुलाई 2024 को कितना पानी था? (district in Devanagari) | Known gap: the gazetteer has only Latin-script names, so SatClip asks for the area instead of guessing | `missing_area` (asks for the place); fix planned: Devanagari aliases in the gazetteer |
+| 7 | बारपेटा में 11 जुलाई 2024 को कितना पानी था? (district in Devanagari) | Known gap: the gazetteer has only Latin-script names, so EvidEO asks for the area instead of guessing | `missing_area` (asks for the place); fix planned: Devanagari aliases in the gazetteer |
 | 8 | How much was under water? | No area and no date: ask for the missing details, measure nothing | `missing_area`, then `missing_dates` |
 | 9 | Did the crop decline in Darbhanga? | A change question needs two dates | `need_two_dates` |
 | 10 | Describe the land in Ernakulam on 2024-02-15 | Index-based description with shares; labelled as indicative | Covered by `test_instruments.py` and run 5 screenshots |
@@ -72,7 +72,7 @@ The target in SOLUTION.md section 10 was 10 sampled receipts; the demo produces 
 
 ## 6. Load and scaling
 
-`tools/loadtest.py` runs the real VV+VH water core (`classify_sar_water`) on a synthetic 280 x 280 pixel tile per job tile (0.05 degrees at 20 m), so the numbers measure SatClip's own compute and queue overhead without network noise. A sleep per tile stands in for COG reads. Jobs have 144 tiles (about the size of Barpeta). Redis runs as a real `redis-server` with separate worker processes, as in docker-compose.
+`tools/loadtest.py` runs the real VV+VH water core (`classify_sar_water`) on a synthetic 280 x 280 pixel tile per job tile (0.05 degrees at 20 m), so the numbers measure EvidEO's own compute and queue overhead without network noise. A sleep per tile stands in for COG reads. Jobs have 144 tiles (about the size of Barpeta). Redis runs as a real `redis-server` with separate worker processes, as in docker-compose.
 
 | Scenario | Read latency per tile | 1 | 2 | 4 | 8 |
 |---|---|---|---|---|---|

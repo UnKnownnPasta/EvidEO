@@ -30,8 +30,8 @@ Temperature scaling, the simplest method with a single parameter, was found to b
 ## Limitations
 Calibration is only guaranteed in-distribution: a temperature fitted on one data distribution can drift under domain shift. A single global T cannot fix class-dependent or input-dependent miscalibration. ECE depends on binning choices and can hide errors in sparse confidence regions. The work covers classification, not regression or segmentation.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt temperature scaling (or Platt scaling for binary instrument outputs such as "flooded or not") as the default calibrator for every score that feeds the evidence card's confidence, including RemoteCLIP similarities and any learned segmenter.
 - Fit the temperature on a held-out Indian validation set, separately per instrument and ideally per season (monsoon versus dry), since a single global value will not survive the Europe-to-India and dry-to-wet shifts.
 - Publish ECE and a reliability diagram per instrument in the evaluation report; a "calibrated confidence" claim without them is not credible to judges.
-- Note that SAR thresholding and spectral indices produce no probability at all: SatClip needs a mapping (for example logistic regression on margin-from-threshold plus scene quality features) before this method applies.
+- Note that SAR thresholding and spectral indices produce no probability at all: EvidEO needs a mapping (for example logistic regression on margin-from-threshold plus scene quality features) before this method applies.

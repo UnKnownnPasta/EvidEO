@@ -10,7 +10,7 @@ category: object-detection
 era: historical
 tags: [dataset, aerial-imagery, oriented-bounding-box, benchmark, very-high-resolution, small-objects]
 verified: "2026-10-04 via https://arxiv.org/abs/1711.10398, https://ar5iv.labs.arxiv.org/html/1711.10398 and https://captain-whu.github.io/DOTA/"
-takeaway: "The standard oriented-box benchmark for aerial object detection (15 classes, very high resolution); useful context but its objects are mostly below Sentinel-2's 10 m pixel, so SatClip should not promise object counts"
+takeaway: "The standard oriented-box benchmark for aerial object detection (15 classes, very high resolution); useful context but its objects are mostly below Sentinel-2's 10 m pixel, so EvidEO should not promise object counts"
 ---
 
 # DOTA: A Large-scale Dataset for Object Detection in Aerial Images
@@ -35,8 +35,8 @@ A large dataset of aerial images from several sensors and platforms (including G
 - Mostly urban and infrastructure classes; nothing on water, crops or land cover.
 - Images are chips without consistent georeferencing for most sources, so results do not transfer directly to map products.
 
-## What it means for SatClip
-- Avoid object-count questions ("how many boats", "how many vehicles") at Sentinel-2 10 m resolution: most DOTA classes are smaller than a pixel there. SatClip should abstain and say why.
-- Use DOTA's category list as a guide for what users might ask and what to explicitly scope out in the "what SatClip cannot do" text.
+## What it means for EvidEO
+- Avoid object-count questions ("how many boats", "how many vehicles") at Sentinel-2 10 m resolution: most DOTA classes are smaller than a pixel there. EvidEO should abstain and say why.
+- Use DOTA's category list as a guide for what users might ask and what to explicitly scope out in the "what EvidEO cannot do" text.
 - If a future version adds high-resolution sources, oriented boxes (not horizontal) are the right output for ships and harbours, and DOTA is the benchmark to report on.
 - Borrow the annotation lesson: expert-checked polygons and stated class definitions make a benchmark trustworthy, which we should copy for our Indian flood validation masks.

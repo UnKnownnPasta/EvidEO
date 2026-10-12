@@ -20,7 +20,7 @@ def build_receipt(parsed: dict, results: list[dict], card: dict) -> dict:
         key=lambda r: r["tile_id"],
     )
     output = {k: card.get(k) for k in ("value", "unit", "confidence", "abstained")}
-    body = {"schema": "satclip.receipt/1", "parsed_query": parsed, "tiles": tiles,
+    body = {"schema": "evideo.receipt/1", "parsed_query": parsed, "tiles": tiles,
             "output": output, "output_hash": digest({"tiles": tiles, "output": output})}
     body["receipt_id"] = digest(body)[:16]
     return body

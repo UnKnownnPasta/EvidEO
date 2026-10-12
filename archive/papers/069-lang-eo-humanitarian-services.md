@@ -10,7 +10,7 @@ category: human-factors
 era: historical
 tags: [humanitarian, disaster-response, eo-uptake, user-needs, ngo, msf, information-service, operational]
 verified: "2026-10-04 via https://api.crossref.org/works/10.1080/22797254.2019.1684208 and https://api.semanticscholar.org (abstract); publisher page returned 403"
-takeaway: "Field report on delivering EO information to MSF and other NGOs, stressing that trust, reliability and workflow fit, not algorithms, limit uptake; SatClip should design around delivery and trust for non-expert responders"
+takeaway: "Field report on delivering EO information to MSF and other NGOs, stressing that trust, reliability and workflow fit, not algorithms, limit uptake; EvidEO should design around delivery and trust for non-expert responders"
 ---
 
 # Earth observation tools and services to increase the effectiveness of humanitarian assistance
@@ -34,8 +34,8 @@ Case studies and service workflows rather than a controlled benchmark. We could 
 - Focus on very high resolution optical imagery (dwelling counts), more detailed than Sentinel-1/2 at 10 m.
 - Full text not read by us; claims beyond the abstract should be checked before citing.
 
-## What it means for SatClip
-- Treat uptake as the primary risk: district officials, like NGO staff, will judge SatClip on whether its outputs are trustworthy and arrive in a usable form, not on model novelty.
+## What it means for EvidEO
+- Treat uptake as the primary risk: district officials, like NGO staff, will judge EvidEO on whether its outputs are trustworthy and arrive in a usable form, not on model novelty.
 - Deliver in the formats responders already use: a one-page evidence card that can be printed or forwarded on WhatsApp, plus a GeoJSON or KML of the mask for anyone with GIS support.
 - Be explicit about service reliability: show data latency (scene date versus today) prominently, since stale data is a key reason responders distrust EO products.
 - Scope to what 10 m Sentinel data can support (flood extent, crop and vegetation change), and abstain on questions needing building-level detail.

@@ -40,7 +40,7 @@ From the abstract:
 - RGB only; no use of multispectral bands.
 - Contrastive scores are not calibrated probabilities.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Keep RemoteCLIP as the CPU retrieval and zero-shot backbone (ViT-B/32 is feasible on CPU); it is the baseline every other component must beat.
 - Run a small zero-shot evaluation on Indian Sentinel-2 RGB composites before trusting its prompts, since its training resolution differs.
 - Copy the B2C/M2B idea to turn Indian labelled data (for example land-cover or flood masks) into captions for our own fine-tune.

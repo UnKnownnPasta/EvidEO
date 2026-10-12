@@ -30,8 +30,8 @@ From the ar5iv version of the paper: Early Fusion generally beat Siamese. With 1
 ## Limitations
 Only 24 pairs, so deep models overfit and results vary a lot between sites. Change class is heavily outnumbered by no-change pixels. At 10 m, small buildings are hard to see, and the authors note annotators disagreed on change boundaries. Labels cover urban change only (no flood, burn, crop or forest change). Sentinel-2 archive only starts in mid-2015.
 
-## What it means for SatClip
-- Use OSCD as the calibration and sanity-check set for SatClip's optical change instruments (NDBI/NDVI differencing and CVA magnitude): fit thresholds and the confidence calibration curve on the 14 train pairs, report on the 10 test pairs.
+## What it means for EvidEO
+- Use OSCD as the calibration and sanity-check set for EvidEO's optical change instruments (NDBI/NDVI differencing and CVA magnitude): fit thresholds and the confidence calibration curve on the 14 train pairs, report on the 10 test pairs.
 - Its India-relevant lesson: 10 m change maps miss single small houses, so the evidence card should state a minimum detectable change size (for example several contiguous 10 m pixels) and abstain on questions about individual buildings.
 - The band study supports keeping SWIR bands (B11, B12) in the built-up instrument rather than RGB alone.
 - Do not train a CNN on OSCD alone and present its output as a measurement; the dataset is too small to support a calibrated claim.

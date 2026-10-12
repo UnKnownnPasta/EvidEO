@@ -10,7 +10,7 @@ category: human-factors
 era: recent
 tags: [confidence-display, trust-calibration, explanations, shap, user-study, decision-support, human-ai-teams]
 verified: "2026-10-04 via https://arxiv.org/abs/2001.02114 and https://ar5iv.labs.arxiv.org/html/2001.02114"
-takeaway: "Showing a confidence score helped people rely on AI more when it was confident, but did not raise joint accuracy, and SHAP explanations did not help calibration; SatClip should show calibrated confidence and treat it as a reliance aid, not an accuracy fix"
+takeaway: "Showing a confidence score helped people rely on AI more when it was confident, but did not raise joint accuracy, and SHAP explanations did not help calibration; EvidEO should show calibrated confidence and treat it as a reliance aid, not an accuracy fix"
 ---
 
 # Effect of Confidence and Explanation on Accuracy and Trust Calibration in AI-Assisted Decision Making
@@ -37,9 +37,9 @@ Two online experiments on an income prediction task. Experiment 1 used a factori
 - Relies on the model's probabilities being well calibrated; the authors note some models need post-hoc calibration first.
 - Tabular, binary task; small Experiment 2 sample.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Show calibrated confidence on every evidence card, and actually calibrate it (temperature scaling or isotonic on held-out Indian scenes); an uncalibrated score would mislead exactly the reliance behaviour this study measured.
 - Do not expect confidence alone to make officials more accurate; pair it with the abstention threshold so low-confidence answers are withheld rather than merely labelled.
-- Surface what users know that SatClip does not: invite local knowledge (for example "was this field already fallow?") so human complementarity can correct instrument errors.
+- Surface what users know that EvidEO does not: invite local knowledge (for example "was this field already fallow?") so human complementarity can correct instrument errors.
 - Skip feature-attribution heatmaps for the CLIP instrument as a trust tool; prefer showing the mask overlay, scene and date, which are verifiable.
 - In our usability study, log switching behaviour by confidence bin, as this paper did, to check that trust tracks our confidence.

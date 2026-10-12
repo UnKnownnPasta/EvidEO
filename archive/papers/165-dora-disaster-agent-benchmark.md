@@ -10,7 +10,7 @@ category: eo-agents
 era: upcoming
 tags: [disaster-response, benchmark, tool-agents, mcp, sar, multi-temporal, argument-grounding, long-horizon, dora]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query?id_list=2605.11633 (title, authors, date, comment, abstract); numbers from the abstract only"
-takeaway: "The first end-to-end disaster-operations agent benchmark finds frontier LLMs fail on sensor-modality mismatch and long tool chains, and that tool-order hints barely help; this backs SatClip's fixed, sensor-aware recipes over open-ended planning for flood questions"
+takeaway: "The first end-to-end disaster-operations agent benchmark finds frontier LLMs fail on sensor-modality mismatch and long tool chains, and that tool-order hints barely help; this backs EvidEO's fixed, sensor-aware recipes over open-ended planning for flood questions"
 ---
 
 # Wang et al. 2026, DORA (disaster operations agent benchmark)
@@ -35,10 +35,10 @@ Disaster response needs more than damage maps: responders combine sensors, roads
 ## Limitations
 - A benchmark, not a deployable system; it scores task success, not calibration or abstention (as far as the abstract states).
 - Disaster events and regions are not listed in the abstract; Indian monsoon floods may or may not be included.
-- Very high resolution imagery dominates some tasks that SatClip scopes out.
+- Very high resolution imagery dominates some tasks that EvidEO scopes out.
 
-## What it means for SatClip
-- **Cite as evidence** that even frontier models choose the wrong sensor for disaster questions; SatClip makes the optical versus SAR choice in code from cloud cover, never in the language model.
-- The finding that longer chains fail far more supports SatClip's one-question, one-recipe design (with GeoLLM-Engine, entry 024).
-- **Adopt** its replayable gold-trajectory idea for SatClip's own evaluation: each benchmark question stores the expected instrument call, which the receipt can be compared against exactly.
-- Possible external test: run SatClip's flood subset against DORA's SAR flood tasks once the data are public, reporting abstentions separately.
+## What it means for EvidEO
+- **Cite as evidence** that even frontier models choose the wrong sensor for disaster questions; EvidEO makes the optical versus SAR choice in code from cloud cover, never in the language model.
+- The finding that longer chains fail far more supports EvidEO's one-question, one-recipe design (with GeoLLM-Engine, entry 024).
+- **Adopt** its replayable gold-trajectory idea for EvidEO's own evaluation: each benchmark question stores the expected instrument call, which the receipt can be compared against exactly.
+- Possible external test: run EvidEO's flood subset against DORA's SAR flood tasks once the data are public, reporting abstentions separately.

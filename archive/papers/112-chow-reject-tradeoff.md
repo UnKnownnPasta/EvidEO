@@ -10,7 +10,7 @@ category: historical
 era: historical
 tags: [reject-option, abstention, bayes-decision, selective-prediction, error-reject-curve]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1109/TIT.1970.1054406 (title, venue, volume, issue, pages, year; Crossref lists author as C. Chow, full name C. K. Chow from common citation); content summarized from standard knowledge of the paper, full text not fetched"
-takeaway: "The theoretical root of SatClip's abstention: reject when the best posterior falls below a threshold, and choose that threshold from the error-reject curve rather than by feel"
+takeaway: "The theoretical root of EvidEO's abstention: reject when the best posterior falls below a threshold, and choose that threshold from the error-reject curve rather than by feel"
 ---
 
 # Chow 1970, error-reject tradeoff
@@ -34,7 +34,7 @@ Theoretical analysis; no empirical benchmark.
 - Optimality depends on calibrated posteriors; with miscalibrated scores (common in modern deep models) the rule degrades, hence later calibration work (Guo) and selective classification (Geifman), both already in this archive.
 - Assumes known costs and i.i.d. inputs; no handling of distribution shift.
 
-## What it means for SatClip
-- SatClip's "not enough evidence" output is a Chow reject option at the card level: calibrate confidence first, then abstain below a threshold.
+## What it means for EvidEO
+- EvidEO's "not enough evidence" output is a Chow reject option at the card level: calibrate confidence first, then abstain below a threshold.
 - Pick the threshold from an empirical error-reject (risk-coverage) curve on labelled Indian flood events (for example Sen1Floods11 and NRSC atlas cases), and publish the chosen coverage and expected error.
 - Treat the threshold as a cost decision: a district official may prefer more abstentions to a wrong flooded-area number, so expose the operating point in documentation.

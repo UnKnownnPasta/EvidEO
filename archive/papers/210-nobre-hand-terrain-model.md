@@ -10,7 +10,7 @@ category: sar-optical-fusion
 era: historical
 tags: [hand, height-above-nearest-drainage, terrain-mask, dem, flood-prone-areas, exclusion-mask, amazonia, false-water]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, pages, DOI) and api.semanticscholar.org (authors, year; abstract elided by publisher); WebFetch of experts.arizona.edu record (abstract content); WebFetch of the GFM Product Definition wiki at extwiki.eodc.eu (how GFM applies a HAND threshold). Full text not read (publisher page blocked); DEM name, class thresholds and correlation coefficients not confirmed"
-takeaway: "HAND (height of each pixel above its nearest drainage channel) is the standard terrain prior for SAR flood maps; operational systems such as Copernicus GFM mask pixels with HAND of 10 m or more, which SatClip should copy to kill terrain-shadow and hillside false water"
+takeaway: "HAND (height of each pixel above its nearest drainage channel) is the standard terrain prior for SAR flood maps; operational systems such as Copernicus GFM mask pixels with HAND of 10 m or more, which EvidEO should copy to kill terrain-shadow and hillside false water"
 ---
 
 # Nobre et al. 2011, HAND terrain model
@@ -37,7 +37,7 @@ Raw elevation is a poor guide to where water collects: a pixel at 300 m can be a
 - Quality depends on the DEM and on drainage-network extraction (stream initiation threshold); in flat deltas and paddy landscapes, small DEM errors give misleading HAND.
 - Full text was not read; class thresholds and validation statistics are not reproduced here.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt in sar_water_otsu: add a HAND mask from a hydrologically conditioned source (MERIT Hydro HAND or a HAND layer derived from a conditioned DEM), and set water to "not assessable" where HAND is 10 m or more, matching GFM. Shrink the mask by one pixel as GFM does.
 - Adopt: also compute the Otsu histogram only over low-HAND pixels, so hillslope shadows do not drag the threshold.
 - Avoid: do not compute HAND directly from the Copernicus DEM on the Planetary Computer without hydrological conditioning; GFM explicitly avoids this.

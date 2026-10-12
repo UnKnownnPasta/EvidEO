@@ -10,7 +10,7 @@ category: indian-context
 era: recent
 tags: [india, crop-insurance, pmfby, yield-estimation, sentinel-1, eos-04, crop-mask, mncfc, policy]
 verified: "2026-10-06 via https://apsac.ap.gov.in/wp-content/uploads/2023/01/Document2.pdf (manual text read; hosted by Andhra Pradesh Space Applications Centre) and https://pmfby.gov.in/pdf/EoI_for_empanelment_of_WIP_under_YE_TECH_181023.pdf (MNCFC EoI, Sept 2023, which cites the manual); a copy on pmfby.gov.in itself was not located"
-takeaway: "YES-TECH makes satellite crop masks and modelled yields legally count for 30 percent of insurance loss assessment, and it lists Sentinel-1 and EOS-04 backscatter as inputs, so SatClip's agriculture answers should be framed at insurance unit level with explicit validation"
+takeaway: "YES-TECH makes satellite crop masks and modelled yields legally count for 30 percent of insurance loss assessment, and it lists Sentinel-1 and EOS-04 backscatter as inputs, so EvidEO's agriculture answers should be framed at insurance unit level with explicit validation"
 ---
 
 # PMFBY YES-TECH manual
@@ -32,7 +32,7 @@ Input tables list Sentinel-1 SAR (20 m) for crop masks and sowing dates, Sentine
 ## Limitations
 The manual is procedural: it sets inputs, roles and weights, but reports no accuracy numbers for the five approaches. It currently covers paddy and wheat only, and technology outputs are explicitly not used to change long-run average or threshold yields.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the Insurance Unit (often Gram Panchayat) as a supported spatial unit for agriculture questions, alongside districts.
-- SatClip's Sentinel-1 crop and flood masks are exactly the kind of input YES-TECH names; an evidence card that reports the mask, scene dates and a validation score against CCE data speaks the agriculture officer's language.
-- Avoid presenting a yield number: SatClip should stay with measurable quantities (sown or flooded area, NDVI change) and abstain on yield unless a validated model is plugged in.
+- EvidEO's Sentinel-1 crop and flood masks are exactly the kind of input YES-TECH names; an evidence card that reports the mask, scene dates and a validation score against CCE data speaks the agriculture officer's language.
+- Avoid presenting a yield number: EvidEO should stay with measurable quantities (sown or flooded area, NDVI change) and abstain on yield unless a validated model is plugged in.

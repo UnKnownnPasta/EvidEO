@@ -39,9 +39,9 @@ Per-dataset numbers were not checked on the fetched page.
 - RGB only, no SAR.
 - Gains are reported as ranges; per-task variance matters when picking a backbone.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Benchmark GeoRSCLIP head to head with RemoteCLIP on the same Indian Sentinel-2 test set and pick the winner as the CPU backbone, rather than assuming either.
 - The PEFT results support our plan to adapt with LoRA instead of full fine-tuning.
 - Use the semantic localisation task as a cheap route to coarse region masks from text queries.
 - Treat RS5M as a candidate pretraining pool, but audit licence and caption quality before use.
-- Avoid relying on auto-captions for evaluation data; keep SatClip's test set human-written.
+- Avoid relying on auto-captions for evaluation data; keep EvidEO's test set human-written.

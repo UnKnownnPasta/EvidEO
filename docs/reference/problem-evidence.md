@@ -1,6 +1,6 @@
 # Problem evidence brief: who needs answers from satellite imagery, and why they struggle today
 
-Prepared for SatClip (SIH26167). All sources were fetched and checked on 2026-10-04 unless marked otherwise. Each claim is paraphrased; short quoted fragments are under 15 words. Items marked **[UNVERIFIED]** or **[GAP]** are honest notes on what we could not confirm.
+Prepared for EvidEO (SIH26167). All sources were fetched and checked on 2026-10-04 unless marked otherwise. Each claim is paraphrased; short quoted fragments are under 15 words. Items marked **[UNVERIFIED]** or **[GAP]** are honest notes on what we could not confirm.
 
 Legend: (accessed 2026-10-04) applies to every link below.
 

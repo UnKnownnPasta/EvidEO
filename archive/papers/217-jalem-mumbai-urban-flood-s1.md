@@ -41,7 +41,7 @@ Mumbai floods almost every monsoon, but earlier studies looked at single events 
 - Intensity thresholding in a dense city will miss water between buildings (entries 214, 215); the VV vs VH gap (152 vs 67 km2 in 2024) shows how sensitive the totals are to polarisation.
 - Static built-up layers, 30 m DEM, coarse rainfall.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt in sar_water_otsu: run a bimodality check (dip test or Ashman's D) on each tile before trusting Otsu, and fall back to "cannot tell" or a neighbouring tile threshold when the histogram is unimodal; this is cheap and directly addresses Otsu failure on mostly dry tiles.
 - Adopt: the BMC flood-spot points are a candidate Indian urban check set; request them and use them as point labels.
 - Avoid: do not quote city flood area from a single polarisation without showing both; report VV and VH or their agreement.

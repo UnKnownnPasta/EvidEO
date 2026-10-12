@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [lora, parameter-efficient-fine-tuning, peft, low-rank, adapters, transformers, gpt-3]
 verified: "2026-10-04 via https://arxiv.org/abs/2106.09685 and https://iclr.cc/virtual/2022/poster/6319"
-takeaway: "The adapter method behind SatClip's VLM fine-tuning pipeline; merge adapters for zero-latency CPU inference and keep the base weights frozen and versioned"
+takeaway: "The adapter method behind EvidEO's VLM fine-tuning pipeline; merge adapters for zero-latency CPU inference and keep the base weights frozen and versioned"
 ---
 
 # LoRA: Low-Rank Adaptation of Large Language Models
@@ -33,7 +33,7 @@ Per the abstract, for GPT-3 175B LoRA cuts trainable parameters by about 10,000 
 - Batching inputs for different tasks with different adapters in one forward pass is not straightforward if adapters are merged.
 - Still needs a GPU to train models of meaningful size.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Use LoRA (via PEFT) as the default in our GPU fine-tuning pipeline: train only the question parsing and explanation behaviour of the VLM, never the instruments.
 - Merge the adapter into the base weights before export so CPU users get no extra latency; ship the unmerged adapter too, so others can audit or retrain it.
 - Record base model ID, revision, adapter hash, rank and target modules in the model card and in each evidence card's provenance field.

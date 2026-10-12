@@ -10,7 +10,7 @@ category: change-detection
 era: historical
 tags: [siamese, fully-convolutional, u-net, oscd, sentinel-2, air-change, baseline]
 verified: "2026-10-07 via arXiv export API for 1810.08462 (title, authors, ICIP 2018 comment), Crossref 10.1109/ICIP.2018.8451652 (venue, pages 4063-4067), and the arXiv PDF for Table 1 numbers"
-takeaway: "The standard small learned baseline for Sentinel-2 change (FC-EF, FC-Siam-conc, FC-Siam-diff); its modest OSCD F1 near 58 percent shows learned 10 m change maps are far from reliable enough to be SatClip's reported number"
+takeaway: "The standard small learned baseline for Sentinel-2 change (FC-EF, FC-Siam-conc, FC-Siam-diff); its modest OSCD F1 near 58 percent shows learned 10 m change maps are far from reliable enough to be EvidEO's reported number"
 ---
 
 # Daudt, Le Saux and Boulch 2018, FC-Siamese change detection
@@ -39,7 +39,7 @@ Earlier deep change detectors classified patches one at a time, which was slow a
 - Precision on change stays below about 65 percent on OSCD; outputs are hard labels with no calibration.
 - Urban change only; nothing on floods, crops or SAR (the authors list SAR as future work).
 
-## What it means for SatClip
-- These three architectures are the cheapest credible learned baseline to compare against SatClip's NDVI-difference and log-ratio instruments on Indian scenes.
-- An F1 under 60 percent on the main Sentinel-2 change benchmark is a concrete reason why SatClip reports measured index differences with thresholds, not a network's mask, as its headline number.
+## What it means for EvidEO
+- These three architectures are the cheapest credible learned baseline to compare against EvidEO's NDVI-difference and log-ratio instruments on Indian scenes.
+- An F1 under 60 percent on the main Sentinel-2 change benchmark is a concrete reason why EvidEO reports measured index differences with thresholds, not a network's mask, as its headline number.
 - If ever used, its softmax scores must be temperature-calibrated before contributing to any confidence shown to an official.

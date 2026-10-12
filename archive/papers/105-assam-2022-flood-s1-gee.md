@@ -10,7 +10,7 @@ category: indian-context
 era: recent
 tags: [india, assam, flood-2022, sentinel-1, google-earth-engine, mndwi, landsat, district-statistics, change-detection]
 verified: "2026-10-06 via https://api.crossref.org/works/10.3390/su151411413 (title, authors, volume, abstract) and https://pure.kfupm.edu.sa/en/publications/large-scale-flood-hazard-monitoring-and-impact-assessment-on-land/; mdpi.com full text was blocked, so thresholds, polarisation, scene dates and any accuracy assessment were not confirmed"
-takeaway: "A peer-reviewed Assam 2022 Sentinel-1 study reports a flooded area of about 33,900 km2 (43 percent of the state) with no stated uncertainty, which is exactly the kind of headline number SatClip should reproduce with scene IDs, a confidence and an abstention rule"
+takeaway: "A peer-reviewed Assam 2022 Sentinel-1 study reports a flooded area of about 33,900 km2 (43 percent of the state) with no stated uncertainty, which is exactly the kind of headline number EvidEO should reproduce with scene IDs, a confidence and an abstention rule"
 ---
 
 # Assam 2022 floods with Sentinel-1 on Earth Engine
@@ -31,7 +31,7 @@ Sentinel-1 GRD (pre and post event), Landsat 8 and 9, and Assam district boundar
 ## Limitations
 The abstract gives point estimates with no confidence interval or accuracy figure. Combining SAR inundation with optical indices in a cloudy monsoon month raises questions about which acquisition dates were actually usable. The very large flooded fraction is not checked here against NRSC's official event maps.
 
-## What it means for SatClip
-- Use this as a regression target: rerun SatClip's Kittler-Illingworth Sentinel-1 instrument on the same 2022 dates for the five named districts and compare, logging where the numbers diverge.
-- The study shows why the evidence card matters: a single statewide number without dates, polarisation or uncertainty cannot be audited, while SatClip's receipt can.
+## What it means for EvidEO
+- Use this as a regression target: rerun EvidEO's Kittler-Illingworth Sentinel-1 instrument on the same 2022 dates for the five named districts and compare, logging where the numbers diverge.
+- The study shows why the evidence card matters: a single statewide number without dates, polarisation or uncertainty cannot be audited, while EvidEO's receipt can.
 - Avoid mixing optical indices into flood-extent numbers during monsoon unless cloud masks pass; keep MNDWI as a secondary check that can trigger abstention.

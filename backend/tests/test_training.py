@@ -36,7 +36,7 @@ def test_resolve_uses_gazetteer_and_window_rules():
 
 def test_intent_builder_targets_are_consistent():
     import build_intent_data as B
-    districts = json.loads((ROOT / "backend/satclip/resources/districts.json").read_text())["districts"]
+    districts = json.loads((ROOT / "backend/evideo/resources/districts.json").read_text())["districts"]
     rng = random.Random(0)
     for _ in range(300):
         row = B.make(rng.choice(districts), rng, {"aurangabad"})

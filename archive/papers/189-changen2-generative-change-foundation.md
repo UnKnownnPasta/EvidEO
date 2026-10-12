@@ -36,7 +36,7 @@ Change detectors need many labelled image pairs, which are expensive and need ex
 - Synthetic change may not reflect real seasonal, illumination or speckle variation, which are the main sources of false change at 10 m.
 - Diffusion model training and generation is heavy for a small team.
 
-## What it means for SatClip
-- Avoid for the beachhead: SatClip's change instruments (SAR log-ratio, NDVI difference) are physically grounded and need no training data; Changen2 targets a different scale and task.
-- Adopt the idea later: synthetic "apply a known change to a real pre-image" pairs are a cheap way to stress-test SatClip's change confidence and abstention, for example by pasting simulated water into a Sentinel-1 pre-image and checking the log-ratio instrument finds it.
+## What it means for EvidEO
+- Avoid for the beachhead: EvidEO's change instruments (SAR log-ratio, NDVI difference) are physically grounded and need no training data; Changen2 targets a different scale and task.
+- Adopt the idea later: synthetic "apply a known change to a real pre-image" pairs are a cheap way to stress-test EvidEO's change confidence and abstention, for example by pasting simulated water into a Sentinel-1 pre-image and checking the log-ratio instrument finds it.
 - Compare with AnyChange (entry 144), the other zero-shot route, before investing in either.

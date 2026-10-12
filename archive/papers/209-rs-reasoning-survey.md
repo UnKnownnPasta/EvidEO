@@ -10,7 +10,7 @@ category: rs-vlm
 era: upcoming
 tags: [survey, rs-reasoning, agentic-reasoning, rl-reasoning, calibrated-uncertainty, provenance, evaluation-gaps, earth-ai, openearthagent, terraagent]
 verified: "2026-10-09 via WebFetch of https://www.preprints.org/manuscript/202608.1840 (title, authors, posting date, abstract, coverage of uncertainty, provenance, agents and benchmarks; the last 2.6k characters and Sections 7 and 8 were truncated) and curl to https://api.crossref.org/works/10.20944/preprints202608.1840.v1 (title, authors, posted date 2026-08-26, preprint type)"
-takeaway: "An August 2026 survey that defines RS reasoning as multi-step inference backed by traceable evidence and finds that calibration, abstention and validated operational use are still missing in RS VLMs and EO agents (it cites no work that evaluates them); a useful third-party statement of the gap SatClip fills"
+takeaway: "An August 2026 survey that defines RS reasoning as multi-step inference backed by traceable evidence and finds that calibration, abstention and validated operational use are still missing in RS VLMs and EO agents (it cites no work that evaluates them); a useful third-party statement of the gap EvidEO fills"
 ---
 
 # Pan et al. 2026, RS reasoning survey
@@ -39,8 +39,8 @@ Many recent RS VLM papers claim reasoning, but the term is loose and evaluation 
 - Floods appear only as a hypothetical scenario; India is not mentioned in the text read.
 - A survey: no new experiments, and its coverage judgments depend on the authors' selection.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: cite the survey as independent support that calibration, abstention and operational validation are open gaps in RS reasoning and EO agents as of August 2026.
-- Adopt: its evaluation agenda (process checks, robustness across regions and time) as a checklist for SatClip's evaluation write-up, especially cross-district and cross-season robustness in India.
-- Check: TerraAgent, GeoMMAgent, MAP-Agent, VRA, RemoteAgent and VagueEO are not in the archive; they should be screened for confidence or abstention features before SatClip's novelty claim is finalised.
-- Novelty: strengthens rather than weakens the claim. A broad 2026 survey finds no RS reasoning system that evaluates calibrated confidence or abstention, which supports SatClip's combination claim, with the caveat that surveys lag preprints and the truncated sections were not read.
+- Adopt: its evaluation agenda (process checks, robustness across regions and time) as a checklist for EvidEO's evaluation write-up, especially cross-district and cross-season robustness in India.
+- Check: TerraAgent, GeoMMAgent, MAP-Agent, VRA, RemoteAgent and VagueEO are not in the archive; they should be screened for confidence or abstention features before EvidEO's novelty claim is finalised.
+- Novelty: strengthens rather than weakens the claim. A broad 2026 survey finds no RS reasoning system that evaluates calibrated confidence or abstention, which supports EvidEO's combination claim, with the caveat that surveys lag preprints and the truncated sections were not read.

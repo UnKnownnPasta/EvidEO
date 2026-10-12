@@ -1,4 +1,4 @@
-"""Generate question -> intent JSON pairs for LoRA fine-tuning of SatClip's language layer.
+"""Generate question -> intent JSON pairs for LoRA fine-tuning of EvidEO's language layer.
 
 Every pair is built from the district gazetteer (735 districts) and hand-written templates in English,
 Hinglish (romanised Hindi) and Hindi, with Indian date styles (DD/MM/YYYY, "11 July 2024", "11 जुलाई 2024"),
@@ -157,7 +157,7 @@ def main() -> None:
     ap.add_argument("--seed", type=int, default=7)
     args = ap.parse_args()
     rng = random.Random(args.seed)
-    districts = json.loads((ROOT / "backend/satclip/resources/districts.json").read_text())["districts"]
+    districts = json.loads((ROOT / "backend/evideo/resources/districts.json").read_text())["districts"]
     names = [d["name"].lower() for d in districts]
     dupes = {n for n in names if names.count(n) > 1}
     by_split: dict[str, list[dict]] = {"train": [], "val": [], "test": []}

@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [change-vqa, grounding, cdqag, qag-360k, change-masks, visual-evidence, empty-mask, cdvqa, benchmark]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, abstract), https://arxiv.org/html/2410.23828 (dataset, method, Tables 2 and 3 text) and the GitHub README at raw.githubusercontent.com/like413/VisTA; WebFetch permission request timed out"
-takeaway: "First change-QA benchmark that pairs every textual answer with a pixel mask of where the change is (360K triplets, 8 question types) and requires an empty mask when nothing changed; closest public benchmark to SatClip's answer-plus-mask output, though optical only and without confidence"
+takeaway: "First change-QA benchmark that pairs every textual answer with a pixel mask of where the change is (360K triplets, 8 question types) and requires an empty mask when nothing changed; closest public benchmark to EvidEO's answer-plus-mask output, though optical only and without confidence"
 ---
 
 # Li et al. 2024, change detection question answering and grounding (QAG-360K, VisTA)
@@ -38,8 +38,8 @@ Change VQA (entry 178) gives text answers with no visual proof, so users cannot 
 - Answers and masks come from one learned model, so a wrong mask still looks authoritative; no confidence score or abstention beyond the empty-mask convention.
 - Labels are rule-generated from existing change datasets, inheriting their label noise and urban bias. Test set is not openly downloadable.
 
-## What it means for SatClip
-- Adopt: the output contract (answer plus supporting mask, empty mask when nothing changed) matches SatClip's evidence card; use the eight question types and the empty-mask rule as acceptance tests.
-- Adopt: report both text accuracy and mask IoU in SatClip's eval so that a right answer from the wrong pixels is caught.
-- Beat: SatClip's masks come from a calibrated instrument (SAR thresholding or a segmenter) with scene IDs and dates, and it abstains when confidence is low; VisTA always answers.
-- Novelty note: this is the strongest prior work for answer-plus-mask change QA, so SatClip should claim novelty on calibration, abstention, Sentinel provenance and plain-language delivery for officials, not on grounded change answers alone.
+## What it means for EvidEO
+- Adopt: the output contract (answer plus supporting mask, empty mask when nothing changed) matches EvidEO's evidence card; use the eight question types and the empty-mask rule as acceptance tests.
+- Adopt: report both text accuracy and mask IoU in EvidEO's eval so that a right answer from the wrong pixels is caught.
+- Beat: EvidEO's masks come from a calibrated instrument (SAR thresholding or a segmenter) with scene IDs and dates, and it abstains when confidence is low; VisTA always answers.
+- Novelty note: this is the strongest prior work for answer-plus-mask change QA, so EvidEO should claim novelty on calibration, abstention, Sentinel provenance and plain-language delivery for officials, not on grounded change answers alone.

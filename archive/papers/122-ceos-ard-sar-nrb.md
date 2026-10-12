@@ -10,7 +10,7 @@ category: data-infrastructure
 era: recent
 tags: [ceos-ard, card4l, analysis-ready-data, sar, gamma0, rtc, normalised-radar-backscatter, metadata, data-mask]
 verified: "2026-10-06 via https://ceos.org/ard/ (spec listing, v1.3.1 dated 11 July 2026) and the PFS PDF itself (NRB definition, Threshold/Goal structure, data mask, scattering area and local incidence angle layers, DEM requirements); exact numeric radiometric and geometric accuracy thresholds not extracted"
-takeaway: "CEOS-ARD NRB is the checklist for what a trustworthy gamma0 RTC input looks like (data mask with layover and shadow, local incidence angle, scattering area, DEM provenance), and SatClip should record which of these its RTC source supplies on every evidence card"
+takeaway: "CEOS-ARD NRB is the checklist for what a trustworthy gamma0 RTC input looks like (data mask with layover and shadow, local incidence angle, scattering area, DEM provenance), and EvidEO should record which of these its RTC source supplies on every evidence card"
 ---
 
 # CEOS-ARD SAR Product Family Specification (NRB)
@@ -35,8 +35,8 @@ The main output is a shared definition: an NRB product carries enough metadata (
 - Many fields are Goal, not Threshold, so two compliant products can still differ in what masks they ship.
 - The spec does not prescribe a speckle filter or water threshold; downstream algorithms remain the user's job.
 
-## What it means for SatClip
-- Use NRB as the quality checklist for SatClip's gamma0 RTC inputs. The Planetary Computer sentinel-1-rtc items seen on 2026-10-06 expose only vv and vh COG assets, so layover and shadow must come from nodata or be derived; note this gap in the evidence card instead of assuming it.
+## What it means for EvidEO
+- Use NRB as the quality checklist for EvidEO's gamma0 RTC inputs. The Planetary Computer sentinel-1-rtc items seen on 2026-10-06 expose only vv and vh COG assets, so layover and shadow must come from nodata or be derived; note this gap in the evidence card instead of assuming it.
 - Kittler-Illingworth water thresholding is badly fooled by radar shadow (dark like water). Mask shadow and layover before thresholding in hilly districts (Assam, Uttarakhand), and abstain when the masked fraction of the district is high.
 - Record in the receipt: RTC provider, DEM name, orbit type (precise vs restituted), polarisation and ENL if present. These are the NRB fields that most affect comparability between the pre-flood and flood dates used by log-ratio change.
 - Only compare dates from the same relative orbit and RTC source, which NRB's comparability goal assumes.

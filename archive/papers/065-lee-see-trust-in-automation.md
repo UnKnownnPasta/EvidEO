@@ -10,7 +10,7 @@ category: human-factors
 era: historical
 tags: [trust, reliance, calibration, automation, decision-support, review, display-design]
 verified: "2026-10-04 via https://journals.sagepub.com/doi/10.1518/hfes.46.1.50_30392"
-takeaway: "Foundational review arguing that trust should match automation capability (calibrated trust), not be maximised; SatClip should design the evidence card to expose when and why instruments are reliable"
+takeaway: "Foundational review arguing that trust should match automation capability (calibrated trust), not be maximised; EvidEO should design the evidence card to expose when and why instruments are reliable"
 ---
 
 # Trust in Automation: Designing for Appropriate Reliance
@@ -34,7 +34,7 @@ Not applicable: a conceptual review and model, not an experiment.
 - Offers design principles rather than tested, quantified interventions.
 - We read the abstract and metadata on the publisher page; specific section claims above reflect the paper's widely cited framework and should be checked against the full text before quoting.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Treat calibration and resolution as product goals: the evidence card should help an official tell a reliable answer (clear SAR water contrast, recent scene) from a weak one (wind-roughened water, old scene, heavy cloud), not just show one global confidence number.
 - Show process as well as performance: a one-line "how this was measured" (instrument name, threshold, scene date) on every card supports the process basis of trust.
 - Make trust specific to each instrument: separate confidence for flood extent versus land-cover labels, since users should not generalise trust from one to the other.

@@ -10,7 +10,7 @@ category: rs-benchmark
 era: upcoming
 tags: [eo-agents, tool-use, benchmark, numeric-tolerance, provenance, sentinel-2, era5, simulation, react]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract) and curl to https://arxiv.org/html/2606.13148 (introduction, framework, benchmark construction, failure analysis); WebFetch permission request timed out; per-track and per-model tables beyond those quoted were not checked"
-takeaway: "403-task Earth-science agent benchmark that scores numbers against tolerances and audits provenance; best model Claude Sonnet 4.6 gets 59.2 on tool use but only 22.9% of numeric answers within tolerance, so tool access alone does not give correct quantities and SatClip must validate tool arguments in code"
+takeaway: "403-task Earth-science agent benchmark that scores numbers against tolerances and audits provenance; best model Claude Sonnet 4.6 gets 59.2 on tool use but only 22.9% of numeric answers within tolerance, so tool access alone does not give correct quantities and EvidEO must validate tool arguments in code"
 ---
 
 # Nguyen et al. 2026, TerraBench
@@ -40,7 +40,7 @@ Earth-science questions mix satellite imagery, gridded reanalysis, GIS layers an
 - No calibration, confidence or abstention scoring.
 - Depends on Earth Engine and online services, unlike an offline deployment.
 
-## What it means for SatClip
-- Adopt: score SatClip's eval on numeric tolerance (flooded hectares within a stated band) and on provenance completeness, not just tool choice; TerraBench shows the two diverge sharply.
-- Adopt: wrong argument values are the top failure, so SatClip's parsed intent (district, date window, instrument) must pass a code-side validator against the scene catalog before any tool runs, rather than trusting the VLM's arguments.
-- Beat: TerraBench never asks whether the agent should have declined; SatClip's abstention on low instrument confidence is a dimension this benchmark does not measure.
+## What it means for EvidEO
+- Adopt: score EvidEO's eval on numeric tolerance (flooded hectares within a stated band) and on provenance completeness, not just tool choice; TerraBench shows the two diverge sharply.
+- Adopt: wrong argument values are the top failure, so EvidEO's parsed intent (district, date window, instrument) must pass a code-side validator against the scene catalog before any tool runs, rather than trusting the VLM's arguments.
+- Beat: TerraBench never asks whether the agent should have declined; EvidEO's abstention on low instrument confidence is a dimension this benchmark does not measure.

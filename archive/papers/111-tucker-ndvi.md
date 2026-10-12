@@ -10,7 +10,7 @@ category: historical
 era: historical
 tags: [ndvi, vegetation-index, red-nir, crop-monitoring, spectral-index]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1016/0034-4257(79)90013-0 (title, author, venue, volume, issue, pages, year); experimental details summarized from standard knowledge of the paper, full text not fetched"
-takeaway: "The foundation of SatClip's NDVI-difference instrument: red and NIR combinations track green biomass, so NDVI change between clear dates is a defensible crop-damage signal"
+takeaway: "The foundation of EvidEO's NDVI-difference instrument: red and NIR combinations track green biomass, so NDVI change between clear dates is a defensible crop-damage signal"
 ---
 
 # Tucker 1979, red and NIR vegetation indices
@@ -34,7 +34,7 @@ Ground-based hand-held radiometer measurements over grassland plots with matched
 - Sensitive to soil background, atmosphere, viewing geometry and, crucially, cloud and shadow.
 - Plot-scale radiometry, not satellite imagery; satellite-scale behavior came later.
 
-## What it means for SatClip
+## What it means for EvidEO
 - The NDVI difference instrument (Sentinel-2 B4, B8) rests on this result: compute pre-event minus post-event NDVI on co-masked clear pixels, never across cloud-contaminated pixels.
 - State on the evidence card the two scene dates and the phenology gap; a drop could be harvest rather than damage, so restrict comparisons to similar crop stages or flag the ambiguity.
 - Account for saturation: small NDVI drops in dense paddy can understate damage, so pair with SAR VH change when available.

@@ -10,7 +10,7 @@ category: historical
 era: historical
 tags: [thresholding, kittler-illingworth, minimum-error, gaussian-mixture, sar-water, flood-mapping]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1016/0031-3203(86)90030-0 (title, authors, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
-takeaway: "The core of SatClip's SAR water instrument: fit two Gaussians to the gamma0 dB histogram and pick the Bayes minimum error threshold, with the criterion value doubling as a quality check"
+takeaway: "The core of EvidEO's SAR water instrument: fit two Gaussians to the gamma0 dB histogram and pick the Bayes minimum error threshold, with the criterion value doubling as a quality check"
 ---
 
 # Kittler-Illingworth minimum error thresholding
@@ -36,7 +36,7 @@ Demonstrated on synthetic and real gray-level image histograms; no large benchma
 - The criterion can have multiple local minima or edge minima when a class is nearly absent, giving spurious thresholds.
 - Global per-histogram; spatial context and speckle are ignored.
 
-## What it means for SatClip
+## What it means for EvidEO
 - This is the SAR water instrument: apply it to Sentinel-1 VV (and optionally VH) gamma0 in dB, on tiles selected for bimodality (split-based selection, see entries 084 and 086), then pool.
 - Reject thresholds that hit the histogram edge or fall outside a plausible water band (for example roughly -25 to -15 dB for VV), and feed criterion value, fitted means and variances into the calibrated confidence.
 - Log the threshold, fitted parameters and tile IDs in the receipt so any answer is re-runnable.

@@ -35,7 +35,7 @@ Remote sensing detectors mostly improve how oriented boxes are represented and i
 - The lower FAIR1M score shows fine-grained categories remain hard even for the best backbone.
 - GPU-oriented results; CPU cost not reported in the abstract.
 
-## What it means for SatClip
-- **Cite for the context lesson**: even for SatClip's pixel instruments, decisions near ambiguous pixels (river edges, wet paddy) benefit from a wider window; this supports a neighbourhood or morphological clean-up step after Otsu thresholding, recorded in the receipt.
+## What it means for EvidEO
+- **Cite for the context lesson**: even for EvidEO's pixel instruments, decisions near ambiguous pixels (river edges, wet paddy) benefit from a wider window; this supports a neighbourhood or morphological clean-up step after Otsu thresholding, recorded in the receipt.
 - **Avoid** as a default model: the CPU budget and 10 m data make it a poor fit. Consider it only if a sub-metre imagery source is ever added for very local questions.
-- Use its FAIR1M figure in the scope argument: fine-grained object recognition is hard even at sub-metre scale, so SatClip keeps object questions out of scope at 10 m.
+- Use its FAIR1M figure in the scope argument: fine-grained object recognition is hard even at sub-metre scale, so EvidEO keeps object questions out of scope at 10 m.

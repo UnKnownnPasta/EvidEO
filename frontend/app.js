@@ -1,4 +1,4 @@
-// SatClip web UI (M4). Plain JavaScript, no build step, so it runs from any static server or offline.
+// EvidEO web UI (M4). Plain JavaScript, no build step, so it runs from any static server or offline.
 // Flow: ask -> show what was understood -> stream tile progress -> evidence card + map overlay.
 "use strict";
 const $ = (id) => document.getElementById(id);
@@ -8,7 +8,7 @@ const state = { region: null, regionLayer: null, overlays: null, lastCard: null,
 
 const NEEDS_INPUT = new Set(["out_of_scope", "missing_area", "invalid_area", "missing_dates", "need_two_dates", "ambiguous_area"]);
 const REASONS = {
-  out_of_scope: "This is not one of the four questions SatClip can measure.",
+  out_of_scope: "This is not one of the four questions EvidEO can measure.",
   missing_area: "I could not tell which place you mean.",
   invalid_area: "The area is not valid.",
   missing_dates: "The question has no date.",
@@ -194,11 +194,11 @@ function renderCard(card, parsed) {
   const c = $("card");
   c.classList.remove("hidden");
   c.classList.toggle("abstain", card.abstained);
-  // Two kinds of "no": SatClip needs a detail from you, or the satellite evidence was not good enough.
+  // Two kinds of "no": EvidEO needs a detail from you, or the satellite evidence was not good enough.
   const needsInput = card.abstained && NEEDS_INPUT.has(card.reason);
   $("badge").className = `badge ${!card.abstained ? "ok" : needsInput ? "input" : "abstain"}`;
   $("badge").textContent = !card.abstained ? "Answer" : needsInput ? "Needs one detail" : "Not enough evidence";
-  $("card-title").textContent = !card.abstained ? "Measured answer" : needsInput ? "Nothing measured yet" : "SatClip did not publish a number";
+  $("card-title").textContent = !card.abstained ? "Measured answer" : needsInput ? "Nothing measured yet" : "EvidEO did not publish a number";
   $("headline").innerHTML = headline(card);
   $("headline").classList.toggle("hidden", !$("headline").innerHTML);
   $("answer").textContent = card.answer_text;
@@ -209,7 +209,7 @@ function renderCard(card, parsed) {
     $("meter-fill").style.width = `${Math.max(2, card.confidence * 100)}%`;
     $("meter-threshold").style.left = `calc(${ui.abstain_below * 100}% - 1px)`;
     $("meter-text").textContent = `Confidence ${card.confidence.toFixed(2)} (${card.confidence_band || "unrated"}). ` +
-      `SatClip publishes a number only at or above ${ui.abstain_below.toFixed(2)} (the marker).`;
+      `EvidEO publishes a number only at or above ${ui.abstain_below.toFixed(2)} (the marker).`;
   }
 
   const box = $("abstain-box");
@@ -282,7 +282,7 @@ async function submit(override) {
     out = await res.json();
   } catch {
     setBusy(false);
-    renderCard({ abstained: true, answer_text: "SatClip's server could not be reached.", next_step: "Check your connection and try again." });
+    renderCard({ abstained: true, answer_text: "EvidEO's server could not be reached.", next_step: "Check your connection and try again." });
     return;
   }
   if (!res.ok) { setBusy(false); renderCard({ abstained: true, answer_text: typeof out.detail === "string" ? out.detail : "The request was not valid." }); return; }

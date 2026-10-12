@@ -10,7 +10,7 @@ category: change-detection
 era: recent
 tags: [change-captioning, levir-cc, vision-language, transformer, rsiccformer, natural-language, building-change, optical-rgb]
 verified: "2026-10-04 via https://research.buaa.edu.cn/en/publications/remote-sensing-image-change-captioning-with-dual-branch-transform/"
-takeaway: "LEVIR-CC (10,077 pairs, 50,385 captions, half no-change) is the standard change-captioning set; good template data for SatClip's explanation layer, but captions carry no measured quantities"
+takeaway: "LEVIR-CC (10,077 pairs, 50,385 captions, half no-change) is the standard change-captioning set; good template data for EvidEO's explanation layer, but captions carry no measured quantities"
 ---
 
 # Remote Sensing Image Change Captioning With Dual-Branch Transformers: A New Method and a Large Scale Dataset
@@ -30,8 +30,8 @@ From the paper PDF on the LEVIR lab site: on the LEVIR-CC test set RSICCformer r
 ## Limitations
 Captions are qualitative ("many houses were built along the road") and contain no measured area, count or confidence. N-gram metrics reward phrasing similar to references, not factual correctness. Single region, RGB, sub-metre imagery, buildings and roads only. The authors themselves list weak handling of objects at varied sizes and of deciding whether a change of interest happened at all.
 
-## What it means for SatClip
-- Use LEVIR-CC's balanced change/no-change design as the template for SatClip's explanation evaluation: the language layer must say "no meaningful change" as often as it describes change, and be tested on both.
-- Reuse its caption style (object plus change type plus location) for SatClip explanation templates, but fill numbers only from instrument outputs ("water gained 3.2 sq km in the north-east of the block, confidence 0.87").
+## What it means for EvidEO
+- Use LEVIR-CC's balanced change/no-change design as the template for EvidEO's explanation evaluation: the language layer must say "no meaningful change" as often as it describes change, and be tested on both.
+- Reuse its caption style (object plus change type plus location) for EvidEO explanation templates, but fill numbers only from instrument outputs ("water gained 3.2 sq km in the north-east of the block, confidence 0.87").
 - Do not let a captioning model state quantities; LEVIR-CC captions were never tied to measurements, so any number it emits is ungrounded.
-- Evaluate SatClip explanations on factual consistency with the instrument output, not BLEU or CIDEr.
+- Evaluate EvidEO explanations on factual consistency with the instrument output, not BLEU or CIDEr.

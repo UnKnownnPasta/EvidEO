@@ -10,7 +10,7 @@ category: trust-calibration
 era: historical
 tags: [dataset-shift, calibration-under-shift, deep-ensembles, temperature-scaling, uncertainty-benchmark, ood]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=1906.02530 (title, authors, first posted 2019-06-06, comment Advances in Neural Information Processing Systems 2019, abstract); WebFetch was refused, curl used; summary based on the abstract plus standard knowledge, full text not fetched, numeric results not confirmed"
-takeaway: "A calibration fitted on one region or season will drift when SatClip meets a new district or an unusual monsoon, so calibration must be re-checked per region and season, and confidence should fall as inputs move away from the calibration data"
+takeaway: "A calibration fitted on one region or season will drift when EvidEO meets a new district or an unusual monsoon, so calibration must be re-checked per region and season, and confidence should fall as inputs move away from the calibration data"
 ---
 
 # Ovadia et al. 2019, uncertainty under dataset shift
@@ -35,8 +35,8 @@ Classification benchmarks across several modalities with synthetic and natural s
 - Mostly synthetic or curated shifts; real geographic and seasonal shifts in Earth observation were not tested.
 - Classification only; no segmentation or area estimation tasks.
 
-## What it means for SatClip
-- SatClip faces real shifts: a new state, a new terrain (Brahmaputra floodplain versus Kerala hills), a new year's crop calendar, Sentinel-1C/1D replacing 1A/1B data, heavy monsoon cloud. A calibrator fitted on Sen1Floods11 or one Indian event should not be trusted unchanged elsewhere.
+## What it means for EvidEO
+- EvidEO faces real shifts: a new state, a new terrain (Brahmaputra floodplain versus Kerala hills), a new year's crop calendar, Sentinel-1C/1D replacing 1A/1B data, heavy monsoon cloud. A calibrator fitted on Sen1Floods11 or one Indian event should not be trusted unchanged elsewhere.
 - Keep a per-region, per-season calibration ledger and test calibration on held-out districts, not random held-out tiles.
 - Add a shift check (how far a scene's backscatter or NDVI statistics are from the calibration set) that lowers confidence or forces abstention when the scene is out of range.
 - Prefer instrument-variant ensembles over a single post-hoc fit, consistent with this paper's finding.

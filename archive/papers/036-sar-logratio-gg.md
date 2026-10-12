@@ -30,8 +30,8 @@ Per the abstract, the unsupervised threshold reaches accuracy comparable to the 
 ## Limitations
 Single polarization, single channel, two dates only. Assumes good co-registration and identical acquisition geometry. The two-class model struggles when the changed area is a tiny fraction of the scene (the histogram mode for change is then barely visible). Treats increases and decreases of backscatter together unless split by sign. Wind-roughened water, wet soil and vegetation growth can all trigger change.
 
-## What it means for SatClip
-- This is the reference design for SatClip's SAR log-ratio change instrument: Sentinel-1 GRD, same relative orbit and pass direction, speckle filter, 10*log10 ratio of post over pre, signed so that backscatter drops (flooding) and rises (new structures, flattened crops) are reported separately.
+## What it means for EvidEO
+- This is the reference design for EvidEO's SAR log-ratio change instrument: Sentinel-1 GRD, same relative orbit and pass direction, speckle filter, 10*log10 ratio of post over pre, signed so that backscatter drops (flooding) and rises (new structures, flattened crops) are reported separately.
 - Fit the two-class (generalized) Gaussian model per scene and use the posterior probability at each pixel as the raw confidence, then calibrate it on labelled flood data (Kuro Siwo, entry 041, and Sen1Floods11, entry 022).
 - Abstain when the fit is degenerate (no clear change mode, or changed fraction below a minimum), which is exactly when this method is known to be unreliable.
 - Record filter type and iterations, threshold value and fitted parameters in the receipt so a reviewer can re-run the same number.

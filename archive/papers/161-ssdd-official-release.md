@@ -10,7 +10,7 @@ category: object-detection
 era: recent
 tags: [sar, ship-detection, dataset, rotated-boxes, polygon-segmentation, evaluation-protocol, reproducibility, inshore-offshore]
 verified: "2026-10-07 via curl to api.crossref.org (title, authors, journal, volume, issue, article number, date) and api.openalex.org (abstract); not on arXiv; source sensors of SSDD images not stated in the abstract and not checked"
-takeaway: "A case study in why fixed evaluation protocols matter: the most used SAR ship benchmark was being split and scored inconsistently, so SatClip must publish its own frozen splits and scoring rules with every instrument"
+takeaway: "A case study in why fixed evaluation protocols matter: the most used SAR ship benchmark was being split and scored inconsistently, so EvidEO must publish its own frozen splits and scoring rules with every instrument"
 ---
 
 # Zhang et al. 2021, SSDD official release
@@ -36,7 +36,7 @@ SSDD was the first open deep-learning SAR ship dataset and became the default be
 - Mixed sensors and resolutions (not confirmed here) mean results may not reflect Sentinel-1 at 10 m alone.
 - Protocols fix comparability but not label completeness.
 
-## What it means for SatClip
-- **Adopt the lesson, not the dataset**: every SatClip instrument (SAR water, NDVI change, any later ship detector) ships with a frozen split, a written scoring rule and an inshore-style edge-case rule (for example river banks and paddy fields for water), recorded in the receipt.
+## What it means for EvidEO
+- **Adopt the lesson, not the dataset**: every EvidEO instrument (SAR water, NDVI change, any later ship detector) ships with a frozen split, a written scoring rule and an inshore-style edge-case rule (for example river banks and paddy fields for water), recorded in the receipt.
 - When citing external accuracy for a component, cite the protocol used, or treat the figure as not comparable.
 - Use SSDD only for a quick sanity test of a ship detector; use LS-SSDD for Sentinel-1 claims.

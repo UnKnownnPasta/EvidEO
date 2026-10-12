@@ -10,7 +10,7 @@ category: trust-calibration
 era: historical
 tags: [probabilistic-flood-map, per-pixel-probability, histogram-decomposition, bayes, reliability-diagram, sar, data-assimilation, uncertainty]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, issue, pages, DOI) and api.semanticscholar.org (authors, venue; abstract elided, paywalled); WebFetch of the LIST publication page at list.lu (abstract content, study sites, reliability-diagram error range). IEEE Xplore page did not render; full text not read"
-takeaway: "Turns a SAR flood map into a per-pixel flood probability by fitting water and non-water backscatter distributions to the image histogram and applying Bayes; the direct upgrade path from SatClip's single Otsu cut to a calibrated posterior"
+takeaway: "Turns a SAR flood map into a per-pixel flood probability by fitting water and non-water backscatter distributions to the image histogram and applying Bayes; the direct upgrade path from EvidEO's single Otsu cut to a calibrated posterior"
 ---
 
 # Giustarini et al. 2016, probabilistic SAR flood mapping
@@ -36,7 +36,7 @@ Binary SAR flood maps hide uncertainty: pixels near the threshold are reported a
 - Probabilities are only as good as the two-distribution fit; if the histogram is not bimodal (little water in the tile, or vegetation and shadow mixing in) the posterior is unreliable.
 - The probability reflects backscatter ambiguity only, not exclusion-zone blindness such as shadow or urban areas.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt in sar_water_otsu: keep Otsu for the cut, but also fit two distributions (for example Gaussians in dB) to the same tile histogram and output P(water | gamma0) per pixel; report area as an expected value plus a range (sum of probabilities, and area above 0.25 and 0.75).
 - Adopt: check calibration with a reliability diagram on Sen1Floods11 hand labels, and on Indian labels when available, before showing probabilities to officials.
 - Adopt: refuse or warn when the tile histogram is not bimodal, since both Otsu and this method fail there.

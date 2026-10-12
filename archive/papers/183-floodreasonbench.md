@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [flood, reasoning-segmentation, lisa, mobilesam, lora, edge, jetson, split-computing, uav, benchmark]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract, comment) and https://arxiv.org/html/2608.15410 (introduction, dataset curation, split-inference design); WebFetch permission request timed out; the source of the flood images is not named in the text read"
-takeaway: "Upcoming flood benchmark where a responder's plain-language request returns a pixel mask (people, buildings, vehicles), with flood fine-tuning lifting LISA from 0.72 to 0.84 gIoU and Jetson latency and energy measured; useful edge-deployment pattern for SatClip, but it uses close-range imagery not satellites and has only 100 test samples"
+takeaway: "Upcoming flood benchmark where a responder's plain-language request returns a pixel mask (people, buildings, vehicles), with flood fine-tuning lifting LISA from 0.72 to 0.84 gIoU and Jetson latency and energy measured; useful edge-deployment pattern for EvidEO, but it uses close-range imagery not satellites and has only 100 test samples"
 ---
 
 # Bhattacharjya et al. 2026, FloodReasonBench
@@ -36,7 +36,7 @@ Three target classes (people, buildings, vehicles). 532 annotated training sampl
 - Very small test set (100 samples) and three classes; labels partly produced by Grounding DINO and SAM2.
 - No confidence, calibration or abstention; data and code not yet public.
 
-## What it means for SatClip
-- Adopt: the quality-constrained operating-point idea (pick the cheapest configuration that still meets a stated accuracy floor) fits SatClip's offline laptop target; apply it to choosing quantisation level and instrument resolution.
-- Adopt: evidence that a small in-domain LoRA set (hundreds of samples) moves a VLM a lot, supporting SatClip's small LoRA parser.
-- Watch: if the dataset is released, its responder-style queries are a source of realistic flood phrasing for SatClip's intent tests; it does not compete with SatClip's satellite-scale flood extent answers.
+## What it means for EvidEO
+- Adopt: the quality-constrained operating-point idea (pick the cheapest configuration that still meets a stated accuracy floor) fits EvidEO's offline laptop target; apply it to choosing quantisation level and instrument resolution.
+- Adopt: evidence that a small in-domain LoRA set (hundreds of samples) moves a VLM a lot, supporting EvidEO's small LoRA parser.
+- Watch: if the dataset is released, its responder-style queries are a source of realistic flood phrasing for EvidEO's intent tests; it does not compete with EvidEO's satellite-scale flood extent answers.

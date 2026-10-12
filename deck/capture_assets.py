@@ -1,6 +1,6 @@
 """Capture deck screenshots from the running prototype (M7).
 
-Needs the API on :8000 (cd backend && uvicorn satclip.api.main:app --port 8000) and Playwright.
+Needs the API on :8000 (cd backend && uvicorn evideo.api.main:app --port 8000) and Playwright.
 Each asset is an element screenshot of the evidence card, optionally composed side by side
 with the map panel, so the slides show the real UI at a readable size.
 Run tools/screenshots.py first: it warms the scene cache, so these repeats take seconds.
@@ -15,7 +15,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "deck", "assets")
-BASE = os.environ.get("SATCLIP_URL", "http://localhost:8000/")
+BASE = os.environ.get("EVIDEO_URL", "http://localhost:8000/")
 BG = (237, 240, 248)
 
 EXTENT = "How much of Barpeta was under water on 2024-07-11?"

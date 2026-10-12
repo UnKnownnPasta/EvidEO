@@ -1,4 +1,4 @@
-# SatClip handoff (local continuation)
+# EvidEO handoff (local continuation)
 
 Written 2026-10-10 at the end of the scheduled-run series (9 runs, 2026-10-04 to 2026-10-09), and updated the same day after M8 was finished. From here on, work continues locally. This file holds everything a fresh person or a fresh Claude session needs. Read it top to bottom once, then use STATE.md and PLAN.md as the live logs.
 
@@ -25,7 +25,7 @@ Style rule for everything in this repo: English, and no em dashes anywhere (docs
 
 ### The four user goals (the brief the scheduled runs followed)
 
-1. A research archive of about 200 real, verified papers, one entry each saying what it is and what it means for SatClip. **Done: 225.**
+1. A research archive of about 200 real, verified papers, one entry each saying what it is and what it means for EvidEO. **Done: 225.**
 2. A solution that is innovative in ease of solving a lasting problem, answering: whose problem, why real and lasting, how, why easier, how it scales, why trustworthy, verified against the archive. **Done: SOLUTION.md v1.8, NOVELTY.md v10 with the final whole-archive pass (M8, 2026-10-10), and docs/VERIFICATION.md.**
 3. A working prototype (CPU only, open pretrained models, live Sentinel data from public STAC) plus ready-to-run LoRA training code and a Colab notebook. **Done (M1 to M6).**
 4. A .pptx deck in claymorphism style (soft extruded surfaces, rounded shapes, paired inner and outer shadows, pastel but accessible palette), UX focused, in both app and deck. **Done (M7). M8 kept the claim wording, so the deck still matches; refresh only after water v1.2 or new results.**
@@ -34,7 +34,7 @@ Style rule for everything in this repo: English, and no em dashes anywhere (docs
 
 ## 2. The thesis in one screen
 
-**One line:** SatClip answers plain-language "what happened here, and when" questions about Indian land with an **evidence card**: a measurement from the actual Sentinel scene by a transparent instrument, a map of where it applies, scene IDs and dates, a calibrated confidence, and a receipt that re-runs to the same output hash. When evidence is weak it abstains and says what would fix it.
+**One line:** EvidEO answers plain-language "what happened here, and when" questions about Indian land with an **evidence card**: a measurement from the actual Sentinel scene by a transparent instrument, a map of where it applies, scene IDs and dates, a calibrated confidence, and a receipt that re-runs to the same output hash. When evidence is weak it abstains and says what would fix it.
 
 - **Users:** district disaster officials (DDMA, DM office), agriculture and crop-insurance officers (PMFBY, YES-TECH); secondary: journalists and fact-checkers, planners and researchers without GIS skills.
 - **Beachhead:** monsoon flood and crop-condition questions at district level.
@@ -51,13 +51,13 @@ Citation keys: `[A###]` = `archive/papers/###-*.md`; `[E##]` = claim in `docs/re
 
 | Milestone | Status | Where |
 |---|---|---|
-| M1 Architecture | done (run 2) | `docs/ARCHITECTURE.md`, `docker-compose.yml`, `config/satclip.yaml` |
-| M2 Data layer | done (run 3, rebuilt run 4) | `backend/satclip/data/` |
-| M3 AI engine | done (run 4) | `backend/satclip/instruments/`, `calibration.py`, `gazetteer.py`, `aggregate.py` |
+| M1 Architecture | done (run 2) | `docs/ARCHITECTURE.md`, `docker-compose.yml`, `config/evideo.yaml` |
+| M2 Data layer | done (run 3, rebuilt run 4) | `backend/evideo/data/` |
+| M3 AI engine | done (run 4) | `backend/evideo/instruments/`, `calibration.py`, `gazetteer.py`, `aggregate.py` |
 | M4 Frontend | done (run 5) | `frontend/` (plain HTML/CSS/JS, vendored Leaflet) |
 | M5 Training code | done (runs 6 to 7) | `training/` (+ `training/README.md`) |
 | M6 Quality | done (run 8) | `tools/demo.py`, `tools/reproduce.py`, `tools/loadtest.py`, `docs/QUALITY.md`, `docs/demo/` |
-| M7 Deck | done (run 9) | `deck/satclip.pptx` (14 slides), `deck/build_deck.js`, `deck/README.md` |
+| M7 Deck | done (run 9) | `deck/legacy/satclip-14-slides-2026-10-09.pptx` (14 slides, retired; current deck `deck/why/EvidEO-why-it-matters.pptx`), `deck/build_deck.js`, `deck/README.md` |
 | M8 Innovation verification | done (2026-10-10) | NOVELTY.md section 5, `docs/VERIFICATION.md`, `tools/novelty_scan.py`, `docs/verification/` |
 | Archive | 225 papers, IDs 001 to 225, next ID **226** | `archive/papers/`, `archive/index.csv`, `archive/README.md` |
 | Tests | 73 passing | `backend/tests/` |
@@ -84,17 +84,17 @@ Category counts (target / current): rs-vlm 25/28, rs-benchmark 20/22, eo-foundat
 Requirements: Python 3.10+, Node (only for the deck), optional Redis and Docker.
 
 ```bash
-git clone https://github.com/UnKnownnPasta/satclip && cd satclip
+git clone https://github.com/UnKnownnPasta/satclip && cd evideo
 python -m venv .venv && source .venv/bin/activate
 
 cd backend
 pip install -e ".[dev,geo,redis]"            # fastapi, rasterio, redis, pytest, fakeredis ...
 python -m pytest -q                          # expect 73 passed (offline, uses fixtures)
-uvicorn satclip.api.main:app --reload --port 8000   # UI at http://localhost:8000
+uvicorn evideo.api.main:app --reload --port 8000   # UI at http://localhost:8000
 
 # live checks against real catalogues (internet needed)
-python -m satclip.data.smoke
-python -m satclip.livecheck "How much of Barpeta was under water on 2024-07-11?"
+python -m evideo.data.smoke
+python -m evideo.livecheck "How much of Barpeta was under water on 2024-07-11?"
 
 # full stack
 cd .. && docker compose up --build           # UI :8080, API :8000
@@ -105,7 +105,7 @@ Optional land-cover instrument: `pip install torch torchvision --index-url https
 
 Quality tools (run from `backend/`, each 6 to 10 min live): `python ../tools/demo.py`, then `python ../tools/reproduce.py`. Load test: `python ../tools/loadtest.py` (needs `redis-server` on PATH and `psutil`). Screenshots: API running, then `python tools/screenshots.py` and `python tools/ui_keyboard_check.py` (Playwright + Chromium).
 
-Training: see `training/README.md`. Extras: CPU torch, `transformers peft accelerate`. Colab notebook: `training/colab/satclip_lora.ipynb` (default base Qwen2-VL-2B-Instruct, LoRA/QLoRA/DoRA, language side only). CPU smoke test:
+Training: see `training/README.md`. Extras: CPU torch, `transformers peft accelerate`. Colab notebook: `training/colab/evideo_lora.ipynb` (default base Qwen2-VL-2B-Instruct, LoRA/QLoRA/DoRA, language side only). CPU smoke test:
 `python training/lora/train_lora.py --model hf-internal-testing/tiny-random-Qwen2VLForConditionalGeneration --data <small jsonl> --max-steps 4 --image-size 112 --out /tmp/x`
 
 Deck rebuild: see `deck/README.md` (needs pptxgenjs, react, react-dom, react-icons, sharp; API running for screenshots). The archive chart reads `archive/index.csv` at build time, so rebuild after adding papers.
@@ -122,19 +122,19 @@ PLAN.md               milestone checklist + research coverage table
 SOLUTION.md           thesis v1.8 (sections 1-10 + run additions, risks 1-23)
 NOVELTY.md            comparison table, honest novelty, conditions, watch list (v9)
 archive/              papers/NNN-slug.md, index.csv, README.md (catalog)
-backend/satclip/      api/main.py, parser.py, tiling.py, jobqueue.py, worker.py, aggregate.py,
+backend/evideo/      api/main.py, parser.py, tiling.py, jobqueue.py, worker.py, aggregate.py,
                       receipt.py, calibration.py, gazetteer.py, data/ (stac, scene, select, cog,
                       provider, smoke), instruments/ (water, vegetation, landcover, common),
                       resources/districts.json (735 districts)
 backend/tests/        73 tests, fixtures/stac recorded responses
-config/               satclip.yaml (all settings, env override SATCLIP_<SECTION>__<KEY>),
+config/               evideo.yaml (all settings, env override EVIDEO_<SECTION>__<KEY>),
                       calibration/<instrument>.json
 frontend/             claymorphism UI, vendored Leaflet (no CDN, a test enforces it)
 training/             calibration/, lora/, eval/, colab/; reports committed, data and cache ignored
 tools/                build_index.py, build_gazetteer.py, demo.py, reproduce.py, loadtest.py,
                       screenshots.py, ui_keyboard_check.py
 docs/                 ARCHITECTURE.md, QUALITY.md, demo/, quality/, reference/, screenshots/, share/
-deck/                 satclip.pptx, build_deck.js, capture_assets.py, assets/
+deck/                 evideo.pptx, build_deck.js, capture_assets.py, assets/
 ```
 
 ---
@@ -142,20 +142,20 @@ deck/                 satclip.pptx, build_deck.js, capture_assets.py, assets/
 ## 7. Conventions and gotchas (condensed from STATE.md; read STATE.md for detail)
 
 **Archive**
-- One file per paper `archive/papers/NNN-short-slug.md`. Front matter: id, title, authors, year, venue, link, code, category, era (historical <2020, recent 2020-2026, upcoming/preprint), tags, `takeaway`, `verified` (how it was checked). Sections: Problem, Approach, Data and benchmarks, Key results, Limitations, What it means for SatClip.
+- One file per paper `archive/papers/NNN-short-slug.md`. Front matter: id, title, authors, year, venue, link, code, category, era (historical <2020, recent 2020-2026, upcoming/preprint), tags, `takeaway`, `verified` (how it was checked). Sections: Problem, Approach, Data and benchmarks, Key results, Limitations, What it means for EvidEO.
 - After adding papers run `python tools/build_index.py` (regenerates `index.csv` and the catalog; fails on duplicate IDs or titles).
 - Every paper must be real and verified against its source page. Never invent numbers; flag what could not be confirmed. Own words, no quotes over 15 words, no PDFs committed.
 - Category keys: rs-vlm, rs-benchmark, eo-foundation, change-detection, sar-optical-fusion, object-detection, trust-calibration, eo-agents, data-infrastructure, efficient-inference, indian-context, human-factors, historical, upcoming.
 
 **Backend**
-- Instruments register with `@register(name, version)`; intent to instrument mapping in `config/satclip.yaml` under `intents`; unknown names fall back to `not_implemented` (abstains honestly). `synthetic` instrument is test-only.
-- Instruments get pixels only through `DataProvider` with canonical band names (`green, red, nir, swir16, scl, vv, vh`). Tests inject a fake provider via `satclip.data.provider.set_provider`.
+- Instruments register with `@register(name, version)`; intent to instrument mapping in `config/evideo.yaml` under `intents`; unknown names fall back to `not_implemented` (abstains honestly). `synthetic` instrument is test-only.
+- Instruments get pixels only through `DataProvider` with canonical band names (`green, red, nir, swir16, scl, vv, vh`). Tests inject a fake provider via `evideo.data.provider.set_provider`.
 - Shared cores `classify_sar_water` and `classify_sar_change` in `instruments/water.py` are used by both instruments and fitters: change them only together with a refit.
 - COG reads always read native pixels and resize in numpy (`average` or `nearest`). Never reintroduce GDAL `out_shape` decimation (non-deterministic under concurrency).
 - After any change to instruments or the data layer: re-run `tools/demo.py` and `tools/reproduce.py`.
-- Queue: inline threads (dev) or Redis lists `satclip:tiles` / `satclip:processing` (prod). No Celery or RQ, by choice.
+- Queue: inline threads (dev) or Redis lists `evideo:tiles` / `evideo:processing` (prod). No Celery or RQ, by choice.
 - Abstention threshold `trust.abstain_below: 0.6`; bands high >= 0.85, moderate >= 0.70.
-- `.gitignore` once had a bare `data/` rule that silently dropped `backend/satclip/data/`; it is now `/data/`. After commits, check `git status --ignored` for ignored source files.
+- `.gitignore` once had a bare `data/` rule that silently dropped `backend/evideo/data/`; it is now `/data/`. After commits, check `git status --ignored` for ignored source files.
 
 **Data access**
 - Sentinel-1 pixels come only from Planetary Computer `sentinel-1-rtc` (gamma0, anonymous SAS signing; SAR thresholds from sigma0 papers are shifted +1 dB). Earth Search S1 is requester-pays and CDSE needs a login, so both are search-only (`readable: false`).
@@ -173,7 +173,7 @@ deck/                 satclip.pptx, build_deck.js, capture_assets.py, assets/
 **Deck**
 - `deck/build_deck.js` post-processes slide XML because pptxgenjs closes inner shadows with `</a:outerShdw>`. Validate after each rebuild.
 
-**Sandbox-only problems you will probably not hit locally:** egress proxy blocks, WebFetch timeouts (agents used curl to arXiv, Crossref, OpenAlex, Semantic Scholar), Bash 10-minute limit (use nohup for long runs), `pkill -f "uvicorn satclip"` killing the tool shell.
+**Sandbox-only problems you will probably not hit locally:** egress proxy blocks, WebFetch timeouts (agents used curl to arXiv, Crossref, OpenAlex, Semantic Scholar), Bash 10-minute limit (use nohup for long runs), `pkill -f "uvicorn evideo"` killing the tool shell.
 
 ---
 
@@ -193,7 +193,7 @@ deck/                 satclip.pptx, build_deck.js, capture_assets.py, assets/
 
 All eight milestones are done (M8 finished 2026-10-10: NOVELTY.md section 5 and docs/VERIFICATION.md). What remains improves usefulness and evidence:
 
-1. **A small usability test** (NOVELTY condition 4, the largest evidence gap): 10 to 15 non-GIS people (students, or officers if reachable) answer the same three questions with SatClip cards versus EO Browser or a map; time and correctness. Record results in docs/VERIFICATION.md section 9.
+1. **A small usability test** (NOVELTY condition 4, the largest evidence gap): 10 to 15 non-GIS people (students, or officers if reachable) answer the same three questions with EvidEO cards versus EO Browser or a map; time and correctness. Record results in docs/VERIFICATION.md section 9.
 2. **Deck:** M8 kept the claim wording, so no rebuild is required. Optionally add one line on the innovation slide: "No system in our 225-paper archive has more than two of these six" (NOVELTY 5.3).
 3. **Water instrument v1.2** (biggest usefulness gain, SOLUTION run 9 additions): HAND >= 10 m marked "not assessable" (MERIT Hydro, A210), per-district permanent-water and radar-insensitive exclusion map from the S1 archive (A211), per-pixel P(water) from fitted distributions with refusal when not bimodal (A212, A217), agreement score like GFM (A213); show "new water outside river and wetlands"; state unassessed built-up area on flood cards. Refit calibration and re-run demo and reproduce afterwards.
 4. **Research, papers 226 onward** (PLAN row 10): agent systems named by the A209 survey (TerraAgent, GeoMMAgent, MAP-Agent, VRA, RemoteAgent, VagueEO) checked for confidence or abstention; Chow et al. 2016 HAND threshold study; new 2026 calibrated or abstaining RS models; Indian flood labels; conformal methods for area estimates. Leads already seen but not archived are in the STATE.md run logs.

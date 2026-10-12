@@ -10,7 +10,7 @@ category: indian-context
 era: historical
 tags: [india, geoportal, nrsc, isro, ogc-services, wms, irs-data, disaster-support, government]
 verified: "2026-10-06 via https://bhuvan.nrsc.gov.in/bhuvan/PDF/Bhuvan%20Brochure.pdf (brochure text read) and https://www.ogc.org/blog-article/bhuvan-transforming-indias-governance-with-geospatial-insights/; no peer-reviewed paper describing Bhuvan was found; brochure publication year not printed; usage figures come from the OGC blog, not an audited source"
-takeaway: "Bhuvan is the map Indian officials already know, so SatClip should publish its evidence-card masks as OGC-compatible layers that overlay on Bhuvan rather than ask users to switch platforms"
+takeaway: "Bhuvan is the map Indian officials already know, so EvidEO should publish its evidence-card masks as OGC-compatible layers that overlay on Bhuvan rather than ask users to switch platforms"
 ---
 
 # Bhuvan geoportal (NRSC/ISRO)
@@ -32,7 +32,7 @@ Content is multi-sensor, multi-temporal IRS imagery (from AWiFS at 55 m down to 
 ## Limitations
 Bhuvan is a viewer and distribution layer, not a question-answering or measurement system: it shows layers but does not compute a district statistic with uncertainty on demand. Its own imagery is mostly optical IRS data, and the usage numbers above are self-reported.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: expose every evidence card's water or change mask as a WMS/WMTS or COG layer plus a KML so a district officer can drop it onto Bhuvan, which is already the default map in government offices.
-- Align district and village boundaries with the ones Bhuvan and NDEM use, so SatClip's percentage-flooded numbers match what officials see elsewhere.
-- Beat: Bhuvan cannot answer "how much of Barpeta was flooded on a given date" with scene IDs and a confidence; that gap is SatClip's pitch.
+- Align district and village boundaries with the ones Bhuvan and NDEM use, so EvidEO's percentage-flooded numbers match what officials see elsewhere.
+- Beat: Bhuvan cannot answer "how much of Barpeta was flooded on a given date" with scene IDs and a confidence; that gap is EvidEO's pitch.

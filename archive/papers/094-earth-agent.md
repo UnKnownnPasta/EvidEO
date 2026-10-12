@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [mcp, tool-use, spectral, ndvi, ndwi, landsat, modis, benchmark, parameter-accuracy, tool-hallucination]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2509.23141 (comment: published at ICLR 2026), https://arxiv.org/html/2509.23141 and the ICLR 2026 virtual poster listing found by web search"
-takeaway: "Most capable EO tool agent to date (104 MCP tools, spectral indices, GEE products) and the closest competitor to SatClip's instrument idea, yet GPT-5 matches tool parameters only about 26% of the time and there is no calibration, abstention or receipt"
+takeaway: "Most capable EO tool agent to date (104 MCP tools, spectral indices, GEE products) and the closest competitor to EvidEO's instrument idea, yet GPT-5 matches tool parameters only about 26% of the time and there is no calibration, abstention or receipt"
 ---
 
 # Earth-Agent: Unlocking the Full Landscape of Earth Observation with Agents
@@ -38,7 +38,7 @@ An agent framework that exposes 104 specialised tools through the Model Context 
 - No SAR modality, which matters for monsoon cloud cover.
 - Low parameter accuracy means results can be right for the wrong reasons; reruns may not reproduce.
 
-## What it means for SatClip
-- This is the work that most challenges SatClip's novelty claim: it grounds numbers in real spectral instruments (NDVI, NDWI and others) rather than LLM guesses. SatClip's claim should be narrowed to the combination Earth-Agent lacks: SAR-first flood instruments, calibrated confidence, abstention below threshold, and a re-runnable receipt with scene IDs.
-- Adopt its four trajectory metrics, especially Parameter Accuracy, for SatClip's router evaluation; with a small fixed instrument set SatClip should aim far above 26%.
-- Its failure taxonomy (tool, file and parameter hallucination, no stop condition) is a ready checklist of things SatClip's typed router and schema validation must make impossible, and our evaluation should count each one.
+## What it means for EvidEO
+- This is the work that most challenges EvidEO's novelty claim: it grounds numbers in real spectral instruments (NDVI, NDWI and others) rather than LLM guesses. EvidEO's claim should be narrowed to the combination Earth-Agent lacks: SAR-first flood instruments, calibrated confidence, abstention below threshold, and a re-runnable receipt with scene IDs.
+- Adopt its four trajectory metrics, especially Parameter Accuracy, for EvidEO's router evaluation; with a small fixed instrument set EvidEO should aim far above 26%.
+- Its failure taxonomy (tool, file and parameter hallucination, no stop condition) is a ready checklist of things EvidEO's typed router and schema validation must make impossible, and our evaluation should count each one.

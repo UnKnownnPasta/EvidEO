@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [dora, lora, peft, weight-decomposition, magnitude-direction, fine-tuning, vlm-instruction-tuning, llava]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (WebFetch permission request timed out); title, authors, ICML 2024 Oral comment and code URL from arXiv metadata and abstract; ICML proceedings page and repo not fetched; no numeric gains are quoted because the abstract gives none"
-takeaway: "A drop-in LoRA variant with no extra inference cost; worth an A/B run against plain LoRA on SatClip's question-to-intent training set before committing to one"
+takeaway: "A drop-in LoRA variant with no extra inference cost; worth an A/B run against plain LoRA on EvidEO's question-to-intent training set before committing to one"
 ---
 
 # DoRA, weight-decomposed low-rank adaptation
@@ -35,7 +35,7 @@ Per the abstract: LLaMA (commonsense reasoning), LLaVA (visual instruction tunin
 - Training is somewhat heavier than plain LoRA (an extra magnitude parameter and normalization per adapted layer), which matters on limited government GPUs; exact overhead not verified.
 - Not specific to structured output; benefits on short JSON intent outputs are untested.
 
-## What it means for SatClip
+## What it means for EvidEO
 - The intent parser is a narrow task where plain LoRA may already be enough; run DoRA as one controlled ablation (same rank, data and seed) and keep it only if intent exact-match or abstention quality improves.
 - Since the adapter merges, DoRA does not change the offline CPU serving path or the quantization step (entries 146, 061).
-- Its LLaVA results are the most relevant evidence because SatClip adapts a VLM, not a text-only LLM.
+- Its LLaVA results are the most relevant evidence because EvidEO adapts a VLM, not a text-only LLM.

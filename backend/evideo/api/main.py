@@ -1,6 +1,6 @@
-"""SatClip HTTP API. Stateless: all job state lives in the queue backend.
+"""EvidEO HTTP API. Stateless: all job state lives in the queue backend.
 
-Run:  uvicorn satclip.api.main:app --reload   (from backend/)
+Run:  uvicorn evideo.api.main:app --reload   (from backend/)
 """
 from __future__ import annotations
 
@@ -29,7 +29,7 @@ from ..tiling import tiles_for_bbox
 def create_app(cfg: Optional[dict[str, Any]] = None) -> FastAPI:
     cfg = cfg or settings()
     queue = make_queue(cfg)
-    app = FastAPI(title="SatClip API", version=__version__,
+    app = FastAPI(title="EvidEO API", version=__version__,
                   description="Plain-language questions about land, answered with evidence cards.")
     app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["GET", "POST"], allow_headers=["*"])
     app.state.queue, app.state.cfg = queue, cfg

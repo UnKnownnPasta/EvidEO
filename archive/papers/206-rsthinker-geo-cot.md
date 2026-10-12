@@ -39,8 +39,8 @@ RS VLMs map pixels straight to answers, so a wrong count or a made-up object can
 - No confidence, calibration or abstention; a confident wrong trace is still a confident wrong answer.
 - GPU-scale 9B model.
 
-## What it means for SatClip
-- Adopt: the principle that each sentence in an explanation should point to evidence. For SatClip, every claim in the plain-language answer ("about 18% of the block is under water") should link to the mask and scene IDs in the receipt.
-- Adopt: task-metric rewards are a reminder to evaluate SatClip's parser and explanations with the same metrics as the instruments (IoU for masks, absolute error for percentages).
+## What it means for EvidEO
+- Adopt: the principle that each sentence in an explanation should point to evidence. For EvidEO, every claim in the plain-language answer ("about 18% of the block is under water") should link to the mask and scene IDs in the receipt.
+- Adopt: task-metric rewards are a reminder to evaluate EvidEO's parser and explanations with the same metrics as the instruments (IoU for masks, absolute error for percentages).
 - Avoid: treating a grounded trace as a trust signal by itself; it shows where the model looked, not how likely it is to be right.
-- Novelty: does not materially weaken the claim. It establishes verifiable, grounded reasoning traces for RS VLMs (ICLR 2026), which overlaps with SatClip's "auditable answer" language, so SatClip should not claim auditability of reasoning as new. It has no calibrated confidence, abstention, scene-level provenance, live retrieval or SAR, which are SatClip's actual differentiators.
+- Novelty: does not materially weaken the claim. It establishes verifiable, grounded reasoning traces for RS VLMs (ICLR 2026), which overlaps with EvidEO's "auditable answer" language, so EvidEO should not claim auditability of reasoning as new. It has no calibrated confidence, abstention, scene-level provenance, live retrieval or SAR, which are EvidEO's actual differentiators.

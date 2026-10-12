@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [disaster, vlm-benchmark, sar, optical, bi-temporal, damage-counting, referring-segmentation, reports]
 verified: "2026-10-06 via https://arxiv.org/abs/2505.21089, https://arxiv.org/html/2505.21089 (v2, 20 Oct 2025) and https://raw.githubusercontent.com/Junjue-Wang/DisasterM3/master/README.md; NeurIPS 2025 acceptance only from the README, track and proceedings page not checked"
-takeaway: "The closest benchmark to SatClip's use case: general and RS VLMs score barely above chance on disaster damage counting and degrade on SAR, which is direct support for SatClip's instrument-first, SAR-first, VLM-explains-only design"
+takeaway: "The closest benchmark to EvidEO's use case: general and RS VLMs score barely above chance on disaster damage counting and degrade on SAR, which is direct support for EvidEO's instrument-first, SAR-first, VLM-explains-only design"
 ---
 
 # DisasterM3
@@ -37,11 +37,11 @@ Disaster response needs fast answers from pre and post event imagery, but disast
 
 ## Limitations
 - Stated by the authors: fixed 0.8 m resolution (no Sentinel-2 or Landsat scale), SAR is single polarisation only, a persistent optical-SAR gap, and counting overfitting.
-- Very high resolution commercial imagery, unlike the free 10 m Sentinel data SatClip uses.
+- Very high resolution commercial imagery, unlike the free 10 m Sentinel data EvidEO uses.
 - Multiple choice grading can hide how wrong a count is; the RMSE appendix shows the gap is large.
 
-## What it means for SatClip
-- Cite this as the main external evidence for SatClip's thesis: VLMs cannot be trusted to produce disaster numbers, especially counts and especially from SAR.
-- Adopt the plus or minus 20% and 40% idea for SatClip's own eval: score flooded-area answers by relative error bands against NRSC or Sen1Floods11 style references, and log abstentions separately.
-- The authors' wish list (Sentinel-1 VV+VH, 10 m scale) is exactly SatClip's data layer, so SatClip can position itself as filling that gap for Indian floods with measured, receipt-backed answers.
-- Keep the report-writing role for the VLM, fed with instrument outputs, mirroring DisasterM3's report task but grounded in SatClip's evidence card.
+## What it means for EvidEO
+- Cite this as the main external evidence for EvidEO's thesis: VLMs cannot be trusted to produce disaster numbers, especially counts and especially from SAR.
+- Adopt the plus or minus 20% and 40% idea for EvidEO's own eval: score flooded-area answers by relative error bands against NRSC or Sen1Floods11 style references, and log abstentions separately.
+- The authors' wish list (Sentinel-1 VV+VH, 10 m scale) is exactly EvidEO's data layer, so EvidEO can position itself as filling that gap for Indian floods with measured, receipt-backed answers.
+- Keep the report-writing role for the VLM, fed with instrument outputs, mirroring DisasterM3's report task but grounded in EvidEO's evidence card.

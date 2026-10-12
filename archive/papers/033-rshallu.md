@@ -10,7 +10,7 @@ category: trust-calibration
 era: upcoming
 tags: [hallucination, remote-sensing, rs-vlm, benchmark, image-level-hallucination, mitigation, geochat, lhrs-bot]
 verified: "2026-10-04 via https://arxiv.org/abs/2602.10799"
-takeaway: "RS VLMs answer hallucination-free only about 36% to 69% of the time on RSHalluEval, including errors about modality and resolution; strong evidence that SatClip's VLM must not produce measurements"
+takeaway: "RS VLMs answer hallucination-free only about 36% to 69% of the time on RSHalluEval, including errors about modality and resolution; strong evidence that EvidEO's VLM must not produce measurements"
 ---
 
 # RSHallu: Dual-Mode Hallucination Evaluation for Remote-Sensing Multimodal Large Language Models with Domain-Tailored Mitigation
@@ -30,8 +30,8 @@ From the expert evaluation table as summarised from the arXiv HTML: overall hall
 ## Limitations
 Unpublished preprint; code and data were announced but not released at verification time. Benchmark size is modest (about 2k evaluation pairs). The automatically generated mitigation data gives terse single-word scene answers that differ from expert style. Evaluation relies partly on an LLM judge, itself a possible error source. Coverage of SAR, multispectral indices and multi-temporal change questions was not confirmed.
 
-## What it means for SatClip
-- Cite this as current evidence that even the best RS VLMs give a hallucinated answer roughly a third of the time, which directly justifies SatClip's design rule that the VLM parses and explains but never measures.
-- Adopt the image-level hallucination categories in SatClip's own tests: check that the explanation layer correctly states the sensor (Sentinel-1 VH versus Sentinel-2), resolution (10 m) and dates taken from the receipt, and flag any mismatch automatically.
+## What it means for EvidEO
+- Cite this as current evidence that even the best RS VLMs give a hallucinated answer roughly a third of the time, which directly justifies EvidEO's design rule that the VLM parses and explains but never measures.
+- Adopt the image-level hallucination categories in EvidEO's own tests: check that the explanation layer correctly states the sensor (Sentinel-1 VH versus Sentinel-2), resolution (10 m) and dates taken from the receipt, and flag any mismatch automatically.
 - Copy the dual-mode idea cheaply: a deterministic local checker that compares every number and date in the VLM's explanation against the evidence card fields, so faithfulness is verified without a cloud judge.
-- Beat these models on a shared axis: report a hallucination-free rate for SatClip's explanations on an Indian question set, which should approach 100% for numbers because they are copied from instruments, not generated.
+- Beat these models on a shared axis: report a hallucination-free rate for EvidEO's explanations on an Indian question set, which should approach 100% for numbers because they are copied from instruments, not generated.

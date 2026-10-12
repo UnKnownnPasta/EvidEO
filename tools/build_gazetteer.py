@@ -1,4 +1,4 @@
-"""Build backend/satclip/resources/districts.json from geoBoundaries gbOpen IND ADM2 and ADM1
+"""Build backend/evideo/resources/districts.json from geoBoundaries gbOpen IND ADM2 and ADM1
 (simplified GeoJSON, ODbL 1.0, source lgdirectory.gov.in via Pathways Data; build 2023-12-12).
 
 Usage: python tools/build_gazetteer.py ADM2.geojson ADM1.geojson
@@ -14,7 +14,7 @@ import unicodedata
 from shapely.geometry import mapping, shape
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, "backend", "satclip", "resources", "districts.json")
+OUT = os.path.join(ROOT, "backend", "evideo", "resources", "districts.json")
 
 
 def ascii_name(s: str) -> str:

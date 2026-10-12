@@ -10,7 +10,7 @@ category: rs-benchmark
 era: upcoming
 tags: [eo-agents, tool-use, benchmark, gymnasium, sar-optical-switching, temporal-retrieval, lora, qwen3-vl-4b, pass-at-k, xbd]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and curl to https://arxiv.org/html/2605.01250 (full text: Sections 3 to 8, Tables 2 to 7); WebFetch permission request timed out"
-takeaway: "Executable EO agent benchmark where a LoRA-tuned 4B VLM learns to fetch history and switch optical to SAR and reaches 0.74 Pass@3 (base 0.49) beating Gemini-2.5-Pro; validates SatClip's small-model-plus-tools design but scores only answer correctness with no confidence or abstention"
+takeaway: "Executable EO agent benchmark where a LoRA-tuned 4B VLM learns to fetch history and switch optical to SAR and reaches 0.74 Pass@3 (base 0.49) beating Gemini-2.5-Pro; validates EvidEO's small-model-plus-tools design but scores only answer correctness with no confidence or abstention"
 ---
 
 # Ma et al. 2026, EO-Gym interactive environment for EO agents
@@ -41,7 +41,7 @@ EO-Gym-Data: 9,078 trajectories and 34,604 reasoning steps over six task familie
 - Correctness is judged by an LLM; no calibration, confidence or abstention metric; a wrong but confident answer and a refusal score the same.
 - Fixed tool set; transfer across data-access paradigms only partly tested.
 
-## What it means for SatClip
-- Adopt: independent evidence that a LoRA-tuned 4B VLM can learn when to fetch an older scene or switch to SAR, which is exactly the routing SatClip needs when Sentinel-2 is clouded. Reuse the Verified versus Unverified split in SatClip's own eval to separate routing errors from instrument errors.
-- Adopt: the sensor-limits rewrite (refuse counting cars at 30 m) is a cheap, concrete abstention rule SatClip's intent parser should encode per instrument.
-- Beat: EO-Gym rewards any correct final answer; SatClip should add a selective-risk metric (accuracy at a given coverage) and credit correct abstentions, which this benchmark cannot express.
+## What it means for EvidEO
+- Adopt: independent evidence that a LoRA-tuned 4B VLM can learn when to fetch an older scene or switch to SAR, which is exactly the routing EvidEO needs when Sentinel-2 is clouded. Reuse the Verified versus Unverified split in EvidEO's own eval to separate routing errors from instrument errors.
+- Adopt: the sensor-limits rewrite (refuse counting cars at 30 m) is a cheap, concrete abstention rule EvidEO's intent parser should encode per instrument.
+- Beat: EO-Gym rewards any correct final answer; EvidEO should add a selective-risk metric (accuracy at a given coverage) and credit correct abstentions, which this benchmark cannot express.

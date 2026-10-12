@@ -10,7 +10,7 @@ category: trust-calibration
 era: recent
 tags: [conformal-prediction, risk-control, rcps, segmentation, pixel-sets, upper-confidence-bound, high-probability-guarantee, polyp-segmentation]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=2101.02703 (title, five authors, dates, abstract, code link), curl to api.crossref.org (JACM 68(6), pp. 1-34, DOI 10.1145/3478535, issued 2021-09-30), and WebFetch of arxiv.org/html/2101.02703 (Section 5.4 segmentation setup, loss, alpha and delta, calibration size, limitations); exact achieved-risk numbers for segmentation are shown only as histograms and were not read off"
-takeaway: "Calibrates a single threshold on held-out data so that, with probability at least 1 minus delta, the expected per-object share of missed pixels stays below alpha; the high-probability version of entry 133 and a direct recipe for SatClip's flood-mask threshold"
+takeaway: "Calibrates a single threshold on held-out data so that, with probability at least 1 minus delta, the expected per-object share of missed pixels stays below alpha; the high-probability version of entry 133 and a direct recipe for EvidEO's flood-mask threshold"
 ---
 
 # Bates et al. 2021, Risk-Controlling Prediction Sets (RCPS)
@@ -39,7 +39,7 @@ Accuracy alone does not support consequential decisions; users also need to know
 - The CLT bound is only asymptotically valid; finite-sample bounds are more conservative.
 - Requires a monotone nested family, which constrains how the mask is post-processed.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: set the flood (or water, burn-scar) mask threshold with RCPS on labelled Indian events, using a per-component missed-area loss like the paper's so small inundated villages count as much as a large river reach. State alpha and delta on the evidence card ("misses at most 10% of flooded area on typical scenes, with 90% confidence in that bound").
 - Adopt: prefer RCPS (high-probability) over plain CRC (entry 133, expected-value) when the receipt must make a promise an auditor can check, and record alpha, delta, the bound used, the calibration set ID and its size in the receipt.
 - Adopt: maintain separate calibration sets per regime (monsoon S1 VV/VH, dry season, terrain classes) because the guarantee holds only under exchangeability; when the query falls outside every calibrated regime, abstain and say which labelled data would be needed.

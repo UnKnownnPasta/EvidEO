@@ -10,7 +10,7 @@ category: change-detection
 era: recent
 tags: [changeformer, transformer, siamese, levir-cd, dsifn-cd, learned-difference, very-high-resolution]
 verified: "2026-10-07 via arXiv export API for 2201.01293 (title, authors, IGARSS 2022 acceptance comment, code link), Crossref 10.1109/IGARSS46834.2022.9883686 (venue, pages 207-210, July 2022), and the arXiv PDF for Table 1 numbers"
-takeaway: "A widely used learned CD baseline whose large DSIFN gain comes from a 192-patch test set on very high resolution imagery; a reminder that benchmark F1 says little about 10 m Sentinel change and cannot stand in for SatClip's calibrated instruments"
+takeaway: "A widely used learned CD baseline whose large DSIFN gain comes from a 192-patch test set on very high resolution imagery; a reminder that benchmark F1 says little about 10 m Sentinel change and cannot stand in for EvidEO's calibrated instruments"
 ---
 
 # Bandara and Patel 2022, ChangeFormer
@@ -37,7 +37,7 @@ Most change detection networks at the time were convolutional, with limited long
 - LEVIR-CD was split randomly at patch level, which can inflate scores relative to scene-level splits.
 - RGB, sub-metre imagery only; no Sentinel-2 bands, no SAR, no calibration or abstention.
 
-## What it means for SatClip
-- Do not port headline F1 claims from VHR benchmarks into SatClip's documentation of what change detection can do at 10 m.
+## What it means for EvidEO
+- Do not port headline F1 claims from VHR benchmarks into EvidEO's documentation of what change detection can do at 10 m.
 - If a learned model is added as a cross-check, ChangeFormer is a reasonable candidate, but it would need retraining on Sentinel data and a reliability diagram before any of its output reaches a card.
-- The learned difference module is the opposite of SatClip's design goal: SatClip keeps the difference explicit (log-ratio, NDVI difference) so the receipt can show it.
+- The learned difference module is the opposite of EvidEO's design goal: EvidEO keeps the difference explicit (log-ratio, NDVI difference) so the receipt can show it.

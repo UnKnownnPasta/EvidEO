@@ -10,7 +10,7 @@ category: human-factors
 era: recent
 tags: [uncertainty-expression, natural-language-hedging, overreliance, appropriate-reliance, trust, user-study, pre-registered, llm-search]
 verified: "2026-10-09 via curl to api.crossref.org (title, five authors, FAccT 2024, pages 822-835, DOI), curl to export.arxiv.org (arXiv comment 'Accepted to FAccT 2024'), and WebFetch of arxiv.org/abs/2405.00623 (participants, task, conditions, findings); effect sizes not read from the full text"
-takeaway: "In a pre-registered study with 404 people, first-person hedges ('I'm not sure, but...') lowered agreement with an LLM and raised accuracy by cutting overreliance on wrong answers; impersonal hedges had weaker, non-significant effects, so SatClip's low-confidence wording must be user-tested, not assumed"
+takeaway: "In a pre-registered study with 404 people, first-person hedges ('I'm not sure, but...') lowered agreement with an LLM and raised accuracy by cutting overreliance on wrong answers; impersonal hedges had weaker, non-significant effects, so EvidEO's low-confidence wording must be user-tested, not assumed"
 ---
 
 # Kim et al. 2024, Natural-language uncertainty and reliance
@@ -40,7 +40,7 @@ LLM answers are fluent and confident in tone even when wrong, which encourages o
 - Hedging was manipulated independently of correctness in a controlled way; real systems hedge imperfectly.
 - Underreliance on correct but hedged answers is a cost to watch.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: pair the numeric confidence meter with a short plain-language hedge when confidence is in the middle band, and test first-person ("I am not certain...") against impersonal ("The imagery is not clear...") phrasing with district officials and fact-checkers in Hindi and English; this study shows the choice changes behaviour.
 - Adopt: drive hedge wording strictly from the calibrated probability band (entry 070 showed confidence displays help calibrate trust only when accurate), never from the language model's own tone.
 - Adopt: log, in the receipt, which hedge template was shown, so later audits can check whether users acted on hedged cards differently.

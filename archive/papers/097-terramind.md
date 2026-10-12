@@ -10,7 +10,7 @@ category: upcoming
 era: recent
 tags: [foundation-model, generative, any-to-any, sentinel-1, sentinel-2, terratorch, flood-mapping, ibm, esa, open-weights]
 verified: "2026-10-05 via https://arxiv.org/abs/2504.11171, https://arxiv.org/html/2504.11171v1, https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-base, ICCV 2025 open access listing (search result)"
-takeaway: "Open Apache-2.0 any-to-any model over Sentinel-1/2, DEM, LULC and NDVI with strong water mapping; a candidate fine-tuned instrument or cross-check for SatClip, but its generated 'imagined' modalities must never feed evidence-card numbers"
+takeaway: "Open Apache-2.0 any-to-any model over Sentinel-1/2, DEM, LULC and NDVI with strong water mapping; a candidate fine-tuned instrument or cross-check for EvidEO, but its generated 'imagined' modalities must never feed evidence-card numbers"
 ---
 
 # TerraMind: Large-Scale Generative Multimodality for Earth Observation
@@ -38,8 +38,8 @@ As reported:
 - Benchmarks are mostly global or European; Indian monsoon paddy and flooded vegetation are not specifically evaluated.
 - Not a question-answering or explanation system.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Threat level: low to medium. It is a model, not an evidence-card product, but IBM/ESA could add an LLM front end (as with Prithvi, entry 052).
 - Adopt: a fine-tuned TerraMind (tiny or base) via TerraTorch is a credible second opinion for SAR water masks; disagreement between our threshold instrument and TerraMind could lower confidence or trigger abstention.
 - Avoid: using TiM or SAR-to-optical generation to "fill in" cloudy Sentinel-2 scenes for NDVI. Synthetic pixels are not evidence, and a receipt that cites a generated image would mislead officials.
-- Beat: transparency and cost. SatClip's headline numbers come from simple, explainable instruments with scene IDs; TerraMind is an optional learned check, clearly labelled as such on the card.
+- Beat: transparency and cost. EvidEO's headline numbers come from simple, explainable instruments with scene IDs; TerraMind is an optional learned check, clearly labelled as such on the card.

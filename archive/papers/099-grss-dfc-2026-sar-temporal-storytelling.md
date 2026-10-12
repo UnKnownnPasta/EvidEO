@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [challenge, sar, x-band, insar, time-series, change-detection, capella, self-supervised]
 verified: "2026-10-05 via https://www.grss-ieee.org/resources/news/in-focus-inside-the-2026-ieee-grss-data-fusion-contest/ and https://www.grss-ieee.org/community/technical-committees/winners-of-the-2026-ieee-grss-data-fusion-contest-sar-temporal-storytelling/ ; dataset download page and quantitative scores not found"
-takeaway: "The field's flagship 2026 contest asked teams to turn SAR time series into readable stories of change, validating SatClip's framing; but entries were open-ended research on commercial X-band, not abstaining, receipted answers on free data"
+takeaway: "The field's flagship 2026 contest asked teams to turn SAR time series into readable stories of change, validating EvidEO's framing; but entries were open-ended research on commercial X-band, not abstaining, receipted answers on free data"
 ---
 
 # 2026 IEEE GRSS Data Fusion Contest: SAR Temporal Storytelling
@@ -39,8 +39,8 @@ No quantitative scores were published on the pages we read.
 - No common metric, so results are hard to compare.
 - Winners focus on representation learning and InSAR processing; none, from the titles and summaries, is a natural-language question-answering or decision-support system, and we found no mention of calibrated confidence or abstention.
 
-## What it means for SatClip
-- Not a direct threat; it is a signal that "SAR temporal storytelling" is now a mainstream research goal, which supports SatClip's pitch that officials need narratives backed by SAR time series.
+## What it means for EvidEO
+- Not a direct threat; it is a signal that "SAR temporal storytelling" is now a mainstream research goal, which supports EvidEO's pitch that officials need narratives backed by SAR time series.
 - Adopt: the T-SAR-JEPA style idea (anomaly scoring on amplitude stacks) could become a "this change is unusual for this place" flag next to our log-ratio instrument; worth reading the IGARSS paper when available.
-- Beat: SatClip tells the story in plain language for a specific district question, on free Sentinel-1 data, with scene IDs and dates as receipts, and refuses when the evidence is weak. Contest entries tell stories to experts.
-- Use in the pitch: cite the contest theme as evidence of demand, then show SatClip as the accountable, deployable version for Indian monsoon floods.
+- Beat: EvidEO tells the story in plain language for a specific district question, on free Sentinel-1 data, with scene IDs and dates as receipts, and refuses when the evidence is weak. Contest entries tell stories to experts.
+- Use in the pitch: cite the contest theme as evidence of demand, then show EvidEO as the accountable, deployable version for Indian monsoon floods.

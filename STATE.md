@@ -13,7 +13,7 @@ This file is the shared memory between scheduled runs. Read it first, append a r
 
 ## Conventions and decisions
 
-- **Project renamed EvidEO (2026-10-12).** "SatClip" collides with SatCLIP (Klemmer et al., AAAI 2025, Microsoft), archived as A226. Paper and short deck use EvidEO. Still to migrate: Python package `backend/satclip`, config keys, UI text, older docs and decks, and the GitHub repo name (owner renames it in GitHub Settings; GitHub redirects the old URL).
+- **Project renamed EvidEO (2026-10-12).** "SatClip" collides with SatCLIP (Klemmer et al., AAAI 2025, Microsoft), archived as A226. Migrated the same day: Python package `backend/evideo`, `config/evideo.yaml`, env prefix `EVIDEO_`, Redis keys `evideo:*`, UI text, docs, archive sections, overview PDF. Deliberately left with the old name: the GitHub repo name (owner renames in GitHub Settings), run logs below, committed result files (`docs/demo`, `docs/quality`, `docs/verification`, `training/*/reports`), the retired deck in `deck/legacy/`, and `docs/screenshots/` (UI header still reads SatClip until screenshots are re-taken with the API running). Older references to `satclip` paths in the run log mean `evideo` now.
 
 - **Archive tooling.** Every paper file carries a `takeaway` field in its front matter. After adding papers, run `python tools/build_index.py`. It regenerates `archive/index.csv` and the catalog in `archive/README.md`, and fails on duplicate IDs or titles.
 - **Citation keys.** In SOLUTION.md and NOVELTY.md, `[A###]` means an archive entry and `[E##]` means a numbered claim in `docs/reference/problem-evidence.md`.
@@ -403,3 +403,4 @@ The user asked for a frank publishability check, our own result graphs, an IEEE-
 - Usability study (NOVELTY condition 4).
 
 - Same session, later: renamed project to EvidEO after the user pointed out the SatCLIP collision; archived A226 (SatCLIP) and A227 (Kolluru et al. 2026, flood detection limits by land cover and flood type, now cited in the paper). Paper is `paper/evideo.tex`, deck `deck/why/EvidEO-why-it-matters.pptx`.
+- Same session: code-side migration to EvidEO done (73 tests pass, API smoke test OK on the renamed package).

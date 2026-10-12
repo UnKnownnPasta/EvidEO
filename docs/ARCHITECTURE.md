@@ -1,6 +1,6 @@
-# SatClip architecture
+# EvidEO architecture
 
-This document describes how SatClip turns a plain-language question into an evidence card, and how the system scales from a laptop to a state data centre. It implements the thesis in [SOLUTION.md](../SOLUTION.md): instruments produce every number, the language layer only parses questions and explains results.
+This document describes how EvidEO turns a plain-language question into an evidence card, and how the system scales from a laptop to a state data centre. It implements the thesis in [SOLUTION.md](../SOLUTION.md): instruments produce every number, the language layer only parses questions and explains results.
 
 Citation keys: `[A###]` is an archive entry in [archive/papers](../archive/papers/).
 
@@ -154,7 +154,7 @@ classDiagram
     EvidenceCard --> Receipt : receipt_id
 ```
 
-These classes are defined as Pydantic models in [backend/satclip/models.py](../backend/satclip/models.py).
+These classes are defined as Pydantic models in [backend/evideo/models.py](../backend/evideo/models.py).
 
 ---
 
@@ -201,7 +201,7 @@ flowchart TB
 
 The data layer tries catalogues in configured priority order (for example Earth Search, then Planetary Computer, then CDSE). A catalogue that times out or rate-limits is skipped for a cool-down period. The receipt records which catalogue served each item, so re-runs use the same source.
 
-### 6.6 Data layer as built (M2, `backend/satclip/data/`)
+### 6.6 Data layer as built (M2, `backend/evideo/data/`)
 
 ```mermaid
 flowchart LR
@@ -225,16 +225,16 @@ flowchart LR
 | `select.py` | Sensor order (monsoon water questions go SAR-first; optical-only questions never swap sensors), coverage, readability, band and cloud checks, closest-to-window-centre choice, same-orbit SAR pairs for change. Every decision becomes a plain-language reason on the card. |
 | `cog.py` | Windowed reads of a lon/lat box in the raster's own CRS (no resampling of radiometry across projections), GDAL settings for range requests, Planetary Computer SAS signing with token cache, SCL tile cloud fraction. |
 | `provider.py` | The single entry point for instruments. Searches once per 1 degree *search cell*, so every tile of a district shares one cached catalogue call. |
-| `smoke.py` | `python -m satclip.data.smoke` live check against the public catalogues. |
+| `smoke.py` | `python -m evideo.data.smoke` live check against the public catalogues. |
 
 Known gap: only Planetary Computer serves openly readable Sentinel-1 pixels among the three default catalogues, so SAR has a single readable source unless a CDSE account (or a local mirror) is configured.
 
-### 6.7 AI engine as built (M3, `backend/satclip/instruments/`)
+### 6.7 AI engine as built (M3, `backend/evideo/instruments/`)
 
 ```mermaid
 flowchart LR
     Q[Question] --> PZ[parser + district gazetteer<br/>735 outlines, ODbL]
-    PZ --> RT{intent router<br/>config/satclip.yaml}
+    PZ --> RT{intent router<br/>config/evideo.yaml}
     RT -- water_extent --> W1[sar_water_otsu]
     RT -- water_change --> W2[sar_logratio_change]
     RT -- vegetation_change --> V1[ndvi_difference]
@@ -365,7 +365,7 @@ flowchart LR
 
 ## 8. Configuration
 
-One shared file, [config/satclip.yaml](../config/satclip.yaml), read by the API and workers. Any key can be overridden with an environment variable prefixed `SATCLIP_` (nested keys joined by `__`, for example `SATCLIP_QUEUE__BACKEND=redis`).
+One shared file, [config/evideo.yaml](../config/evideo.yaml), read by the API and workers. Any key can be overridden with an environment variable prefixed `EVIDEO_` (nested keys joined by `__`, for example `EVIDEO_QUEUE__BACKEND=redis`).
 
 | Section | Holds |
 |---|---|
@@ -382,7 +382,7 @@ One shared file, [config/satclip.yaml](../config/satclip.yaml), read by the API 
 
 ```
 backend/
-  satclip/
+  evideo/
     api/main.py        FastAPI app: health, queries, jobs, SSE events, receipts
     config.py          settings loader (YAML + env overrides)
     models.py          ParsedQuery, TileJob, TileResult, EvidenceCard, Receipt
@@ -398,13 +398,13 @@ backend/
   Dockerfile
   pyproject.toml
 frontend/              static claymorphism UI (full UX in M4)
-config/satclip.yaml    shared configuration
+config/evideo.yaml    shared configuration
 config/calibration/    one confidence map per instrument (fitted, borrowed or placeholder)
 training/
   calibration/         fit_water.py and reports (Sen1Floods11)
   lora/                schema, data builders (intents, RSVQA, BigEarthNet), train_lora.py
   eval/                eval_intents.py, eval_vqa.py, reports/
-  colab/               satclip_lora.ipynb
+  colab/               evideo_lora.ipynb
 docker-compose.yml     api, worker, redis, frontend
 ```
 

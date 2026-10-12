@@ -10,7 +10,7 @@ category: trust-calibration
 era: recent
 tags: [semantic-segmentation-calibration, temperature-scaling, spatially-varying-calibration, per-pixel-calibration, post-hoc-calibration]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=2008.05105 (title, authors, first posted 2020-08-12, comment Accepted by ICCV-2021, abstract); WebFetch was refused, curl used; summary based on the abstract, full text not fetched, numeric results not confirmed"
-takeaway: "Calibration for SatClip's flood masks should be allowed to vary across the tile (river channels, hill shadow, urban areas), not a single global temperature, and must leave the mask itself unchanged"
+takeaway: "Calibration for EvidEO's flood masks should be allowed to vary across the tile (river channels, hill shadow, urban areas), not a single global temperature, and must leave the mask itself unchanged"
 ---
 
 # Ding et al. 2021, Local Temperature Scaling (LTS)
@@ -36,7 +36,7 @@ COCO, CamVid and LPBA40 (brain MRI), plus a multi-atlas brain segmentation appli
 - Tested on natural, road-scene and medical images, not satellite imagery; transfer to SAR speckle statistics is untested.
 - Calibrates pixels; it does not by itself give a calibrated confidence on an aggregated area.
 
-## What it means for SatClip
-- SatClip's per-pixel flood probability (from a calibrated threshold score) is likely miscalibrated in different ways in different places: radar shadow in hills, permanent river water, built-up double bounce. A spatially varying correction, conditioned on auxiliary layers such as slope, HAND and land cover, follows the LTS idea without needing a deep segmenter.
-- The accuracy-preserving property fits SatClip's rule that classical instruments decide the mask: calibration may only change confidence, never the flooded pixels.
+## What it means for EvidEO
+- EvidEO's per-pixel flood probability (from a calibrated threshold score) is likely miscalibrated in different ways in different places: radar shadow in hills, permanent river water, built-up double bounce. A spatially varying correction, conditioned on auxiliary layers such as slope, HAND and land cover, follows the LTS idea without needing a deep segmenter.
+- The accuracy-preserving property fits EvidEO's rule that classical instruments decide the mask: calibration may only change confidence, never the flooded pixels.
 - Tile-level confidence still needs an aggregation step (for example conformal risk control on area error, entry 133).

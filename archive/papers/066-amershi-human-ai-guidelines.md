@@ -10,7 +10,7 @@ category: human-factors
 era: historical
 tags: [hci, design-guidelines, human-ai-interaction, ux, error-handling, expectations, chi]
 verified: "2026-10-04 via https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/ and Crossref record for 10.1145/3290605.3300233"
-takeaway: "18 validated design guidelines for AI products; SatClip should use them as a checklist for its chat UI and evidence card, especially setting expectations, scoping when unsure and supporting correction"
+takeaway: "18 validated design guidelines for AI products; EvidEO should use them as a checklist for its chat UI and evidence card, especially setting expectations, scoping when unsure and supporting correction"
 ---
 
 # Guidelines for Human-AI Interaction
@@ -34,8 +34,8 @@ A user study with 49 design practitioners who checked the guidelines against 20 
 - Generic guidelines: they say what to do, not how to do it for a specific domain like flood mapping.
 - The ACM DL page returned 403 to our fetcher; we verified metadata via Microsoft Research and Crossref, not the ACM page itself.
 
-## What it means for SatClip
-- "Make clear what the system can do": the first screen should state plainly what SatClip answers (flood extent, vegetation change, land cover from Sentinel-1/2) and what it does not (individual buildings, crop yield, real-time alerts).
+## What it means for EvidEO
+- "Make clear what the system can do": the first screen should state plainly what EvidEO answers (flood extent, vegetation change, land cover from Sentinel-1/2) and what it does not (individual buildings, crop yield, real-time alerts).
 - "Make clear how well the system can do it": show calibrated confidence on every evidence card and link a short page on known failure modes (cloud, wind on water, terrain shadow).
 - "Scope services when in doubt": our abstention rule is a direct implementation; the abstain message should suggest a narrower question or a different date rather than just refusing.
 - "Support efficient correction": let users redraw the region or pick another scene date in one click, and let them flag a wrong answer for review.

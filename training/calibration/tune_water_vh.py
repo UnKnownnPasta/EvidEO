@@ -21,8 +21,8 @@ sys.path.insert(0, str(HERE))
 from cache_sen1floods11 import load_cache  # noqa: E402
 from fit_water import ROOT  # noqa: E402
 
-from satclip.instruments import water as W  # noqa: E402
-from satclip.instruments.common import drop_small  # noqa: E402
+from evideo.instruments import water as W  # noqa: E402
+from evideo.instruments.common import drop_small  # noqa: E402
 
 
 def vh_threshold(vh: np.ndarray, max_w: float, default: float) -> float:

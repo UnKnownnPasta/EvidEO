@@ -38,7 +38,7 @@ SkyScript links open, unlabelled satellite and aerial images to OpenStreetMap th
 - Mixed resolutions across sources; SAR not included.
 - Absolute zero-shot accuracy is still modest (around 50% to 60%).
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the OSM-to-caption trick to auto-generate Indian training pairs from Sentinel-2 chips plus OSM and Bhuvan-style land-use layers.
 - Add SkyCLIP (ViT-B/32, MIT licence) to the backbone bake-off alongside RemoteCLIP and GeoRSCLIP.
 - Expect OSM gaps in rural districts; combine with official land-cover maps rather than relying on OSM alone.

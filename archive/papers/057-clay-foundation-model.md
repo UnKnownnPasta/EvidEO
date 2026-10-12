@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [foundation-model, embeddings, masked-autoencoder, vit, sentinel-1, sentinel-2, landsat, open-source, apache-2.0, source-cooperative]
 verified: "2026-10-04 via https://clay-foundation.github.io/model/ and https://clay-foundation.github.io/model/release-notes/specification.html"
-takeaway: "Apache-licensed multi-sensor embedding model with precomputed embeddings; useful for similarity search and change hints in SatClip, never as the source of reported numbers"
+takeaway: "Apache-licensed multi-sensor embedding model with precomputed embeddings; useful for similarity search and change hints in EvidEO, never as the source of reported numbers"
 ---
 
 # Clay Foundation Model
@@ -39,7 +39,7 @@ We found no peer-reviewed benchmark paper; the docs present use cases (finding f
 - Embeddings are not interpretable and carry no calibrated meaning on their own.
 - The docs we read did not state embedding dimension or Indian evaluation.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Apache-2.0 makes Clay the most permissive multi-sensor option; suitable for an optional similarity search feature (for example, find chips in the district that look like this flooded field).
 - Use embedding distance between two dates as a change hint that can route the question to the right instrument (log-ratio for SAR, NDVI difference for optical), but never report it as a number.
 - If we check Source Cooperative embeddings for Indian coverage, they could save CPU compute entirely; we have not confirmed coverage.

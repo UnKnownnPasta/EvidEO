@@ -10,7 +10,7 @@ category: sar-optical-fusion
 era: recent
 tags: [cloud-removal, sar-optical-fusion, sentinel-1, sentinel-2, sen12ms-cr, speckle, dynamic-filtering, monsoon-cloud, arxiv-2206.02850]
 verified: "2026-10-08 via curl to export.arxiv.org/api/query (id 2206.02850: title, seven authors, abstract) and api.crossref.org (journal, volume 192, pages 268-278, October 2022 issue); code README fetched from raw.githubusercontent.com; WebFetch permission prompt timed out so curl was used; only the 1.7 dB PSNR gain from the abstract is quoted, no table values"
-takeaway: "Uses co-registered Sentinel-1 to fill cloudy Sentinel-2 pixels with about 1.7 dB PSNR gain on SEN12MS-CR; useful as a context image for SatClip, but synthesized pixels must never feed NDVI or water masks as if they were observed"
+takeaway: "Uses co-registered Sentinel-1 to fill cloudy Sentinel-2 pixels with about 1.7 dB PSNR gain on SEN12MS-CR; useful as a context image for EvidEO, but synthesized pixels must never feed NDVI or water masks as if they were observed"
 ---
 
 # Xu et al. 2022, GLF-CR (SAR-enhanced cloud removal)
@@ -34,7 +34,7 @@ Monsoon cloud blocks Sentinel-2 for weeks. SAR sees through cloud, but SAR and o
 - No per-pixel uncertainty in the base method, so a user cannot tell which pixels are trustworthy.
 - Trained on global, mostly non-Indian scenes; monsoon paddy and flooded fields were not a stated focus.
 
-## What it means for SatClip
-- Avoid for measurement: SatClip's NDVI difference and NDWI instruments must use only observed, cloud-masked pixels; reconstructed pixels would silently corrupt crop change and flood numbers.
+## What it means for EvidEO
+- Avoid for measurement: EvidEO's NDVI difference and NDWI instruments must use only observed, cloud-masked pixels; reconstructed pixels would silently corrupt crop change and flood numbers.
 - Adopt narrowly: a GLF-CR style fill could be shown as a clearly labelled "illustration only" background to help officials orient themselves, with the measured mask drawn on top.
 - Beat: if reconstruction is ever used for numbers, prefer an uncertainty-aware method (entry 088) and abstain where predicted variance is high.

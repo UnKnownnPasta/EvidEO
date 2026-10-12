@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [univearth, google-earth-engine, code-agents, live-data-retrieval, nasa-earth-observatory, hallucinated-collection-ids, reflexion, yes-no-qa, failure-taxonomy]
 verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?id_list=2504.12110 (title, authors, v3 date, ACL 2026 Findings comment, abstract) and curl of https://arxiv.org/html/2504.12110v3 (benchmark construction, Table 1 sources, Table 3 results, collection-ID hallucinations, reflexion results, Limitations); WebFetch of arxiv.org was rate limited (HTTP 429); ACL Anthology page seen only as a search result, not opened"
-takeaway: "UnivEARTH (408 yes/no questions from NASA Earth Observatory) makes LLM agents fetch live data by writing Google Earth Engine code: best zero-shot accuracy 40.0%, code fails over 44% of the time, collection IDs are hallucinated, and reflexion lifts the best model to 64.5%; the strongest evidence that free-form code agents over live archives are unreliable, which favours SatClip's fixed instruments"
+takeaway: "UnivEARTH (408 yes/no questions from NASA Earth Observatory) makes LLM agents fetch live data by writing Google Earth Engine code: best zero-shot accuracy 40.0%, code fails over 44% of the time, collection IDs are hallucinated, and reflexion lifts the best model to 64.5%; the strongest evidence that free-form code agents over live archives are unreliable, which favours EvidEO's fixed instruments"
 ---
 
 # Kao et al. 2026, UnivEARTH
@@ -43,8 +43,8 @@ Most EO agent benchmarks use curated images and predefined tools. Real EO questi
 - No calibration, confidence or provenance output is evaluated, though the code itself is an implicit receipt.
 - Dependent on GEE; the text calls GPT-5's 33.1% to 59.3% change a 79 percentage point increase, when it is about 26 points (79% relative), so read numbers from the tables.
 
-## What it means for SatClip
-- Avoid: letting an LLM write retrieval or analysis code at query time. UnivEARTH shows that even frontier models pick wrong collections, empty date windows and broken cloud masks; SatClip's fixed STAC queries and fixed instruments avoid all four failure classes.
-- Adopt: the failure taxonomy (empty collection, no valid pixels, calculation failure) maps directly onto SatClip's abstention reasons; an empty Sentinel-2 window or all-cloud scene should trigger the SAR fallback or an explicit abstain with the reason in the receipt.
-- Adopt: add unanswerable questions to SatClip's evaluation set, the gap the authors name.
-- Novelty: weakens the claim slightly on one axis. It shows live satellite data retrieval by a language agent from natural-language questions is already published and peer reviewed (ACL Findings 2026), so live retrieval alone is not new. It has no calibrated confidence, abstention, SAR fallback or non-expert delivery, and its low accuracy is an argument for SatClip's constrained design rather than against its novelty.
+## What it means for EvidEO
+- Avoid: letting an LLM write retrieval or analysis code at query time. UnivEARTH shows that even frontier models pick wrong collections, empty date windows and broken cloud masks; EvidEO's fixed STAC queries and fixed instruments avoid all four failure classes.
+- Adopt: the failure taxonomy (empty collection, no valid pixels, calculation failure) maps directly onto EvidEO's abstention reasons; an empty Sentinel-2 window or all-cloud scene should trigger the SAR fallback or an explicit abstain with the reason in the receipt.
+- Adopt: add unanswerable questions to EvidEO's evaluation set, the gap the authors name.
+- Novelty: weakens the claim slightly on one axis. It shows live satellite data retrieval by a language agent from natural-language questions is already published and peer reviewed (ACL Findings 2026), so live retrieval alone is not new. It has no calibrated confidence, abstention, SAR fallback or non-expert delivery, and its low accuracy is an argument for EvidEO's constrained design rather than against its novelty.

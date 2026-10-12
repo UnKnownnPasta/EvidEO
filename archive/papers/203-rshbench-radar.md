@@ -10,7 +10,7 @@ category: rs-benchmark
 era: upcoming
 tags: [hallucination, rshbench, rs-vqa, training-free, attention-guided-zoom, llm-as-judge, factual-vs-logical-hallucination, geozero]
 verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?id_list=2603.02754 (title, authors, date, abstract) and WebFetch of https://arxiv.org/html/2603.02754v1 (RSHBench size and sources, judge protocol and kappa values, RADAR method, Tables 2 and 3 numbers, limitations)"
-takeaway: "A 2026 RS hallucination benchmark (RSHBench, 371 items, factual vs logical subtypes, three-LLM-judge majority vote) finds 47 to 61% of RS-VQA outputs hallucinate; a training-free attention-guided zoom (RADAR) cuts GeoZero's rate from 49.9% to 38.8%; strong evidence for SatClip's choice to keep numbers out of the VLM"
+takeaway: "A 2026 RS hallucination benchmark (RSHBench, 371 items, factual vs logical subtypes, three-LLM-judge majority vote) finds 47 to 61% of RS-VQA outputs hallucinate; a training-free attention-guided zoom (RADAR) cuts GeoZero's rate from 49.9% to 38.8%; strong evidence for EvidEO's choice to keep numbers out of the VLM"
 ---
 
 # Liu et al. 2026, RSHBench and RADAR
@@ -40,8 +40,8 @@ Multimodal LLMs on remote sensing VQA often state things not in the image, mostl
 - The prompt asks models to say when the answer cannot be determined, but the paper does not report abstention rates or calibration.
 - Not peer reviewed as of the verification date.
 
-## What it means for SatClip
-- Avoid: the measured rates (about half of RS-VQA outputs hallucinate in some way) argue against letting any VLM produce SatClip's flood or crop numbers; keep the VLM, if any, to phrasing and intent parsing.
-- Adopt: the factual vs logical split is a useful audit rubric for SatClip's plain-language explanations; a logical error (for example blaming crop loss on a flood the mask does not show) should be checked separately from a wrong number.
-- Adopt: the entropy-based "focus test" is a neat analogue of SatClip's abstention: if the evidence is too diffuse, fall back rather than zoom in on noise.
-- Novelty: does not weaken the claim. It is a diagnosis and mitigation paper for optical VQA with no calibrated confidence, receipts or live data; it strengthens the motivation for SatClip's instrument-first design.
+## What it means for EvidEO
+- Avoid: the measured rates (about half of RS-VQA outputs hallucinate in some way) argue against letting any VLM produce EvidEO's flood or crop numbers; keep the VLM, if any, to phrasing and intent parsing.
+- Adopt: the factual vs logical split is a useful audit rubric for EvidEO's plain-language explanations; a logical error (for example blaming crop loss on a flood the mask does not show) should be checked separately from a wrong number.
+- Adopt: the entropy-based "focus test" is a neat analogue of EvidEO's abstention: if the evidence is too diffuse, fall back rather than zoom in on noise.
+- Novelty: does not weaken the claim. It is a diagnosis and mitigation paper for optical VQA with no calibrated confidence, receipts or live data; it strengthens the motivation for EvidEO's instrument-first design.

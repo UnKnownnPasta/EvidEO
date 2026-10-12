@@ -10,7 +10,7 @@ category: indian-context
 era: recent
 tags: [india, disaster-management, ndem, nrsc, mha, decision-support, flood-inundation, gis-database]
 verified: "2026-10-06 via https://ndem.nrsc.gov.in/documents/downloads/NDEM_Brochure_V3.pdf (full text read) and https://www.nrsc.gov.in/readmore_NDEM; later NDEM 5.0 release mentioned in news but its details were not checked"
-takeaway: "NDEM is the official channel through which district disaster managers already receive NRSC flood inundation maps, so SatClip must position as a fast, auditable complement and export in formats NDEM users can ingest"
+takeaway: "NDEM is the official channel through which district disaster managers already receive NRSC flood inundation maps, so EvidEO must position as a fast, auditable complement and export in formats NDEM users can ingest"
 ---
 
 # NDEM: National Database for Emergency Management
@@ -30,7 +30,7 @@ NDEM is operational for central and state users, with flood hazard maps, flood h
 ## Limitations
 Access is restricted to authorised government users, so the public and researchers cannot query it. Products are event maps prepared by NRSC analysts; the brochure does not describe uncertainty, per-district confidence, or how a user can re-run the analysis.
 
-## What it means for SatClip
-- Do not pitch SatClip as a replacement: district officials will cross-check against NDEM and NRSC maps, so the evidence card should state which public Sentinel-1 scenes were used and acknowledge that official NRSC maps may use other sensors.
+## What it means for EvidEO
+- Do not pitch EvidEO as a replacement: district officials will cross-check against NDEM and NRSC maps, so the evidence card should state which public Sentinel-1 scenes were used and acknowledge that official NRSC maps may use other sensors.
 - Adopt NDEM's phase framing (preparedness, response, recovery) to route questions, for example a change instrument for response and a multi-year frequency query for mitigation.
 - Beat: offer what NDEM does not show, namely on-demand numbers for any date, a confidence value, abstention, and a re-runnable receipt.

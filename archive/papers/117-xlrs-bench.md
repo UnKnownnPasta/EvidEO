@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [mllm-benchmark, ultra-high-resolution, counting, change-detection, visual-grounding, reasoning, bilingual]
 verified: "2026-10-06 via https://arxiv.org/abs/2503.23771 and https://arxiv.org/html/2503.23771; CVPR 2025 acceptance taken from the arXiv comment; project page fetched but lists no repo link; grounding table units are not stated clearly"
-takeaway: "On huge real scenes the best MLLMs average about 40% on four-option questions and almost never draw a correct box, so SatClip should tile scenes and measure with instruments rather than ask a VLM to read a whole Sentinel scene"
+takeaway: "On huge real scenes the best MLLMs average about 40% on four-option questions and almost never draw a correct box, so EvidEO should tile scenes and measure with instruments rather than ask a VLM to read a whole Sentinel scene"
 ---
 
 # XLRS-Bench
@@ -40,7 +40,7 @@ RS benchmarks for multimodal LLMs use small crops, while real RS scenes are thou
 - Mostly multiple choice, so numeric answers are graded as picks, not as measured errors.
 - Images come from existing detection and segmentation sets, mostly non-Indian locations.
 
-## What it means for SatClip
-- Strong evidence for SatClip's tile-by-tile instrument design: whole-scene VLM reading collapses on large images, and a Sentinel-1 district mosaic is exactly that scale.
-- Never let a VLM answer "how many" or "where exactly": the change-counting sub-task shows near-chance performance, so SatClip's change answers should come from the log-ratio instrument with a confidence and abstention.
-- If SatClip adds a VLM explanation step, feed it the instrument outputs and a small crop, not the full scene, and keep its text out of the number on the evidence card.
+## What it means for EvidEO
+- Strong evidence for EvidEO's tile-by-tile instrument design: whole-scene VLM reading collapses on large images, and a Sentinel-1 district mosaic is exactly that scale.
+- Never let a VLM answer "how many" or "where exactly": the change-counting sub-task shows near-chance performance, so EvidEO's change answers should come from the log-ratio instrument with a confidence and abstention.
+- If EvidEO adds a VLM explanation step, feed it the instrument outputs and a small crop, not the full scene, and keep its text out of the number on the evidence card.

@@ -10,7 +10,7 @@ category: human-factors
 era: historical
 tags: [natural-language-interface, visual-analytics, ambiguity-widgets, spatial-queries, pragmatics]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1145/2984511.2984588 (title, authors, pages, date 2016-10-16) and Semantic Scholar abstract; full text not fetched, so details of the user evaluation are not stated here"
-takeaway: "When a question is ambiguous (which district, which date, what counts as flooded), SatClip should show the default it chose as an editable chip, as Eviza's ambiguity widgets do, rather than silently guessing or refusing"
+takeaway: "When a question is ambiguous (which district, which date, what counts as flooded), EvidEO should show the default it chose as an editable chip, as Eviza's ambiguity widgets do, rather than silently guessing or refusing"
 ---
 
 # Setlur et al. 2016, Eviza
@@ -36,8 +36,8 @@ Prototype system with example datasets including geographic data; the paper incl
 - Prototype, not a deployed product; evaluation was small and preliminary as described by the authors (details not confirmed here).
 - English only; no multilingual or low-literacy users.
 
-## What it means for SatClip
-- Every assumption SatClip makes when parsing a question (district boundary, date window, flood definition threshold, sensor chosen) should appear on the evidence card as a chip the user can tap to change, extending the scene and date chips already planned.
+## What it means for EvidEO
+- Every assumption EvidEO makes when parsing a question (district boundary, date window, flood definition threshold, sensor chosen) should appear on the evidence card as a chip the user can tap to change, extending the scene and date chips already planned.
 - Distinguish two "no answer" cases: ambiguity (resolve with a chip and a sensible default) versus insufficient evidence (abstain). Do not abstain when a clarifying default would do.
 - Pairs with NL4DV (068): NL4DV gives the inspectable spec, Eviza shows how to surface its ambiguous parts in the UI.
 - Hindi and other Indian-language vague terms ("aas paas", "pichle hafte") need explicit default mappings, tested with users.

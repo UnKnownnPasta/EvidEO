@@ -34,7 +34,7 @@ The abstract reports that the service is effective and robust across these condi
 - X-band commercial tasking; the later Sentinel-1 port is [[083-twele-s1-flood-chain]].
 - Open-water focus, like its successors.
 
-## What it means for SatClip
-- The Thailand site is the closest published analogue to Indian monsoon river floods in this DLR line; it supports using the same pipeline shape for SatClip's beachhead.
-- The value is in the guard rails (tile selection, auxiliary terrain masks, fuzzy refinement, region growing), not the threshold formula; SatClip's Otsu step should be wrapped the same way.
-- Use the scale of their validation (175 real scenes) as the bar SatClip's flood instrument should aim at: a validation set of many real events, not one demo flood.
+## What it means for EvidEO
+- The Thailand site is the closest published analogue to Indian monsoon river floods in this DLR line; it supports using the same pipeline shape for EvidEO's beachhead.
+- The value is in the guard rails (tile selection, auxiliary terrain masks, fuzzy refinement, region growing), not the threshold formula; EvidEO's Otsu step should be wrapped the same way.
+- Use the scale of their validation (175 real scenes) as the bar EvidEO's flood instrument should aim at: a validation set of many real events, not one demo flood.

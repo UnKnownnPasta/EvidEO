@@ -32,7 +32,7 @@ GeoPlex test sets plus 6 external datasets covering land cover, tree species, cr
 - Training data are mostly European or curated datasets; transfer to Indian monsoon scenes is unknown.
 - No uncertainty or abstention mechanism described in the abstract.
 
-## What it means for SatClip
+## What it means for EvidEO
 - **Adopt only as a candidate second opinion**; its main appeal is that the same weights take Sentinel-1, Sentinel-2 and higher-resolution inputs, so one model could serve both flood and crop checks.
 - Test on Sen1Floods11 India tiles before trusting it; calibrate any flood head separately.
 - Novelty: no threat; it is a model, not a question-to-evidence product.

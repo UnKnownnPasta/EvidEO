@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [galileo, multimodal, sar, optical, elevation, weather, pixel-timeseries, masked-modeling, contrastive, flood-detection, crop-mapping]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract); Crossref search found no venue record; ICML claim and repo URL not verified"
-takeaway: "One generalist encoder over optical, SAR, elevation and weather that handles both images and pixel time series and names flood detection and crop mapping as targets: the strongest learned second-opinion candidate for SatClip's two beachhead questions"
+takeaway: "One generalist encoder over optical, SAR, elevation and weather that handles both images and pixel time series and names flood detection and crop mapping as targets: the strongest learned second-opinion candidate for EvidEO's two beachhead questions"
 ---
 
 # Tseng et al. 2025, Galileo
@@ -34,8 +34,8 @@ Eleven benchmarks spanning satellite images and pixel time series (names not re-
 - Gives features, not calibrated probabilities or provenance.
 - Venue not verified.
 
-## What it means for SatClip
+## What it means for EvidEO
 - **Adopt for evaluation as the learned second opinion** on flood and crop questions, since it takes SAR and weather together and works when some inputs are missing (cloudy optical).
 - Run it offline on a sample of calibration tiles (Sen1Floods11, Kuro Siwo) and compare against the Otsu SAR mask; use agreement only to adjust or veto confidence, never to produce the headline area.
 - Check model size against the CPU budget before promising it on a district server; a smaller variant may be needed.
-- Novelty: the strongest technical overlap in this batch with SatClip's beachhead, but it is a representation model with no question interface, receipt or abstention, so it does not threaten the answer-card claim.
+- Novelty: the strongest technical overlap in this batch with EvidEO's beachhead, but it is a representation model with no question interface, receipt or abstention, so it does not threaten the answer-card claim.

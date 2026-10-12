@@ -34,7 +34,7 @@ EO contrastive pretraining struggles with complex scenes that have many valid po
 - BigEarthNet is European; Indian performance is unverified.
 - Linear-probe mAP is not calibration; probabilities still need fitting.
 
-## What it means for SatClip
+## What it means for EvidEO
 - **Adopt as the first learned SAR encoder to try on CPU.** A ResNet50 or ViT-S SAR backbone with a linear head is cheap enough for district servers and fits the planned BigEarthNet-based scene instrument (entry 017).
 - Its SAR-only result suggests a cloud-proof land-cover context line during monsoon, provided a calibration set from Indian tiles is built and the card abstains below threshold.
 - Novelty: no threat.

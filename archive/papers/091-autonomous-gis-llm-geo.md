@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [autonomous-gis, llm-geo, gpt-4, code-generation, solution-graph, vision-paper]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2305.06453, https://arxiv.org/pdf/2305.06453, https://pure.psu.edu/en/publications/autonomous-gis-the-next-generation-ai-powered-gis/ (IJDE 16(2):4668-4686, DOI 10.1080/17538947.2023.2278895) and the LLM-Geo GitHub README"
-takeaway: "Influential vision of an LLM that generates, verifies and runs its own GIS workflows; SatClip deliberately takes the opposite, non-generative path and should cite this as the alternative it rejects for reliability"
+takeaway: "Influential vision of an LLM that generates, verifies and runs its own GIS workflows; EvidEO deliberately takes the opposite, non-generative path and should cite this as the alternative it rejects for reliability"
 ---
 
 # Autonomous GIS: the next-generation AI-powered GIS
@@ -36,7 +36,7 @@ Three case studies, no benchmark:
 - The GitHub README adds that GPT-3.5 lacked the reasoning to build correct solution graphs, that GPT-4 debugging is weak (a default of up to 10 attempts), and (in a 2026 note) that small quantized open models still could not produce complete runnable programs.
 - Three hand-picked cases do not show reliability.
 
-## What it means for SatClip
-- The retained solution graph and assembly program are a form of receipt. SatClip's re-runnable receipt is the stricter version: fixed instrument code plus exact parameters, so a rerun gives the same number by construction rather than by regenerating code.
+## What it means for EvidEO
+- The retained solution graph and assembly program are a form of receipt. EvidEO's re-runnable receipt is the stricter version: fixed instrument code plus exact parameters, so a rerun gives the same number by construction rather than by regenerating code.
 - Avoid the generative route for the beachhead. Raster EO (Sentinel-1 and Sentinel-2) was exactly what LLM-Geo could not do, and code that must be debugged up to ten times cannot sit behind a district flood answer.
-- Useful for the pitch: SatClip meets the "self-verifying" goal through calibrated confidence and abstention instead of asking the LLM to check its own code.
+- Useful for the pitch: EvidEO meets the "self-verifying" goal through calibrated confidence and abstention instead of asking the LLM to check its own code.

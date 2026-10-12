@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [benchmark, tool-use, react, step-wise-evaluation, argument-accuracy, sar, flood, failure-analysis]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2505.23752, https://arxiv.org/html/2505.23752 (v3, April 2026) and https://raw.githubusercontent.com/mbzuai-oryx/ThinkGeo/main/README.md"
-takeaway: "RS tool-agent benchmark where even GPT-4o gets tool arguments right only about a third of the time and final answers right under 10% end to end; the strongest published case for SatClip's fixed instruments and exact tool-call scoring"
+takeaway: "RS tool-agent benchmark where even GPT-4o gets tool arguments right only about a third of the time and final answers right under 10% end to end; the strongest published case for EvidEO's fixed instruments and exact tool-call scoring"
 ---
 
 # ThinkGeo: Evaluating Tool-Augmented Agents for Remote Sensing Tasks
@@ -40,7 +40,7 @@ A benchmark of human-curated queries grounded in real optical and SAR imagery, s
 - LLM-as-judge for final answers adds its own error.
 - No measurement of calibration or of an agent's ability to decline.
 
-## What it means for SatClip
-- Adopt the step-wise protocol directly: score SatClip's router on tool selection and on exact argument match (AOI, dates, polarisation, threshold), separately from the final number. This is cheap because SatClip's arguments are typed.
+## What it means for EvidEO
+- Adopt the step-wise protocol directly: score EvidEO's router on tool selection and on exact argument match (AOI, dates, polarisation, threshold), separately from the final number. This is cheap because EvidEO's arguments are typed.
 - Strong evidence for not letting the LLM choose free parameters: argument errors, not tool choice, are where frontier agents fail most.
-- Gap SatClip can fill: ThinkGeo never asks whether the agent knows when it is wrong. Add an abstention track (unanswerable or cloudy-scene questions) and report calibration error.
+- Gap EvidEO can fill: ThinkGeo never asks whether the agent knows when it is wrong. Add an abstention track (unanswerable or cloudy-scene questions) and report calibration error.

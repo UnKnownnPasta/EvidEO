@@ -36,9 +36,9 @@ The fetched abstract and README do not state headline metric values. The README 
 - Licensing restrictions on DOTA-derived images limit downstream reuse.
 - Model weight availability was not clear from the README.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the RSICap annotation style (scene + object type, count, colour, position) as the template for our own small LoRA instruction set; quality beats quantity at our scale.
-- Build a SatClip-style RSIEval: around 100 Indian Sentinel-2 scenes with officer-relevant open questions (flood extent, crop stress, new construction) and human-written reference answers.
+- Build a EvidEO-style RSIEval: around 100 Indian Sentinel-2 scenes with officer-relevant open questions (flood extent, crop stress, new construction) and human-written reference answers.
 - Avoid shipping any DOTA-derived data or weights in a public product, given the non-commercial restriction.
-- Beat it on grounding: RSGPT answers are free text with no scene ID, date, mask or confidence, which is exactly SatClip's differentiator.
+- Beat it on grounding: RSGPT answers are free text with no scene ID, date, mask or confidence, which is exactly EvidEO's differentiator.
 - Note that 10 m Sentinel imagery is far coarser than RSICap imagery, so object-level captions (counting cars) should be replaced by land-cover and change-level statements.

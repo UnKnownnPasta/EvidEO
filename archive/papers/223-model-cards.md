@@ -10,7 +10,7 @@ category: data-infrastructure
 era: historical
 tags: [model-cards, documentation, disaggregated-evaluation, intended-use, transparency, accountability, audit]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=1810.03993 (title, nine authors, dates, journal_ref FAT* '19, DOI) and WebFetch of arxiv.org/pdf/1810.03993 (card sections, two example cards, metrics, stated limitations); per-group numbers live in figures and were not read"
-takeaway: "Proposes a short standard document per model listing intended use, evaluation factors, metrics with disaggregated results and caveats; SatClip should publish one model card per sensor-task pair, with per-state, per-season and per-terrain error and calibration, and link it from every receipt"
+takeaway: "Proposes a short standard document per model listing intended use, evaluation factors, metrics with disaggregated results and caveats; EvidEO should publish one model card per sensor-task pair, with per-state, per-season and per-terrain error and calibration, and link it from every receipt"
 ---
 
 # Mitchell et al. 2019, Model Cards
@@ -38,7 +38,7 @@ Trained models are released and reused in settings they were never evaluated for
 - Not exhaustive; sections need tailoring per domain.
 - Static document; it can drift out of date as models are retrained.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: publish a model card for each pipeline (Sentinel-1 flood extent, Sentinel-2 crop or burn mapping, intent parser), with Factors chosen for Indian deployment: agro-climatic zone, season (monsoon versus dry), terrain and slope, orbit direction, cloud fraction, urban versus rural.
 - Adopt: report error and calibration (ECE, abstention rate, risk at the chosen alpha) per factor with bootstrap intervals, matching the paper's practice, and state the decision threshold used by the confidence meter.
 - Adopt: the receipt should cite the model card version (hash) so an auditor sees the exact caveats in force when the answer was produced; the Intended Use section should explicitly exclude uses such as individual compensation decisions without field verification.

@@ -33,7 +33,7 @@ From the GitHub README: all baselines (LLaVA-1.5, MiniGPT-v2, Mini-Gemini, GeoCh
 ## Limitations
 Optical only, very high resolution, and no SAR or multispectral bands, so it does not match Sentinel-1/2 scale. No temporal or change questions. Image licensing limits commercial reuse. Grounding scores remain modest, showing localization is still hard.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Use the LoRA recipe in the README (rank 64, short schedule) as a reference starting point for our planned VLM fine-tune.
 - Adopt the human-verification step for any Indian QA set we generate; a small verified set beats a large noisy one for evaluation.
 - Do not assume VRSBench scores transfer to 10 m Sentinel-2 imagery; keep a separate Sentinel-based test split.

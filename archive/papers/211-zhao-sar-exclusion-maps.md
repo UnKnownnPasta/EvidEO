@@ -10,7 +10,7 @@ category: sar-optical-fusion
 era: recent
 tags: [exclusion-map, sentinel-1, time-series, radar-shadow, layover, urban, dense-vegetation, sand, flood-mapping, false-water, gfm]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, article number; also the 2020 ISPRS Annals precursor with its abstract) and api.semanticscholar.org (full RSE abstract, open-access status). ScienceDirect full text could not be fetched (robots blocked), so thresholds and per-site numbers are not reproduced"
-takeaway: "Every SAR flood map should ship with an exclusion map of pixels where SAR cannot see water (shadow, layover, dense forest, urban, sand), derived from the Sentinel-1 time series itself via temporal median, minimum and standard deviation; SatClip should compute one per district and report those pixels as unknown, not dry"
+takeaway: "Every SAR flood map should ship with an exclusion map of pixels where SAR cannot see water (shadow, layover, dense forest, urban, sand), derived from the Sentinel-1 time series itself via temporal median, minimum and standard deviation; EvidEO should compute one per district and report those pixels as unknown, not dry"
 ---
 
 # Zhao et al. 2021, SAR exclusion maps
@@ -36,8 +36,8 @@ Intensity-based flood mapping relies on floodwater darkening the backscatter. In
 - Seasonal paddy and floodplain wetlands are wet for months each year; time-series statistics could flag them as permanent water look-alikes or leave them in, and the paper's sites (Europe and others) may not cover this case.
 - Full text not read here.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt in sar_water_otsu: precompute per-district temporal median, minimum and standard deviation of VV and VH gamma0 from the sentinel-1-rtc archive (dry-season and full-year stacks), and mark pixels that are always dark (water look-alikes such as sand or tarmac) or never respond as excluded. GFM's operational variant flags pixels below -15 dB in more than 70% of the series (per GFM product documentation).
-- Adopt: answer flood-extent questions with three classes (water, not water, cannot tell) and report the excluded area in the answer text, so officials see where SatClip is blind.
+- Adopt: answer flood-extent questions with three classes (water, not water, cannot tell) and report the excluded area in the answer text, so officials see where EvidEO is blind.
 - Adopt in sar_logratio_change: skip excluded pixels before the log-ratio test, since shadow and layover produce change artefacts with orbit differences.
 - Avoid: do not exclude seasonal paddy outright; keep it as a separate "seasonally wet" class so crop-change questions still work.

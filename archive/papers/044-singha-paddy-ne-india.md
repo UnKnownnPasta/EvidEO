@@ -36,7 +36,7 @@ Sentinel-1 VH backscatter time series for 2017 were assembled in Google Earth En
 - Training labels partly from 2015 field photos and image interpretation, so label noise is possible.
 - Region is Northeast India and Bangladesh; not tested on Indo-Gangetic or southern rice systems.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt VH time series features (the transplanting minimum and growth rise) as the transparent instrument for "was rice planted here this season" questions; report the curve on the card instead of a black-box class.
 - Use the published 2017 figshare maps as an optional crop mask for Assam and the Northeast when intersecting flood extent with paddy, labelled with their year.
 - Use the season calendar (Boro, Aus, Aman locally; kharif and rabi nationally) to set date windows automatically, and abstain when the query window misses the transplanting dip.

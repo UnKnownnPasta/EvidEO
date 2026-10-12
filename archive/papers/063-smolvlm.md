@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [vlm, small-vlm, smolvlm, siglip, smollm2, pixel-shuffle, on-device, cpu, video, open-source]
 verified: "2026-10-04 via https://arxiv.org/abs/2504.05299, https://arxiv.org/html/2504.05299v1 and https://github.com/huggingface/smollm"
-takeaway: "Fully open 256M to 2.2B VLMs built for edge devices; the most realistic CPU base for SatClip's question parser and explainer, fine-tuned with LoRA"
+takeaway: "Fully open 256M to 2.2B VLMs built for edge devices; the most realistic CPU base for EvidEO's question parser and explainer, fine-tuned with LoRA"
 ---
 
 # SmolVLM: Redefining small and efficient multimodal models
@@ -37,9 +37,9 @@ Per the abstract: SmolVLM-256M uses under 1 GB of GPU memory at inference and ou
 - CPU latency on a typical district office laptop is not reported; memory figures are for GPU.
 - Preprint at time of writing.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Use SmolVLM-256M or 500M as the default CPU VLM candidate for parsing questions into instrument calls and turning instrument outputs into plain language; the 2.2B model is the upgrade when RAM allows.
-- Fine-tune with LoRA (entry 059), or QLoRA (entry 060) for 2.2B, on SatClip question and evidence card pairs; train it to copy numbers verbatim from instrument JSON and to abstain when confidence is below threshold.
+- Fine-tune with LoRA (entry 059), or QLoRA (entry 060) for 2.2B, on EvidEO question and evidence card pairs; train it to copy numbers verbatim from instrument JSON and to abstain when confidence is below threshold.
 - Add a guard that rejects any number in the VLM's explanation that is not present in the instrument output; small models make this check essential.
 - Measure CPU latency and RAM ourselves (with and without 4-bit quantization, entry 061) and publish them, since the paper's figures are GPU-based.
 - Keep the image path optional: the VLM rarely needs to see pixels, since the instruments already did the measurement.

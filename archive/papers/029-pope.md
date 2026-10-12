@@ -10,7 +10,7 @@ category: trust-calibration
 era: recent
 tags: [hallucination, lvlm, benchmark, yes-no-probing, pope, evaluation]
 verified: "2026-10-04 via https://arxiv.org/abs/2305.10355"
-takeaway: "LVLMs often claim objects that are not there, especially frequent or co-occurring ones; POPE's yes/no probing with adversarial negatives is a cheap template for SatClip's hallucination tests"
+takeaway: "LVLMs often claim objects that are not there, especially frequent or co-occurring ones; POPE's yes/no probing with adversarial negatives is a cheap template for EvidEO's hallucination tests"
 ---
 
 # Evaluating Object Hallucination in Large Vision-Language Models
@@ -30,8 +30,8 @@ Most LVLMs tested showed serious object hallucination. Objects that appear often
 ## Limitations
 Only object existence is probed, not attributes, counts, relations or quantities. Yes/no answers can be gamed by a model biased toward "no". Natural photos only: no remote sensing, no SAR, no multi-temporal imagery. Ground-truth quality depends on COCO labels or the segmentation tool.
 
-## What it means for SatClip
-- Build a small SatClip-POPE: yes/no probes on Indian Sentinel tiles ("Is there standing water in this village polygon?", "Is there a river here?") with adversarial negatives that co-occur in Indian scenes (canals near paddy, brick kilns near towns).
-- Run it against the VLM explanation layer to prove the architectural point: when asked directly, the VLM hallucinates, which is why SatClip never lets it produce the measurement.
+## What it means for EvidEO
+- Build a small EvidEO-POPE: yes/no probes on Indian Sentinel tiles ("Is there standing water in this village polygon?", "Is there a river here?") with adversarial negatives that co-occur in Indian scenes (canals near paddy, brick kilns near towns).
+- Run it against the VLM explanation layer to prove the architectural point: when asked directly, the VLM hallucinates, which is why EvidEO never lets it produce the measurement.
 - Track the yes-ratio: a VLM that over-answers "yes" to "is it flooded?" is the dangerous failure for disaster officials.
 - Use the co-occurrence finding as a test design rule: paddy fields in monsoon look like water to a careless model, so include them as hard negatives.

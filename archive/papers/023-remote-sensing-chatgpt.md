@@ -30,7 +30,7 @@ The abstract and README show qualitative demos only. No quantitative accuracy, l
 ## Limitations
 No systematic evaluation, so reliability is unknown. Depends on a closed, paid API. Tools are optical RGB models; there is no SAR, multispectral, temporal or georeferenced handling, and no confidence or abstention mechanism. Errors from one tool propagate silently into the final answer.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the plan, call tools, summarise loop as a simple architecture, but replace ChatGPT with a small open LLM that can run on CPU.
 - Carry each tool's confidence and scene metadata through the chain; abstain if any critical step is below threshold, which this system does not do.
 - Beat it by adding Sentinel-1/2 aware tools (water index, SAR flood mask, change detection) fed from STAC.

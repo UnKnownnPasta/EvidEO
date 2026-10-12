@@ -30,7 +30,7 @@ From the PDF: CIDEr 236.75 on UCM-captions (RSGPT reports higher, 309.64), CIDEr
 ## Limitations
 The authors note a gap on RSVQA linked to satellite versus aerial modality differences. Only RGB optical imagery is covered (no SAR or multispectral). There is no confidence estimate or abstention. Weights were only released in May 2025 per the repo.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Its lean projector design (frozen encoder, one linear layer) is the right shape for a CPU-first prototype: keep the vision side frozen and train only small adapters.
 - Token concatenation to shrink visual tokens 4x is a cheap speed trick worth testing on our tiles.
 - Grounding accuracy on DIOR-RSVG is notably better than GeoChat's referring detection, so compare both before choosing a grounding backbone.

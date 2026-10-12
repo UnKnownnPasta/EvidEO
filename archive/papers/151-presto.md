@@ -35,7 +35,7 @@ Evaluated on a range of globally distributed remote sensing tasks, including cro
 - Gives embeddings or task-head predictions, with no built-in uncertainty, provenance or abstention.
 - Venue and exact benchmark numbers not verified in this pass.
 
-## What it means for SatClip
+## What it means for EvidEO
 - **Adopt as a candidate second opinion for crop condition.** A Presto embedding plus a small logistic head can run on CPU per pixel over a block, next to the NDVI-difference instrument, and disagreement between the two can lower card confidence.
 - Any head on top must be calibrated (temperature or isotonic) on Indian crop labels before its probability appears on a card; raw head scores are not confidences.
 - It does not threaten the novelty claim: it is a representation, not an answer, and carries no scene ID, receipt or abstention.

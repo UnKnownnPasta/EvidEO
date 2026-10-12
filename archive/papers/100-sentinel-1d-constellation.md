@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [sentinel-1, sar, c-band, mission, revisit, copernicus, open-data, flood]
 verified: "2026-10-05 via https://www.esa.int/Newsroom/Press_Releases/Copernicus_Sentinel-1D_reaches_orbit_on_Ariane_6 and https://sentinels.copernicus.eu/web/success-stories/-/sentinel-1d-a-new-chapter-for-copernicus ; current commissioning status and exact operational revisit over India not confirmed"
-takeaway: "Sentinel-1C (Dec 2024) plus 1D (Nov 2025) restore two-satellite C-band SAR, about 6-day revisit at the equator, which directly raises how often SatClip can answer a flood question with a fresh scene instead of abstaining"
+takeaway: "Sentinel-1C (Dec 2024) plus 1D (Nov 2025) restore two-satellite C-band SAR, about 6-day revisit at the equator, which directly raises how often EvidEO can answer a flood question with a fresh scene instead of abstaining"
 ---
 
 # Copernicus Sentinel-1D launch and restored two-satellite Sentinel-1 constellation (Sentinel-1C and 1D)
@@ -34,8 +34,8 @@ No benchmark results apply; this is a mission. The practical result is doubled o
 - Still C-band: same weaknesses under dense canopy and in urban areas, and wind-roughened water still causes misses.
 - Cross-calibration between 1A, 1C and 1D may shift backscatter slightly, which affects fixed thresholds.
 
-## What it means for SatClip
-- Not a threat; it strengthens SatClip's core data supply and the free-data argument.
+## What it means for EvidEO
+- Not a threat; it strengthens EvidEO's core data supply and the free-data argument.
 - Adopt: handle platform identifiers S1C and S1D in STAC queries and receipts (do not hard-code S1A). Record the platform on the evidence card.
 - Calibration: re-check SAR water thresholds and log-ratio change thresholds per platform, and keep the abstain rule when pre and post scenes come from different platforms or orbits.
 - Product impact: more frequent passes mean fewer "no recent scene, abstaining" answers during the monsoon; measure and report the abstention rate before and after 1D data appear in pilot districts.

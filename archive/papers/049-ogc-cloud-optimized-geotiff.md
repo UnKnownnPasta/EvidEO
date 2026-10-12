@@ -10,7 +10,7 @@ category: data-infrastructure
 era: recent
 tags: [cog, geotiff, ogc-standard, http-range-requests, tiling, overviews, cloud-native, windowed-reads]
 verified: "2026-10-04 via https://docs.ogc.org/is/21-026/21-026.html"
-takeaway: "COG 1.0 formalises tiled GeoTIFFs with overviews and headers up front, served over HTTP range requests; this is what lets SatClip read only the district window from a Sentinel scene on a CPU worker"
+takeaway: "COG 1.0 formalises tiled GeoTIFFs with overviews and headers up front, served over HTTP range requests; this is what lets EvidEO read only the district window from a Sentinel scene on a CPU worker"
 ---
 
 # OGC Cloud Optimized GeoTIFF Standard (21-026)
@@ -38,10 +38,10 @@ A formal, testable definition of COG, so a client can check conformance instead 
 - Performance still depends on provider choices (tile size, compression, overviews) and on server latency; badly laid out files remain readable but slow.
 - Sentinel-2 L1C/L2A in the original SAFE format are JPEG2000, not COG; COG access depends on catalogues that re-host them as COG (for example Element 84 Earth Search or Planetary Computer).
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt windowed reads as the only read path: GDAL or rasterio with /vsicurl/ (or signed HTTPS from the catalogue) reading only the tiles intersecting the query AOI, at the overview level matched to the requested scale.
 - Pick catalogues whose Sentinel-1 and Sentinel-2 assets are true COGs, and test on startup that the header arrives in one range request and that Accept-Ranges is present.
 - Use overviews for fast previews on the card and full resolution only for the measurement, and record both the asset href and pixel window in the receipt.
-- Write SatClip output masks as COGs with the recommended layout so they stream into map viewers and can be re-read by anyone checking a card.
+- Write EvidEO output masks as COGs with the recommended layout so they stream into map viewers and can be re-read by anyone checking a card.
 </content>
 </invoke>

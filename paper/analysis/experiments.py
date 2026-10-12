@@ -1,4 +1,4 @@
-"""Experiments for the SatClip paper. Reads the committed per-chip calibration rows and writes
+"""Experiments for the EvidEO paper. Reads the committed per-chip calibration rows and writes
 paper/analysis/results.json plus figures in paper/figures/. Deterministic (seeded). Run from repo root:
     python paper/analysis/experiments.py
 """

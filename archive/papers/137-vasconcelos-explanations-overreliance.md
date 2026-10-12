@@ -10,7 +10,7 @@ category: human-factors
 era: recent
 tags: [overreliance, explanations, cost-benefit, verification-cost, appropriate-reliance]
 verified: "2026-10-07 via arXiv API for 2212.06823 (title, authors, abstract) and https://api.crossref.org/works/10.1145/3579605 (journal, volume 7, issue CSCW1, pages 1-38, date 2023-04-14); explanation types checked in the arXiv PDF"
-takeaway: "Explanations only cut overreliance when they make checking the AI cheaper than trusting it, so SatClip's evidence (scene chips, before/after thumbnails) must let an official verify the headline number in seconds"
+takeaway: "Explanations only cut overreliance when they make checking the AI cheaper than trusting it, so EvidEO's evidence (scene chips, before/after thumbnails) must let an official verify the headline number in seconds"
 ---
 
 # Vasconcelos et al. 2023, explanations that lower verification cost
@@ -37,7 +37,7 @@ Five online studies with 731 participants in total, all using the maze task.
 - Simulated AI; crowd participants.
 - Exact effect sizes per study are not restated here.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Design evidence for verifiability, not persuasion: a before/after Sentinel-1 thumbnail pair with the flood mask outline lets a user check "is that really water" faster than reading a paragraph of VLM rationale.
 - Scene ID and date chips should be one tap away from the actual image, so checking is cheap.
 - Where checking is inherently hard (for example crop stress from subtle index changes), expect more overreliance and lean more on calibrated confidence and abstention.

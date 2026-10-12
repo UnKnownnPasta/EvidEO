@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [gis-agent, qgis, code-generation, autonomous-gis, non-experts, natural-language-interface, tool-documentation]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query?id_list=2411.03205 (title, authors, abstract) and api.crossref.org (journal, volume, issue, article number, 2025-04-28 date); success-rate figures are not in the abstract and were not verified"
-takeaway: "A natural-language agent inside QGIS that writes and runs analysis code, aimed partly at non-experts; strong on one- and few-step tasks but not on autonomous multi-step ones, and it offers no calibrated confidence, abstention or provenance card, which is the gap SatClip fills"
+takeaway: "A natural-language agent inside QGIS that writes and runs analysis code, aimed partly at non-experts; strong on one- and few-step tasks but not on autonomous multi-step ones, and it offers no calibrated confidence, abstention or provenance card, which is the gap EvidEO fills"
 ---
 
 # Akinboyewa et al. 2025, GIS Copilot
@@ -35,8 +35,8 @@ Generative AI could make spatial analysis accessible, but it is rarely integrate
 - Needs QGIS and prepared data layers; it does not find and process satellite scenes for the user.
 - Evaluation is a curated task set, not field use by officials.
 
-## What it means for SatClip
-- **Closest prior art for the 'non-expert asks in plain language' framing**, so SatClip must state the difference clearly: GIS Copilot helps a user drive a GIS; SatClip hands a non-GIS official a measured answer with scene IDs, a mask, calibrated confidence and an abstain path.
+## What it means for EvidEO
+- **Closest prior art for the 'non-expert asks in plain language' framing**, so EvidEO must state the difference clearly: GIS Copilot helps a user drive a GIS; EvidEO hands a non-GIS official a measured answer with scene IDs, a mask, calibrated confidence and an abstain path.
 - **Avoid** free code generation as the answer path; its weak advanced-task results echo GeoGPT (entry 090) and Earth-Agent (entry 094).
-- **Adopt** its use of tool documentation in the prompt for SatClip's parser, limited to describing which instruments exist and what they cannot answer.
-- Offer a QGIS export of SatClip's mask and receipt so GIS staff can inspect cards in the tool they already use.
+- **Adopt** its use of tool documentation in the prompt for EvidEO's parser, limited to describing which instruments exist and what they cannot answer.
+- Offer a QGIS export of EvidEO's mask and receipt so GIS staff can inspect cards in the tool they already use.

@@ -10,7 +10,7 @@ category: object-detection
 era: recent
 tags: [sar, sentinel-1, ship-detection, small-objects, large-scene, ais, false-alarms, pure-background, dataset]
 verified: "2026-10-07 via curl to api.crossref.org (title, authors, journal, volume, issue, article number, date) and api.openalex.org (abstract); not on arXiv; no accuracy numbers quoted because the abstract gives none"
-takeaway: "The right benchmark if SatClip ever answers 'are there vessels here' from Sentinel-1: whole-scene, small-ship, AIS-checked labels, and an explicit focus on suppressing land false alarms"
+takeaway: "The right benchmark if EvidEO ever answers 'are there vessels here' from Sentinel-1: whole-scene, small-ship, AIS-checked labels, and an explicit focus on suppressing land false alarms"
 ---
 
 # Zhang et al. 2020, LS-SSDD-v1.0 (small ships in large Sentinel-1 scenes)
@@ -36,7 +36,7 @@ Most SAR ship datasets are small chips centred on ships, so detectors trained on
 - AIS-aided labels still miss vessels without AIS, the same partial-label problem noted for xView3-SAR (entry 075).
 - Ships only; no inland boats or flood-relevant objects.
 
-## What it means for SatClip
-- **Adopt as the evaluation set** for any future "vessel presence" instrument on Sentinel-1, because it matches SatClip's own sensor and whole-scene use.
-- Copy the idea of training and calibrating on pure-background tiles: SatClip's abstention rule should be tuned on scenes where the true answer is "nothing here", since false alarms are what erode trust.
+## What it means for EvidEO
+- **Adopt as the evaluation set** for any future "vessel presence" instrument on Sentinel-1, because it matches EvidEO's own sensor and whole-scene use.
+- Copy the idea of training and calibrating on pure-background tiles: EvidEO's abstention rule should be tuned on scenes where the true answer is "nothing here", since false alarms are what erode trust.
 - **Avoid** reporting exact ship counts until a detector is calibrated on held-out scenes; a CFAR-style classical detector plus this benchmark is a CPU-friendly first step.

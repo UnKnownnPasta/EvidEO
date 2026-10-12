@@ -10,7 +10,7 @@ category: historical
 era: historical
 tags: [thresholding, histogram, otsu, unsupervised, binarization, water-mapping-baseline]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1109/TSMC.1979.4310076 (title, author, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
-takeaway: "The default automatic threshold that SatClip must benchmark Kittler-Illingworth against, and a cheap fallback when the two-Gaussian fit fails"
+takeaway: "The default automatic threshold that EvidEO must benchmark Kittler-Illingworth against, and a cheap fallback when the two-Gaussian fit fails"
 ---
 
 # Otsu thresholding
@@ -36,7 +36,7 @@ The paper illustrates the method on a small set of gray-level images and their h
 - Assumes a bimodal histogram; returns a number even on unimodal tiles, which can fabricate water.
 - No explicit noise model, so it ignores SAR speckle statistics.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Implement Otsu alongside Kittler-Illingworth on gamma0 dB tiles and record both thresholds in the evidence card receipt; large disagreement is a signal to lower confidence.
 - Use Otsu's separability score (or a bimodality test) as a gate: if a tile is not bimodal, do not threshold it, and let the split-based tile selection skip it.
 - Never apply Otsu to a whole district histogram where water is a few percent of pixels; that is exactly the small-class failure case.

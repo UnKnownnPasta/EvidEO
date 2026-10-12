@@ -12,10 +12,10 @@ Predictors
 
 Scoring: normalised exact match (lower case, strip punctuation; numbers compared as integers). Count
 questions are reported twice: accuracy against the label, and the share answered with a refusal, which is
-what SatClip wants from the language layer.
+what EvidEO wants from the language layer.
 
     python training/eval/eval_vqa.py --set rsvqa_lr --predictor majority
-    python training/eval/eval_vqa.py --set rsvqa_lr --predictor hf --model Qwen/Qwen2-VL-2B-Instruct --adapter training/runs/satclip-lora
+    python training/eval/eval_vqa.py --set rsvqa_lr --predictor hf --model Qwen/Qwen2-VL-2B-Instruct --adapter training/runs/evideo-lora
 """
 from __future__ import annotations
 

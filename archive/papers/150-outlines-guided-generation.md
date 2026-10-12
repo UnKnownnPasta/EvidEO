@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [constrained-decoding, guided-generation, json-schema, regex, finite-state-machine, cfg, outlines, structured-output]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (WebFetch permission request timed out); title, authors, date and abstract from arXiv; no journal or conference reference listed on arXiv; repo URL not fetched; no speed numbers quoted because the abstract gives none"
-takeaway: "Constrain the intent model's decoding to SatClip's JSON schema so every output parses and only allowed fields and values can appear, at little extra cost on CPU"
+takeaway: "Constrain the intent model's decoding to EvidEO's JSON schema so every output parses and only allowed fields and values can appear, at little extra cost on CPU"
 ---
 
 # Willard and Louf 2023, efficient guided generation (Outlines)
@@ -36,7 +36,7 @@ Mainly an algorithmic paper; it compares against existing guided-generation appr
 - Grammar support is more involved than regex; very large or recursive schemas can make the index expensive to build.
 - Forcing structure can hide model uncertainty: the model must still be allowed to emit an explicit "cannot parse" or clarification intent.
 
-## What it means for SatClip
-- Compile SatClip's intent schema (task type, AOI, dates, sensor, index, comparison) into a constrained decoder so the LoRA model can never emit unparsable or out-of-vocabulary fields; enumerate allowed values such as district codes and supported indices.
+## What it means for EvidEO
+- Compile EvidEO's intent schema (task type, AOI, dates, sensor, index, comparison) into a constrained decoder so the LoRA model can never emit unparsable or out-of-vocabulary fields; enumerate allowed values such as district codes and supported indices.
 - Include an explicit abstain or ask-clarification branch in the schema, and log token probabilities at choice points to feed calibration and the reject option (entry 112).
 - Fine-tune with the same schema the decoder enforces, so training and serving formats match; then semantic validation (does the district exist, is the date range valid) runs in plain code before any instrument is called.

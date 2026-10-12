@@ -41,8 +41,8 @@ Disaster alerts from satellites are slowed by downlink limits and by running eve
 - Flood segmenter IoU of 0.554 is modest.
 - The arXiv HTML still contains unedited draft notes in the related-work section, suggesting limited polishing; conference acceptance is for presentation at a symposium.
 
-## What it means for SatClip
-- Adopt: the routing idea. A cheap first check (cloud fraction, quick water index) deciding whether to run the SAR chain matches SatClip's automatic SAR fallback and keeps CPU time low.
-- Adopt: small quantised models (2B to 3B) are enough for structured JSON hypotheses and summaries on constrained hardware, consistent with SatClip's CPU target.
+## What it means for EvidEO
+- Adopt: the routing idea. A cheap first check (cloud fraction, quick water index) deciding whether to run the SAR chain matches EvidEO's automatic SAR fallback and keeps CPU time low.
+- Adopt: small quantised models (2B to 3B) are enough for structured JSON hypotheses and summaries on constrained hardware, consistent with EvidEO's CPU target.
 - Beat: replace agreement-as-confidence with a calibrated score, and add an abstain outcome when optical and SAR disagree.
-- Novelty: weakens the claim slightly. It shows that small VLM plus classical-tool agents with a Sentinel-1 SAR flood tool, structured outputs and a confidence field can run on resource-limited hardware, so "SAR flood on low-resource hardware with an LLM front end" is not new. The confidence is uncalibrated, there is no abstention, no receipt, no live archive retrieval and no non-expert user interface, so SatClip's combination claim stands.
+- Novelty: weakens the claim slightly. It shows that small VLM plus classical-tool agents with a Sentinel-1 SAR flood tool, structured outputs and a confidence field can run on resource-limited hardware, so "SAR flood on low-resource hardware with an LLM front end" is not new. The confidence is uncalibrated, there is no abstention, no receipt, no live archive retrieval and no non-expert user interface, so EvidEO's combination claim stands.

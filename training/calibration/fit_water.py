@@ -3,9 +3,9 @@
 What it does
   1. Downloads the 446 hand-labelled Sentinel-1 chips of Sen1Floods11 (archive A022) from the public
      Google Cloud bucket, one chip at a time, and keeps only a small per-chip result row.
-  2. Puts each chip on SatClip's working grid: 10 m sigma0 dB -> 2 x 2 mean in linear power (20 m)
+  2. Puts each chip on EvidEO's working grid: 10 m sigma0 dB -> 2 x 2 mean in linear power (20 m)
      -> dB, plus a sigma0-to-gamma0 shift (default +1.0 dB, ARCHITECTURE 6.7 "Radiometry").
-  3. Runs the exact production code (`satclip.instruments.water.classify_sar_water`) to get the water
+  3. Runs the exact production code (`evideo.instruments.water.classify_sar_water`) to get the water
      mask and the raw quality score that the card confidence is built from.
   4. Marks a chip "correct" when the measured water area is within the card tolerance of the
      hand-labelled area: |pred - ref| <= 0.2 * max(ref, 0.05 * valid area). This is the event the
@@ -44,8 +44,8 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "backend"))
 
-from satclip.calibration import fit_isotonic, Calibrator  # noqa: E402
-from satclip.instruments.water import classify_sar_water  # noqa: E402
+from evideo.calibration import fit_isotonic, Calibrator  # noqa: E402
+from evideo.instruments.water import classify_sar_water  # noqa: E402
 
 BUCKET = "https://storage.googleapis.com/sen1floods11/v1.1"
 SPLITS = {"train": "flood_train_data.csv", "valid": "flood_valid_data.csv",

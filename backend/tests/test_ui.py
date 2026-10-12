@@ -4,9 +4,9 @@ from pathlib import Path
 
 from fastapi.testclient import TestClient
 
-from satclip.api.main import create_app
-from satclip.models import QueryRequest
-from satclip.parser import parse
+from evideo.api.main import create_app
+from evideo.models import QueryRequest
+from evideo.parser import parse
 
 FRONTEND = Path(__file__).resolve().parents[2] / "frontend"
 

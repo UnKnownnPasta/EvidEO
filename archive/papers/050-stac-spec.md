@@ -10,7 +10,7 @@ category: data-infrastructure
 era: recent
 tags: [stac, metadata, catalog, search-api, geojson, cloud-native, interoperability, sentinel, planetary-computer, copernicus]
 verified: "2026-10-04 via https://github.com/radiantearth/stac-spec/releases"
-takeaway: "STAC is the common search language of public EO catalogues (Item, Catalog, Collection, API); SatClip should search with STAC API and record STAC Item IDs and hrefs in every receipt"
+takeaway: "STAC is the common search language of public EO catalogues (Item, Catalog, Collection, API); EvidEO should search with STAC API and record STAC Item IDs and hrefs in every receipt"
 ---
 
 # SpatioTemporal Asset Catalog (STAC) Specification
@@ -32,10 +32,10 @@ Widely used across major open catalogues; Microsoft Planetary Computer and Eleme
 - STAC describes and locates data; it does not guarantee assets are COGs or analysis-ready.
 - Spec evolution (1.0 to 1.1) means clients should tolerate both band conventions.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt STAC API as the only search path in the data layer: query by AOI geometry, date window and filters (eo:cloud_cover for Sentinel-2, sat:orbit_state and sat:relative_orbit for Sentinel-1), then read assets as COG windows (entry 049).
 - Put the STAC Item ID, collection ID, catalogue URL and asset href into every receipt, so anyone can fetch the same scenes; this is the core of our re-runnable promise.
 - Write a thin provider adapter for property name differences between Planetary Computer, Earth Search and Copernicus Data Space, and fall back between them when one is down or lacks a date.
-- Publish SatClip's own outputs (masks, measurements) as STAC Items with the processing extension, so a card can be loaded into QGIS or any STAC browser.
+- Publish EvidEO's own outputs (masks, measurements) as STAC Items with the processing extension, so a card can be loaded into QGIS or any STAC browser.
 </content>
 </invoke>

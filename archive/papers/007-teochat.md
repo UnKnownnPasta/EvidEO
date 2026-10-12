@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [temporal, change-detection, damage-assessment, vlm, instruction-tuning, llama-2, multi-image, vqa]
 verified: "2026-10-04 via https://arxiv.org/abs/2410.06234 and https://github.com/ermongroup/TEOChat"
-takeaway: "Use its temporal task taxonomy for before/after queries; too heavy for CPU and has no SAR or calibration, which SatClip adds"
+takeaway: "Use its temporal task taxonomy for before/after queries; too heavy for CPU and has no SAR or calibration, which EvidEO adds"
 ---
 
 # TEOChat: A Large Vision-Language Assistant for Temporal Earth Observation Data
@@ -41,7 +41,7 @@ Exact metric values could not be confirmed from the pages fetched.
 - Licence stack is mixed (Apache 2.0 code, plus LLaMA licence and OpenAI/ShareGPT terms on parts of the data).
 - No calibrated confidence or abstention mechanism is described.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt its task taxonomy (change detection, damage assessment, temporal classification) as the schema for our before/after query templates.
 - Reuse TEOChatlas task formats when building our LoRA instruction set, filtered to licence-compatible subsets.
 - Avoid running it live on CPU; use it, if at all, as an offline teacher or GPU-side baseline.

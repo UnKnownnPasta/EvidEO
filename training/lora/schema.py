@@ -1,4 +1,4 @@
-"""The contract between the language model and SatClip's deterministic code.
+"""The contract between the language model and EvidEO's deterministic code.
 
 The fine-tuned model only rewrites a free-text question (English, Hindi, Hinglish, typos, any date
 format) into this small JSON object. It never resolves geography and never produces a number:
@@ -71,9 +71,9 @@ def parse_output(text: str) -> Optional[dict[str, Any]]:
 
 def resolve(obj: dict[str, Any], text: str):
     """Model JSON -> backend ParsedQuery, through the same gazetteer and window rules as the rule parser."""
-    from satclip import gazetteer
-    from satclip.models import DateWindow, Intent, QueryRequest
-    from satclip.parser import WINDOW_HALF_DAYS, parse
+    from evideo import gazetteer
+    from evideo.models import DateWindow, Intent, QueryRequest
+    from evideo.parser import WINDOW_HALF_DAYS, parse
 
     windows = []
     for d in obj.get("dates") or []:

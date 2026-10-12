@@ -11,17 +11,17 @@ rasterio = pytest.importorskip("rasterio")
 from rasterio.transform import from_bounds  # noqa: E402
 from rasterio.warp import transform_bounds  # noqa: E402
 
-from satclip import calibration, gazetteer  # noqa: E402
-from satclip.config import load_settings  # noqa: E402
-from satclip.data import provider as prov_mod  # noqa: E402
-from satclip.data.cog import RasterWindow  # noqa: E402
-from satclip.data.scene import Scene  # noqa: E402
-from satclip.data.select import Selection  # noqa: E402
-from satclip.instruments import get  # noqa: E402
-from satclip.instruments import landcover  # noqa: E402
-from satclip.models import DateWindow, Intent, QueryRequest, TileJob, TileStatus  # noqa: E402
-from satclip.parser import parse  # noqa: E402
-from satclip.tiling import tile_area_km2  # noqa: E402
+from evideo import calibration, gazetteer  # noqa: E402
+from evideo.config import load_settings  # noqa: E402
+from evideo.data import provider as prov_mod  # noqa: E402
+from evideo.data.cog import RasterWindow  # noqa: E402
+from evideo.data.scene import Scene  # noqa: E402
+from evideo.data.select import Selection  # noqa: E402
+from evideo.instruments import get  # noqa: E402
+from evideo.instruments import landcover  # noqa: E402
+from evideo.models import DateWindow, Intent, QueryRequest, TileJob, TileStatus  # noqa: E402
+from evideo.parser import parse  # noqa: E402
+from evideo.tiling import tile_area_km2  # noqa: E402
 
 TILE = (91.0, 26.3, 91.05, 26.35)
 RNG = np.random.default_rng(7)
@@ -203,7 +203,7 @@ def test_landcover_abstains_when_model_missing(monkeypatch):
 
 def test_region_clipping_reduces_measured_area():
     from shapely.geometry import box
-    from satclip.tiling import tiles_for_bbox
+    from evideo.tiling import tiles_for_bbox
     outline = gazetteer.outline_lonlat("barpeta|assam")
     edge = next(tb for _, tb in tiles_for_bbox(outline.bounds, 0.05)
                 if 0.3 < outline.intersection(box(*tb)).area / box(*tb).area < 0.7)  # straddles the boundary
@@ -268,7 +268,7 @@ def test_calibration_files():
 
 def test_api_end_to_end_district_card(tmp_path, identity_calibration):
     from fastapi.testclient import TestClient
-    from satclip.api.main import create_app
+    from evideo.api.main import create_app
     cfg = copy.deepcopy(CFG)
     cfg["intents"]["water_extent"] = "sar_water_otsu"
     s = scene("S1_after", "S1", "2024-07-11")
@@ -277,7 +277,7 @@ def test_api_end_to_end_district_card(tmp_path, identity_calibration):
     c = TestClient(app)
     r = c.post("/v1/queries", json={"text": "How much of Barpeta was under water on 2024-07-11?"}).json()
     n = r["n_tiles"]
-    full = len(__import__("satclip.tiling", fromlist=["x"]).tiles_for_bbox(tuple(gazetteer.get("barpeta|assam")["bbox"]), 0.05))
+    full = len(__import__("evideo.tiling", fromlist=["x"]).tiles_for_bbox(tuple(gazetteer.get("barpeta|assam")["bbox"]), 0.05))
     assert 0 < n < full  # tiles outside the outline are not queued
     for _ in range(200):
         job_ = c.get(f"/v1/jobs/{r['job_id']}").json()

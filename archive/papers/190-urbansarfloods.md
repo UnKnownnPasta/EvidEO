@@ -10,7 +10,7 @@ category: change-detection
 era: recent
 tags: [sentinel-1, slc, interferometric-coherence, pre-post-event, urban-flood, flood-mapping, bitemporal, class-imbalance, benchmark]
 verified: "2026-10-08 via curl to export.arxiv.org/api/query (title, three authors, abstract, comment 'Accepted by CVPR 2024 EarthVision Workshop') and the GitHub README (CVF open access link, data location); WebFetch permission prompt timed out so curl was used; the README mentions corrections to the paper which were not reviewed; no IoU values quoted"
-takeaway: "Pre- and during-flood Sentinel-1 intensity plus interferometric coherence over 18 events shows urban flooding is still largely missed by CNNs; SatClip should say plainly that its SAR intensity water mask does not cover flooded towns"
+takeaway: "Pre- and during-flood Sentinel-1 intensity plus interferometric coherence over 18 events shows urban flooding is still largely missed by CNNs; EvidEO should say plainly that its SAR intensity water mask does not cover flooded towns"
 ---
 
 # Zhao, Xiong and Zhu 2024, UrbanSARFloods
@@ -31,11 +31,11 @@ Most SAR flood datasets (Sen1Floods11, entry 022) label open-area floods, where 
 - Urban flood detection remained the hardest case. Exact scores were not read and are not quoted.
 
 ## Limitations
-- Requires SLC processing for coherence, which is heavier than the GRD backscatter SatClip uses.
+- Requires SLC processing for coherence, which is heavier than the GRD backscatter EvidEO uses.
 - Few events; urban flood class is small and imbalanced.
 - The authors' repository notes corrections to the paper; these were not checked.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt now: in the answer card, state that the SAR water mask covers open ground and fields, and that flooding inside built-up areas may be missed; lower confidence or abstain for urban-majority areas of interest (mask with a built-up layer).
 - Later: a coherence-drop instrument (pre versus co-event coherence from SLC pairs) is the established route to urban floods; adding it would also give a second, independent change signal next to the log-ratio.
-- Use the dataset's urban test events to measure how often SatClip's open-water instrument misses urban floods before claiming coverage.
+- Use the dataset's urban test events to measure how often EvidEO's open-water instrument misses urban floods before claiming coverage.

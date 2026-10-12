@@ -10,7 +10,7 @@ category: change-detection
 era: historical
 tags: [bfast, time-series, ndvi, seasonality, structural-breaks, phenology, disturbance]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1016/j.rse.2009.08.014 (title, four authors, venue, volume, issue, pages, 2010), abstract from the Wageningen University research portal page, and the CRAN bfast package page"
-takeaway: "Seasonality alone can masquerade as change in a two-date NDVI difference; SatClip's crop-change instrument should compare against the same season's expected NDVI and abstain when a drop could be ordinary phenology or harvest"
+takeaway: "Seasonality alone can masquerade as change in a two-date NDVI difference; EvidEO's crop-change instrument should compare against the same season's expected NDVI and abstain when a drop could be ordinary phenology or harvest"
 ---
 
 # Verbesselt et al. 2010, BFAST
@@ -36,7 +36,7 @@ Many change detection methods compare dates without accounting for seasonal cycl
 - Validated on forest at 250 m scale, not on smallholder crops in India; detection limits from simulation may not transfer.
 - Offline fitting; the later BFAST Monitor variant addresses near real-time use.
 
-## What it means for SatClip
-- A two-date NDVI drop during a kharif or rabi season can be harvest, not damage. SatClip should compare the observed change against the expected seasonal change for that crop window (from prior years or a seasonal model) before calling it crop loss.
+## What it means for EvidEO
+- A two-date NDVI drop during a kharif or rabi season can be harvest, not damage. EvidEO should compare the observed change against the expected seasonal change for that crop window (from prior years or a seasonal model) before calling it crop loss.
 - The roughly 0.1 NDVI detection floor under realistic noise is a useful sanity bound: smaller differences should trigger low confidence or abstention unless the receipt shows strong supporting evidence.
 - Where a cloud-free history exists, a BFAST-style break check is a cheap secondary instrument that can be cited in the receipt alongside the two-date difference.

@@ -36,7 +36,7 @@ Classification, segmentation and regression tasks (details not re-checked here).
 - Embeddings are opaque: an official cannot inspect why a pixel looks like cropland.
 - Not peer-reviewed as far as verified.
 
-## What it means for SatClip
+## What it means for EvidEO
 - **Adopt selectively.** For India tiles, precomputed int8 embeddings plus a tiny head are a CPU-cheap scene or land-cover instrument (a better candidate than RemoteCLIP zero-shot, which abstained on Darbhanga cropland), provided the head is calibrated on Indian labels.
 - Because SAR is inside the embedding, it is cloud-robust for annual land cover, which suits the "what is this land" context line on a card.
 - **Avoid** for flood change: the annual product cannot carry a scene ID and acquisition date per answer, so it cannot back an evidence card's headline number. Keep the S1 log-ratio instrument for that.

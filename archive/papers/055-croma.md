@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [sar, sentinel-1, sentinel-2, contrastive, masked-autoencoder, radar-optical-fusion, alibi, ssl4eo-s12, vit]
 verified: "2026-10-04 via https://arxiv.org/abs/2311.00566 and https://github.com/antofuller/CROMA"
-takeaway: "MIT-licensed radar plus optical encoder trained on Sentinel-1/2; best candidate for a learned SAR feature cross-check next to SatClip's Otsu water instrument"
+takeaway: "MIT-licensed radar plus optical encoder trained on Sentinel-1/2; best candidate for a learned SAR feature cross-check next to EvidEO's Otsu water instrument"
 ---
 
 # CROMA: Remote Sensing Representations with Contrastive Radar-Optical Masked Autoencoders
@@ -39,7 +39,7 @@ Per the abstract, average gains over prior state of the art: classification 1.8%
 - Benchmarks are mostly Europe and North America; not tested on Indian floods or paddy.
 - Features need a probe or fine-tune; outputs are not calibrated.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Strongest open choice for a learned SAR plus optical second opinion: a linear probe on CROMA features for water or not-water can be compared with the SAR Otsu mask, and large disagreement can trigger abstention.
 - Run CROMA-Base only on the AOI chip, not the whole scene, to keep CPU time acceptable; record chip size and model version in the card.
 - Expect fusion to help when Sentinel-2 is partly cloudy, but use only Sentinel-1 for cloudy monsoon scenes and say so in the explanation.

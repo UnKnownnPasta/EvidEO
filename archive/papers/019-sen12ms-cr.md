@@ -34,9 +34,9 @@ The abstract reports that training on real cloudy data beats training on synthet
 ## Limitations
 Output under thick cloud is a plausible reconstruction guided by SAR, not an observation. Single-date setup ignores multitemporal context (addressed later in SEN12MS-CR-TS and UnCRtainTS). Precision and recall metrics are hard to relate to downstream task accuracy.
 
-## What it means for SatClip
+## What it means for EvidEO
 - SEN12MS-CR is the reference dataset for monsoon-season optical gaps; use it to test any cloud handling we add.
 - Use s2cloudless-style probability masks in the pipeline to decide per region whether to answer from optical, SAR or abstain.
 - Never present GAN-filled pixels as observed evidence; mark reconstructed areas in the region mask and lower confidence there.
 - Prefer SAR-native answers (flood extent, change) over cloud-filled optical when cloud fraction is high.
-- Watch follow-up UnCRtainTS for per-pixel uncertainty, which fits SatClip's calibration goal.
+- Watch follow-up UnCRtainTS for per-pixel uncertainty, which fits EvidEO's calibration goal.

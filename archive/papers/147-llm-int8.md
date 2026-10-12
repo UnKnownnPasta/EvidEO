@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [int8, quantization, outlier-features, mixed-precision, vector-wise-quantization, bitsandbytes, inference-memory]
 verified: "2026-10-07 via WebFetch on https://arxiv.org/abs/2208.07339 (title, authors, NeurIPS 2022 camera-ready comment, abstract); NeurIPS proceedings page and code repo not fetched"
-takeaway: "Explains why naive 8-bit quantization breaks transformers (rare large outlier features) and gives a safe 8-bit baseline that SatClip's quantized builds must match on intent accuracy"
+takeaway: "Explains why naive 8-bit quantization breaks transformers (rare large outlier features) and gives a safe 8-bit baseline that EvidEO's quantized builds must match on intent accuracy"
 ---
 
 # LLM.int8(), outlier-aware 8-bit inference
@@ -35,7 +35,7 @@ Language models up to 175B parameters (OPT, BLOOM are named in the abstract); th
 - Aims at memory, not speed: the mixed-precision decomposition adds overhead, and the original kernels target CUDA GPUs, not CPUs.
 - 8-bit only; for a CPU deployment, 4-bit weight quantization usually matters more.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Use 8-bit as the conservative reference: any 4-bit build (GPTQ entry 146, AWQ entry 061) must be compared against it on the intent-parsing test set.
 - The outlier finding is a warning for small multimodal models too: check per-layer activation ranges before trusting an aggressive quantization recipe.
 - For GPU-equipped on-prem servers, 8-bit loading is a low-effort way to fit the base model while training or evaluating adapters.

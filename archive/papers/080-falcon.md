@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [vlm, small-model, 0.7b, florence-2, multi-task, change-detection, segmentation, grounding, dataset, cpu-friendly]
 verified: "2026-10-05 via https://arxiv.org/abs/2503.11070, https://arxiv.org/html/2503.11070 and https://github.com/TianHuiLab/Falcon README"
-takeaway: "A 0.7B RS model that does grounding, segmentation and bitemporal change detection is the most CPU-plausible RS VLM to date; worth testing as SatClip's parser/explainer or as a cross-check, never as the measuring instrument"
+takeaway: "A 0.7B RS model that does grounding, segmentation and bitemporal change detection is the most CPU-plausible RS VLM to date; worth testing as EvidEO's parser/explainer or as a cross-check, never as the measuring instrument"
 ---
 
 # Falcon: A Remote Sensing Vision-Language Foundation Model (Technical Report)
@@ -34,8 +34,8 @@ From the paper's tables:
 ## Limitations
 Technical report, not peer reviewed at verification time. Many comparisons are against general or RS VLMs that were never trained for those tasks, so large margins partly reflect task coverage rather than skill. Evaluation is largely on in-distribution test splits of the same 67 datasets used for training. Nearly all imagery is optical; there is no evidence of Sentinel-1 flood or Sentinel-2 crop condition performance. No confidence, abstention, provenance or measurement output. No CPU latency figures were found in the paper.
 
-## What it means for SatClip
-- Most relevant small model so far: at 0.7B with a Florence-2 base, Falcon could plausibly run on a laptop CPU. Benchmark it against SatClip's current parser/explainer for latency and against the NDVI or log-ratio instrument as an independent change "second opinion".
+## What it means for EvidEO
+- Most relevant small model so far: at 0.7B with a Florence-2 base, Falcon could plausibly run on a laptop CPU. Benchmark it against EvidEO's current parser/explainer for latency and against the NDVI or log-ratio instrument as an independent change "second opinion".
 - Do not let it produce the reported number. Change detection mIoU of 0.34 to 0.70 on curated bitemporal sets is well below what a district-level flood or crop figure needs, and it gives no confidence to gate on.
-- Reuse the idea of converting existing labelled datasets into instruction format: SatClip can build an Indian question set by templating questions over existing flood masks (for example Sen1Floods11) and district boundaries.
+- Reuse the idea of converting existing labelled datasets into instruction format: EvidEO can build an Indian question set by templating questions over existing flood masks (for example Sen1Floods11) and district boundaries.
 - Falcon does not challenge the evidence-card claim: no scene IDs, dates, calibrated confidence or abstention.

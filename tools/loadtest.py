@@ -1,4 +1,4 @@
-"""SatClip load test: how fast do tiles move through the queue, and does it scale with workers?
+"""EvidEO load test: how fast do tiles move through the queue, and does it scale with workers?
 
     cd backend && python ../tools/loadtest.py                 # writes docs/quality/loadtest.json
     cd backend && python ../tools/loadtest.py --tiles 200 --io-ms 0,400
@@ -6,7 +6,7 @@
 Every tile runs the real SAR water core (`classify_sar_water`, VV+VH, threshold fit, speckle
 cleanup) on a synthetic 280 x 280 pixel tile (0.05 degrees at 20 m), plus a sleep that stands in
 for the COG window reads (--io-ms; the live per-tile time is measured separately by tools/demo.py).
-No network is used, so the numbers isolate SatClip's own compute and queue overhead.
+No network is used, so the numbers isolate EvidEO's own compute and queue overhead.
 
 Scenarios
   inline   in-process thread pool (the dev and single-laptop deployment), concurrency 1, 4, 8
@@ -33,14 +33,14 @@ sys.path.insert(0, str(ROOT / "backend"))
 import numpy as np  # noqa: E402
 import psutil  # noqa: E402
 
-from satclip.instruments import register  # noqa: E402
-from satclip.instruments.water import classify_sar_water  # noqa: E402
-from satclip.models import DateWindow, Intent, Job, JobState, ParsedQuery, TileJob, TileResult, TileStatus  # noqa: E402
-from satclip.receipt import digest  # noqa: E402
-from satclip.tiling import tile_area_km2, tiles_for_bbox  # noqa: E402
+from evideo.instruments import register  # noqa: E402
+from evideo.instruments.water import classify_sar_water  # noqa: E402
+from evideo.models import DateWindow, Intent, Job, JobState, ParsedQuery, TileJob, TileResult, TileStatus  # noqa: E402
+from evideo.receipt import digest  # noqa: E402
+from evideo.tiling import tile_area_km2, tiles_for_bbox  # noqa: E402
 
 PX = 280
-IO_MS = float(os.environ.get("SATCLIP_LOADTEST_IO_MS", "0"))
+IO_MS = float(os.environ.get("EVIDEO_LOADTEST_IO_MS", "0"))
 
 
 @register("loadtest", "1")
@@ -86,7 +86,7 @@ def rss_mb(pids: list[int]) -> float:
 
 
 def run_inline(n: int, conc: int) -> dict:
-    from satclip.jobqueue import InlineQueue
+    from evideo.jobqueue import InlineQueue
     q = InlineQueue({"abstain_below": 0.6, "bands": []}, concurrency=conc)
     out = {}
     for phase in ("cold", "warm"):
@@ -112,9 +112,9 @@ def free_port() -> int:
 
 def worker_main(url: str) -> None:
     import redis
-    from satclip.jobqueue import RedisQueue
+    from evideo.jobqueue import RedisQueue
     q = RedisQueue(redis.Redis.from_url(url), {"abstain_below": 0.6, "bands": []})
-    while not q.r.exists("satclip:loadtest:stop"):
+    while not q.r.exists("evideo:loadtest:stop"):
         q.work_once(block_s=1)
 
 
@@ -123,7 +123,7 @@ def run_redis(n: int, workers_list: list[int], io_ms: float) -> dict:
     if not exe:
         return {"skipped": "redis-server not installed"}
     import redis
-    from satclip.jobqueue import RedisQueue
+    from evideo.jobqueue import RedisQueue
     port = free_port()
     srv = subprocess.Popen([exe, "--port", str(port), "--save", "", "--appendonly", "no"],
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
@@ -140,7 +140,7 @@ def run_redis(n: int, workers_list: list[int], io_ms: float) -> dict:
         out = {}
         for k in workers_list:
             r.flushdb()
-            env = {**os.environ, "SATCLIP_LOADTEST_IO_MS": str(io_ms), "PYTHONPATH": str(ROOT / "backend")}
+            env = {**os.environ, "EVIDEO_LOADTEST_IO_MS": str(io_ms), "PYTHONPATH": str(ROOT / "backend")}
             procs = [subprocess.Popen([sys.executable, __file__, "--worker", url], env=env, cwd=str(ROOT / "backend"))
                      for _ in range(k)]
             time.sleep(2.0)  # let workers import numpy and connect
@@ -159,7 +159,7 @@ def run_redis(n: int, workers_list: list[int], io_ms: float) -> dict:
                               "cache_hits": sum(x.cache_hit for x in j.results)}
             res["worker_rss_mb_total"] = rss_mb([p.pid for p in procs])
             res["redis_rss_mb"] = rss_mb([srv.pid])
-            r.set("satclip:loadtest:stop", 1)
+            r.set("evideo:loadtest:stop", 1)
             for p in procs:
                 p.wait(timeout=30)
             out[f"{k}_workers"] = res
@@ -172,8 +172,8 @@ def run_redis(n: int, workers_list: list[int], io_ms: float) -> dict:
 
 def run_api(n: int) -> dict:
     from fastapi.testclient import TestClient
-    from satclip.api.main import create_app
-    from satclip.config import settings
+    from evideo.api.main import create_app
+    from evideo.config import settings
     c = TestClient(create_app(settings()))
     qs = ["Count the boats in Ernakulam", "How much of Aurangabad was under water on 2024-08-10?",
           "How much was under water?", "Did the crop decline in Darbhanga?"]
@@ -207,7 +207,7 @@ def main() -> None:
               if os.path.exists("/proc/cpuinfo") else "?", "runs": {}}
     for io in [float(x) for x in a.io_ms.split(",")]:
         IO_MS = io
-        os.environ["SATCLIP_LOADTEST_IO_MS"] = str(io)
+        os.environ["EVIDEO_LOADTEST_IO_MS"] = str(io)
         key = f"io_{int(io)}ms"
         report["runs"][key] = {"inline": {}, "redis": None}
         for conc in (1, 4, 8):

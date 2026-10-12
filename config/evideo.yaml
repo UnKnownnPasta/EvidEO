@@ -1,5 +1,5 @@
-# SatClip shared configuration, read by the API and the workers.
-# Override any key with an environment variable: SATCLIP_<SECTION>__<KEY>, e.g. SATCLIP_QUEUE__BACKEND=redis
+# EvidEO shared configuration, read by the API and the workers.
+# Override any key with an environment variable: EVIDEO_<SECTION>__<KEY>, e.g. EVIDEO_QUEUE__BACKEND=redis
 
 queue:
   backend: inline          # inline (in-process threads, dev/tests) or redis

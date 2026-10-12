@@ -10,7 +10,7 @@ category: trust-calibration
 era: recent
 tags: [gfm, copernicus, ensemble, likelihood, uncertainty, sentinel-1, flood-mapping, user-communication, exclusion-mask]
 verified: "2026-10-09 via curl to api.crossref.org (JSTARS record: title, 11 authors, volume, pages, DOI; TechRxiv preprint record with full abstract; the preprint lists 10 authors, without Renaud Hostache); WebFetch of the GFM Product Definition wiki at extwiki.eodc.eu (likelihood layer range and the 50 cut-off, LIST/DLR/TUW algorithms, TUW uncertainty flipped). IEEE Xplore and TechRxiv full text did not render, so harmonisation formulas and any numeric accuracy were not read"
-takeaway: "Copernicus GFM gives every flood pixel a 0 to 100 likelihood by harmonising and averaging the uncertainty outputs of three independent Sentinel-1 algorithms; SatClip can mimic this cheaply by running two or three of its own water tests and reporting agreement as confidence"
+takeaway: "Copernicus GFM gives every flood pixel a 0 to 100 likelihood by harmonising and averaging the uncertainty outputs of three independent Sentinel-1 algorithms; EvidEO can mimic this cheaply by running two or three of its own water tests and reporting agreement as confidence"
 ---
 
 # Krullikowski et al. 2023, GFM ensemble likelihoods
@@ -36,7 +36,7 @@ The Copernicus Global Flood Monitoring (GFM) service produces a flood mask for e
 - Evaluation on two sites only, neither in South Asia.
 - Running three full algorithms is heavier than a single threshold.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt in sar_water_otsu: run two or three cheap, different water tests on the same scene (Otsu on VV, Otsu on VH, and a change test against a dry reference from sar_logratio_change) and report per-pixel agreement on a 0 to 100 scale, with the 50 cut used for the mask, mirroring GFM.
 - Adopt: show the agreement layer in answers ("3 of 3 methods agree on 80% of this area") which a district official can read without statistics.
 - Adopt: where a GFM product exists for the same Sentinel-1 scene, use it as a cross-check and flag big disagreements.

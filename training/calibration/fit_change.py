@@ -5,7 +5,7 @@ What it does
      closest pre-flood VV/VH (SL1), the expert label (0 dry, 1 permanent water, 2 flood) and the valid mask.
      Shards are read as tar streams and closed after the requested number of samples, so nothing big is
      stored. Both train_GRD and test_GRD shards are read, each at four byte offsets to reach more events.
-  2. Puts each 224 x 224 px, 10 m sample on SatClip's 20 m grid (mean in linear power, then dB, plus the same
+  2. Puts each 224 x 224 px, 10 m sample on EvidEO's 20 m grid (mean in linear power, then dB, plus the same
      +1 dB sigma0-to-gamma0 shift as fit_water.py).
   3. Runs the exact production code: `classify_sar_water` on the post-flood scene (v1.1, VV or VH) and
      `classify_sar_change` for the pair, which returns the new-water mask and the raw quality score.
@@ -39,7 +39,7 @@ sys.path.insert(0, str(HERE))
 from fit_water import ROOT, FLOOR, TOL, Calibrator, platt  # noqa: E402
 from kurosiwo_stream import samples  # noqa: E402
 
-from satclip.instruments.water import classify_sar_change, classify_sar_water, fit_sar_threshold  # noqa: E402
+from evideo.instruments.water import classify_sar_change, classify_sar_water, fit_sar_threshold  # noqa: E402
 
 OUT_DIR = HERE / "reports"
 CAL_PATH = ROOT / "config" / "calibration" / "sar_logratio_change.json"
@@ -264,7 +264,7 @@ def write_report(r: dict[str, Any]) -> None:
            "than 20% and 4% overcounted; median measured-to-labelled ratio 0.53; the cause was not diagnosed per chip). The shipped map is "
            "therefore split by regime, and the change card will abstain on most positive change answers until the "
            "instrument improves.", "",
-           "Limits: Kuro Siwo chips are 2.2 km squares, smaller than SatClip tiles; the before scene is the closest pre-flood "
+           "Limits: Kuro Siwo chips are 2.2 km squares, smaller than EvidEO tiles; the before scene is the closest pre-flood "
            "pass in the dataset, often weeks earlier; few South Asian monsoon events. Per-sample rows: "
            "`sar_logratio_change_samples.csv`.", ""]
     (OUT_DIR / "sar_logratio_change.md").write_text("\n".join(md))

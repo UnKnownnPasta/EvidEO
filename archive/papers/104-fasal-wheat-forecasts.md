@@ -10,7 +10,7 @@ category: indian-context
 era: historical
 tags: [india, fasal, mncfc, crop-forecasting, wheat, sentinel-2, resourcesat-2, district-statistics, official-statistics]
 verified: "2026-10-06 via https://isprs-archives.copernicus.org/articles/XLII-3-W6/223/2019/ (abstract and PDF read) and https://desagri.gov.in/programs-schemes/forecasting-agricultural-output-using-space-agro-meteorology-and-land-based-observations-fasal/ (FASAL programme page); exact per-year RMSE values in the paper's tables were not transcribed"
-takeaway: "India's official crop forecasting already compares satellite area estimates with government statistics by deviation, RMSE and correlation at district level, so SatClip should validate its agriculture instrument the same way and report the deviation on the evidence card"
+takeaway: "India's official crop forecasting already compares satellite area estimates with government statistics by deviation, RMSE and correlation at district level, so EvidEO should validate its agriculture instrument the same way and report the deviation on the evidence card"
 ---
 
 # FASAL wheat forecasts (MNCFC)
@@ -32,7 +32,7 @@ Multi-year IRS, Landsat-8 and Sentinel-2 imagery over the major wheat states (th
 ## Limitations
 Wheat is a rabi crop mapped with cloud free optical data; the method does not transfer directly to the monsoon kharif season. Results are compared to DES figures that are themselves estimates, and the authors call for more ground truth per district and higher resolution data for block and village level outputs.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the validation protocol: for any agriculture answer, report deviation from official district statistics where they exist, not just pixel accuracy.
-- The trend toward 10 m Sentinel data in FASAL supports SatClip's choice of public Sentinel-1/2 via STAC.
-- Beat in kharif: optical FASAL methods struggle under monsoon cloud, so SatClip's SAR-first NDVI fallback logic (abstain on optical if cloudy, use Sentinel-1) fills a real gap.
+- The trend toward 10 m Sentinel data in FASAL supports EvidEO's choice of public Sentinel-1/2 via STAC.
+- Beat in kharif: optical FASAL methods struggle under monsoon cloud, so EvidEO's SAR-first NDVI fallback logic (abstain on optical if cloudy, use Sentinel-1) fills a real gap.

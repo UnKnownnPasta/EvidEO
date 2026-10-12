@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [benchmark, tool-calling, unsolvable-tasks, rejection, llm-as-judge, gis, abstention]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2503.18129 and https://arxiv.org/html/2503.18129 (v2, October 2025, workshop header on the paper)"
-takeaway: "Only geo-agent benchmark here that scores refusal on deliberately unsolvable tasks; shows models trade answering for refusing, which supports SatClip's explicit abstention and gives a test design to copy"
+takeaway: "Only geo-agent benchmark here that scores refusal on deliberately unsolvable tasks; shows models trade answering for refusing, which supports EvidEO's explicit abstention and gives a test design to copy"
 ---
 
 # GeoBenchX: Benchmarking LLMs in Agent Solving Multistep Geospatial Tasks
@@ -37,7 +37,7 @@ A deliberately simple tool-calling agent with 23 geospatial functions (loading d
 - Stated by the authors: no per-model prompt tuning, only the solution algorithm is judged (not the final numbers or the wording of a rejection), moderate set size, no measurement of response variance beyond binomial bounds.
 - Vector and tabular GIS, not imagery.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Copy the design: include deliberately unanswerable questions (outside India, no Sentinel-1 pass in the window, crop question in a non-crop district) and report rejection accuracy next to answer accuracy.
-- The trade-off result supports moving abstention out of the LLM: SatClip abstains on calibrated instrument confidence, so the decision does not depend on a model's disposition to please.
-- Note the gap SatClip addresses: GeoBenchX checks whether the plan was right but not whether the number was right. SatClip's receipts let us verify both.
+- The trade-off result supports moving abstention out of the LLM: EvidEO abstains on calibrated instrument confidence, so the decision does not depend on a model's disposition to please.
+- Note the gap EvidEO addresses: GeoBenchX checks whether the plan was right but not whether the number was right. EvidEO's receipts let us verify both.

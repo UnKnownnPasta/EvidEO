@@ -4,12 +4,12 @@ from datetime import date
 import pytest
 from fastapi.testclient import TestClient
 
-from satclip.api.main import create_app
-from satclip.config import load_settings
-from satclip.models import Intent, QueryRequest
-from satclip.parser import parse
-from satclip.receipt import digest
-from satclip.tiling import tile_area_km2, tiles_for_bbox
+from evideo.api.main import create_app
+from evideo.config import load_settings
+from evideo.models import Intent, QueryRequest
+from evideo.parser import parse
+from evideo.receipt import digest
+from evideo.tiling import tile_area_km2, tiles_for_bbox
 
 
 @pytest.fixture()
@@ -20,7 +20,7 @@ def cfg():
 
 
 def test_env_override():
-    c = load_settings(environ={"SATCLIP_QUEUE__BACKEND": "redis", "SATCLIP_TRUST__ABSTAIN_BELOW": "0.7"})
+    c = load_settings(environ={"EVIDEO_QUEUE__BACKEND": "redis", "EVIDEO_TRUST__ABSTAIN_BELOW": "0.7"})
     assert c["queue"]["backend"] == "redis" and c["trust"]["abstain_below"] == 0.7
 
 

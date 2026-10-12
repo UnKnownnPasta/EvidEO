@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [pixel-grounding, chain-of-thought, sar-optical-fusion, bi-temporal-change, sam-2, internvl3, terra-cot, terrascope-bench, area-quantification]
 verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?search_query=ti:TerraScope (title, authors, v1 date 2026-03-19, CVPR comment, abstract) and WebFetch of https://arxiv.org/html/2603.19039v1 (architecture, Terra-CoT sources, benchmark sub-tasks, Tables 1 to 3 numbers, stated limitations, compute); CVPR acceptance not cross-checked against the CVPR proceedings site"
-takeaway: "A CVPR 2026 RS VLM that interleaves SAM-2 masks into its reasoning, handles optical or SAR and bi-temporal inputs, and answers area and change questions (68.9 avg on its own benchmark vs 43.3 best zero-shot); the closest model-side rival to SatClip's mask-plus-number answers, but it has no calibration, abstention, live retrieval or scene receipts"
+takeaway: "A CVPR 2026 RS VLM that interleaves SAM-2 masks into its reasoning, handles optical or SAR and bi-temporal inputs, and answers area and change questions (68.9 avg on its own benchmark vs 43.3 best zero-shot); the closest model-side rival to EvidEO's mask-plus-number answers, but it has no calibration, abstention, live retrieval or scene receipts"
 ---
 
 # Shu et al. 2026, TerraScope
@@ -43,8 +43,8 @@ RS VLMs answer spatial questions (how much of this area is water, how many build
 - Works on prepared image chips; no scene retrieval, dates or provenance.
 - Training hyperparameters are reported inconsistently between the appendix table and Section 5.
 
-## What it means for SatClip
-- Beat: SatClip's water and change percentages come from deterministic instruments (Otsu on SAR, log-ratio, NDVI difference) on full Sentinel scenes, not from a VLM's mask, and run on CPU; TerraScope needs about 22 GB of GPU memory.
-- Adopt: the observation that mask quality predicts answer correctness supports using SatClip's own mask-quality signals (for example bimodality of the SAR histogram or mask fragmentation) as features for the calibrated confidence.
-- Adopt as a benchmark idea: coverage-percentage and area questions with mask IoU scoring are close to SatClip's flood-extent questions; a small Indian version could reuse this format.
-- Novelty: weakens the claim only partly. It is the strongest published evidence that a VLM can produce pixel-grounded, SAR-capable, bi-temporal area answers, so SatClip cannot claim mask-backed change answers or SAR handling as new. It does not touch calibrated confidence, abstention, scene receipts, live retrieval with SAR fallback, or CPU delivery to Indian officials, which remain SatClip's differentiators.
+## What it means for EvidEO
+- Beat: EvidEO's water and change percentages come from deterministic instruments (Otsu on SAR, log-ratio, NDVI difference) on full Sentinel scenes, not from a VLM's mask, and run on CPU; TerraScope needs about 22 GB of GPU memory.
+- Adopt: the observation that mask quality predicts answer correctness supports using EvidEO's own mask-quality signals (for example bimodality of the SAR histogram or mask fragmentation) as features for the calibrated confidence.
+- Adopt as a benchmark idea: coverage-percentage and area questions with mask IoU scoring are close to EvidEO's flood-extent questions; a small Indian version could reuse this format.
+- Novelty: weakens the claim only partly. It is the strongest published evidence that a VLM can produce pixel-grounded, SAR-capable, bi-temporal area answers, so EvidEO cannot claim mask-backed change answers or SAR handling as new. It does not touch calibrated confidence, abstention, scene receipts, live retrieval with SAR fallback, or CPU delivery to Indian officials, which remain EvidEO's differentiators.

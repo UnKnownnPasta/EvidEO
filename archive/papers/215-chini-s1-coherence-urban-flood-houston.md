@@ -10,7 +10,7 @@ category: change-detection
 era: historical
 tags: [insar-coherence, urban-flood, sentinel-1, slc, building-footprint, hurricane-harvey, houston, double-bounce, hierarchical-split-based]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, issue, article number, abstract) and WebFetch of the open-access article at mdpi.com/2072-4292/11/2/107 (method, data, numbers, validation, limitations)"
-takeaway: "First demonstration that Sentinel-1 coherence (pre-event pair vs co-event pair, inside SAR-derived building footprints) maps flooded urban areas missed by intensity, adding 11% to the Houston flood area at 20 m; confirms SatClip's urban blind spot is real and sizeable"
+takeaway: "First demonstration that Sentinel-1 coherence (pre-event pair vs co-event pair, inside SAR-derived building footprints) maps flooded urban areas missed by intensity, adding 11% to the Houston flood area at 20 m; confirms EvidEO's urban blind spot is real and sizeable"
 ---
 
 # Chini et al. 2019, Sentinel-1 coherence for urban floods
@@ -39,7 +39,7 @@ Intensity-based flood maps miss floodwater between buildings, where double bounc
 - Reference imagery was taken 24 to 36 hours after the SAR, and the FEMA model ignores wind damage, levee breaks and elevated structures.
 - Requires SLC data and InSAR processing.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Avoid: do not claim urban flood extent from sar_water_otsu; Houston showed a material extra flooded area hidden from intensity, and Indian towns (see entry 217 on Mumbai) are likely similar.
 - Adopt now: compute a building mask (from a global built-up layer or, like this paper, from temporally bright and coherent pixels) and attach an "urban areas not assessed by SAR intensity" caveat with the built-up area count to every flood answer.
 - Adopt in sar_logratio_change: inside built-up pixels, treat a co-event intensity increase as a weak flood cue for the caveat, not as a mapped flood.

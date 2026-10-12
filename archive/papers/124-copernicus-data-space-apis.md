@@ -10,7 +10,7 @@ category: data-infrastructure
 era: recent
 tags: [copernicus-data-space, cdse, stac, odata, s3, sentinel-1, catalogue, failover, openeo]
 verified: "2026-10-06 via https://documentation.dataspace.copernicus.eu/APIs/STAC.html (STAC 1.1.0, endpoint https://stac.dataspace.copernicus.eu/v1/, legacy endpoint deprecated from 17 Nov 2025, limited set of collections), https://documentation.dataspace.copernicus.eu/APIs/OData.html (query options and performance tips) and https://documentation.dataspace.copernicus.eu/APIs/S3.html (eodata endpoint, credentials); year 2025 reflects the current STAC endpoint, docs are continuously updated; a direct curl of the STAC collections endpoint did not return JSON from this sandbox, so the live collection list was not confirmed"
-takeaway: "CDSE is SatClip's authoritative last-resort catalogue: its new STAC 1.1 endpoint and OData API index every Sentinel product, but pixel access needs S3 credentials and products are mostly SAFE archives, so it is the slowest and most fragile of the three failover routes"
+takeaway: "CDSE is EvidEO's authoritative last-resort catalogue: its new STAC 1.1 endpoint and OData API index every Sentinel product, but pixel access needs S3 credentials and products are mostly SAFE archives, so it is the slowest and most fragile of the three failover routes"
 ---
 
 # Copernicus Data Space Ecosystem APIs
@@ -31,11 +31,11 @@ Full Sentinel-1, 2, 3, 5P archives plus Copernicus services and some contributin
 Gives a complete, authoritative index of Sentinel products, including the newest Sentinel-1 data, with OData product records that carry the S3 path of each product.
 
 ## Limitations
-- Sentinel-1 GRD on S3 is in SAFE layout, not analysis-ready RTC; SatClip would need its own calibration and terrain correction.
+- Sentinel-1 GRD on S3 is in SAFE layout, not analysis-ready RTC; EvidEO would need its own calibration and terrain correction.
 - Pixel download needs registered credentials, unlike Earth Search's anonymous S3 COGs.
 - The STAC endpoint is new and documented as still being optimised for performance and stability.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Keep CDSE as the third STAC route in failover after Earth Search and Planetary Computer, and add an OData fallback for the case where the STAC endpoint is down or missing a collection.
 - Use CDSE as the ground truth for "does a scene exist" when the other catalogues are empty: if CDSE has a Sentinel-1 acquisition that the mirrors lack, the evidence card should say the scene exists but is not yet processed, rather than "no data".
 - Use OData Subscriptions (or periodic queries) to pre-warm the per-cell cache for flood-affected districts during monsoon, so a new pass is cached before officials ask.

@@ -33,7 +33,7 @@ The abstract states that models trained from scratch on BigEarthNet-MM beat Imag
 ## Limitations
 Europe only, so climates, crops and settlement patterns differ sharply from India. Labels inherit CORINE errors and its 2018 timing. One image per location, so no seasonality per sample.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Use BigEarthNet-pretrained S1/S2 encoders (Hugging Face BIFOLD models) as a CPU-friendly multispectral classifier alongside RemoteCLIP, which only sees RGB.
 - Adopt the 19-class idea: only expose land-cover labels that are separable at 10 m in one acquisition, and abstain on the rest.
 - Expect a domain gap over Indian paddy, plantations and informal settlements; measure it on a small Indian labelled set before trusting confidence.

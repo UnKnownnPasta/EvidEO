@@ -10,7 +10,7 @@ category: rs-vlm
 era: upcoming
 tags: [lora, qlora, gsd, scale-conditioning, heteroscedastic-uncertainty, fallback, qwen3-vl, xlrs-bench, omniearth-bench, 4-bit]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract with headline numbers) and curl to https://arxiv.org/html/2605.07562v2 (inference rule, fallback description, limitations appendix); WebFetch permission request timed out; the SSE-U error, coverage and fallback-rate numbers sit in math markup that did not extract, so they are not quoted"
-takeaway: "The only 2026 RS VLM found that uses a calibrated uncertainty to abstain from a self-estimate and fall back to a safe default, but only for image resolution, not for the answer; SatClip can copy the pattern (estimate, check interval, fall back) and apply it to the evidence itself"
+takeaway: "The only 2026 RS VLM found that uses a calibrated uncertainty to abstain from a self-estimate and fall back to a safe default, but only for image resolution, not for the answer; EvidEO can copy the pattern (estimate, check interval, fall back) and apply it to the evidence itself"
 ---
 
 # Zhang et al. 2026, ScaleEarth (GSD-gated LoRA with an uncertainty-driven fallback)
@@ -39,8 +39,8 @@ XLRS-Bench (13 sub-tasks, ultra-high resolution) and OmniEarth-Bench (7 Earth-sc
 - Tested only on Qwen3-VL-8B and on GSDs within the training range; coarse satellite products beyond that were not evaluated.
 - Code and weights not yet released.
 
-## What it means for SatClip
-- Adopt: the three-branch rule (trusted metadata first, then a model estimate only if its predicted interval is tight, else a safe default) is a clean template for SatClip's abstention logic, applied to the instrument's output rather than to metadata.
-- Adopt: SatClip should always pass true scene metadata (pixel spacing, sensor) instead of letting any model guess it, which this paper shows matters.
-- Beat: ScaleEarth confirms the gap: even the most uncertainty-aware RS VLM of 2026 gives no calibrated confidence on the answer and no provenance; SatClip's per-answer calibrated confidence plus abstain remains novel.
-- Note for CPU: even its 4-bit version needs a 40 GB GPU, so SatClip's small LoRA parser must stay far smaller.
+## What it means for EvidEO
+- Adopt: the three-branch rule (trusted metadata first, then a model estimate only if its predicted interval is tight, else a safe default) is a clean template for EvidEO's abstention logic, applied to the instrument's output rather than to metadata.
+- Adopt: EvidEO should always pass true scene metadata (pixel spacing, sensor) instead of letting any model guess it, which this paper shows matters.
+- Beat: ScaleEarth confirms the gap: even the most uncertainty-aware RS VLM of 2026 gives no calibrated confidence on the answer and no provenance; EvidEO's per-answer calibrated confidence plus abstain remains novel.
+- Note for CPU: even its 4-bit version needs a 40 GB GPU, so EvidEO's small LoRA parser must stay far smaller.

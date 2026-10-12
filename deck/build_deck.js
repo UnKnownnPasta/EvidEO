@@ -1,4 +1,4 @@
-// Builds deck/satclip.pptx (milestone M7). Run from the repo root: node deck/build_deck.js
+// Builds deck/evideo.pptx (milestone M7). Run from the repo root: node deck/build_deck.js
 // Needs pptxgenjs, react, react-dom, react-icons and sharp (npm). Screenshots come from
 // deck/assets/ (crops of docs/screenshots made by deck/prepare_assets.py).
 // Every number on the slides comes from docs/QUALITY.md, docs/demo/TRANSCRIPT.md,
@@ -14,12 +14,12 @@ const fa = require("react-icons/fa");
 const SKILL = process.env.PPTX_SKILL || "";
 const ROOT = path.resolve(__dirname, "..");
 const ASSETS = path.join(__dirname, "assets");
-const OUT = path.join(__dirname, "satclip.pptx");
+const OUT = path.join(__dirname, "evideo.pptx");
 
 // Claymorphism palette: cool pastel base, one dominant water blue, mint for published answers,
 // peach for abstentions, lilac for the language layer. Text is always the dark ink (contrast > 9:1 on every pastel).
 const THEME = {
-  name: "SatClip Clay",
+  name: "EvidEO Clay",
   headFontFace: "Arial",
   bodyFontFace: "Calibri",
   colors: {
@@ -60,7 +60,7 @@ async function fixInnerShadows(file) {
 async function main() {
   const pres = new pptxgen();
   pres.layout = "LAYOUT_WIDE";
-  pres.title = "SatClip: evidence, not guesses";
+  pres.title = "EvidEO: evidence, not guesses";
   pres.author = "Team Stardust";
   pres.subject = "SIH26167 SatQueryAI";
   pres.theme = { headFontFace: THEME.headFontFace, bodyFontFace: THEME.bodyFontFace };
@@ -72,7 +72,7 @@ async function main() {
     background: { color: C.background2 },
     objects: [
       { placeholder: { options: { name: "title", type: "title", x: 0.6, y: 0.4, w: 12.1, h: 0.9, fontFace: THEME.headFontFace, fontSize: 34, bold: true, color: C.text1, valign: "middle", align: "left", margin: 0 }, text: "" } },
-      { text: { text: "SatClip  |  Team Stardust  |  SIH26167", options: { x: 0.6, y: 7.0, w: 6, h: 0.3, fontSize: 10, color: "4A5470", margin: 0 } } },
+      { text: { text: "EvidEO  |  Team Stardust  |  SIH26167", options: { x: 0.6, y: 7.0, w: 6, h: 0.3, fontSize: 10, color: "4A5470", margin: 0 } } },
     ],
     slideNumber: { x: 12.3, y: 7.0, w: 0.5, h: 0.3, fontSize: 10, color: "4A5470", align: "right" },
   });
@@ -128,14 +128,14 @@ async function main() {
   pres.addSection({ title: "Opening" });
   {
     const s = pres.addSlide({ masterName: "CLAY_DARK", sectionTitle: "Opening" });
-    s.addText("SatClip", { placeholder: "title" });
+    s.addText("EvidEO", { placeholder: "title" });
     s.addText("Ask the satellite a plain question. Get evidence, not guesses.", { placeholder: "body" });
     pill(s, 0.8, 1.2, 4.2, 0.55, HEX.accent2, "SIH26167  |  SatQueryAI  |  Space Technology", { fontSize: 13, dark: true });
     pill(s, 0.8, 5.3, 2.9, 0.55, HEX.accent3, "Live Sentinel-1 and 2", { fontSize: 13, dark: true });
     pill(s, 3.95, 5.3, 2.9, 0.55, HEX.accent4, "Abstains when unsure", { fontSize: 13, dark: true });
     pill(s, 7.1, 5.3, 2.9, 0.55, HEX.accent5, "Runs on a CPU", { fontSize: 13, dark: true });
     s.addText("Team Stardust, RVITM Bengaluru", { x: 0.8, y: 6.4, w: 8, h: 0.4, isTextBox: true, fontSize: 14, color: "DCE3F7", margin: 0 });
-    s.addNotes("SatClip answers plain-language questions about Indian land, like how much of a district was under water on a date, from live Sentinel data. Each answer is an evidence card: a measured number, a map, scene IDs and dates, a calibrated confidence and a receipt anyone can re-run. When the evidence is weak it says so instead of guessing.");
+    s.addNotes("EvidEO answers plain-language questions about Indian land, like how much of a district was under water on a date, from live Sentinel data. Each answer is an evidence card: a measured number, a map, scene IDs and dates, a calibrated confidence and a receipt anyone can re-run. When the evidence is weak it says so instead of guessing.");
   }
 
   // ---------- 2. Who has the problem ----------
@@ -180,7 +180,7 @@ async function main() {
       body(s, head, x + 2.8, y + 0.35, w - 3.1, 0.9, { fontSize: 17, bold: true, valign: "middle" });
       body(s, label, x + 0.35, y + 1.4, w - 0.7, 0.75, { fontSize: 14 });
     }
-    s.addNotes("735 is the number of districts in SatClip's gazetteer (geoBoundaries ADM2). Skills gap: India's geospatial task force (E21, E22). Cloud cover: E30. Sentinel-1C and 1D restore a 6-day revisit (E42, E43). Fluent AI makes this worse: GPT-4V localisation about 0.16 mIoU (A013); 2026 RS hallucination benchmark reports 47 to 61% hallucination rates (A203).");
+    s.addNotes("735 is the number of districts in EvidEO's gazetteer (geoBoundaries ADM2). Skills gap: India's geospatial task force (E21, E22). Cloud cover: E30. Sentinel-1C and 1D restore a 6-day revisit (E42, E43). Fluent AI makes this worse: GPT-4V localisation about 0.16 mIoU (A013); 2026 RS hallucination benchmark reports 47 to 61% hallucination rates (A203).");
   }
 
   // ---------- 4. The solution ----------
@@ -216,7 +216,7 @@ async function main() {
   {
     const s = pres.addSlide({ masterName: "CLAY_LIGHT", sectionTitle: "Demo" });
     s.addText("Demo 1: Barpeta flood extent, 11 July 2024", { placeholder: "title" });
-    shot(s, "extent.png", 0.6, 1.55, 8.1, 5.2, "SatClip answer card for Barpeta flood extent with map overlay");
+    shot(s, "extent.png", 0.6, 1.55, 8.1, 5.2, "EvidEO answer card for Barpeta flood extent with map overlay");
     const facts = [
       ["914 sq km", "under water, 39% of the district measured", HEX.accent3],
       ["0.62", "calibrated confidence, just above the 0.60 bar", HEX.accent2],
@@ -234,12 +234,12 @@ async function main() {
   // ---------- 6. Demo: abstention and follow-ups ----------
   {
     const s = pres.addSlide({ masterName: "CLAY_LIGHT", sectionTitle: "Demo" });
-    s.addText("Demo 2: when the evidence is weak, SatClip says so", { placeholder: "title" });
+    s.addText("Demo 2: when the evidence is weak, EvidEO says so", { placeholder: "title" });
     shot(s, "change_abstain_card.png", 0.6, 1.55, 5.95, 4.3, "Abstained flood change card with two follow-up buttons");
     shot(s, "followup_card.png", 6.75, 1.55, 5.95, 4.3, "Published follow-up answer for water before the flood");
     pill(s, 0.6, 6.05, 5.95, 0.65, HEX.accent4, "\"Did the flood spread?\"  Not enough evidence (0.23)", { fontSize: 14 });
     pill(s, 6.75, 6.05, 5.95, 0.65, HEX.accent3, "One click: before 413 sq km (0.73), after 914 sq km (0.62)", { fontSize: 14 });
-    s.addNotes("Change areas are the least reliable number SatClip measures (Kuro Siwo calibration: 75% of flood chips undercounted by more than 20%). Instead of a confident wrong number, the card explains why and offers two extent questions, each measured and calibrated on its own. Source: TRANSCRIPT.md, receipts 4b761f62146d6e6d and 3af7eb6ef03ed33a.");
+    s.addNotes("Change areas are the least reliable number EvidEO measures (Kuro Siwo calibration: 75% of flood chips undercounted by more than 20%). Instead of a confident wrong number, the card explains why and offers two extent questions, each measured and calibrated on its own. Source: TRANSCRIPT.md, receipts 4b761f62146d6e6d and 3af7eb6ef03ed33a.");
   }
 
   // ---------- 7. UX states ----------
@@ -250,7 +250,7 @@ async function main() {
     shot(s, "oos.png", 3.6, 1.55, 2.75, 5.2, "Mobile out of scope refusal");
     const ux = [
       [fa.FaQuestionCircle, HEX.accent4, "Needs one detail", "Ambiguous district names (Aurangabad) ask which one, in 0.01 s, before any data is fetched."],
-      [fa.FaBan, HEX.accent5, "Out of scope, by design", "\"How many cars are parked in Mumbai?\" is refused with what SatClip can answer instead."],
+      [fa.FaBan, HEX.accent5, "Out of scope, by design", "\"How many cars are parked in Mumbai?\" is refused with what EvidEO can answer instead."],
       [fa.FaUniversalAccess, HEX.accent2, "Accessible", "Keyboard path tested end to end, ARIA district picker, light and dark themes, plain-language confidence."],
       [fa.FaLanguage, HEX.accent3, "Indian formats", "11/07/2024, \"11th July\", Hindi month names and Hinglish keywords give the same card as English."],
     ];
@@ -271,7 +271,7 @@ async function main() {
     const cols = [
       ["GIS workflow", HEX.lt1, ["Find scenes, check clouds", "Download, calibrate, reproject", "Threshold, map, measure", "Hours to days, needs an analyst"], "Accurate, but out of reach"],
       ["Chat with a VLM", HEX.lt1, ["Upload an image you already have", "Get a fluent paragraph", "No scene ID, date or mask", "47 to 61% hallucination in RS tests"], "Easy, but unverifiable"],
-      ["SatClip", HEX.accent3, ["Type the question", "Scenes found, radar if cloudy", "Number, map, confidence, receipt", "About a minute on a CPU"], "Easy and checkable"],
+      ["EvidEO", HEX.accent3, ["Type the question", "Scenes found, radar if cloudy", "Number, map, confidence, receipt", "About a minute on a CPU"], "Easy and checkable"],
     ];
     for (let i = 0; i < 3; i++) {
       const x = 0.6 + i * 4.15, y = 1.6, w = 3.85, h = 4.15;
@@ -282,7 +282,7 @@ async function main() {
       pill(s, x + 0.35, y + 3.35, w - 0.7, 0.55, i === 2 ? HEX.lt1 : HEX.lt2, verdict, { fontSize: 14 });
     }
     clay(s, 0.6, 6.0, 12.1, 0.8, HEX.accent5, { r: 0.2 });
-    body(s, "Free-form EO agents pick the right tool parameters only 26 to 35% of the time. SatClip's fixed router to versioned instruments cannot make that error.", 0.9, 6.05, 11.5, 0.7, { fontSize: 14, valign: "middle" });
+    body(s, "Free-form EO agents pick the right tool parameters only 26 to 35% of the time. EvidEO's fixed router to versioned instruments cannot make that error.", 0.9, 6.05, 11.5, 0.7, { fontSize: 14, valign: "middle" });
     s.addNotes("Agent figures: Earth-Agent with GPT-5 (A094) and ThinkGeo with GPT-4o (A092). Hallucination rates: RSHBench 2026 (A203). Day-one value needs no training: instruments are physics-based or pretrained and the data is free (SOLUTION section 4).");
   }
 
@@ -387,7 +387,7 @@ async function main() {
       clay(s, 6.9, y, 5.8, 0.88, HEX.lt1, { r: 0.18, blur: 8, offset: 3 });
       body(s, [{ text: rivals[i][0] + ": ", options: { bold: true } }, { text: "has " + rivals[i][1] + "; " + rivals[i][2] }], 7.1, y + 0.06, 5.4, 0.76, { fontSize: 13, valign: "middle" });
     }
-    s.addNotes("Full archive: archive/README.md and archive/index.csv, one entry per paper with what it means for SatClip. Closest prior work: VisTA A179, EO-Gym A176, SHRUG-FM A202, UnivEARTH A204, TerraScope A201. The novelty claim (NOVELTY.md) is the combination: calibrated confidence, threshold abstention with a next step, scene receipts, live Sentinel retrieval with automatic SAR fallback, on CPU, for Indian non-experts.");
+    s.addNotes("Full archive: archive/README.md and archive/index.csv, one entry per paper with what it means for EvidEO. Closest prior work: VisTA A179, EO-Gym A176, SHRUG-FM A202, UnivEARTH A204, TerraScope A201. The novelty claim (NOVELTY.md) is the combination: calibrated confidence, threshold abstention with a next step, scene receipts, live Sentinel retrieval with automatic SAR fallback, on CPU, for Indian non-experts.");
   }
 
   // ---------- 12. Honest limits and roadmap ----------
@@ -416,7 +416,7 @@ async function main() {
       pill(s, 6.7, y + 0.3, 1.2, 0.55, HEX.lt1, road[i][0], { fontSize: 14 });
       body(s, road[i][1], 8.1, y + 0.1, 4.45, 0.95, { fontSize: 14, valign: "middle" });
     }
-    s.addNotes("Limits: SOLUTION.md section 9 (risks 12 and 17), archive A210 (HAND), A211 (exclusion maps), A212 (probabilistic flood mapping), A214 and A215 (urban flood coherence; Planetary Computer RTC has no phase, so coherence is not available today). Training code is ready to run: training/colab/satclip_lora.ipynb.");
+    s.addNotes("Limits: SOLUTION.md section 9 (risks 12 and 17), archive A210 (HAND), A211 (exclusion maps), A212 (probabilistic flood mapping), A214 and A215 (urban flood coherence; Planetary Computer RTC has no phase, so coherence is not available today). Training code is ready to run: training/colab/evideo_lora.ipynb.");
   }
 
   // ---------- 13. Team ----------

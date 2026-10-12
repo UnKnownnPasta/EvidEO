@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [tool-registry, deterministic-replay, trajectory-sft, qwen3-4b, ndvi, nbr, ndbi, google-earth-engine, gis-tools, sar, agent-benchmark]
 verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?id_list=2602.17665 (title, authors, dates, ECCV 2026 comment, abstract) and curl of https://arxiv.org/html/2602.17665v4 (tool categories, replay validation, data sources, Tables 3, 4 and 6 numbers, conclusion, tool memory footprint); WebFetch of arxiv.org was rate limited"
-takeaway: "A 4B agent (Qwen3-4B fine-tuned on 14.5k replay-validated tool trajectories) that runs NDVI/NBR/NDBI change, GIS and detection tools through one executable schema; end-to-end answer accuracy 45.26 vs 13.72 for its base model and 39.22 for GPT-4o; its replayable tool traces are close to SatClip's receipts, but there is no confidence, abstention or live scene retrieval"
+takeaway: "A 4B agent (Qwen3-4B fine-tuned on 14.5k replay-validated tool trajectories) that runs NDVI/NBR/NDBI change, GIS and detection tools through one executable schema; end-to-end answer accuracy 45.26 vs 13.72 for its base model and 39.22 for GPT-4o; its replayable tool traces are close to EvidEO's receipts, but there is no confidence, abstention or live scene retrieval"
 ---
 
 # Shabbir et al. 2026, OpenEarthAgent
@@ -42,8 +42,8 @@ EO agents (ThinkGeo, entry 92; Earth-Agent, entry 94) plan tool chains but mis-o
 - Deterministic replay checks that a trajectory runs, not that its answer is right (a point also made by the survey in entry 209).
 - The memory footprint and Qwen3-VL-7B dependency make CPU-only deployment unlikely without trimming.
 
-## What it means for SatClip
-- Adopt: the single executable tool schema plus a cache of intermediate layers is a good pattern for SatClip's receipt: store the STAC item IDs, the threshold, the mask hash and the computed numbers so the answer replays exactly.
+## What it means for EvidEO
+- Adopt: the single executable tool schema plus a cache of intermediate layers is a good pattern for EvidEO's receipt: store the STAC item IDs, the threshold, the mask hash and the computed numbers so the answer replays exactly.
 - Adopt: validate each answer path by re-execution in CI, as they do for training data.
-- Beat: SatClip's fixed instrument chain avoids the tool-ordering errors that dominate their failure analysis, and adds calibrated confidence and abstention, which they lack.
+- Beat: EvidEO's fixed instrument chain avoids the tool-ordering errors that dominate their failure analysis, and adds calibrated confidence and abstention, which they lack.
 - Novelty: weakens the claim a little. Replayable, tool-grounded NDVI and index-change answers from a small open agent (ECCV 2026) mean "re-runnable receipt" and "index-change instruments" are not new alone. It has no calibrated confidence, abstention, live date-aware Sentinel retrieval, SAR fallback or non-expert Indian delivery, so the combination claim stands.

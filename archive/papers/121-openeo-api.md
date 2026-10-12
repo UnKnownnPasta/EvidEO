@@ -10,7 +10,7 @@ category: data-infrastructure
 era: recent
 tags: [openeo, data-cube, api, cloud-processing, interoperability, process-graph, copernicus-data-space, ogc]
 verified: "2026-10-06 via https://api.crossref.org/works/10.3390/rs13061125 (title, all 17 authors, volume, issue, article number, abstract) and https://openeo.org/ (API 1.3.0 released Feb 2026, OGC Community Standard May 2026); full text at mdpi.com was blocked, so details of the two test cases beyond the abstract are not confirmed"
-takeaway: "openEO is the standard way to push a SatClip instrument to a backend such as Copernicus Data Space as a portable process graph, so SatClip should keep its instruments expressible as data cube steps and record that graph in the receipt"
+takeaway: "openEO is the standard way to push a EvidEO instrument to a backend such as Copernicus Data Space as a portable process graph, so EvidEO should keep its instruments expressible as data cube steps and record that graph in the receipt"
 ---
 
 # The openEO API
@@ -34,7 +34,7 @@ The abstract reports that comparable analyses can be run on different backends t
 - Batch jobs on hosted backends are queued and metered by credits, so latency is not interactive.
 - Requires an account on the backend; not an offline option.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the data cube vocabulary for instruments: describe each instrument (Kittler-Illingworth water, log-ratio change, NDVI difference) as load, filter by district geometry and date, apply, reduce. That makes an optional openEO execution path on Copernicus Data Space cheap to add as a fourth failover route when STAC plus COG reads fail.
 - Put the process graph JSON (or the equivalent local step list) in the evidence card receipt; it is a ready-made, human-readable re-run recipe.
-- Do not assume cross-backend numbers agree: if SatClip ever computes the same answer via openEO and via local COG reads, report the source in the card and treat disagreement as grounds to lower confidence or abstain.
+- Do not assume cross-backend numbers agree: if EvidEO ever computes the same answer via openEO and via local COG reads, report the source in the card and treat disagreement as grounds to lower confidence or abstain.

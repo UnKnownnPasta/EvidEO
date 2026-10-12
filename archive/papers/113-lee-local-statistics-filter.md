@@ -10,7 +10,7 @@ category: historical
 era: historical
 tags: [speckle, lee-filter, adaptive-filter, sar, local-statistics, denoising]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1109/TPAMI.1980.4766994 (title, author, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
-takeaway: "The Lee filter is the cheap, explainable speckle reducer SatClip should apply to gamma0 before thresholding, with window size logged in the receipt"
+takeaway: "The Lee filter is the cheap, explainable speckle reducer EvidEO should apply to gamma0 before thresholding, with window size logged in the receipt"
 ---
 
 # Lee local statistics filter
@@ -35,7 +35,7 @@ Demonstrated on example images with synthetic and real noise, including radar-li
 - Square windows still blur thin features such as narrow channels and embankments; refined Lee was introduced later for this.
 - Leaves residual speckle in bright point targets and urban areas.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Apply a Lee or refined Lee filter (for example 5x5 or 7x7) to Sentinel-1 gamma0 in linear power before converting to dB and running Kittler-Illingworth; this tightens the water mode and stabilizes thresholds.
 - Record filter type and window in the receipt so results are reproducible and comparable across runs.
 - Test sensitivity: if water area changes a lot between unfiltered and filtered input, reduce confidence on the card.

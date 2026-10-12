@@ -43,7 +43,7 @@ Two flood scenarios at the Greece-Turkey border, validated against reference dat
 - Open-water only: flooded vegetation and urban floods (double bounce brightening) are missed by a low-backscatter rule.
 - Exact tile sizes and fuzzy limits in the 2016 paper itself could not be read; the numbers above are from the later operational description.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Replace a scene-wide Otsu with a tile-selection step: compute stats on 200x200 px tiles (10 m pixels, so 2 km), keep tiles darker than the AOI mean whose child-mean spread passes the mean + 2 sigma rule, threshold only those, and average.
 - Report the number of qualifying tiles in the evidence card; if fewer than about 5 to 10 qualify, lower confidence or abstain rather than silently using a default threshold.
 - Sanity-bound the VV threshold: if Otsu returns a value above -15 dB, treat it as a failed split (likely no real water class) and abstain or fall back to a permanent-water percentile, flagged as a fallback.

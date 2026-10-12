@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [sar, vqa, captioning, benchmark, vision-language, umbra, capella, sardet-100k, sentinel-1-partial]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, abstract), https://arxiv.org/html/2504.03254v1 (data sources, statistics, headline gains), the GitHub README (TGRS acceptance January 2026) and api.crossref.org (DOI, journal, volume 64); WebFetch permission request timed out; per-model tables not checked"
-takeaway: "Largest SAR image-text benchmark (about 1.13M captions and QA over 118K SAR images, 0.1 to 25 m) showing generic VLMs read SAR poorly until fine-tuned; useful to test whether SatClip's explainer misdescribes radar, but it has no flood, water or change questions"
+takeaway: "Largest SAR image-text benchmark (about 1.13M captions and QA over 118K SAR images, 0.1 to 25 m) showing generic VLMs read SAR poorly until fine-tuned; useful to test whether EvidEO's explainer misdescribes radar, but it has no flood, water or change questions"
 ---
 
 # Wei et al. 2026, SARLANG-1M
@@ -37,7 +37,7 @@ General VLMs are trained on optical photos and misread SAR, where brightness ref
 - Captions transferred from optical images can describe things SAR cannot show; accuracy partly judged by GPT-4.
 - No calibration or abstention evaluation.
 
-## What it means for SatClip
-- Avoid: asking the VLM to interpret raw Sentinel-1 backscatter; this benchmark shows generic VLMs misread SAR without heavy SAR fine-tuning, and SatClip's 10 m flood questions are outside its distribution anyway.
-- Adopt: a small SARLANG-style probe set to check that SatClip's explainer never uses optical words (colour, greenness) when the evidence is radar.
+## What it means for EvidEO
+- Avoid: asking the VLM to interpret raw Sentinel-1 backscatter; this benchmark shows generic VLMs misread SAR without heavy SAR fine-tuning, and EvidEO's 10 m flood questions are outside its distribution anyway.
+- Adopt: a small SARLANG-style probe set to check that EvidEO's explainer never uses optical words (colour, greenness) when the evidence is radar.
 - Keep the design: SAR flood extent comes from a calibrated thresholding or segmentation instrument, and the VLM only verbalises its output.

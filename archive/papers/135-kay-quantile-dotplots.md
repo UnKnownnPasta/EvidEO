@@ -10,7 +10,7 @@ category: human-factors
 era: historical
 tags: [uncertainty-visualization, quantile-dotplot, mobile, non-experts, frequency-framing]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1145/2858036.2858558 (title, authors, pages, year) and the author-hosted PDF at https://www.mjskay.com/papers/chi_2016_uncertain_bus.pdf (abstract, survey of 172 users, about 1.15x variance reduction, participant counts)"
-takeaway: "Non-experts on a phone read uncertainty best as a small number of countable discrete outcomes, so SatClip's confidence meter and flooded-area range should use a frequency framing (for example 20 dots) instead of a density curve or a bare percentage"
+takeaway: "Non-experts on a phone read uncertainty best as a small number of countable discrete outcomes, so EvidEO's confidence meter and flooded-area range should use a frequency framing (for example 20 dots) instead of a density curve or a bare percentage"
 ---
 
 # Kay et al. 2016, quantile dotplots for mobile uncertainty
@@ -37,7 +37,7 @@ Survey of 172 app users; online experiment with several hundred participants aft
 - Measures estimation accuracy and confidence, not real decisions with stakes.
 - Effect size is modest; the gain is mainly in consistency of estimates.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Show the headline number's uncertainty as a small discrete set, for example a 20-dot strip for "flooded area between X and Y km2" or "17 of 20 similar past cases were correct", rather than a smooth curve or only a percent.
 - Keep dot counts low enough to count on a low-end Android phone screen; test 10 or 20 dots with field officers.
 - Phrase confidence as a frequency in the card text (for example "in about 4 of 5 comparable checks") to match how non-experts reason, and keep the abstention state when the dots would spread too widely to be useful.

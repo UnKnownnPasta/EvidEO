@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [conformal-risk-control, llm-agents, tool-use, retrieval, trajectory-level-risk, accept-or-intervene, anytime-alarm, distribution-drift, selective-prediction]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=2606.18467 (title, two authors, date, abstract, comment '26 pages, 11 figures') and WebFetch of arxiv.org/html/2606.18467 (method sections 3 to 6, Theorem 1, Propositions 1 and 2, limitation headings); the experiments section, target alpha values and all numeric results were not reachable in the HTML capture, so no results numbers are reported here"
-takeaway: "Calibrates an accept-or-intervene rule over the whole agent trajectory (retrieval, tool calls, synthesis) rather than the final answer, with a conformal guarantee on the risk of accepted runs; SatClip's abstention should score scene search, preprocessing and mask steps, not just the final number"
+takeaway: "Calibrates an accept-or-intervene rule over the whole agent trajectory (retrieval, tool calls, synthesis) rather than the final answer, with a conformal guarantee on the risk of accepted runs; EvidEO's abstention should score scene search, preprocessing and mask steps, not just the final number"
 ---
 
 # Opoku and Banahene 2026, ToolChain-CRC
@@ -38,8 +38,8 @@ Agents retrieve, call tools and then answer. A final answer can look fine even w
 - Two-author preprint without peer review yet.
 - Needs audited step-level labels for calibration, which are costly.
 
-## What it means for SatClip
-- Adopt: treat each SatClip answer as a trajectory and give every step a risk score from physical checks: scene search (no scene within the date window, high cloud fraction), preprocessing (terrain shadow or layover share in the mask, orbit mismatch between before and after scenes), segmentation (calibrated mask uncertainty, entry 219) and the intent parse (schema-valid but low-margin district match).
+## What it means for EvidEO
+- Adopt: treat each EvidEO answer as a trajectory and give every step a risk score from physical checks: scene search (no scene within the date window, high cloud fraction), preprocessing (terrain shadow or layover share in the mask, orbit mismatch between before and after scenes), segmentation (calibrated mask uncertainty, entry 219) and the intent parse (schema-valid but low-margin district match).
 - Adopt: combine step scores with a noisy-or into the abstention decision and calibrate its threshold with CRC on audited runs, so a correct-looking number built on a cloudy or mismatched scene still triggers abstention.
 - Adopt: write every step score into the PROV receipt (entry 222) so the next step offered on abstention names the failing step ("wait for the next Sentinel-1 pass on 18 Oct" rather than a generic refusal).
 - Watch: start with a small audited set of Indian runs and expect high intervention rates; verify the paper's numbers once the full text is readable before quoting gains.

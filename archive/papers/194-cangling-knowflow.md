@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [agents, workflow-library, procedural-knowledge, gdal, replanning, memory, knowflow-bench, llm-backbones, hallucination]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract) and curl to https://arxiv.org/html/2512.15231v3 (GDAL toolset, metrics, ablation Table III with Claude 4 Sonnet backbone, per-backbone TSR values); WebFetch permission request timed out"
-takeaway: "An RS agent that plans from 1,008 expert workflow templates over GDAL and deep-learning tools and replans on runtime failure, reaching up to 96% task success; it shows template-driven pipelines curb hallucination, but its answers carry no calibrated confidence or abstention, which SatClip adds"
+takeaway: "An RS agent that plans from 1,008 expert workflow templates over GDAL and deep-learning tools and replans on runtime failure, reaching up to 96% task success; it shows template-driven pipelines curb hallucination, but its answers carry no calibrated confidence or abstention, which EvidEO adds"
 ---
 
 # Chen et al. 2025, CangLing-KnowFlow (knowledge-and-flow agent for RS)
@@ -37,7 +37,7 @@ KnowFlow-Bench: 324 workflows inspired by real applications, run with 13 LLM bac
 - Benchmark and code not found as public releases.
 - No Indian or flood-specific evaluation reported in the passages read.
 
-## What it means for SatClip
-- Adopt: the result that removing the workflow library is the biggest loss supports SatClip's fixed, templated flood and crop pipelines instead of free planning.
+## What it means for EvidEO
+- Adopt: the result that removing the workflow library is the biggest loss supports EvidEO's fixed, templated flood and crop pipelines instead of free planning.
 - Adopt: log runtime failures (no scene, cloud above limit, empty mask) as typed events; they become abstention reasons shown to the user.
-- Beat: KnowFlow aims for task completion; SatClip's added value is telling an official how much to trust the number and declining when it should.
+- Beat: KnowFlow aims for task completion; EvidEO's added value is telling an official how much to trust the number and declining when it should.

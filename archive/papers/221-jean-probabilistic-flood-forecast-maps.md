@@ -10,7 +10,7 @@ category: human-factors
 era: recent
 tags: [uncertainty-visualisation, flood-maps, probabilistic-maps, map-design, decision-makers, municipalities, colour-scale, qualitative-study]
 verified: "2026-10-09 via WebSearch then WebFetch of hess.copernicus.org/articles/27/3351/2023/ (title, authors, volume, pages, DOI, publication date 21 September 2023, methods, reported percentages, limitations); the last ~8% of the page (end of prototype 4 results, discussion and conclusions) was not read"
-takeaway: "Interviews with 140 ministry, municipal, agency, farmer and citizen respondents found probabilistic flood maps are often misread (exceedance probabilities, depth versus level) and that words plus numbers are preferred; SatClip's map cards should show extent first, use plain probability wording, and avoid user-adjusted probability sliders"
+takeaway: "Interviews with 140 ministry, municipal, agency, farmer and citizen respondents found probabilistic flood maps are often misread (exceedance probabilities, depth versus level) and that words plus numbers are preferred; EvidEO's map cards should show extent first, use plain probability wording, and avoid user-adjusted probability sliders"
 ---
 
 # Jean et al. 2023, Communicating probabilistic flood forecast maps
@@ -41,7 +41,7 @@ Flood forecasts carry uncertainty in space, time and magnitude. Agencies want to
 - Participants had little prior flood-map experience, which may not match trained officials.
 - Concerns forecasts, not observed satellite flood extent, though the reading problems carry over.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: lead the evidence card with the observed flood extent inside the region mask and the area number; put any probability layer second, never as the only view.
 - Adopt: write probabilities as plain statements tied to the number ("about 8 in 10 chance this pixel was flooded on 14 Aug, Sentinel-1 scene X") rather than exceedance or non-exceedance terms, and always show words with the number.
 - Adopt: use a single-hue water scale for flood extent and reserve the traffic-light colours for the confidence meter, so the two are not confused.

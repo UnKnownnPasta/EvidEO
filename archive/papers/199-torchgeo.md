@@ -10,7 +10,7 @@ category: data-infrastructure
 era: recent
 tags: [torchgeo, pytorch, rasterio, gdal, cog, geosampler, reprojection, data-loading, multispectral-pretrained, sentinel-2, landsat]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract, GitHub URL), curl to https://api.crossref.org (ACM TSAS record, DOI 10.1145/3707459, 2025) and curl to https://arxiv.org/html/2111.08872v4 (SIGSPATIAL 2022 header, COG benchmark setup, caching discussion); WebFetch permission request timed out; sampling-rate figures are in plots and are not quoted"
-takeaway: "The standard PyTorch library for loading georeferenced rasters by spatial query, with samplers that read windows from COGs and reproject on the fly; SatClip can reuse its GeoDataset and GridGeoSampler pattern for windowed S1/S2 reads, and should pre-align layers because on-the-fly warping is the main slowdown"
+takeaway: "The standard PyTorch library for loading georeferenced rasters by spatial query, with samplers that read windows from COGs and reproject on the fly; EvidEO can reuse its GeoDataset and GridGeoSampler pattern for windowed S1/S2 reads, and should pre-align layers because on-the-fly warping is the main slowdown"
 ---
 
 # Stewart et al. 2022, TorchGeo
@@ -37,7 +37,7 @@ Satellite rasters come with many bands, different coordinate systems, resolution
 - PyTorch-oriented; heavy dependency set for a lean CPU service.
 - The paper does not cover Sentinel-1 calibration or terrain correction; it assumes analysis-ready inputs.
 
-## What it means for SatClip
-- Adopt: SatClip's window reader should follow the same pattern (query by bounds and date, read a COG window, return array plus CRS and transform) and log the exact scene and window used as provenance.
+## What it means for EvidEO
+- Adopt: EvidEO's window reader should follow the same pattern (query by bounds and date, read a COG window, return array plus CRS and transform) and log the exact scene and window used as provenance.
 - Adopt: pre-align Sentinel-1 and Sentinel-2 windows to one district grid once and cache it in the Redis tile queue, rather than warping on every request.
 - Optional: use TorchGeo's loaders and pretrained Sentinel-2 weights when training the segmentation head; keep the runtime reader minimal (rasterio plus STAC) for CPU deployment.

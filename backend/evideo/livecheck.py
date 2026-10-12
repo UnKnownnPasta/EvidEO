@@ -1,6 +1,6 @@
 """Run real questions end to end against the live public catalogues, in-process:
-    python -m satclip.livecheck                 # default demo questions
-    python -m satclip.livecheck "question" ...   # your own
+    python -m evideo.livecheck                 # default demo questions
+    python -m evideo.livecheck "question" ...   # your own
 Prints each evidence card (answer, confidence, scenes, timings) and writes them to
 backend/runtime/livecheck.json for the demo and the deck.
 """

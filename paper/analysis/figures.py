@@ -1,4 +1,4 @@
-"""Figures for the SatClip paper and deck. Run after experiments.py:  python paper/analysis/figures.py"""
+"""Figures for the EvidEO paper and deck. Run after experiments.py:  python paper/analysis/figures.py"""
 import json
 from pathlib import Path
 

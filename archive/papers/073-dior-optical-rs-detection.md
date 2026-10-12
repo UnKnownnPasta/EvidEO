@@ -10,7 +10,7 @@ category: object-detection
 era: recent
 tags: [dataset, survey, optical-remote-sensing, benchmark, horizontal-boxes, google-earth, multi-resolution]
 verified: "2026-10-04 via https://arxiv.org/abs/1909.00133 and full text PDF https://arxiv.org/pdf/1909.00133"
-takeaway: "Survey plus the DIOR benchmark (23,463 images, 20 classes, 0.5 to 30 m); a reference for mixed-resolution detection, but SatClip should cite it only to justify scoping out object-level questions"
+takeaway: "Survey plus the DIOR benchmark (23,463 images, 20 classes, 0.5 to 30 m); a reference for mixed-resolution detection, but EvidEO should cite it only to justify scoping out object-level questions"
 ---
 
 # Object Detection in Optical Remote Sensing Images: A Survey and A New Benchmark
@@ -36,8 +36,8 @@ The paper reviews deep learning detectors in computer vision and Earth observati
 - Google Earth mosaics, not calibrated Sentinel bands, and no SAR.
 - Images are not tied to dates or scene IDs, so temporal questions cannot be posed.
 
-## What it means for SatClip
-- DIOR includes resolutions down to 30 m, but detectable objects at coarse resolution are large ones (airports, dams, stadiums); at most, SatClip could answer "is there a large reservoir or dam here", and even then a land-cover or water instrument is a better fit than a detector.
+## What it means for EvidEO
+- DIOR includes resolutions down to 30 m, but detectable objects at coarse resolution are large ones (airports, dams, stadiums); at most, EvidEO could answer "is there a large reservoir or dam here", and even then a land-cover or water instrument is a better fit than a detector.
 - Use the survey as a quick primer for judges who ask "why not object detection": cite the gap between 66% mAP on curated chips and the reliability we need for evidence cards.
 - Copy DIOR's practice of an even trainval/test split with similar class distributions when building our Indian flood and crop validation sets.
 - Keep detectors out of the CPU budget unless a concrete user question requires one.

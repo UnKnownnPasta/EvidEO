@@ -30,8 +30,8 @@ Per the abstract, RAPS achieves the target coverage with sets that are often 5 t
 ## Limitations
 Coverage is marginal (on average over inputs), not conditional on each input or each subgroup, so coverage for a rare region or class can be worse than promised. It relies on exchangeability, which breaks under temporal or geographic shift. Sets can be uninformative (very large) when the base model is weak. Regularization hyperparameters need tuning on held-out data.
 
-## What it means for SatClip
-- Use conformal sets for SatClip's categorical answers (land-cover class, crop type, "flooded, not flooded, uncertain"): presenting "built-up or bare soil, 90% coverage" is more honest than one overconfident label.
+## What it means for EvidEO
+- Use conformal sets for EvidEO's categorical answers (land-cover class, crop type, "flooded, not flooded, uncertain"): presenting "built-up or bare soil, 90% coverage" is more honest than one overconfident label.
 - Map set size to abstention: if the conformal set at the chosen level contains contradictory answers (both flooded and not flooded), abstain and tell the user what extra evidence (a later SAR pass, a cloud-free optical scene) would help.
-- Calibrate per region and season, and check coverage per district group, because marginal coverage can hide failures in exactly the under-represented Indian areas SatClip targets.
+- Calibrate per region and season, and check coverage per district group, because marginal coverage can hide failures in exactly the under-represented Indian areas EvidEO targets.
 - The official code is small and model-agnostic, so it can wrap RemoteCLIP zero-shot logits on CPU with negligible overhead.

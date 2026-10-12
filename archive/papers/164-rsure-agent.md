@@ -10,7 +10,7 @@ category: eo-agents
 era: upcoming
 tags: [tool-agents, verification, tool-observations, error-propagation, reliability-prior, process-evidence, reject-option, earthbench, thinkgeo]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query?id_list=2610.04836 (title, authors, date, comment, abstract); all numbers below are from the abstract"
-takeaway: "The closest prior art to SatClip's 'trust the instrument only with evidence' idea: it shows tool outputs are wrong in over a fifth of tool-dependent tasks and adds accept, ask-for-more or reject decisions, but it serves the agent, not a non-expert user, and gives no calibrated confidence or receipt"
+takeaway: "The closest prior art to EvidEO's 'trust the instrument only with evidence' idea: it shows tool outputs are wrong in over a fifth of tool-dependent tasks and adds accept, ask-for-more or reject decisions, but it serves the agent, not a non-expert user, and gives no calibrated confidence or receipt"
 ---
 
 # Liu et al. 2026, RSure-Agent (verifying tool observations)
@@ -37,7 +37,7 @@ EO agents trust what their tools return (a detection, an area, a class). Tools c
 - The reliability prior is a per-tool, per-task summary, not a calibrated probability for the specific answer, and is not shown to the user.
 - Rejecting an observation is an internal agent decision; the abstract does not describe user-facing abstention, provenance (scene IDs, dates) or a re-runnable record.
 
-## What it means for SatClip
-- **Strongest external support** for SatClip's design: published numbers that tool errors silently propagate in RS agents, which is exactly what SatClip's per-tile calibrated confidence and abstention guard against.
-- **Adopt** the idea that each instrument returns process evidence (threshold value, histogram bimodality, valid-pixel share) and that SatClip keeps a per-instrument, per-question-type reliability table from its calibration sets.
-- **Beat it** on the user side: SatClip turns the accept or reject decision into a visible calibrated confidence and an abstain message on the card, with scene IDs and a receipt, for a non-GIS official.
+## What it means for EvidEO
+- **Strongest external support** for EvidEO's design: published numbers that tool errors silently propagate in RS agents, which is exactly what EvidEO's per-tile calibrated confidence and abstention guard against.
+- **Adopt** the idea that each instrument returns process evidence (threshold value, histogram bimodality, valid-pixel share) and that EvidEO keeps a per-instrument, per-question-type reliability table from its calibration sets.
+- **Beat it** on the user side: EvidEO turns the accept or reject decision into a visible calibrated confidence and an abstain message on the card, with scene IDs and a receipt, for a non-GIS official.

@@ -9,13 +9,13 @@ import httpx
 import numpy as np
 import pytest
 
-from satclip.config import load_settings
-from satclip.data.cog import read_window, scl_cloud_fraction, sign_href
-from satclip.data.provider import DataProvider, search_cell
-from satclip.data.scene import normalize_item
-from satclip.data.select import pair_for_change, select_scenes, sensor_order
-from satclip.data.stac import Endpoint, StacClient, StacError
-from satclip.models import DateWindow, Intent
+from evideo.config import load_settings
+from evideo.data.cog import read_window, scl_cloud_fraction, sign_href
+from evideo.data.provider import DataProvider, search_cell
+from evideo.data.scene import normalize_item
+from evideo.data.select import pair_for_change, select_scenes, sensor_order
+from evideo.data.stac import Endpoint, StacClient, StacError
+from evideo.models import DateWindow, Intent
 
 FIX = Path(__file__).parent / "fixtures" / "stac"
 S2 = json.loads((FIX / "earth-search_s2_barpeta_2024-11.json").read_text())
@@ -266,7 +266,7 @@ def test_sign_href_planetary_computer_only():
 
 def test_scenes_endpoint_validates_and_searches(monkeypatch):
     from fastapi.testclient import TestClient
-    from satclip.api.main import create_app
+    from evideo.api.main import create_app
     app = create_app(CFG)
     app.state.stac = make_client(lambda req: httpx.Response(200, json=S2))
     tc = TestClient(app)

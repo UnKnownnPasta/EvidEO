@@ -30,8 +30,8 @@ From the abstract: adding the attention module raised the baseline's F1 from 83.
 ## Limitations
 Single region (Texas suburbs), RGB only, only building changes, sub-metre commercial imagery with unclear licensing beyond academic use. Models trained on it do not transfer to Indian rural or peri-urban settings or to 10 m Sentinel-2 without retraining. No uncertainty output.
 
-## What it means for SatClip
-- Do not use LEVIR-CD to calibrate SatClip instruments: resolution (0.5 m vs 10 m), sensor and geography all mismatch, and the licence forbids commercial use.
-- It is still the lingua franca for comparing learned CD models, so if SatClip ever reports a learned building-change component, cite LEVIR-CD F1 for comparability and then report separately on a Sentinel-2 set (OSCD, entry 035).
+## What it means for EvidEO
+- Do not use LEVIR-CD to calibrate EvidEO instruments: resolution (0.5 m vs 10 m), sensor and geography all mismatch, and the licence forbids commercial use.
+- It is still the lingua franca for comparing learned CD models, so if EvidEO ever reports a learned building-change component, cite LEVIR-CD F1 for comparability and then report separately on a Sentinel-2 set (OSCD, entry 035).
 - STANet's emphasis on misregistration is a reminder to measure and log co-registration error between the two Sentinel scenes in the receipt.
 - LEVIR-CD is the image source for LEVIR-CC (entry 040), the main change-captioning set.

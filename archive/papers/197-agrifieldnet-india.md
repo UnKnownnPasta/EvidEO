@@ -10,7 +10,7 @@ category: indian-context
 era: recent
 tags: [india, uttar-pradesh, rajasthan, odisha, bihar, crop-type, sentinel-2, smallholder, ground-reference, dataset, cc-by-4.0, field-ids]
 verified: "2026-10-08 via curl to https://api.datacite.org/dois/10.34911/rdnt.wu92p1 (title, creators, year, publisher, licence), curl to the Source Cooperative page and its Documentation.pdf (states, 13 classes, chip size and count, band list, label encoding); WebFetch permission request timed out and these two hosts are outside the arXiv and Crossref fallback list, so this is flagged; imagery acquisition dates and field counts are not stated in the pages read"
-takeaway: "An open CC BY 4.0 set of ground-collected crop-type labels for smallholder fields in Uttar Pradesh, Rajasthan, Odisha and Bihar on 10 m Sentinel-2 chips, with field IDs; SatClip can use it to calibrate and test crop answers in the Indo-Gangetic districts it targets, but must source its own dates and Sentinel-1 data"
+takeaway: "An open CC BY 4.0 set of ground-collected crop-type labels for smallholder fields in Uttar Pradesh, Rajasthan, Odisha and Bihar on 10 m Sentinel-2 chips, with field IDs; EvidEO can use it to calibrate and test crop answers in the Indo-Gangetic districts it targets, but must source its own dates and Sentinel-1 data"
 ---
 
 # Radiant Earth Foundation and IDinsight 2022, AgriFieldNet India crop-type dataset
@@ -37,7 +37,7 @@ A dataset, not a method; no benchmark scores are reported in the documentation r
 - No Sentinel-1 data and no acquisition dates in the documentation read, so it is single-sensor and its temporal coverage must be checked before use.
 - The current page lists both train and test label folders; how the test split was drawn is not described in the documentation read.
 
-## What it means for SatClip
-- Adopt: a CC BY 4.0 Indian ground-truth source in exactly the Bihar and Uttar Pradesh districts SatClip targets; use field IDs to compute field-level reliability diagrams for crop-type or crop-presence answers.
-- Adopt: join its fields to SatClip's own Sentinel-1 and Sentinel-2 STAC queries for matching seasons, so calibration uses the same instruments SatClip answers with.
+## What it means for EvidEO
+- Adopt: a CC BY 4.0 Indian ground-truth source in exactly the Bihar and Uttar Pradesh districts EvidEO targets; use field IDs to compute field-level reliability diagrams for crop-type or crop-presence answers.
+- Adopt: join its fields to EvidEO's own Sentinel-1 and Sentinel-2 STAC queries for matching seasons, so calibration uses the same instruments EvidEO answers with.
 - Avoid: do not mix it with flood calibration; it has no flood labels.

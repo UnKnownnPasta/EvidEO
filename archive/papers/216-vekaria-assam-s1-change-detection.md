@@ -38,8 +38,8 @@ Assam floods every monsoon along the Brahmaputra, but multi-year, consistent flo
 - Threshold values, polarisation and the validation reference were not visible; reproducibility cannot be judged from the abstract.
 - No HAND mask or urban handling described in the abstract; no per-pixel uncertainty.
 
-## What it means for SatClip
-- Adopt in sar_logratio_change: the same structure (pre-flood reference, flood image, threshold, then subtract permanent water and shadow) is a sanity baseline for Assam; SatClip's district totals for 2019 and 2020 should be of the same order as this record, and large gaps should trigger review.
+## What it means for EvidEO
+- Adopt in sar_logratio_change: the same structure (pre-flood reference, flood image, threshold, then subtract permanent water and shadow) is a sanity baseline for Assam; EvidEO's district totals for 2019 and 2020 should be of the same order as this record, and large gaps should trigger review.
 - Adopt: report flooded cropland as a separate figure, since this is what Assam users asked about in this study.
-- Avoid: do not adopt overall accuracy as SatClip's headline metric; report flood-class IoU, precision and recall on hand labels.
-- Action: contact the authors for their validation points; Indian labels are SatClip's biggest gap.
+- Avoid: do not adopt overall accuracy as EvidEO's headline metric; report flood-class IoU, precision and recall on hand labels.
+- Action: contact the authors for their validation points; Indian labels are EvidEO's biggest gap.

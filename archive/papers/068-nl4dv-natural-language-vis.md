@@ -10,7 +10,7 @@ category: human-factors
 era: recent
 tags: [natural-language-interface, visualization, query-parsing, ambiguity, vega-lite, toolkit, nli]
 verified: "2026-10-04 via https://arxiv.org/abs/2008.10723 (arXiv API metadata) and https://github.com/nl4dv/nl4dv"
-takeaway: "Python toolkit that turns a natural-language data question into a structured JSON of attributes, tasks and charts, with explicit ambiguity flags; SatClip's question parser should emit a similar inspectable spec"
+takeaway: "Python toolkit that turns a natural-language data question into a structured JSON of attributes, tasks and charts, with explicit ambiguity flags; EvidEO's question parser should emit a similar inspectable spec"
 ---
 
 # NL4DV: A Toolkit for Generating Analytic Specifications for Data Visualization from Natural Language Queries
@@ -33,9 +33,9 @@ Shows that a rule-and-lexicon pipeline can give developers a reusable, inspectab
 - Tabular data only; no spatial or temporal reasoning about maps or imagery.
 - Pre-LLM approach; later work replaces much of the parsing with language models.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the pattern of an explicit intermediate spec: the VLM should convert a question into a JSON query (instrument, region, date window, comparison) that is shown on the evidence card and executed deterministically, never a free-form answer.
-- Copy the explicit versus implicit labelling: if the user never named a date and SatClip assumed "latest scene", mark that field as inferred on the card.
+- Copy the explicit versus implicit labelling: if the user never named a date and EvidEO assumed "latest scene", mark that field as inferred on the card.
 - Copy ambiguity flags: when a place name matches several districts or blocks, ask a one-tap clarifying question instead of guessing.
 - Support local aliases (Hindi and regional words for flood, paddy, tank) in the parser lexicon, like NL4DV's alias configuration.
 - Beat it on evaluation: build a test set of real Indian official and journalist questions and report parse accuracy, which NL4DV did not.

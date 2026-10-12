@@ -10,7 +10,7 @@ category: human-factors
 era: recent
 tags: [overreliance, cognitive-forcing, explainable-ai, appropriate-reliance, need-for-cognition]
 verified: "2026-10-07 via arXiv API for 2102.09692 (title, authors, abstract, DOI 10.1145/3449287), https://api.crossref.org/works/10.1145/3449287 (journal, volume 5, issue CSCW1, pages 1-21, year 2021) and the arXiv PDF (condition names, nutrition task, MTurk)"
-takeaway: "Making users commit to their own guess or ask for the AI answer reduces blind acceptance but is disliked, so SatClip could offer an optional 'check it yourself first' step for high-stakes cards and should keep the default card fast"
+takeaway: "Making users commit to their own guess or ask for the AI answer reduces blind acceptance but is disliked, so EvidEO could offer an optional 'check it yourself first' step for high-stakes cards and should keep the default card fast"
 ---
 
 # Buçinca et al. 2021, cognitive forcing against overreliance
@@ -36,8 +36,8 @@ Online experiment on Amazon Mechanical Turk with 199 participants. Task: from a 
 - Simulated AI with controlled error placement.
 - Short session; long-term habituation to forcing steps not studied.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Explanations alone (heatmaps, VLM rationales) should not be expected to stop officials over-trusting a wrong flood number; this agrees with Bansal (067) and Zhang (070) in this archive.
 - Consider an optional "estimate first" or "reveal answer" mode for high-stakes uses (relief allocation, published news figures), not for every query, given the user dislike finding.
-- The abstention state is itself a strong forcing function: when SatClip says "not enough evidence", the user must think. Make sure it is used where confidence is truly low, not as decoration.
+- The abstention state is itself a strong forcing function: when EvidEO says "not enough evidence", the user must think. Make sure it is used where confidence is truly low, not as decoration.
 - Watch for unequal benefit: busy field officers may skip effortful steps, so the default card must be safe even when read in a few seconds.

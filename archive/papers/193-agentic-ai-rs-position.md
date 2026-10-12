@@ -10,7 +10,7 @@ category: rs-vlm
 era: upcoming
 tags: [agents, position-paper, geospatial-state, provenance, verifier, uncertainty, failure-modes, flood-area, tool-use, evaluation]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract, comment 'Position Paper') and curl to https://arxiv.org/html/2604.24919v3 (state definition, verifier checks, flood-area example, calibration discussion); WebFetch permission request timed out; the paper has no experiments, so no numbers are reported"
-takeaway: "A 2026 position paper that argues EO agents must carry CRS, time window, provenance and an uncertainty descriptor in their state and check every step with verifiers, using flood-area estimation as its main failure example; it describes SatClip's design goals but builds no system, so it is citable support rather than prior art"
+takeaway: "A 2026 position paper that argues EO agents must carry CRS, time window, provenance and an uncertainty descriptor in their state and check every step with verifiers, using flood-area estimation as its main failure example; it describes EvidEO's design goals but builds no system, so it is citable support rather than prior art"
 ---
 
 # Munir et al. 2026, Agentic AI for remote sensing (position paper)
@@ -35,7 +35,7 @@ None; it is a conceptual paper. It recommends trajectory-level evaluation rather
 - No implementation, benchmark or measured gains; claims are argued, not tested.
 - Does not specify how the uncertainty descriptor should be computed or calibrated, nor when an agent should refuse to answer.
 
-## What it means for SatClip
-- Adopt: use its state schema as a checklist for SatClip's answer record (CRS, pixel spacing, extent, time window, sensor, provenance, uncertainty) and its verifier list as unit tests on every pipeline step.
-- Adopt: its point that fixed steps should not be left to an LLM backs SatClip's choice to keep the VLM to intent parsing and explanation.
-- Novelty check: this is the closest statement of SatClip's philosophy found so far, including a flood-area example, but it is a position paper with no system, calibration method or abstention rule; SatClip can cite it as motivation and claim the working, calibrated, abstaining implementation.
+## What it means for EvidEO
+- Adopt: use its state schema as a checklist for EvidEO's answer record (CRS, pixel spacing, extent, time window, sensor, provenance, uncertainty) and its verifier list as unit tests on every pipeline step.
+- Adopt: its point that fixed steps should not be left to an LLM backs EvidEO's choice to keep the VLM to intent parsing and explanation.
+- Novelty check: this is the closest statement of EvidEO's philosophy found so far, including a flood-area example, but it is a position paper with no system, calibration method or abstention rule; EvidEO can cite it as motivation and claim the working, calibrated, abstaining implementation.

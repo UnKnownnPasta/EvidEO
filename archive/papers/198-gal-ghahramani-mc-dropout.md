@@ -10,7 +10,7 @@ category: historical
 era: historical
 tags: [mc-dropout, bayesian-deep-learning, model-uncertainty, epistemic, gaussian-process, uncertainty-estimation, foundation]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract, comment stating publication in ICML 2016 and an October 2016 correction to standard errors); WebFetch permission request timed out; ICML proceedings page not fetched, so volume and page numbers are not given"
-takeaway: "The founding paper for MC dropout: keep dropout on at test time and average several passes to get a cheap model-uncertainty estimate; SatClip can use it on its flood or crop segmentation head as one input to the confidence score, but must still calibrate it, since raw MC dropout is not calibrated by itself"
+takeaway: "The founding paper for MC dropout: keep dropout on at test time and average several passes to get a cheap model-uncertainty estimate; EvidEO can use it on its flood or crop segmentation head as one input to the confidence score, but must still calibrate it, since raw MC dropout is not calibrated by itself"
 ---
 
 # Gal and Ghahramani 2016, MC dropout as approximate Bayesian inference
@@ -35,7 +35,7 @@ MNIST experiments on uncertainty behaviour, a set of UCI regression datasets com
 - Produces uncertainty, not calibrated probabilities; post-hoc calibration is still needed.
 - T passes multiply inference cost, which matters on CPU.
 
-## What it means for SatClip
-- Adopt: a low-cost way to get per-pixel model uncertainty from SatClip's segmentation head without training an ensemble; aggregate it over the district mask as a feature for the confidence model.
+## What it means for EvidEO
+- Adopt: a low-cost way to get per-pixel model uncertainty from EvidEO's segmentation head without training an ensemble; aggregate it over the district mask as a feature for the confidence model.
 - Avoid: do not show MC dropout variance to users as "confidence"; feed it into the calibration step (temperature or isotonic, entries 026 and 127) and the abstention threshold.
 - CPU budget: a small T (for example 5 to 10) on a COG window is feasible; compare against a 3 to 5 member ensemble before choosing.

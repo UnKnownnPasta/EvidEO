@@ -10,7 +10,7 @@ category: rs-vlm
 era: upcoming
 tags: [change-vqa, tool-use, deterministic-tools, lora, qwen3.5-4b, cdvqa, semantic-change-detection, evidence-conditioned-answering]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and curl to https://arxiv.org/html/2609.14523v1 (full text including Tables I to IV); WebFetch permission request timed out"
-takeaway: "Closest 2026 match to SatClip's architecture: a LoRA-tuned 4B VLM that calls deterministic change tools lifts measurement questions from about 50% to near 100% with perfect maps, but only to 63 to 66% with predicted maps and with no confidence or abstention, so instrument quality and calibrated refusal are where SatClip must win"
+takeaway: "Closest 2026 match to EvidEO's architecture: a LoRA-tuned 4B VLM that calls deterministic change tools lifts measurement questions from about 50% to near 100% with perfect maps, but only to 63 to 66% with predicted maps and with no confidence or abstention, so instrument quality and calibrated refusal are where EvidEO must win"
 ---
 
 # Bazi et al. 2026, selective tool use for change VQA
@@ -40,7 +40,7 @@ Tool-augmented CDVQA: 2,968 image pairs and 47,586 questions in eight families (
 - No confidence, abstention or provenance; a wrong predicted map silently produces a confident wrong answer.
 - The VLM still does the final comparison of numbers, which is where F5 errors arise.
 
-## What it means for SatClip
-- Adopt: strong independent support for SatClip's design (small LoRA VLM routes, deterministic tool measures). Cite the jump from about 50% to near 100% on measurement questions when evidence is exact.
-- Beat: the drop from reference to predicted maps shows that answer quality is capped by the instrument; SatClip must report the instrument's own calibrated confidence and abstain when it is low, which this paper does not do.
-- Adopt: let code, not the VLM, do comparisons and rankings of returned numbers (the F5 failure); SatClip's explainer should only verbalise values already computed and stored in the evidence card.
+## What it means for EvidEO
+- Adopt: strong independent support for EvidEO's design (small LoRA VLM routes, deterministic tool measures). Cite the jump from about 50% to near 100% on measurement questions when evidence is exact.
+- Beat: the drop from reference to predicted maps shows that answer quality is capped by the instrument; EvidEO must report the instrument's own calibrated confidence and abstain when it is low, which this paper does not do.
+- Adopt: let code, not the VLM, do comparisons and rankings of returned numbers (the F5 failure); EvidEO's explainer should only verbalise values already computed and stored in the evidence card.

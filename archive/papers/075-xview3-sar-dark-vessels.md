@@ -10,7 +10,7 @@ category: object-detection
 era: recent
 tags: [sar, sentinel-1, ship-detection, dataset, ais, vh-vv, maritime, iuu-fishing]
 verified: "2026-10-04 via https://arxiv.org/abs/2206.00897, https://ar5iv.labs.arxiv.org/html/2206.00897 and https://github.com/DIUx-xView/xview3-reference"
-takeaway: "Large Sentinel-1 VV/VH ship detection benchmark (991 scenes, 243,018 labelled objects); the closest object-detection work to SatClip's own data, useful for SAR preprocessing and as a model for honest, partially reliable labels"
+takeaway: "Large Sentinel-1 VV/VH ship detection benchmark (991 scenes, 243,018 labelled objects); the closest object-detection work to EvidEO's own data, useful for SAR preprocessing and as a model for honest, partially reliable labels"
 ---
 
 # xView3-SAR: Detecting Dark Fishing Activity Using Synthetic Aperture Radar Imagery
@@ -36,9 +36,9 @@ The authors built an analysis-ready dataset of full Sentinel-1 scenes with both 
 - Maritime and offshore focus; inland rivers, reservoirs and floodwater are not covered.
 - Winning models are GPU-trained and heavy; CPU inference on full scenes was not a goal.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Reuse the preprocessing know-how: their analysis-ready Sentinel-1 VV/VH handling (calibration, terrain correction, scene tiling) and use of wind rasters are directly relevant to our SAR Otsu water instrument, since wind roughening is a key false-negative source for water.
 - Consider adding a wind-speed flag to the evidence card for SAR flood answers, lowering confidence or abstaining when wind is high, inspired by their ancillary layers.
 - Learn from their label honesty: state on our validation page how flood labels were made and where they are known to be incomplete (for example flooded vegetation).
-- Keep ship detection out of SatClip's core scope; if a coastal district asks about boats, abstain and point to dedicated maritime services.
-- Their full-scene sizes show why SatClip must read only the region of interest via COG windows (entry 049) to stay within CPU and memory limits.
+- Keep ship detection out of EvidEO's core scope; if a coastal district asks about boats, abstain and point to dedicated maritime services.
+- Their full-scene sizes show why EvidEO must read only the region of interest via COG windows (entry 049) to stay within CPU and memory limits.

@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [foundation-model, multi-modal, sar, sentinel-1, sentinel-2, worldview, contrastive, geo-context, billion-scale]
 verified: "2026-10-04 via https://arxiv.org/abs/2312.10115 and https://github.com/Jack-bo1220/SkySense"
-takeaway: "Billion-parameter optical plus SAR plus time model showing fusion helps; a ceiling to cite, but non-commercial weights and size rule it out for SatClip"
+takeaway: "Billion-parameter optical plus SAR plus time model showing fusion helps; a ceiling to cite, but non-commercial weights and size rule it out for EvidEO"
 ---
 
 # SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery
@@ -36,9 +36,9 @@ Per the abstract, SkySense beats 18 recent remote sensing foundation models, wit
 - Weights are released for non-commercial research only; commercial use needs permission from the authors.
 - Far too large for CPU inference; pretraining is out of reach for a student team.
 - Pretraining data is not public in full, so its coverage of India is unknown.
-- WorldView imagery is commercial; SatClip only reads public Sentinel data.
+- WorldView imagery is commercial; EvidEO only reads public Sentinel data.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Cite SkySense as evidence that SAR plus optical fusion improves interpretation, which supports our design of running SAR and optical instruments side by side and reporting both in one card.
 - Do not adopt it: licence and compute conflict with an open, CPU-first government tool.
 - Its geo-context idea maps cheaply to our setting: attach district, season (kharif or rabi) and orbit metadata to every instrument call so explanations and thresholds can be region-aware.

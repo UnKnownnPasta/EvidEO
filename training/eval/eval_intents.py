@@ -1,7 +1,7 @@
 """Evaluate a question parser on the held-out intent set (training/data/intents/test.jsonl).
 
 Predictors
-  rules   SatClip's shipped rule parser (backend/satclip/parser.py), the baseline any model must beat.
+  rules   EvidEO's shipped rule parser (backend/evideo/parser.py), the baseline any model must beat.
   hf      a Hugging Face causal LM or VLM, optionally with a LoRA adapter, decoding the JSON of schema.py
           and resolved through the same deterministic code (schema.resolve).
 
@@ -44,8 +44,8 @@ def from_parsed(parsed) -> dict[str, Any]:
 
 
 def rules_predictor() -> Callable[[str], Optional[dict[str, Any]]]:
-    from satclip.models import QueryRequest
-    from satclip.parser import parse
+    from evideo.models import QueryRequest
+    from evideo.parser import parse
     return lambda text: from_parsed(parse(QueryRequest(text=text)))
 
 

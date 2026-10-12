@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [vlm, llava, lora, captioning, vqa, instruction-tuning, optical]
 verified: "2026-10-04 via https://www.mdpi.com/2072-4292/16/9/1477 and https://github.com/BigData-KSU/RS-LLaVA"
-takeaway: "LoRA recipe and released 7B checkpoint are a fine-tune starting point; its ungrounded, confidence-free output is the gap SatClip fills"
+takeaway: "LoRA recipe and released 7B checkpoint are a fine-tune starting point; its ungrounded, confidence-free output is the gap EvidEO fills"
 ---
 
 # RS-LLaVA: A Large Vision-Language Model for Joint Captioning and Question Answering in Remote Sensing Imagery
@@ -30,7 +30,7 @@ Joint training: UCM-Captions BLEU-4 72.84 (7B) and 76.03 (13B), CIDEr 349.43 and
 ## Limitations
 Small, mostly optical RGB benchmarks with saturated, template-style language. No SAR, no multispectral bands, no georeferencing or dates, and no confidence output. The authors note heavy compute needs and suggest distillation or pruning, plus future grounding and change detection.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Their LoRA recipe (r 64, alpha 16) is a reasonable starting point for our planned open VLM fine-tune.
 - A released 7B LoRA checkpoint exists; test it as a captioning and VQA baseline, but expect it to be too slow for CPU without quantisation.
 - Do not treat high CIDEr on UCM as evidence of field usefulness; build an Indian Sentinel-2 test set with officials' real questions.

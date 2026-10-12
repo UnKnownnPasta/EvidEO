@@ -10,7 +10,7 @@ category: sar-optical-fusion
 era: recent
 tags: [sentinel-1, flood-mapping, bayesian, uncertainty, datacube, harmonic-model, seasonality, no-sensitivity-mask, copernicus-gfm, near-real-time, greece]
 verified: "2026-10-08 via curl to api.crossref.org (title, eight authors, volume 14, issue 15, article 3673, 31 July 2022) and api.openalex.org (abstract); MDPI full text was not readable from this environment, so method details beyond the abstract are not given; WebFetch permission prompt timed out so curl was used"
-takeaway: "The TU Wien member of the Copernicus GFM ensemble classifies each Sentinel-1 pixel by Bayes rule against its own seasonal backscatter history, giving a per-pixel flood probability and a no-sensitivity mask; the cleanest template for SatClip's calibrated SAR water confidence"
+takeaway: "The TU Wien member of the Copernicus GFM ensemble classifies each Sentinel-1 pixel by Bayes rule against its own seasonal backscatter history, giving a per-pixel flood probability and a no-sensitivity mask; the cleanest template for EvidEO's calibrated SAR water confidence"
 ---
 
 # Bauer-Marschallinger et al. 2022, Bayesian flood mapping from a Sentinel-1 datacube
@@ -36,7 +36,7 @@ Fixed or scene-wide thresholds fail where land is naturally dark in SAR (sand, t
 - Overall accuracy is dominated by dry land and flatters flood detection; single region test.
 - Wind-roughened or vegetated flood water still breaks the flood signature.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: replace or complement the scene-wide Otsu threshold with a per-pixel "is this darker than normal for this date" test using a few past Sentinel-1 passes from the same orbit. This turns flood extent into a change question and cuts false water from always-dark surfaces.
-- Adopt: report the posterior probability as SatClip's per-pixel water confidence, and abstain in the no-sensitivity mask instead of calling it dry.
-- Adopt: for India, read GFM's published ensemble flood extent and its exclusion mask as a cross-check before showing SatClip's own map.
+- Adopt: report the posterior probability as EvidEO's per-pixel water confidence, and abstain in the no-sensitivity mask instead of calling it dry.
+- Adopt: for India, read GFM's published ensemble flood extent and its exclusion mask as a cross-check before showing EvidEO's own map.

@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [flood-mapping, sentinel-1, grd, rtc, sentinel-2, dem, copernicus-ems, benchmark, foundation-models, terramind, permanent-water, temporal-holdout]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract, workshop comment) and curl to https://arxiv.org/html/2608.02315v1 (splits, Tables 2 to 5 text, limitations); WebFetch permission request timed out; workshop acceptance taken from the arXiv comment only"
-takeaway: "A new 2026 Sentinel-1 flood benchmark with event-level splits, a temporally disjoint 2026 test set and separate permanent-water and flooded-water labels; ideal for scoring and calibrating SatClip's SAR flood instrument, though only 79 of 219 events are outside Europe"
+takeaway: "A new 2026 Sentinel-1 flood benchmark with event-level splits, a temporally disjoint 2026 test set and separate permanent-water and flooded-water labels; ideal for scoring and calibrating EvidEO's SAR flood instrument, though only 79 of 219 events are outside Europe"
 ---
 
 # Chiriaco et al. 2026, GEOID-Flood benchmark
@@ -37,8 +37,8 @@ Encoders compared include TerraMind (T, S, B, L), other foundation models and Im
 - Labels inherit noise from CEMS delineations and a model-derived permanent-water layer.
 - No classical threshold baseline (for example Otsu on VV/VH) was found in the text we read, so the gain of learned models over simple instruments is not measured here.
 
-## What it means for SatClip
-- Adopt: use the test split and the post-January-2026 held-out set to score SatClip's SAR threshold instrument and to fit its calibration on events it has never seen; report flooded-water IoU separately from permanent water, as this benchmark does.
-- Adopt: GRD is enough; the small RTC advantage was not found, which supports SatClip's CPU-friendly preprocessing choices, though terrain-heavy Indian districts still need checking.
+## What it means for EvidEO
+- Adopt: use the test split and the post-January-2026 held-out set to score EvidEO's SAR threshold instrument and to fit its calibration on events it has never seen; report flooded-water IoU separately from permanent water, as this benchmark does.
+- Adopt: GRD is enough; the small RTC advantage was not found, which supports EvidEO's CPU-friendly preprocessing choices, though terrain-heavy Indian districts still need checking.
 - Beat: add the missing classical baseline (split-based thresholding) and an abstention-aware metric (accuracy at a given coverage), which this benchmark does not provide.
 - Gap: assemble a small Indian subset (Assam, Bihar, Kerala) because the benchmark's coverage of South Asia is thin.

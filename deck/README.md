@@ -1,8 +1,9 @@
-# SatClip deck (M7)
+# EvidEO deck (M7)
 
-- `satclip.pptx`: 14-slide pitch and demo deck in claymorphism style (soft extruded cards with paired outer and inner shadows, pastel palette with dark ink text). Speaker notes on every slide name the source of each number.
+- `legacy/satclip-14-slides-2026-10-09.pptx` (retired 2026-10-12, old name, claymorphism; `build_deck.js` would now write `evideo.pptx` but needs fresh screenshots). Current deck: `why/EvidEO-why-it-matters.pptx`, built by `why/build_why.js`.
+- Former description of the 14-slide deck: 14-slide pitch and demo deck in claymorphism style (soft extruded cards with paired outer and inner shadows, pastel palette with dark ink text). Speaker notes on every slide name the source of each number.
 - Rebuild:
-  1. Start the API: `cd backend && uvicorn satclip.api.main:app --port 8000`.
+  1. Start the API: `cd backend && uvicorn evideo.api.main:app --port 8000`.
   2. `python tools/screenshots.py` (warms the scene cache; live questions take 20 to 100 s each).
   3. `python deck/capture_assets.py` (element screenshots of the evidence card and map into `deck/assets/`).
   4. `PPTX_SKILL=<path to the pptx skill> node deck/build_deck.js` (needs pptxgenjs, react, react-dom, react-icons, sharp; the skill path is only used to apply the theme colours).

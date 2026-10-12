@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [clip, mobileclip, efficient, knowledge-distillation, zero-shot, datacompdr, openclip, edge, cpu]
 verified: "2026-10-04 via https://arxiv.org/abs/2311.17049 and https://github.com/apple/ml-mobileclip"
-takeaway: "Small, fast CLIP models via reinforced training; a CPU-friendly alternative encoder for SatClip's zero-shot land cover instrument if licence and accuracy on Sentinel-2 check out"
+takeaway: "Small, fast CLIP models via reinforced training; a CPU-friendly alternative encoder for EvidEO's zero-shot land cover instrument if licence and accuracy on Sentinel-2 check out"
 ---
 
 # MobileCLIP: Fast Image-Text Models through Multi-Modal Reinforced Training
@@ -36,7 +36,7 @@ Zero-shot evaluation on 38 benchmarks (ImageNet and the usual CLIP suite plus re
 - Licences differ by part: code MIT, model weights under Apple's ML research terms of use, data CC-BY-NC-ND. We have not checked whether the weight terms allow use in a public government-facing tool.
 - RGB only.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Benchmark MobileCLIP-S0/S2 (loadable through OpenCLIP) against our current CLIP or RemoteCLIP backbone (entry 008) on CPU: measure milliseconds per chip and zero-shot accuracy on a small labelled Indian land cover set.
 - Adopt it only if accuracy holds after calibration; speed is useless if the abstention rate rises to cover poor predictions.
 - Copy the reinforced training idea for our own GPU pipeline: precompute captions and teacher embeddings for Indian Sentinel-2 chips once, then distil a small RS-specific CLIP cheaply.

@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [constrained-decoding, json-schema, context-free-grammar, structured-output, pushdown-automaton, token-mask-cache, llama.cpp, outlines, cpu]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract, MLSys '25 comment) and curl to https://arxiv.org/html/2411.15100 (method details, baselines including llama.cpp grammar engine and Outlines, test hardware, Table 4 syntactic accuracy); WebFetch permission request timed out"
-takeaway: "A grammar engine that makes JSON-schema constrained decoding nearly free by precomputing token masks for most of the vocabulary (up to 100x lower per-token mask cost than prior engines); SatClip's intent parser should decode under its JSON schema with such an engine so every parse is valid, at negligible CPU cost"
+takeaway: "A grammar engine that makes JSON-schema constrained decoding nearly free by precomputing token masks for most of the vocabulary (up to 100x lower per-token mask cost than prior engines); EvidEO's intent parser should decode under its JSON schema with such an engine so every parse is valid, at negligible CPU cost"
 ---
 
 # Dong et al. 2025, XGrammar
@@ -38,7 +38,7 @@ Agents need LLM outputs that parse: JSON function calls, SQL, DSLs. Constrained 
 - Guarantees syntax only; a valid JSON intent can still hold the wrong district, date range or question type.
 - Integration targets MLC-LLM, SGLang and similar engines; llama.cpp has its own grammar engine.
 
-## What it means for SatClip
-- Adopt: constrain the LoRA intent parser to SatClip's JSON schema (question type enum, district code, date range, sensor) so malformed parses never reach the pipeline; XGrammar or llama.cpp's built-in grammar both work, and Outlines (entry 150) is the older reference.
+## What it means for EvidEO
+- Adopt: constrain the LoRA intent parser to EvidEO's JSON schema (question type enum, district code, date range, sensor) so malformed parses never reach the pipeline; XGrammar or llama.cpp's built-in grammar both work, and Outlines (entry 150) is the older reference.
 - Adopt: use enum-only fields where possible so the grammar removes free text and a schema-valid but semantically doubtful parse triggers a clarifying question instead of a guess.
 - Avoid: do not count schema validity as accuracy; measure intent accuracy separately on held-out Indian questions.

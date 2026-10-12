@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [big-tech, embedding-field, foundation-model, sentinel-1, sentinel-2, landsat, earth-engine, sparse-labels]
 verified: "2026-10-05 via https://arxiv.org/abs/2507.22291 and https://arxiv.org/html/2507.22291v1; Earth Engine catalog page could not be fetched, so dataset ID and license wording not checked directly"
-takeaway: "Precomputed annual 10 m embeddings for every land pixel make cheap land-cover and change features available to anyone, a strong optional baseline for SatClip, but annual, opaque and not usable for a specific flood date"
+takeaway: "Precomputed annual 10 m embeddings for every land pixel make cheap land-cover and change features available to anyone, a strong optional baseline for EvidEO, but annual, opaque and not usable for a specific flood date"
 ---
 
 # AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data
@@ -36,9 +36,9 @@ A roughly 480M-parameter "Space Time Precision" encoder ingests many gridded sou
 - Authors note it can need more training observations than some baselines on certain tasks, and gains vary by application.
 - Access is through Earth Engine; downstream use depends on Google's terms and account access.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Threat level: medium. It is not a question-answering system, but it makes high-quality land features nearly free, and Google's Earth AI agent (entry 095) can sit on top of it.
 - Adopt (optional): use the annual embeddings as an offline baseline or a sanity check for our CLIP zero-shot land-cover instrument in pilot districts, and as a prior for "is this pixel normally water or cropland".
-- Avoid: making any SatClip number depend on these embeddings. They are annual and opaque, which breaks our rule that every number traces to dated scenes and a transparent method.
-- Beat: event-specific answers. SatClip measures this week's flood from this week's Sentinel-1 pass with scene IDs; AlphaEarth tells you what a pixel looked like across a year.
-- Keep the instrument-first story: AlphaEarth is a representation, SatClip is an auditable measurement with a receipt and an abstain option.
+- Avoid: making any EvidEO number depend on these embeddings. They are annual and opaque, which breaks our rule that every number traces to dated scenes and a transparent method.
+- Beat: event-specific answers. EvidEO measures this week's flood from this week's Sentinel-1 pass with scene IDs; AlphaEarth tells you what a pixel looked like across a year.
+- Keep the instrument-first story: AlphaEarth is a representation, EvidEO is an auditable measurement with a receipt and an abstain option.

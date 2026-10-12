@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [vlm, sar, optical-sar-fusion, sentinel-1, pixel-grounding, segmentation, benchmark, internvl2, sam2, 4b]
 verified: "2026-10-05 via https://arxiv.org/abs/2506.01667, https://arxiv.org/html/2506.01667 and https://github.com/shuyansy/EarthMind README"
-takeaway: "Strongest evidence that plain VLMs ignore SAR when given SAR plus optical; supports SatClip's choice to read SAR with instruments, and EarthMind-Bench is a ready SAR-only test set"
+takeaway: "Strongest evidence that plain VLMs ignore SAR when given SAR plus optical; supports EvidEO's choice to read SAR with instruments, and EarthMind-Bench is a ready SAR-only test set"
 ---
 
 # EarthMind: Leveraging Cross-Sensor Data for Advanced Earth Observation Interpretation with a Unified Multimodal LLM
@@ -36,8 +36,8 @@ EarthMind is a 4B model built on InternVL2 with a SAM2-based grounding encoder a
 ## Limitations
 Unpublished preprint at verification time. The authors note heavy compute from multiple visual encoders. Optical and SAR inputs must be co-registered pairs; mixed-date pairs and Indian monsoon scenes are not studied. Training text is largely GPT-4o generated. No confidence output; the [SEG]-absent rule is the only abstention-like behaviour. Single time step, so no change detection.
 
-## What it means for SatClip
-- Strong citation for the design: a learned VLM, even a purpose-built one, tends to underuse SAR unless it is specially engineered. SatClip sidesteps this by reading Sentinel-1 with a transparent threshold and only asking the VLM to explain.
-- Use EarthMind-Bench's SAR-only split (or its hallucination and existence tasks) as an external check of SatClip's explanation layer, if licences permit.
-- Possible stretch baseline: run EarthMind (4B, weights released) on the same flood question and compare its answer with SatClip's evidence card; the expected gap is traceability (no scene ID, date, area or confidence), not fluency.
-- Note for judges: this is one of the few RS assistants with real SAR input, so SatClip should not claim to be the only SAR-aware assistant; the distinctive part is measured, cited, abstaining output.
+## What it means for EvidEO
+- Strong citation for the design: a learned VLM, even a purpose-built one, tends to underuse SAR unless it is specially engineered. EvidEO sidesteps this by reading Sentinel-1 with a transparent threshold and only asking the VLM to explain.
+- Use EarthMind-Bench's SAR-only split (or its hallucination and existence tasks) as an external check of EvidEO's explanation layer, if licences permit.
+- Possible stretch baseline: run EarthMind (4B, weights released) on the same flood question and compare its answer with EvidEO's evidence card; the expected gap is traceability (no scene ID, date, area or confidence), not fluency.
+- Note for judges: this is one of the few RS assistants with real SAR input, so EvidEO should not claim to be the only SAR-aware assistant; the distinctive part is measured, cited, abstaining output.

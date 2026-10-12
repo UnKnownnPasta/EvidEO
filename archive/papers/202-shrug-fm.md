@@ -10,7 +10,7 @@ category: trust-calibration
 era: recent
 tags: [selective-prediction, abstention, ood-detection, geospatial-foundation-model, flood-mapping, worldfloods, risk-coverage, decision-tree, ssl4eo-s12, sentinel-2]
 verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?id_list=2511.10370 (title, authors, dates, EarthVision 2026 comment, abstract), WebFetch of https://arxiv.org/html/2511.10370v2 (signals, datasets, failure thresholds, metrics, key numbers, binary accept/reject output) and curl of the same HTML page (Limitations and Conclusions sections, dataset split sizes)"
-takeaway: "Abstention for EO segmentation that fuses input-space OOD (terrain and hydro attributes vs pretraining data), embedding OOD and ensemble uncertainty in a depth-3 decision tree; it cuts risk on kept flood and burn-scar tiles but outputs a binary keep/abstain, not a calibrated probability; the closest prior art for SatClip's abstain step"
+takeaway: "Abstention for EO segmentation that fuses input-space OOD (terrain and hydro attributes vs pretraining data), embedding OOD and ensemble uncertainty in a depth-3 decision tree; it cuts risk on kept flood and burn-scar tiles but outputs a binary keep/abstain, not a calibrated probability; the closest prior art for EvidEO's abstain step"
 ---
 
 # Gonzalez-Calabuig et al. 2026, SHRUG-FM
@@ -45,8 +45,8 @@ Geospatial foundation models fail quietly in places unlike their pretraining dat
 - Failure definitions, feature choice and tree settings are task-specific and sensitive in low-data settings; the authors note periodic recalibration may be needed under shift.
 - Flood evaluation is optical Sentinel-2 only, not SAR, and tile-level rather than per-question.
 
-## What it means for SatClip
-- Adopt: the idea of an input-space OOD check using physical attributes. SatClip can flag districts or dates whose terrain, slope, or backscatter statistics fall outside the range where the Otsu threshold was validated, and feed that into abstention.
-- Adopt: risk-coverage curves and AURC as the evaluation format for SatClip's abstain-below-threshold rule.
-- Beat: SatClip should map its signals to a calibrated probability (entries 26, 126, 127) rather than a bare keep/reject, and show that number with the scene receipt.
-- Novelty: weakens the claim modestly. It shows abstention for EO flood mapping is already published (CVPR EarthVision 2026), so SatClip cannot claim abstention for satellite flood products as new. It does not provide calibrated confidence, a question interface, scene receipts, live retrieval or SAR fallback, so the combination claim survives; SatClip should cite it as the nearest abstention prior art.
+## What it means for EvidEO
+- Adopt: the idea of an input-space OOD check using physical attributes. EvidEO can flag districts or dates whose terrain, slope, or backscatter statistics fall outside the range where the Otsu threshold was validated, and feed that into abstention.
+- Adopt: risk-coverage curves and AURC as the evaluation format for EvidEO's abstain-below-threshold rule.
+- Beat: EvidEO should map its signals to a calibrated probability (entries 26, 126, 127) rather than a bare keep/reject, and show that number with the scene receipt.
+- Novelty: weakens the claim modestly. It shows abstention for EO flood mapping is already published (CVPR EarthVision 2026), so EvidEO cannot claim abstention for satellite flood products as new. It does not provide calibrated confidence, a question interface, scene receipts, live retrieval or SAR fallback, so the combination claim survives; EvidEO should cite it as the nearest abstention prior art.

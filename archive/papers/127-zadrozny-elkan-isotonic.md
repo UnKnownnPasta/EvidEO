@@ -10,7 +10,7 @@ category: trust-calibration
 era: historical
 tags: [isotonic-regression, pav, post-hoc-calibration, multiclass-calibration, binary-coupling]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1145/775047.775151 (title, authors, proceedings, pages 694-699, date 2002-07-23); WebFetch was refused, curl used; content summarized from standard knowledge, full text not fetched, dataset names and numeric results not confirmed"
-takeaway: "Isotonic regression is SatClip's default non-parametric calibrator for instrument scores once there are enough labelled tiles, since it assumes only that a higher score should never mean a lower flood probability"
+takeaway: "Isotonic regression is EvidEO's default non-parametric calibrator for instrument scores once there are enough labelled tiles, since it assumes only that a higher score should never mean a lower flood probability"
 ---
 
 # Zadrozny and Elkan 2002, isotonic calibration
@@ -33,7 +33,7 @@ Evaluated on standard classification datasets with several base classifiers; the
 - Being non-parametric, isotonic regression can overfit with small calibration sets; the step function can be jagged and produce ties.
 - Like all post-hoc methods, it assumes calibration and deployment data come from the same distribution.
 
-## What it means for SatClip
-- The only structural assumption, monotonicity, matches SatClip's instruments: a deeper backscatter drop or larger NDVI loss should never lower the flood or crop-loss probability.
+## What it means for EvidEO
+- The only structural assumption, monotonicity, matches EvidEO's instruments: a deeper backscatter drop or larger NDVI loss should never lower the flood or crop-loss probability.
 - Use Platt (two parameters) while labelled Indian tiles are few, and switch to isotonic once a few thousand labelled pixels or tiles per sensor mode exist; pick between them on held-out reliability diagrams and ECE (entry 128).
 - The multiclass coupling idea suits crop-change cards with several outcomes (no change, loss, gain, flooded), where each binary score is calibrated then combined before the abstention test.

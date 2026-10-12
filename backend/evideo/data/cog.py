@@ -96,7 +96,7 @@ def read_window(href: str, bbox_lonlat, res_m: Optional[float] = None, band: int
     last: Optional[Exception] = None
     for attempt in range(READ_ATTEMPTS):
         # GDAL's /vsicurl cache remembers a failed byte range, so a retry must use a fresh URL key.
-        url = href if attempt == 0 else f"{href}{'&' if '?' in href else '?'}satclip_retry={attempt}"
+        url = href if attempt == 0 else f"{href}{'&' if '?' in href else '?'}evideo_retry={attempt}"
         try:
             with rasterio.Env(**GDAL_ENV), rasterio.open(url) as ds:
                 crs = ds.crs.to_string()

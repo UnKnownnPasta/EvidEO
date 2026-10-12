@@ -10,7 +10,7 @@ category: historical
 era: historical
 tags: [ndwi, spectral-index, optical-water, green-nir, open-water, sentinel-2]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1080/01431169608948714 (title, author, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
-takeaway: "Gives SatClip its optical water instrument, (Green minus NIR) over (Green plus NIR) on Sentinel-2 B3 and B8, used only on cloud-free, shadow-masked pixels as a cross-check on SAR"
+takeaway: "Gives EvidEO its optical water instrument, (Green minus NIR) over (Green plus NIR) on Sentinel-2 B3 and B8, used only on cloud-free, shadow-masked pixels as a cross-check on SAR"
 ---
 
 # McFeeters NDWI
@@ -35,7 +35,7 @@ Demonstrated on Landsat-type multispectral imagery over a study area with open w
 - Turbid or vegetated floodwater and mixed pixels are often missed.
 - Clouds, cloud shadows and terrain shadows corrupt it; useless under monsoon overcast.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Implement NDWI on Sentinel-2 L2A (B3, B8) as the optical water instrument, but only on pixels passing the SCL cloud, shadow and snow mask; report the valid-pixel fraction on the card and abstain when it is low.
 - Prefer a data-driven threshold (Otsu or K-I on the NDWI histogram) over a fixed zero, and record it in the receipt.
 - Use NDWI mainly to cross-validate SAR water on clear dates (pre-monsoon baselines, post-event clear days) and to calibrate SAR confidence, not as the monsoon primary.

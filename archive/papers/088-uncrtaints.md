@@ -10,7 +10,7 @@ category: sar-optical-fusion
 era: recent
 tags: [cloud-removal, uncertainty, aleatoric, calibration, uce, negative-log-likelihood, l-tae, sen12ms-cr-ts, sentinel-1, sentinel-2, selective-prediction]
 verified: "2026-10-05 via https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/html/Ebel_UnCRtainTS_Uncertainty_Quantification_for_Cloud_Removal_in_Optical_Satellite_Time_CVPRW_2023_paper.html, https://arxiv.org/abs/2304.05464v1 and https://ar5iv.labs.arxiv.org/html/2304.05464"
-takeaway: "Calibrated per-pixel variance lets you discard the most uncertain half of outputs and nearly halve error; the same rank-and-reject logic is SatClip's abstain rule"
+takeaway: "Calibrated per-pixel variance lets you discard the most uncertain half of outputs and nearly halve error; the same rank-and-reject logic is EvidEO's abstain rule"
 ---
 
 # UnCRtainTS: Uncertainty Quantification for Cloud Removal in Optical Satellite Time Series
@@ -37,8 +37,8 @@ SEN12MS-CR-TS ([[087-sen12ms-cr-ts]], T = 3 input dates in main experiments) and
 - Diagonal covariance ignores band correlations.
 - Only short sequences (T = 3) explored.
 
-## What it means for SatClip
-- The key idea transfers even if we never run cloud removal: have every instrument emit a spread, rank answers by it, and check on a validation set that error drops as we reject the most uncertain ones. That curve is the evidence that SatClip's abstain threshold is meaningful.
-- Report a calibration metric (UCE or ECE) for SatClip's confidence, not just accuracy, and stratify by cloud fraction and season.
+## What it means for EvidEO
+- The key idea transfers even if we never run cloud removal: have every instrument emit a spread, rank answers by it, and check on a validation set that error drops as we reject the most uncertain ones. That curve is the evidence that EvidEO's abstain threshold is meaningful.
+- Report a calibration metric (UCE or ECE) for EvidEO's confidence, not just accuracy, and stratify by cloud fraction and season.
 - If an optical reconstruction is ever shown, show its per-pixel variance map in the region mask and exclude high-variance pixels from area totals.
 - Remember the aleatoric-only gap: add an explicit out-of-distribution check (for example, failed bimodality, from [[086-chini-hsba-thresholding]]) rather than trusting a model's own variance.

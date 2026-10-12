@@ -10,7 +10,7 @@ category: change-detection
 era: historical
 tags: [difference-image, unsupervised, expectation-maximization, bayes-threshold, markov-random-field, two-date-change]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1109/36.843009 (title, authors, venue, volume, issue, pages, May 2000) and abstract via OpenAlex; full text not fetched, so dataset details below are not confirmed"
-takeaway: "The template for SatClip's two-date change instruments: model the difference image as a changed and unchanged mixture fitted by EM, pick the minimum-error Bayes threshold, and reuse the fitted posteriors as the confidence that drives abstention"
+takeaway: "The template for EvidEO's two-date change instruments: model the difference image as a changed and unchanged mixture fitted by EM, pick the minimum-error Bayes threshold, and reuse the fitted posteriors as the confidence that drives abstention"
 ---
 
 # Bruzzone and Prieto 2000, automatic difference-image analysis
@@ -35,7 +35,7 @@ Multitemporal optical imagery; the abstract does not name the scenes and the ful
 - Gaussian class models suit optical differences better than SAR ratios; Bazi et al. 2005 (already in this archive) extends the idea to SAR with generalized Gaussian models.
 - No uncertainty is reported on the threshold itself.
 
-## What it means for SatClip
-- SatClip's SAR log-ratio and NDVI-difference instruments can follow this recipe directly: fit a two-class mixture to the difference image of a district, take the Bayes minimum-error threshold, and record the fitted parameters in the receipt.
+## What it means for EvidEO
+- EvidEO's SAR log-ratio and NDVI-difference instruments can follow this recipe directly: fit a two-class mixture to the difference image of a district, take the Bayes minimum-error threshold, and record the fitted parameters in the receipt.
 - The fitted class posteriors give a per-pixel and per-area confidence for free; abstain when the mixture is poorly separated (for example overlapping class distributions or a tiny estimated change proportion).
 - The MRF step is a principled alternative to ad hoc morphological cleanup, but adds a smoothing parameter that must be documented.

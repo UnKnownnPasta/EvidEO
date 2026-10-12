@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [change-vqa, cdvqa, second-dataset, bi-temporal, aerial, automatic-qa-generation, change-ratio, benchmark]
 verified: "2026-10-08 via curl to https://api.crossref.org/works/10.1109/tgrs.2022.3203314 (title, authors, journal, volume, year), export.arxiv.org API (abstract, DOI link) and https://arxiv.org/html/2112.06343v2 (dataset construction, splits, Tables V and VI); WebFetch permission request timed out"
-takeaway: "The founding change-VQA benchmark: 2,968 aerial image pairs and about 122,000 template questions auto-generated from semantic change maps; the baseline gets about 65 to 69% overall but only 24 to 39% on change ratio and smallest change, which is why SatClip computes such numbers from masks instead of asking a model"
+takeaway: "The founding change-VQA benchmark: 2,968 aerial image pairs and about 122,000 template questions auto-generated from semantic change maps; the baseline gets about 65 to 69% overall but only 24 to 39% on change ratio and smallest change, which is why EvidEO computes such numbers from masks instead of asking a model"
 ---
 
 # Yuan et al. 2022, change detection based VQA (CDVQA)
@@ -37,7 +37,7 @@ More than 122,000 question-answer pairs. Splits by image pair and location: 1,60
 - Answers are classification over a closed set; no masks, no locations, no confidence or abstention.
 - Templates are generated from labels, so question language is narrow and answer priors are strong.
 
-## What it means for SatClip
-- Adopt: the question taxonomy (change or not, increase or decrease, change to what, largest change, change ratio) maps directly onto SatClip's crop-change and flood-change intents and is a good checklist for the intent parser.
+## What it means for EvidEO
+- Adopt: the question taxonomy (change or not, increase or decrease, change to what, largest change, change ratio) maps directly onto EvidEO's crop-change and flood-change intents and is a good checklist for the intent parser.
 - Avoid: letting a learned VQA head produce ratios or rankings; the 24 to 39% accuracy on those families is the clearest historical argument for computing them from masks in code, as entry 172 later confirms.
-- Beat: SatClip returns the mask, the scene IDs and a calibrated confidence alongside the answer, none of which CDVQA provides.
+- Beat: EvidEO returns the mask, the scene IDs and a calibrated confidence alongside the answer, none of which CDVQA provides.

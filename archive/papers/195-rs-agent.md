@@ -37,7 +37,7 @@ Nine datasets covering 18 tasks; task-planning accuracy compared with Remote Sen
 - Tools return outputs without uncertainty; there is no rule for refusing when a tool is unreliable.
 - No flood mapping, change estimation over time or scene search from catalogues in the task set read.
 
-## What it means for SatClip
-- Adopt: task-type identification before retrieval is a simple, strong pattern for SatClip's intent parser (flood extent, flood change, crop change), and supports keeping the question set closed.
-- Avoid: RAG over free text documents is not needed for SatClip's narrow scope and adds hallucination risk.
-- Beat: RS-Agent routes and executes but does not tie answers to scene IDs and dates, report calibrated confidence or abstain; SatClip's claim remains open against this published system.
+## What it means for EvidEO
+- Adopt: task-type identification before retrieval is a simple, strong pattern for EvidEO's intent parser (flood extent, flood change, crop change), and supports keeping the question set closed.
+- Avoid: RAG over free text documents is not needed for EvidEO's narrow scope and adds hallucination risk.
+- Beat: RS-Agent routes and executes but does not tie answers to scene IDs and dates, report calibrated confidence or abstain; EvidEO's claim remains open against this published system.

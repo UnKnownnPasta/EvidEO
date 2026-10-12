@@ -10,7 +10,7 @@ category: eo-agents
 era: upcoming
 tags: [tool-agents, plan-and-execute, expert-skills, structured-memory, data-acquisition, grpo, verifiable-rewards, qwen, earth-bench-pro]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query?id_list=2609.12533 (title, authors, date, comment, abstract); numbers from the abstract only"
-takeaway: "The strongest full-chain EO agent so far (finds and prepares its own data, records accepted evidence in structured memory) moves toward SatClip's design with expert-authored skills, yet still reaches only about two thirds accuracy with GPT-5 and half with a 9B open model, and has no user-facing confidence or abstention"
+takeaway: "The strongest full-chain EO agent so far (finds and prepares its own data, records accepted evidence in structured memory) moves toward EvidEO's design with expert-authored skills, yet still reaches only about two thirds accuracy with GPT-5 and half with a 9B open model, and has no user-facing confidence or abstention"
 ---
 
 # Lv et al. 2026, Earth-Agent-Pro (full-chain EO agent)
@@ -36,7 +36,7 @@ Earlier EO agents, including Earth-Agent (entry 094), start from data that is al
 - No calibrated confidence, abstention or user-visible provenance described in the abstract; the evidence memory serves the agent's own repair loop.
 - Code and data not yet released; heavy models, not CPU-friendly.
 
-## What it means for SatClip
-- **Convergent evidence**: the best-performing EO agent now constrains planning with expert-written workflows, which is a move toward SatClip's fixed instrument recipes; cite it as support, not competition.
-- **Adopt** the "accepted evidence plus dependencies" record: SatClip's receipt already lists scenes and parameters; adding which step depends on which makes partial re-runs and audits easier.
+## What it means for EvidEO
+- **Convergent evidence**: the best-performing EO agent now constrains planning with expert-written workflows, which is a move toward EvidEO's fixed instrument recipes; cite it as support, not competition.
+- **Adopt** the "accepted evidence plus dependencies" record: EvidEO's receipt already lists scenes and parameters; adding which step depends on which makes partial re-runs and audits easier.
 - **Beat it** on reliability for a narrow scope: a fixed router plus calibrated instruments should exceed 66% on flood and crop questions and abstain on the rest; report exact-match accuracy, not LLM-as-judge.

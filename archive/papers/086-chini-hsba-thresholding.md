@@ -10,7 +10,7 @@ category: sar-optical-fusion
 era: historical
 tags: [flood-mapping, bimodality, ashman-d, hierarchical-tiling, gaussian-fitting, region-growing, change-detection, envisat, terrasar-x]
 verified: "2026-10-05 via https://www.list.lu/en/environment/scientific-publications/scientific-publications-detail/a-hierarchical-split-based-approach-for-parametric-thresholding-of-sar-images-flood-inundation-as-a (record and abstract) and https://eo4society.esa.int/wp-content/uploads/2023/11/HAZARD_Floods_Exercises_Chini.pdf (ESA training slides by the first author); final volume and issue not confirmed; full paper paywalled"
-takeaway: "Use Ashman D > 2 plus a 10% minority-class rule as SatClip's explicit bimodality check, searching tiles of variable size rather than a fixed grid"
+takeaway: "Use Ashman D > 2 plus a 10% minority-class rule as EvidEO's explicit bimodality check, searching tiles of variable size rather than a fixed grid"
 ---
 
 # A hierarchical split-based approach for parametric thresholding of SAR images: Flood inundation as a test case
@@ -39,7 +39,7 @@ The abstract states that results match benchmarks that relied on manual tile sel
 - One flood event tested in the paper; transfer is asserted, not shown, in the abstract.
 - Like all backscatter thresholds, misses flooded vegetation and urban water.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Make the bimodality check in sar_water_otsu concrete: compute Ashman's D = sqrt(2) |mu1 - mu2| / sqrt(sigma1^2 + sigma2^2) on the two Otsu classes of the dB histogram, require D > 2 and minority fraction >= 10%, else do not trust the threshold.
 - Search tiles hierarchically (district, then halves, quarters, and so on) and stop at the first level where enough tiles pass, instead of one fixed tile size.
 - Output D and the minority fraction in the evidence card; they are natural inputs to the calibrated confidence and the abstain rule.

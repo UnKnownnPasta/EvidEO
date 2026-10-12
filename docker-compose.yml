@@ -7,18 +7,18 @@ services:
   api:
     build: {context: ., dockerfile: backend/Dockerfile}
     environment:
-      SATCLIP_QUEUE__BACKEND: redis
-      SATCLIP_QUEUE__REDIS_URL: redis://redis:6379/0
+      EVIDEO_QUEUE__BACKEND: redis
+      EVIDEO_QUEUE__REDIS_URL: redis://redis:6379/0
     depends_on: [redis]
     ports: ["8000:8000"]
     volumes: [masks:/app/backend/runtime/masks]   # workers write overlays, the API serves them
 
   worker:
     build: {context: ., dockerfile: backend/Dockerfile}
-    command: ["python", "-m", "satclip.worker"]
+    command: ["python", "-m", "evideo.worker"]
     environment:
-      SATCLIP_QUEUE__BACKEND: redis
-      SATCLIP_QUEUE__REDIS_URL: redis://redis:6379/0
+      EVIDEO_QUEUE__BACKEND: redis
+      EVIDEO_QUEUE__REDIS_URL: redis://redis:6379/0
     depends_on: [redis]
     volumes: [masks:/app/backend/runtime/masks]
     deploy: {replicas: 2}   # scale with: docker compose up --scale worker=8

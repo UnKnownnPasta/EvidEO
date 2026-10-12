@@ -30,7 +30,7 @@ The abstract reports experiments on 16 mainstream VLMs (families include Qwen2-V
 ## Limitations
 Captions are largely template-derived, so language diversity is limited. The domain skews toward military and maritime targets at high resolution, with little land cover, flood or crop content. Non-commercial licence restricts some deployments. Still a preprint, not peer reviewed.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Use the six task taxonomy (classify, describe, count, ground, identify, refer) as a checklist for our SAR query types, but add flood extent and crop moisture tasks that SARChat lacks.
 - Evaluate a released small SARChat checkpoint (1B to 2B class) as a SAR captioning baseline before investing in our own LoRA.
 - Do not assume transfer to 10 m Sentinel-1 GRD: run a small held-out Indian Sentinel-1 test before trusting any output.

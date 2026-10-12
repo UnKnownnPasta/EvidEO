@@ -10,7 +10,7 @@ category: change-detection
 era: recent
 tags: [sentinel-1, sar, flood, multi-temporal, pre-post-event, dataset, grd, slc, copernicus-ems, calibration, cc-by]
 verified: "2026-10-04 via https://github.com/Orion-AI-Lab/KuroSiwo"
-takeaway: "Expert-labelled Sentinel-1 pre/post flood set (43 events, CC BY, separates flood from permanent water); the best calibration set for SatClip's SAR flood change instrument, though Asia is underrepresented"
+takeaway: "Expert-labelled Sentinel-1 pre/post flood set (43 events, CC BY, separates flood from permanent water); the best calibration set for EvidEO's SAR flood change instrument, though Asia is underrepresented"
 ---
 
 # Kuro Siwo: 33 billion m² under the water. A global multi-temporal satellite dataset for rapid flood mapping
@@ -30,8 +30,8 @@ From the ar5iv version: the best model, a UNet with ResNet50 backbone, reached 8
 ## Limitations
 About half of the events are in Europe, so South Asian monsoon floods (dense paddy, very large shallow floodplains) are underrepresented. A single post-event image may miss peak extent given Sentinel-1 revisit. SAR-specific failure modes remain: flooded vegetation and urban flooding (double bounce) are hard, and wind can roughen open water. Reported figures are for learned models; no threshold baseline numbers were confirmed from the sources read.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Make Kuro Siwo the primary calibration set for the Sentinel-1 flood change instrument: fit the log-ratio threshold (entry 036) and the reliability curve mapping instrument posterior to calibrated confidence, using its flood class as positives and permanent water as a separate class.
 - Copy its input design: use at least two pre-event scenes from the same relative orbit to build a stable dry reference (median), which both the paper's results and SAR practice favour over a single pre image.
-- Its three-class labels match what SatClip must report: "newly flooded" must exclude permanent water (JRC Global Surface Water or a pre-event median), or river channels will be counted as flood.
+- Its three-class labels match what EvidEO must report: "newly flooded" must exclude permanent water (JRC Global Surface Water or a pre-event median), or river channels will be counted as flood.
 - Hold out its Asian events (and Sen1Floods11's India chips, entry 022) as an India-proxy test split, and abstain or lower confidence in flooded-vegetation and dense-urban areas where it shows SAR fails.

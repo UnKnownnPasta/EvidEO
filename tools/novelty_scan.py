@@ -1,7 +1,7 @@
-"""Scan the whole archive for papers that may challenge SatClip's novelty claims (M8).
+"""Scan the whole archive for papers that may challenge EvidEO's novelty claims (M8).
 
 For every archive entry this script searches the full text for signals of the six
-ingredients of the SatClip combination claim (NOVELTY.md section 5):
+ingredients of the EvidEO combination claim (NOVELTY.md section 5):
 
   C1 calibrated per-answer confidence
   C2 threshold abstention with a next step

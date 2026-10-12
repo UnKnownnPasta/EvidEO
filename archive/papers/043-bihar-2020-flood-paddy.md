@@ -36,7 +36,7 @@ Unverified: polarisation, threshold rule, speckle filter, masks, and any accurac
 - One season, one state.
 - Duration estimates depend on revisit; with a 6 to 12 day Sentinel-1 cadence (and only Sentinel-1A after the December 2021 Sentinel-1B failure), start and end dates of flooding are uncertain by several days.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt its question framing for the crop-insurance user: "how many days was water on paddy in these blocks" is answerable by counting consecutive Sentinel-1 water detections over a crop mask, and the card should show the acquisition dates bounding each run.
 - Use Bihar June to October 2020 as a second Indian validation event (after Kerala 2018), comparing our total submerged area with the reported figure of about 7,019 sq km and explaining differences in masks.
 - Beat it on openness: publish thresholds, masks and scene IDs in the receipt instead of "code on request".

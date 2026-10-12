@@ -30,7 +30,7 @@ The abstract reports that the statistical class models were confirmed on real da
 ## Limitations
 CVA in this form assumes well co-registered, radiometrically comparable images; seasonal phenology, illumination and atmospheric differences all show up as change magnitude. It is a pixel-level method with no spatial context, so noise produces speckled maps unless post-filtered. It was developed for optical multispectral data and does not transfer directly to SAR speckle statistics.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt magnitude/direction CVA on Sentinel-2 surface reflectance (B2, B3, B4, B8, B11, B12 at 10/20 m) as an optical change instrument alongside spectral index differencing: magnitude gives a thresholdable "changed or not" map, direction lets the evidence card say what kind of change (vegetation loss vs water gain vs new built surface).
 - Every quantity is explainable in one sentence, which matches the "transparent instrument" rule; the VLM can describe the direction sector, never compute it.
 - Enforce its preconditions in the receipt: same tile and relative orbit, L2A reflectance, cloud and shadow masks from SCL, and a same-season baseline to avoid phenology masquerading as change.

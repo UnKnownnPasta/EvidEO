@@ -30,7 +30,7 @@ From the project page: GPT-4V reaches about 0.67 accuracy on landmark recognitio
 ## Limitations
 Mostly very high resolution optical imagery, no SAR. Closed model behaviour may drift across API versions. The arXiv version is labelled work in progress. The code repo has no README.
 
-## What it means for SatClip
+## What it means for EvidEO
 - The title is our design rule: let the VLM caption and describe, but never let it produce counts or boxes directly; use a detector or segmenter and attach confidence.
 - Damage assessment from before/after pairs is exactly where general VLMs fail, so our change detection should be a dedicated model with the VLM only explaining its output.
 - Reuse the three-way capability split (understanding, localization/counting, change) for our own evaluation report to judges.

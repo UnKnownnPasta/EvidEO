@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [foundation-models, benchmark, classification, segmentation, iqm, bootstrap, sentinel-2, evaluation-protocol]
 verified: "2026-10-06 via https://arxiv.org/abs/2306.03831, https://arxiv.org/html/2306.03831, Crossref record (DOI 10.52202/075280-2223, Advances in NeurIPS 36) and https://raw.githubusercontent.com/ServiceNow/geo-bench/main/README.md; that it ran in the Datasets and Benchmarks track was not confirmed on the fetched pages"
-takeaway: "GEO-Bench's evaluation protocol (many seeds, interquartile mean, bootstrapped confidence intervals) is the template SatClip should follow when it reports any instrument accuracy, and its finding that RS pre-training often did not beat ImageNet weights warns against assuming a geo model is better"
+takeaway: "GEO-Bench's evaluation protocol (many seeds, interquartile mean, bootstrapped confidence intervals) is the template EvidEO should follow when it reports any instrument accuracy, and its finding that RS pre-training often did not beat ImageNet weights warns against assuming a geo model is better"
 ---
 
 # GEO-Bench
@@ -39,7 +39,7 @@ Foundation models for Earth observation were being proposed with inconsistent do
 - Single-image classification and segmentation only; no change detection or language tasks.
 - The maintainers now recommend GEO-Bench-2 (per the README), not reviewed here.
 
-## What it means for SatClip
-- Adopt the protocol for SatClip's own accuracy numbers: repeat runs, IQM, bootstrapped intervals, and show the interval on the evidence card's calibration page rather than a single score.
+## What it means for EvidEO
+- Adopt the protocol for EvidEO's own accuracy numbers: repeat runs, IQM, bootstrapped intervals, and show the interval on the evidence card's calibration page rather than a single score.
 - Do not assume RemoteCLIP or another RS-pretrained model beats a strong generic baseline; benchmark the land-cover check against a plain ImageNet backbone on Indian tiles before trusting it.
-- m-brick-kiln and m-SA-crop-type are cheap Sentinel-2 sanity checks for SatClip's agriculture questions while Indian labelled data is scarce.
+- m-brick-kiln and m-SA-crop-type are cheap Sentinel-2 sanity checks for EvidEO's agriculture questions while Indian labelled data is scarce.

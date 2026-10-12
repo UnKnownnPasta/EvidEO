@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [copernicus-fm, copernicus-pretrain, copernicus-bench, sentinel-1, sentinel-2, sentinel-3, sentinel-5p, hypernetwork, metadata-encoding, sar]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, abstract, ICCV comment) and https://api.crossref.org (ICCV 2025 proceedings record); repo URL not fetched"
-takeaway: "Covers every Sentinel mission with metadata-aware encoding and ships Copernicus-Bench; a good benchmark source for SAR tasks, but too heavy and indirect to sit in SatClip's truth path"
+takeaway: "Covers every Sentinel mission with metadata-aware encoding and ships Copernicus-Bench; a good benchmark source for SAR tasks, but too heavy and indirect to sit in EvidEO's truth path"
 ---
 
 # Wang et al. 2025, Copernicus-FM
@@ -34,7 +34,7 @@ Copernicus-Bench (15 tasks); specific task names and scores not re-checked here.
 - Large pretraining scale; CPU inference cost not checked.
 - No uncertainty or abstention.
 
-## What it means for SatClip
-- **Use the benchmark, not the model, first.** Copernicus-Bench Sentinel-1 tasks can extend SatClip's calibration and regression tests beyond Sen1Floods11 and Kuro Siwo.
-- Metadata encoding (time, location, acquisition parameters) echoes SatClip's practice of keeping acquisition metadata with every answer, but here it feeds the model rather than the user.
+## What it means for EvidEO
+- **Use the benchmark, not the model, first.** Copernicus-Bench Sentinel-1 tasks can extend EvidEO's calibration and regression tests beyond Sen1Floods11 and Kuro Siwo.
+- Metadata encoding (time, location, acquisition parameters) echoes EvidEO's practice of keeping acquisition metadata with every answer, but here it feeds the model rather than the user.
 - Novelty: no threat.

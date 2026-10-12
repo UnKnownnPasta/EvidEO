@@ -10,7 +10,7 @@ category: trust-calibration
 era: recent
 tags: [conformal-prediction, risk-control, false-negative-rate, distribution-free, segmentation, finite-sample-guarantee]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=2208.02814 (title, authors, first posted 2022-08-04, abstract, code link in comment) and OpenReview search api2.openreview.net (forum 33XGfHLtZg, venue ICLR 2024 spotlight, same five authors); WebFetch was refused, curl used; summary based on the abstract, full text not fetched"
-takeaway: "Lets SatClip pick its flood-mask threshold from labelled Indian events so that the expected share of truly flooded area it misses stays below a stated level, with a finite-sample guarantee"
+takeaway: "Lets EvidEO pick its flood-mask threshold from labelled Indian events so that the expected share of truly flooded area it misses stays below a stated level, with a finite-sample guarantee"
 ---
 
 # Angelopoulos et al. 2024, Conformal Risk Control
@@ -35,8 +35,8 @@ Worked examples from computer vision and natural language processing, including 
 - Requires exchangeable calibration and test data; the shift extensions need weights or bounds that may be hard to estimate for new regions.
 - Needs labelled calibration examples with dense ground truth.
 
-## What it means for SatClip
-- Natural fit for flood extent: define the loss as the fraction of truly flooded pixels in a tile that SatClip's mask misses (false negative rate), and calibrate the SAR threshold offset on labelled Indian events so the expected miss rate stays below, say, 10 percent.
+## What it means for EvidEO
+- Natural fit for flood extent: define the loss as the fraction of truly flooded pixels in a tile that EvidEO's mask misses (false negative rate), and calibrate the SAR threshold offset on labelled Indian events so the expected miss rate stays below, say, 10 percent.
 - The same machinery can bound area error directly, giving each tile an area range that is wide enough in expectation, which is more honest for a district official than a single hectare figure.
 - Pair with the 0.60 abstention rule: if meeting the risk target needs a mask so large that it is uninformative for that tile, abstain.
 - Because the guarantee assumes exchangeability, calibrate per region and season (see entry 132) and state the calibration events on each answer card.

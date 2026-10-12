@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [sar, l-band, s-band, nasa, isro, india, mission, flood, agriculture, soil-moisture, open-data, hdf5]
 verified: "2026-10-05 via https://nisar-docs.asf.alaska.edu/availability-overview/, https://nisar-docs.asf.alaska.edu/products-overview/, https://www.isro.gov.in/Mission_GSLVF16_NISAR_Home.html, https://www.earthdata.nasa.gov/data/platforms/space-based-platforms/nisar"
-takeaway: "Free L-band and S-band SAR with a 12-day repeat, provisional calibrated products since July 2026 and S-band samples on ISRO Bhoonidhi; L-band sees flooding under crop canopy, an obvious next instrument for SatClip once access and format are wired in"
+takeaway: "Free L-band and S-band SAR with a 12-day repeat, provisional calibrated products since July 2026 and S-band samples on ISRO Bhoonidhi; L-band sees flooding under crop canopy, an obvious next instrument for EvidEO once access and format are wired in"
 ---
 
 # NASA-ISRO Synthetic Aperture Radar (NISAR) mission and data products
@@ -41,9 +41,9 @@ No benchmark results apply; this is a mission. Its significance is availability:
 - 12-day repeat is slower than the combined Sentinel-1 constellation (entry 100) for fast-moving floods.
 - Earthdata login is required for ASF downloads (standard NASA practice; not re-checked here).
 
-## What it means for SatClip
+## What it means for EvidEO
 - Not a threat; an opportunity, and strong India relevance for the SIH pitch (an ISRO co-built mission).
 - Adopt, in phase 2: add an L-band GCOV water and flooded-vegetation instrument for monsoon paddy districts, where Sentinel-1 C-band under-detects floodwater under canopy. Keep it as a separate, labelled instrument on the evidence card with its own calibration.
 - Engineering: write a small HDF5 subsetting reader, or convert GCOV tiles to COG per district, and record NISAR granule IDs and product version (beta, provisional, validated) in the receipt. Abstain or reduce confidence on beta products.
 - Use the SME2 soil moisture product as context for crop-condition answers once validated.
-- Pitch line: SatClip is designed to plug in Indian national assets (NISAR via Bhoonidhi, NRSC flood products) as they become available, not just European data.
+- Pitch line: EvidEO is designed to plug in Indian national assets (NISAR via Bhoonidhi, NRSC flood products) as they become available, not just European data.

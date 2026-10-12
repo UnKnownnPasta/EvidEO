@@ -10,7 +10,7 @@ category: human-factors
 era: historical
 tags: [emergency-mapping, disaster-response, international-charter, copernicus-ems, user-uptake]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1126/science.aad8728 (title, all authors, volume, issue, pages, date 2016-07-15) and Semantic Scholar abstract; full text not fetched, so only abstract-level findings are stated and no per-region counts are claimed"
-takeaway: "Satellite emergency mapping is already routine for Asian disasters, but delivered as expert map products; SatClip's niche is turning the same evidence into a fast, honest answer card that non-experts can act on, with clear limits"
+takeaway: "Satellite emergency mapping is already routine for Asian disasters, but delivered as expert map products; EvidEO's niche is turning the same evidence into a fast, honest answer card that non-experts can act on, with clear limits"
 ---
 
 # Voigt et al. 2016, global trends in satellite emergency mapping
@@ -36,7 +36,7 @@ More than 1000 disaster incidents in which satellite monitoring was used, 2000 t
 - Ends in 2014, before free Sentinel-1/2 data became routine and before cloud platforms and AI assistants.
 - Multi-agency authorship; data coverage depends on what each service records.
 
-## What it means for SatClip
-- Indian disasters (floods especially) are well within the footprint of existing emergency mapping, so SatClip should cite and link official products (for example NRSC, Charter or Copernicus EMS maps) when they exist instead of competing with them.
-- The gap SatClip addresses is delivery to non-experts: emergency maps are expert products, while district officials and journalists need a plain-language number with sources and limits. Pair this with entry 069 on humanitarian uptake.
-- Because the paper measures activations, not impact, SatClip should log whether its cards were used and whether abstentions were respected, to build the uptake evidence this literature lacks.
+## What it means for EvidEO
+- Indian disasters (floods especially) are well within the footprint of existing emergency mapping, so EvidEO should cite and link official products (for example NRSC, Charter or Copernicus EMS maps) when they exist instead of competing with them.
+- The gap EvidEO addresses is delivery to non-experts: emergency maps are expert products, while district officials and journalists need a plain-language number with sources and limits. Pair this with entry 069 on humanitarian uptake.
+- Because the paper measures activations, not impact, EvidEO should log whether its cards were used and whether abstentions were respected, to build the uptake evidence this literature lacks.

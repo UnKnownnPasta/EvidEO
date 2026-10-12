@@ -10,7 +10,7 @@ category: trust-calibration
 era: recent
 tags: [conformal-risk-control, semantic-segmentation, multi-class-pixel-sets, uncertainty-heatmap, varisco, loveda, remote-sensing, post-hoc]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=2405.05145 (title, authors, date, abstract), curl to api.crossref.org (CVPRW 2024, pages 3574-3584, DOI), and WebFetch of arxiv.org/html/2405.05145 (method, losses, datasets, Tables 1 and 2, code URL, limitations)"
-takeaway: "Applies Conformal Risk Control to multi-class segmentation so each pixel gets a set of plausible classes with an image-level risk guarantee, and turns set size into a heatmap; tested on LoveDA aerial land cover, so SatClip can reuse it for class-level masks and an 'ambiguous pixels' layer"
+takeaway: "Applies Conformal Risk Control to multi-class segmentation so each pixel gets a set of plausible classes with an image-level risk guarantee, and turns set size into a heatmap; tested on LoveDA aerial land cover, so EvidEO can reuse it for class-level masks and an 'ambiguous pixels' layer"
 ---
 
 # Mossina, Dalmau and Andéol 2024, Conformal semantic segmentation
@@ -41,7 +41,7 @@ Segmentation networks output one label per pixel with uncalibrated softmax score
 - Heatmaps track softmax ambiguity and are only comparable across models calibrated at the same alpha; the reading of edge versus interior uncertainty is a heuristic.
 - Class-conditional guarantees, panoptic segmentation and video are left for future work.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: for land-cover style questions (cropland, built-up, water), output per-pixel class sets calibrated with CRC and report area as a range: the lower end counts pixels whose set is only the target class, the upper end counts pixels whose set contains it.
 - Adopt: render the set-size heatmap as an optional "ambiguous pixels" layer on the evidence card, labelled with the alpha it was calibrated for.
 - Adopt: if the calibrated sets cover most classes over the region mask, abstain with a next step (for example, wait for a cloud-free Sentinel-2 pass or use the Sentinel-1 water product) instead of reporting a near-meaningless range.

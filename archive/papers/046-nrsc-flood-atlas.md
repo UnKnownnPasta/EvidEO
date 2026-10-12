@@ -10,7 +10,7 @@ category: indian-context
 era: recent
 tags: [nrsc, isro, ndem, flood-atlas, flood-frequency, sar, optical, india, official-methodology, ndma]
 verified: "2026-10-04 via https://ndem.nrsc.gov.in/documents/downloads/allindia_flood_techdoc.pdf"
-takeaway: "The official Indian baseline: 25 years (1998 to 2022) of IRS and foreign optical/SAR flood layers, SAR water by variable thresholding, validated by state agencies; SatClip should complement it, not compete"
+takeaway: "The official Indian baseline: 25 years (1998 to 2022) of IRS and foreign optical/SAR flood layers, SAR water by variable thresholding, validated by state agencies; EvidEO should complement it, not compete"
 ---
 
 # Flood Affected Area Atlas of India (NRSC/ISRO, 2023)
@@ -33,7 +33,7 @@ A national flood-affected area layer and district/state statistics. We could not
 - Coarse land cover scale (1:250,000) limits field-level crop impact estimates.
 - Permanent water and salt pans are excluded by design.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Treat this as the authoritative Indian baseline and say so: when a user asks "does this area usually flood?", the card should point to the NRSC atlas or NDEM layer as the official reference and present our Sentinel-1 result as an independent, dated, re-runnable observation.
 - Adopt its exclusion logic (permanent water, river channel and salt pans removed before counting flood) so our numbers are comparable with official statistics.
 - Beat it on transparency and timeliness: publish the threshold, scene IDs and masks per answer, which the atlas does not, and serve event-time questions within hours of a Sentinel-1 overpass.

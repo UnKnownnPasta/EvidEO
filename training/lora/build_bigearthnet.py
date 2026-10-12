@@ -5,7 +5,7 @@ with multi-labels from CORINE (19-class nomenclature). From the labels alone we 
 and per sensor:
   - "Which land cover classes are present?"  -> sorted label list
   - "Is there <class> in this image?"        -> yes (a true label) or no (a sampled absent label)
-  - "Is any open water visible?"             -> from the water classes (the question SatClip cares most about)
+  - "Is any open water visible?"             -> from the water classes (the question EvidEO cares most about)
 The radar prompt says how the false colour was built, so the model learns what a VV/VH composite looks
 like instead of mistaking it for an optical photo (the SAR gap reported for general VLMs, archive A021, A033).
 

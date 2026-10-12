@@ -10,7 +10,7 @@ category: trust-calibration
 era: recent
 tags: [conformal-prediction, remote-sensing, hyperspectral, pixel-classification, spatial-correlation, coverage-guarantee]
 verified: "2026-10-04 via https://arxiv.org/abs/2409.01236 and https://github.com/J4ckLiu/SACP"
-takeaway: "Conformal prediction works for per-pixel RS classification, and smoothing non-conformity scores over spatial neighbours gives smaller sets at the same guaranteed coverage; apply it to SatClip masks"
+takeaway: "Conformal prediction works for per-pixel RS classification, and smoothing non-conformity scores over spatial neighbours gives smaller sets at the same guaranteed coverage; apply it to EvidEO masks"
 ---
 
 # Spatial-Aware Conformal Prediction for Trustworthy Hyperspectral Image Classification
@@ -30,8 +30,8 @@ The abstract claims that both theory and experiments show SACP improves predicti
 ## Limitations
 Preprint status on arXiv at the time of verification; no peer-reviewed venue was shown. Benchmarks are small, single-scene airborne hyperspectral images with random pixel splits, where calibration and test pixels are spatially close, which flatters exchangeability. No Sentinel-1 or Sentinel-2 data, no temporal change, no geographic shift.
 
-## What it means for SatClip
-- Apply conformal prediction to SatClip's per-pixel masks (water, built-up, crop stress), not just to scene-level answers, and use spatial aggregation of scores so isolated noisy pixels do not dominate.
+## What it means for EvidEO
+- Apply conformal prediction to EvidEO's per-pixel masks (water, built-up, crop stress), not just to scene-level answers, and use spatial aggregation of scores so isolated noisy pixels do not dominate.
 - Turn per-pixel sets into the evidence card's mask legend: "certainly water", "certainly not water", "ambiguous" (set contains both), and report the ambiguous area as a fraction so users see uncertainty spatially.
 - Avoid the random-pixel-split trap in our own evaluation: calibrate and test on spatially and temporally separate Indian tiles (different districts and dates), or coverage claims will be optimistic.
 - The code is light and model-agnostic, suitable for CPU post-processing of SAR threshold margins once they are mapped to scores.

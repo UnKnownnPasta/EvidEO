@@ -1,4 +1,4 @@
-"""LoRA / QLoRA fine-tuning of an open VLM for SatClip's language layer.
+"""LoRA / QLoRA fine-tuning of an open VLM for EvidEO's language layer.
 
 One script, any mix of the chat JSONL files made by the builders in this folder:
   training/data/intents/train.jsonl        question -> intent JSON (text only)      build_intent_data.py
@@ -8,13 +8,13 @@ One script, any mix of the chat JSONL files made by the builders in this folder:
 
 Defaults target Qwen2-VL-2B-Instruct (archive A149) with LoRA r=16 on the language model's attention
 and MLP projections (A059); `--qlora` loads the base in 4-bit NF4 (A060) so it fits a free Colab T4;
-`--dora` switches to weight-decomposed LoRA (A148). The vision tower stays frozen: SatClip never asks
+`--dora` switches to weight-decomposed LoRA (A148). The vision tower stays frozen: EvidEO never asks
 the model for pixels or numbers, only for language, so adapting the LLM side is enough and cheaper.
 Loss is computed on the assistant reply only.
 
     python training/lora/train_lora.py --data training/data/intents/train.jsonl --out training/runs/intent-lora
     python training/lora/train_lora.py --data training/data/intents/train.jsonl training/data/rsvqa_lr/train.jsonl \
-        --qlora --epochs 1 --out training/runs/satclip-lora
+        --qlora --epochs 1 --out training/runs/evideo-lora
 
 After training: `python training/eval/eval_intents.py --predictor hf --adapter training/runs/intent-lora`
 and `python training/eval/eval_vqa.py --adapter ...`. Merge for CPU serving with --merge (then quantise,
@@ -112,7 +112,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--data", type=Path, nargs="+", required=True)
     ap.add_argument("--model", default="Qwen/Qwen2-VL-2B-Instruct")
-    ap.add_argument("--out", type=Path, default=ROOT / "training/runs/satclip-lora")
+    ap.add_argument("--out", type=Path, default=ROOT / "training/runs/evideo-lora")
     ap.add_argument("--max-per-file", type=int, default=0)
     ap.add_argument("--epochs", type=float, default=1.0)
     ap.add_argument("--lr", type=float, default=2e-4)
@@ -177,7 +177,7 @@ def main() -> None:
     trainer.train()
     model.save_pretrained(args.out)
     processor.save_pretrained(args.out)
-    (args.out / "satclip_training.json").write_text(json.dumps(
+    (args.out / "evideo_training.json").write_text(json.dumps(
         {"base": args.model, "data": [str(p) for p in args.data], "rows": len(rows), "rank": args.rank,
          "alpha": args.alpha, "qlora": args.qlora, "dora": args.dora, "epochs": args.epochs, "lr": args.lr}, indent=1))
     if args.merge and not args.qlora:

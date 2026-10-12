@@ -10,7 +10,7 @@ category: rs-vlm
 era: recent
 tags: [vlm, sar, alphaearth, geospatial-embeddings, qwen2.5-vl, two-stage-sft, counting, detection, gaofen-3]
 verified: "2026-10-05 via https://arxiv.org/abs/2602.19190, https://arxiv.org/html/2602.19190 and https://cvpr.thecvf.com/virtual/2026/poster/40157 (CVPR 2026 poster listing, no code link)"
-takeaway: "Injecting location-keyed AlphaEarth embeddings lifts a 7B SAR VLM by 7 to 12 points, a hint that SatClip could add a precomputed geospatial prior; but its own counting accuracy is about 53% on a small test set, so SAR answers still need instruments"
+takeaway: "Injecting location-keyed AlphaEarth embeddings lifts a 7B SAR VLM by 7 to 12 points, a hint that EvidEO could add a precomputed geospatial prior; but its own counting accuracy is about 53% on a small test set, so SAR answers still need instruments"
 ---
 
 # FUSAR-GPT: A Spatiotemporal Feature-Embedded and Two-Stage Decoupled Visual Language Model for SAR Imagery
@@ -35,8 +35,8 @@ From the paper:
 ## Limitations
 The evaluation set is small (derived from 2k annotated images; the counting percentages are consistent with a test split of roughly 200 images, our inference), so differences of a few points are fragile. Targets are ships, planes and similar objects in high-resolution Gaofen-3 style data, not water extent or crops in 10 m Sentinel-1. AlphaEarth embeddings are tied to a location and year, so they carry prior knowledge about a place rather than its state on the flood date, which risks the model answering from the prior instead of the image. No released code found, no confidence or abstention.
 
-## What it means for SatClip
-- Interesting idea to borrow cheaply: precomputed geospatial embeddings (AlphaEarth annual layers are distributed via Earth Engine) could serve as a context prior for SatClip's land-cover step, for example to tell the explainer that a pixel is usually paddy, without involving a 7B model.
-- Danger to avoid: a prior that "knows" a place can mask what actually happened on the date. SatClip should keep the flood measurement purely from the dated Sentinel-1 scene and show any prior separately on the card.
-- The paper's own numbers (counting near 53%, frontier chat models far lower) are another data point that SAR interpretation by VLMs is unreliable, supporting SatClip's instruments-first rule.
+## What it means for EvidEO
+- Interesting idea to borrow cheaply: precomputed geospatial embeddings (AlphaEarth annual layers are distributed via Earth Engine) could serve as a context prior for EvidEO's land-cover step, for example to tell the explainer that a pixel is usually paddy, without involving a 7B model.
+- Danger to avoid: a prior that "knows" a place can mask what actually happened on the date. EvidEO should keep the flood measurement purely from the dated Sentinel-1 scene and show any prior separately on the card.
+- The paper's own numbers (counting near 53%, frontier chat models far lower) are another data point that SAR interpretation by VLMs is unreliable, supporting EvidEO's instruments-first rule.
 - No measurement, provenance, calibrated confidence or abstention, so it does not undercut the evidence-card claim.

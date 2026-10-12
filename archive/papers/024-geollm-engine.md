@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [geospatial-copilot, tool-augmented-agents, benchmark, function-calling, gpt-4, react, sar, sentinel-2]
 verified: "2026-10-04 via https://arxiv.org/abs/2404.15500 and https://arxiv.org/html/2404.15500"
-takeaway: "GPT-4 agent success fell as tool chains grew longer; keep SatClip plans short and fixed and track tool-call correctness"
+takeaway: "GPT-4 agent success fell as tool chains grew longer; keep EvidEO plans short and fixed and track tool-call correctness"
 ---
 
 # GeoLLM-Engine: A Realistic Environment for Building Geospatial Copilots
@@ -30,8 +30,8 @@ GPT-4-Turbo clearly beat GPT-3.5-Turbo. The best setup (ReAct with few-shot exam
 ## Limitations
 GPT-4 both generates and grades tasks, risking bias. Agents are evaluated without fine-tuning and there are no train/val/test splits for training. Cost is not optimised. The authors state an intent to release code and benchmark, but no public repository was found.
 
-## What it means for SatClip
-- Expect reliability to collapse with long tool chains; keep SatClip queries to short pipelines (ideally 1 to 4 calls).
+## What it means for EvidEO
+- Expect reliability to collapse with long tool chains; keep EvidEO queries to short pipelines (ideally 1 to 4 calls).
 - Adopt success rate and tool-call correctness as agent metrics in our evaluation sheet, alongside calibration.
 - Its tool categories (map UI, raster ops, vision, knowledge base) are a good inventory for our tool registry.
 - Avoid GPT-4 as both generator and judge; use human-checked Indian queries for the test set.

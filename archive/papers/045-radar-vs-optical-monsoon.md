@@ -36,7 +36,7 @@ Sentinel-1A VV backscatter at 10 m was thresholded to map surface water in three
 - SAR misses water under forest canopy, vegetated wetlands and narrow tree-lined channels.
 - Thresholds were manual, so transfer to other districts needs re-tuning.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt as the citation for the routing rule: for June to September queries in monsoon India, default to Sentinel-1 and treat optical as opportunistic; the planner should check scene cloud fraction first and fall back to SAR automatically.
 - Avoid using JRC Global Surface Water as "ground truth" for monsoon months: use it only as a dry-season permanent-water mask, since in monsoon it under-maps water by design.
 - Abstain or downgrade confidence for water questions under dense forest canopy (Western Ghats, Northeast), which SAR cannot see through at C-band; say so on the card.

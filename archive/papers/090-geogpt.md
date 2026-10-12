@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [gis-agent, langchain, react, tool-use, gpt-3.5, hallucinated-arguments, input-validation]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2307.07930 and https://arxiv.org/html/2307.07930"
-takeaway: "Early GIS tool agent that openly reports run-to-run instability and hallucinated file and tool arguments; its tool-side input validation is a cheap guard SatClip should copy for every instrument"
+takeaway: "Early GIS tool agent that openly reports run-to-run instability and hallucinated file and tool arguments; its tool-side input validation is a cheap guard EvidEO should copy for every instrument"
 ---
 
 # GeoGPT: Understanding and Processing Geospatial Tasks through An Autonomous GPT
@@ -35,7 +35,7 @@ No benchmark. Four illustrative case studies: geospatial data crawling, facility
 - Only a handful of tools and cases; results rely on prompt and tool-description tuning.
 - Instability is acknowledged but not measured.
 
-## What it means for SatClip
-- Strong evidence for SatClip's design choice that the LLM must not produce numbers: even in simple vector GIS, the agent's output changed with trivial wording.
+## What it means for EvidEO
+- Strong evidence for EvidEO's design choice that the LLM must not produce numbers: even in simple vector GIS, the agent's output changed with trivial wording.
 - Adopt the protection mechanism idea as strict schema validation: every instrument call (AOI, date window, polarisation, threshold) is validated before execution, and an invalid call becomes an abstention with a reason, not a retry loop that can drift.
 - Measure what GeoGPT did not: run each evaluation question several times with paraphrases and report how often the routed instrument and parameters stay identical.

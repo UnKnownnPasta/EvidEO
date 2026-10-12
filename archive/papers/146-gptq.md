@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [gptq, post-training-quantization, weight-only, 4-bit, 3-bit, second-order, one-shot, llm-compression]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (WebFetch permission request timed out); title, authors, ICLR 2023 comment, code URL and numbers from the arXiv abstract; ICLR proceedings page and GitHub repo not fetched; method details beyond the abstract summarized from general knowledge of the paper"
-takeaway: "A one-shot, calibration-based 3 to 4-bit weight quantizer to benchmark against AWQ when shrinking SatClip's merged 2B intent model, judged on intent-JSON accuracy rather than perplexity"
+takeaway: "A one-shot, calibration-based 3 to 4-bit weight quantizer to benchmark against AWQ when shrinking EvidEO's merged 2B intent model, judged on intent-JSON accuracy rather than perplexity"
 ---
 
 # GPTQ, one-shot post-training weight quantization
@@ -35,7 +35,7 @@ Evaluated on OPT and BLOOM model families (language modelling perplexity and zer
 - Weight-only; activations stay in higher precision.
 - Needs calibration data, and quality at low bits is reported mostly for very large models; small (about 2B) models are typically more sensitive, which the abstract does not quantify.
 
-## What it means for SatClip
+## What it means for EvidEO
 - After LoRA training, merge the adapter and try GPTQ and AWQ (entry 061) at 4 bits for the on-prem CPU build; keep whichever loses less on a held-out set of district-official questions.
-- Use real SatClip questions (multilingual, place names, dates) as the calibration set, not generic web text.
+- Use real EvidEO questions (multilingual, place names, dates) as the calibration set, not generic web text.
 - Gate release on structured metrics: exact-match of intent JSON fields and abstention rate, not perplexity.

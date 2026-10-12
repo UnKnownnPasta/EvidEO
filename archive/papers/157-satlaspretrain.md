@@ -33,7 +33,7 @@ SatlasPretrain itself plus downstream transfer tasks.
 - No SAR in the core dataset, so it does not help during monsoon cloud.
 - NAIP is US-only; label sources are skewed to regions with open map data.
 
-## What it means for SatClip
+## What it means for EvidEO
 - **Adopt for dry-season optical instruments** (built-up growth, large structures) as a pretrained Sentinel-2 backbone, with Indian calibration before any card use.
 - **Avoid for the flood beachhead**: optical-only.
 - Novelty: no threat.

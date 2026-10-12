@@ -35,7 +35,7 @@ Sentinel-1 acquisitions on 9 and 21 August 2018 over Kerala. Validation used ref
 - Global Otsu on a large area assumes a bimodal histogram; it can fail where water is a small fraction of the scene.
 - The authors note heavy rain cells can add noise to C-band, and suggest L or X band or a two-dimensional Otsu as improvements.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt Kerala August 2018 (Sentinel-1 on 9 and 21 August, Sentinel-2 on 10 and 20 August) as a named regression test for the flood instrument; our receipt should reproduce roughly 95% OA on comparable samples or explain why not.
 - Use the reported class means (water near -23 dB, land near -9 dB in VV) only as sanity bounds; compute the threshold per tile with Otsu on tiles that pass a bimodality check (in the style of Sen1Floods11 tiling), and abstain on tiles that fail it.
 - Beat it by adding what it lacks: a dry-season permanent-water mask, a HAND or slope mask for hill terrain (Western Ghats), and a change-detection step against a same-season normal year, all stated on the card.

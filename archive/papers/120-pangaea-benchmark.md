@@ -10,7 +10,7 @@ category: rs-benchmark
 era: recent
 tags: [foundation-models, benchmark, sen1floods11, change-detection, sar, geographic-bias, limited-labels]
 verified: "2026-10-06 via https://arxiv.org/abs/2412.04204, https://arxiv.org/html/2412.04204 (v2), Crossref record for 10.1109/mgrs.2025.3628194 and https://raw.githubusercontent.com/VMarsocci/pangaea-bench/main/README.md; journal title differs from arXiv title as shown"
-takeaway: "On Sen1Floods11 a plain supervised UNet beats every geospatial foundation model and RemoteCLIP reaches only about 55 water IoU, so SatClip should keep classical SAR thresholding as its water instrument and not swap in a foundation model or RemoteCLIP for flood extent"
+takeaway: "On Sen1Floods11 a plain supervised UNet beats every geospatial foundation model and RemoteCLIP reaches only about 55 water IoU, so EvidEO should keep classical SAR thresholding as its water instrument and not swap in a foundation model or RemoteCLIP for flood extent"
 ---
 
 # PANGAEA
@@ -39,7 +39,7 @@ Geospatial foundation models (GFMs) were evaluated on easy or narrow tasks, with
 - Results depend on the chosen decoder and recipe; the authors include a hyperparameter sensitivity study but it cannot cover every setup.
 - India-specific coverage is thin (AI4SmallFarms is Southeast Asia, Five Billion Pixels is China).
 
-## What it means for SatClip
+## What it means for EvidEO
 - Keep Kittler-Illingworth SAR thresholding (and a small supervised check such as a UNet trained on Sen1Floods11) as the water instrument; this paper shows big pretrained models do not beat that baseline for flood water.
 - RemoteCLIP's weak water IoU here is a warning: use it only as a coarse land-cover sanity check on the evidence card, never as the source of a flooded-area number, and report its confidence separately.
-- Reuse PANGAEA's harness to test any future encoder on Indian tiles before adoption, and add an India split to its geographic-bias analysis as a SatClip contribution.
+- Reuse PANGAEA's harness to test any future encoder on Indian tiles before adoption, and add an India split to its geographic-bias analysis as a EvidEO contribution.

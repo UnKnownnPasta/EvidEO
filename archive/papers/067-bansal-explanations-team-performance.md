@@ -10,7 +10,7 @@ category: human-factors
 era: recent
 tags: [explanations, human-ai-teams, complementary-performance, over-reliance, confidence, user-study, chi]
 verified: "2026-10-04 via https://arxiv.org/abs/2006.14779 and https://ar5iv.labs.arxiv.org/html/2006.14779"
-takeaway: "Explanations made people accept AI answers more often whether right or wrong, adding nothing over showing confidence alone; SatClip's VLM explanations must not make wrong numbers more persuasive"
+takeaway: "Explanations made people accept AI answers more often whether right or wrong, adding nothing over showing confidence alone; EvidEO's VLM explanations must not make wrong numbers more persuasive"
 ---
 
 # Does the Whole Exceed its Parts? The Effect of AI Explanations on Complementary Team Performance
@@ -37,8 +37,8 @@ Large crowdsourced experiments where AI accuracy was deliberately set close to h
 - Small item sets (20 to 50 examples) and specific explanation methods (LIME highlights).
 - We did not access the ACM DL version; venue taken from the arXiv comment "CHI'21".
 
-## What it means for SatClip
+## What it means for EvidEO
 - Avoid persuasive VLM prose: the explanation layer should describe how a number was measured and its limits, not argue that the number is right. Fluent text increases acceptance of wrong answers.
 - Lead with calibrated confidence and the evidence (mask overlay, scene date), since confidence alone did as well as explanations in this study.
 - When confidence is low, change the presentation (show the uncertainty and alternatives, or abstain) rather than add more explanation, echoing the adaptive condition.
-- In our user test, measure agreement on cases where SatClip is wrong, not just overall satisfaction, to detect over-reliance.
+- In our user test, measure agreement on cases where EvidEO is wrong, not just overall satisfaction, to detect over-reliance.

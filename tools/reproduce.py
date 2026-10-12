@@ -25,8 +25,8 @@ sys.path.insert(0, str(ROOT / "tools"))
 from fastapi.testclient import TestClient  # noqa: E402
 
 from demo import ask  # noqa: E402
-from satclip.api.main import create_app  # noqa: E402
-from satclip.config import settings  # noqa: E402
+from evideo.api.main import create_app  # noqa: E402
+from evideo.config import settings  # noqa: E402
 
 
 def first_difference(a: dict, b: dict) -> str:

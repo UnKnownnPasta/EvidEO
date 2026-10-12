@@ -33,7 +33,7 @@ As read from the paper: ResNet50 classification about 93.7% test accuracy, PSPNe
 ## Limitations
 Single event, single US region, drone imagery only, so no direct transfer to Sentinel scale. Small objects (vehicles, pools) are hard. Separating flood water from natural water needs context the image may not contain. Nadir views hide some damage.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt its question taxonomy (counting, condition recognition) for our flood questions for district disaster officials, but rescale to what 10 m pixels can answer (area flooded, roads affected) rather than counting cars.
 - The flood water versus permanent water confusion is our main risk; use a pre-event reference scene or JRC permanent water layer before declaring flooding.
 - Sentinel-1 SAR sees through monsoon cloud where drones and optical fail; this is our advantage to stress.

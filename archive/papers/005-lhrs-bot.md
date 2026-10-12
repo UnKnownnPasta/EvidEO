@@ -30,7 +30,7 @@ From the PDF: 71.43% average classification accuracy over seven datasets, 89.19%
 ## Limitations
 The LHRS-Bench score shows that fine-grained RS reasoning remains hard even for the best model tested. OSM-derived captions inherit OSM coverage gaps, which are larger in rural regions. Imagery is high-resolution RGB only, with no SAR or multispectral input, and no calibration or abstention. A follow-up, LHRS-Bot-Nova (September 2024), upgrades the base model and data.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt the VGI trick: auto-caption Sentinel-2 tiles over India using OSM plus Bhuvan or district boundary layers to build cheap LoRA training pairs.
 - Check OSM density in target districts first; sparse rural tagging will bias captions toward cities.
 - Use LHRS-Bench-style multiple-choice questions for our own small evaluation set, since closed answers make calibration measurable.

@@ -10,7 +10,7 @@ category: eo-agents
 era: recent
 tags: [change-detection, change-captioning, llm-agent, tool-use, bi-temporal, levir-mci, python-tools]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2403.19646 and https://arxiv.org/html/2403.19646 (journal ref TGRS 2024, DOI 10.1109/TGRS.2024.3425815)"
-takeaway: "Closest prior art to SatClip's 'instrument as eyes, LLM as brain' split for change questions, but the LLM writes free Python and nothing is calibrated, receipted or allowed to abstain"
+takeaway: "Closest prior art to EvidEO's 'instrument as eyes, LLM as brain' split for change questions, but the LLM writes free Python and nothing is calibrated, receipted or allowed to abstain"
 ---
 
 # Change-Agent: Towards Interactive Comprehensive Remote Sensing Change Interpretation and Analysis
@@ -36,7 +36,7 @@ The system pairs a multi-level change interpretation (MCI) model, described as t
 - Change-cause analysis and future prediction come from LLM world knowledge, not from measurements, so they are not grounded.
 - Free-form generated Python means outputs can differ run to run and there is no recorded receipt or confidence.
 
-## What it means for SatClip
-- Adopt the framing: a specialised perception model produces masks and counts, the LLM only plans and narrates. This is the same split SatClip uses and gives us a respected TGRS citation for it.
-- Avoid letting the LLM write arbitrary code or speculate about causes. SatClip's router should pick from a fixed instrument list with typed parameters, and any "why" text should be clearly labelled as context, not evidence.
-- Beat it on evaluation: Change-Agent shows agent behaviour only by example. SatClip should report exact routing accuracy and parameter accuracy, plus calibration of the confidence it attaches to SAR log-ratio change.
+## What it means for EvidEO
+- Adopt the framing: a specialised perception model produces masks and counts, the LLM only plans and narrates. This is the same split EvidEO uses and gives us a respected TGRS citation for it.
+- Avoid letting the LLM write arbitrary code or speculate about causes. EvidEO's router should pick from a fixed instrument list with typed parameters, and any "why" text should be clearly labelled as context, not evidence.
+- Beat it on evaluation: Change-Agent shows agent behaviour only by example. EvidEO should report exact routing accuracy and parameter accuracy, plus calibration of the confidence it attaches to SAR log-ratio change.

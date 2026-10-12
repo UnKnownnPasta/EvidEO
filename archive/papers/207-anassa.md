@@ -10,7 +10,7 @@ category: eo-agents
 era: upcoming
 tags: [agentic-gis, architecture-spec, provenance, uncertainty-states, human-in-the-loop, governance, authoritative-data, insufficient-evidence, no-evaluation]
 verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?id_list=2609.14824 (title, authors, date, abstract) and curl of https://arxiv.org/html/2609.14824v1 (affiliations, contributions, validation output states, conclusion, statement that empirical evaluation is deferred)"
-takeaway: "A design-only specification for agentic GIS (eleven components, a six-step cognitive loop) that requires provenance, uncertainty propagation and explicit outcome states such as validated-with-uncertainty and insufficient-evidence; no implementation or results, but it names SatClip's trust features as requirements, so SatClip's claim must rest on a working, measured system"
+takeaway: "A design-only specification for agentic GIS (eleven components, a six-step cognitive loop) that requires provenance, uncertainty propagation and explicit outcome states such as validated-with-uncertainty and insufficient-evidence; no implementation or results, but it names EvidEO's trust features as requirements, so EvidEO's claim must rest on a working, measured system"
 ---
 
 # Papantoniou and Hilton 2026, ANASSA
@@ -37,7 +37,7 @@ Agentic GIS systems connect LLM reasoning to geospatial tools, but reasoning, ex
 - Uncertainty handling is described at the level of requirements; no calibration method is specified.
 - Not specific to satellite imagery; EO is one data source among many.
 
-## What it means for SatClip
-- Adopt: the outcome states are a good vocabulary for SatClip's answer card. Mapping SatClip's outputs to answered, answered-with-low-confidence (below display threshold but above abstain), insufficient evidence (no usable scene), and conflicting evidence (optical and SAR disagree) would make abstentions more informative to a district official.
-- Adopt: data staleness as an explicit check; SatClip should state the age of the newest usable scene in every answer and abstain when it exceeds the question's window.
-- Novelty: weakens the claim only on paper. It shows that provenance, uncertainty and insufficient-evidence outcomes are already proposed as design goals for geospatial agents, so SatClip should not present the idea of combining them as new. Because ANASSA has no implementation or evaluation, SatClip's novelty shifts to being a working, measured system with calibrated confidence on real Sentinel scenes; SatClip should cite it as a design-level precursor.
+## What it means for EvidEO
+- Adopt: the outcome states are a good vocabulary for EvidEO's answer card. Mapping EvidEO's outputs to answered, answered-with-low-confidence (below display threshold but above abstain), insufficient evidence (no usable scene), and conflicting evidence (optical and SAR disagree) would make abstentions more informative to a district official.
+- Adopt: data staleness as an explicit check; EvidEO should state the age of the newest usable scene in every answer and abstain when it exceeds the question's window.
+- Novelty: weakens the claim only on paper. It shows that provenance, uncertainty and insufficient-evidence outcomes are already proposed as design goals for geospatial agents, so EvidEO should not present the idea of combining them as new. Because ANASSA has no implementation or evaluation, EvidEO's novelty shifts to being a working, measured system with calibrated confidence on real Sentinel scenes; EvidEO should cite it as a design-level precursor.

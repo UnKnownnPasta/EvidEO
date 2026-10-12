@@ -30,8 +30,8 @@ Per the abstract: models above 70% overall accuracy on VQA v2 can answer fewer t
 ## Limitations
 Even with the selector, coverage at very low risk stays small, showing that confidence estimation is still hard. The selector needs held-out labelled data and is trained in-distribution, so its behaviour under domain shift is uncertain. Natural images only. The penalty weight in Effective Reliability is a design choice that changes rankings.
 
-## What it means for SatClip
-- Adopt Effective Reliability (with an explicit cost for wrong answers, set by the use case: higher for flood relief than for planner curiosity) as SatClip's headline metric instead of plain accuracy.
+## What it means for EvidEO
+- Adopt Effective Reliability (with an explicit cost for wrong answers, set by the use case: higher for flood relief than for planner curiosity) as EvidEO's headline metric instead of plain accuracy.
 - Expect low coverage at strict risk targets and be upfront about it; the paper's numbers show that honest abstention means declining many questions, which is a feature for district officials, not a bug.
 - Copy the selector idea in a lightweight form: a small model (for example gradient-boosted trees) over instrument outputs and scene quality features (cloud cover, SAR noise, revisit gap, mask fragmentation) that predicts "this answer is right", trained on Indian validation cases.
 - Report coverage at 1%, 5% and 10% risk alongside the evidence card, to beat VLM baselines that never abstain.

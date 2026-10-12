@@ -10,7 +10,7 @@ category: efficient-inference
 era: historical
 tags: [knowledge-distillation, model-compression, soft-targets, temperature, cpu-inference, ensembles, specialists]
 verified: "2026-10-04 via https://arxiv.org/abs/1503.02531 and https://ar5iv.labs.arxiv.org/html/1503.02531"
-takeaway: "Classic recipe for training a small student model on a large teacher's softened outputs; SatClip can use it to shrink a CLIP land-cover head or a question parser so it runs fast on CPU"
+takeaway: "Classic recipe for training a small student model on a large teacher's softened outputs; EvidEO can use it to shrink a CLIP land-cover head or a question parser so it runs fast on CPU"
 ---
 
 # Distilling the Knowledge in a Neural Network
@@ -37,7 +37,7 @@ Train the big "teacher" (or ensemble) normally, then train a small "student" to 
 - No study of calibration of the distilled student, and no measurement of CPU latency or memory.
 - The specialist method was not itself distilled back into one model in the paper.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt distillation as the main route if the zero-shot CLIP land-cover instrument is too slow on CPU: distil a large CLIP image encoder into a small student on Indian Sentinel-2 chips, keeping the same class prompts as targets.
 - Re-check calibration after any distillation or quantization step: the student's confidence feeds the evidence card and the abstention threshold, so we must refit temperature scaling on held-out data rather than trust the teacher's calibration.
 - Use soft targets from the teacher on unlabelled Indian scenes as cheap supervision; the 3% data result suggests this helps when labelled data is scarce.

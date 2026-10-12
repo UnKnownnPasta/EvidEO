@@ -10,7 +10,7 @@ category: trust-calibration
 era: historical
 tags: [platt-scaling, sigmoid-calibration, post-hoc-calibration, svm, score-to-probability]
 verified: "2026-10-07 via Crossref search (api.crossref.org/works?query.bibliographic=...), record 10.7551/mitpress/1113.003.0008 gives title Probabilities for SV Machines, author Platt, book Advances in Large-Margin Classifiers, issued 2000-09-29; WebFetch was refused, curl used; the longer 1999 title is the common citation form and was not separately fetched; content summarized from standard knowledge, full text not fetched, dataset details not confirmed"
-takeaway: "Platt scaling is the simplest way to turn a raw SatClip score (for example a backscatter margin below the Otsu threshold) into a probability, and is the baseline any fancier calibrator must beat"
+takeaway: "Platt scaling is the simplest way to turn a raw EvidEO score (for example a backscatter margin below the Otsu threshold) into a probability, and is the baseline any fancier calibrator must beat"
 ---
 
 # Platt scaling, sigmoid calibration of classifier scores
@@ -36,7 +36,7 @@ Benchmarked on several standard classification datasets of the period; the exact
 - Binary by design; multiclass needs one-vs-rest or pairwise coupling.
 - Assumes calibration data come from the same distribution as deployment data; under shift the fit degrades (entry 132).
 
-## What it means for SatClip
-- SatClip's instruments emit scores, not probabilities: the distance of a pixel's VV backscatter below a flood threshold, or the size of an NDVI drop. A per-tile Platt fit on labelled tiles (for example Sen1Floods11) turns that score into the probability that feeds the 0.60 abstention rule.
+## What it means for EvidEO
+- EvidEO's instruments emit scores, not probabilities: the distance of a pixel's VV backscatter below a flood threshold, or the size of an NDVI drop. A per-tile Platt fit on labelled tiles (for example Sen1Floods11) turns that score into the probability that feeds the 0.60 abstention rule.
 - Two parameters can be fitted from a small number of labelled Indian flood tiles, which matters when district-level labels are scarce.
 - Fit separately per instrument and sensor mode (S1 VV, S1 VH, S2 NDVI), and record the fitted A and B with the scene ID so a confidence on any answer card is reproducible.

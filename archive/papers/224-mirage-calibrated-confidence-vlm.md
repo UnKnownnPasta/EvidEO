@@ -10,7 +10,7 @@ category: upcoming
 era: upcoming
 tags: [verbalized-confidence, vlm, calibration, ece, reasoning-trajectory, trajectory-grounding-score, tgs-bench, qwen3-vl]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=2609.18453 (title, four authors, date, abstract, comment 'EMNLP 2026 Main') and WebFetch of arxiv.org/html/2609.18453 (models, benchmarks, metric definitions, reported numbers); EMNLP acceptance only per the authors' comment, proceedings not checked; one ECE figure (0.081) was attributed in the text both to a 4B DynaMath comparison and to an 8B model in Figure 1, so the model size for that number is uncertain"
-takeaway: "A VLM's spoken confidence barely changes with what its reasoning actually contains, and RL calibration training improved ECE while making confidence even less tied to the reasoning; SatClip must never use the VLM's self-reported confidence for the meter and should test any confidence signal by perturbing its evidence"
+takeaway: "A VLM's spoken confidence barely changes with what its reasoning actually contains, and RL calibration training improved ECE while making confidence even less tied to the reasoning; EvidEO must never use the VLM's self-reported confidence for the meter and should test any confidence signal by perturbing its evidence"
 ---
 
 # Yang et al. 2026, The Mirage of Calibrated Confidence
@@ -39,7 +39,7 @@ VLMs are increasingly asked to state a confidence after reasoning, and calibrati
 - Two model families; generalisation to other VLMs rests on a check not read here.
 - Recent preprint; acceptance stated by the authors only.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Confirms the design rule: the confidence meter comes from Platt or regime-map calibration over instrument-derived features (backscatter change, cloud fraction, mask agreement), not from the VLM's or LLM's stated confidence, which can be calibrated on paper and still ignore the evidence.
 - Adopt: add an evidence-sensitivity test to the evaluation suite: swap or blank the Sentinel scene behind an answer and require the confidence to drop; a signal that does not move fails, whatever its ECE.
 - Adopt: if the language layer writes any explanation, check it against the card's numbers and drop hedging or certainty words that disagree with the calibrated band.

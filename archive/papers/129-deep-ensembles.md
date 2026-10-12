@@ -10,7 +10,7 @@ category: trust-calibration
 era: historical
 tags: [deep-ensembles, predictive-uncertainty, epistemic-uncertainty, out-of-distribution, proper-scoring-rules]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=1612.01474 (title, authors, first posted 2016-12-05, comment NIPS 2017, abstract); WebFetch was refused, curl used; summary based on the abstract plus standard knowledge, full text not fetched"
-takeaway: "Running several independently varied instrument settings and reporting their spread is a cheap, model-agnostic way for SatClip to widen confidence when the instruments disagree"
+takeaway: "Running several independently varied instrument settings and reporting their spread is a cheap, model-agnostic way for EvidEO to widen confidence when the instruments disagree"
 ---
 
 # Lakshminarayanan et al. 2017, Deep Ensembles
@@ -35,7 +35,7 @@ Classification and regression benchmarks, out-of-distribution tests (examples fr
 - Training and inference cost grow linearly with the number of members.
 - Members trained the same way can still share blind spots, so ensembles do not fix all shift failures (see entry 132).
 
-## What it means for SatClip
-- SatClip's numbers come from classical instruments, not networks, but the ensemble idea transfers: compute flooded area with a small set of reasonable variants (Otsu and Kittler-Illingworth thresholds, VV and VH, two speckle filter sizes) and treat their spread as epistemic uncertainty.
+## What it means for EvidEO
+- EvidEO's numbers come from classical instruments, not networks, but the ensemble idea transfers: compute flooded area with a small set of reasonable variants (Otsu and Kittler-Illingworth thresholds, VV and VH, two speckle filter sizes) and treat their spread as epistemic uncertainty.
 - When the variants disagree strongly on a tile's flooded area, lower the confidence or abstain; when they agree, the reported range can be tight.
 - Report the area as a range across variants, not a single number, alongside the scene ID and date.

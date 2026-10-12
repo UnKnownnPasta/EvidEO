@@ -1,4 +1,4 @@
-# SatClip verification (M8)
+# EvidEO verification (M8)
 
 This document shows, claim by claim, how the prototype demonstrates what [NOVELTY.md](../NOVELTY.md) section 5 claims. Every check has a command and a measured output. Checks marked **re-run 2026-10-10** were executed again for M8 in a 2 vCPU cloud sandbox with no GPU, against the live public catalogues. Checks marked **run 8** come from `docs/QUALITY.md` and were not repeated.
 
@@ -43,7 +43,7 @@ Question: *"How much of Barpeta was under water on 2024-07-11?"* Card from `docs
 | `receipt_id` | `5d27fcc87150f848` |
 | `caveats` | radar misses water under dense vegetation; no terrain mask yet |
 
-The language side never produces `value`. The parser's whole output is the five-key intent JSON (`training/lora/schema.py`), which deterministic gazetteer and date code resolve into `understood_as`. Run it: `cd backend && python -m satclip.livecheck "How much of Barpeta was under water on 2024-07-11?"` (about 80 s cold).
+The language side never produces `value`. The parser's whole output is the five-key intent JSON (`training/lora/schema.py`), which deterministic gazetteer and date code resolve into `understood_as`. Run it: `cd backend && python -m evideo.livecheck "How much of Barpeta was under water on 2024-07-11?"` (about 80 s cold).
 
 ## 3. Calibrated confidence (N3, C1)
 
@@ -121,7 +121,7 @@ Refusal precision 0.41, recall 0.90. Identical to the run 7 figure. Report: [ver
 python tools/novelty_scan.py
 ```
 
-225 entries scanned, 81 shortlisted, each shortlisted system judged by hand (NOVELTY.md 5.3). Output: [verification/archive_scan.csv](verification/archive_scan.csv). No archived system has more than two of the six ingredients in full; SatClip has six, with crop-change confidence labelled as a placeholder.
+225 entries scanned, 81 shortlisted, each shortlisted system judged by hand (NOVELTY.md 5.3). Output: [verification/archive_scan.csv](verification/archive_scan.csv). No archived system has more than two of the six ingredients in full; EvidEO has six, with crop-change confidence labelled as a placeholder.
 
 ## 9. What is not verified
 

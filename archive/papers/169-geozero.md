@@ -38,7 +38,7 @@ Scene classification (UCM, AID), visual grounding (RSVG, DIOR-RSVG), VQA (RSVQA-
 - No calibration, confidence, abstention or link to scene IDs; reasoning traces are not checked for faithfulness.
 - 8B parameters is heavy for CPU-only deployment.
 
-## What it means for SatClip
-- Adopt: the hard-sample mining idea (keep only items a cheaper model gets wrong) is a cheap way to build SatClip's LoRA training set for the intent parser from Indian question logs.
+## What it means for EvidEO
+- Adopt: the hard-sample mining idea (keep only items a cheaper model gets wrong) is a cheap way to build EvidEO's LoRA training set for the intent parser from Indian question logs.
 - Adopt carefully: answer-anchored RL rewards could also reward the parser for emitting a correct abstain or clarify intent, which GeoZero does not do.
 - Beat: GeoZero is a good example for the comparison table of RS VLMs that reason fluently but give no confidence, no abstention and no scene provenance.

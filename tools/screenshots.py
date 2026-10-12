@@ -1,6 +1,6 @@
 """Capture UI screenshots for docs and the deck (M4/M7).
 
-Needs a running API on :8000 serving the frontend (cd backend && uvicorn satclip.api.main:app --port 8000)
+Needs a running API on :8000 serving the frontend (cd backend && uvicorn evideo.api.main:app --port 8000)
 and Playwright with Chromium. Live questions query real Sentinel catalogues, so they take 20 to 60 s each.
 Usage: python tools/screenshots.py [--only NAME]
 """
@@ -12,7 +12,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "docs", "screenshots")
-BASE = os.environ.get("SATCLIP_URL", "http://localhost:8000/")
+BASE = os.environ.get("EVIDEO_URL", "http://localhost:8000/")
 
 SHOTS = [  # name, question, viewport, colour scheme
     ("01-home-desktop", None, (1366, 900), "light"),

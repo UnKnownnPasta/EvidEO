@@ -10,7 +10,7 @@ category: eo-foundation
 era: recent
 tags: [masked-autoencoder, self-supervised, vit, multispectral, temporal, sentinel-2, fmow-sentinel, land-cover]
 verified: "2026-10-04 via https://arxiv.org/abs/2207.08051 and https://sustainlab-group.github.io/SatMAE/"
-takeaway: "The founding MAE recipe for multispectral and temporal satellite data; treat it as background and baseline, not as a SatClip runtime component"
+takeaway: "The founding MAE recipe for multispectral and temporal satellite data; treat it as background and baseline, not as a EvidEO runtime component"
 ---
 
 # SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery
@@ -36,8 +36,8 @@ Per the abstract: up to 7% improvement over previous state of the art on supervi
 - Pretraining data is global but not India-focused; no flood or monsoon evaluation.
 - Produces features, not calibrated answers; needs a fine-tuned head per task.
 
-## What it means for SatClip
-- Use it as background for the design debate: MAE features need labelled fine-tuning, which is why SatClip relies on deterministic instruments plus zero-shot CLIP for the CPU prototype.
+## What it means for EvidEO
+- Use it as background for the design debate: MAE features need labelled fine-tuning, which is why EvidEO relies on deterministic instruments plus zero-shot CLIP for the CPU prototype.
 - Its band grouping idea is worth copying if our LoRA/GPU pipeline ever feeds Sentinel-2 bands beyond RGB to a vision encoder.
 - Do not ship SatMAE in the CPU path; later models in this archive (CROMA, DOFA, Prithvi-EO-2.0) supersede it and add SAR or sensor flexibility.
 - If we compare a learned land cover head against zero-shot CLIP, a SatMAE fine-tune on fMoW-Sentinel style tiles is a citable, reproducible baseline.

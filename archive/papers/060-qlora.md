@@ -10,7 +10,7 @@ category: efficient-inference
 era: recent
 tags: [qlora, lora, quantization, 4-bit, nf4, double-quantization, paged-optimizers, bitsandbytes, peft, guanaco]
 verified: "2026-10-04 via https://arxiv.org/abs/2305.14314, https://proceedings.neurips.cc/paper_files/paper/2023/hash/1feb87871436031bdc0f2beaa62a049b-Abstract.html and https://github.com/artidoro/qlora"
-takeaway: "4-bit base plus LoRA adapters makes VLM fine-tuning fit on one consumer or free-tier GPU; SatClip's LoRA pipeline should offer a QLoRA mode"
+takeaway: "4-bit base plus LoRA adapters makes VLM fine-tuning fit on one consumer or free-tier GPU; EvidEO's LoRA pipeline should offer a QLoRA mode"
 ---
 
 # QLoRA: Efficient Finetuning of Quantized LLMs
@@ -36,8 +36,8 @@ Per the abstract: a 65B model can be fine-tuned on a single 48 GB GPU while keep
 - Chatbot evaluation via GPT-4 is itself biased; quality claims are benchmark-specific.
 - Guanaco weights depend on LLaMA licence terms (code is MIT).
 
-## What it means for SatClip
+## What it means for EvidEO
 - Add a QLoRA option to our fine-tuning pipeline so users with a single 16 to 24 GB GPU, or a free cloud notebook, can adapt a 2B to 8B VLM.
 - After training, merge the adapter into a 16-bit copy of the base and then quantize for CPU (for example GGUF or AWQ, entry 061); do not ship the bitsandbytes 4-bit checkpoint as the CPU artefact.
-- Use the paper's warning about automated judges: evaluate our VLM on fixed SatClip question sets with exact checks on parsed instrument calls, not only with an LLM judge.
+- Use the paper's warning about automated judges: evaluate our VLM on fixed EvidEO question sets with exact checks on parsed instrument calls, not only with an LLM judge.
 - Log quantization settings (NF4, double quant, compute dtype) in the model card so results can be reproduced.

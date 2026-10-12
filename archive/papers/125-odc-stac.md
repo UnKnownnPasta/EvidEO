@@ -10,7 +10,7 @@ category: data-infrastructure
 era: recent
 tags: [odc-stac, open-data-cube, xarray, dask, stac, cog, windowed-read, datacube]
 verified: "2026-10-06 via https://raw.githubusercontent.com/opendatacube/odc-stac/develop/README.rst, https://odc-stac.readthedocs.io/en/latest/_api/odc.stac.load.html (parameters: bbox, geopolygon, crs, resolution, groupby incl. solar_day, chunks, fail_on_error, pool, patch_url, fuse_func) and https://pypi.org/pypi/odc-stac/json (version 0.5.3, first upload 2021-08-26); GitHub API metadata (licence, stars) was not reachable from this session; no peer-reviewed paper found"
-takeaway: "odc-stac turns a STAC search result into a district-clipped, grid-aligned xarray cube with windowed COG reads, which is close to exactly SatClip's data layer, so SatClip should reuse it (with patch_url for signing and fail_on_error off) rather than hand-roll reprojection and mosaicking"
+takeaway: "odc-stac turns a STAC search result into a district-clipped, grid-aligned xarray cube with windowed COG reads, which is close to exactly EvidEO's data layer, so EvidEO should reuse it (with patch_url for signing and fail_on_error off) rather than hand-roll reprojection and mosaicking"
 ---
 
 # odc-stac
@@ -36,7 +36,7 @@ Reduces the "STAC search to analysis cube" step to a few lines while reading onl
 - Default fusing keeps the first valid pixel; for SAR mosaics across adjacent slices this is usually fine, but for multi-orbit stacks it can mix geometries.
 - Grid snapping can extend output slightly beyond the requested bounds, so area statistics must apply the exact district mask afterwards.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt odc.stac.load as the reader behind each tile worker: geopolygon = tile footprint intersected with the district, crs = local UTM, resolution = 10 m, groupby = "solar_day" so adjacent Sentinel-1 slices from one pass become one image.
 - Use patch_url for Planetary Computer signing so the same code path works across all three catalogues.
 - Set fail_on_error=False only together with explicit valid-pixel counting per tile; feed the valid fraction into the evidence card's confidence and abstain when coverage of the district is too low.

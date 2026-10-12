@@ -1,6 +1,6 @@
 {
  "type": "FeatureCollection",
- "_note": "Abridged STAC ItemCollection. IDs, bboxes, datetimes, cloud cover, EPSG and asset hrefs were recorded from the live catalogue on 2026-10-04 (bbox 91.0,26.3,91.05,26.35, Barpeta, Assam). Only the fields SatClip reads are kept; geometry is the bbox polygon.",
+ "_note": "Abridged STAC ItemCollection. IDs, bboxes, datetimes, cloud cover, EPSG and asset hrefs were recorded from the live catalogue on 2026-10-04 (bbox 91.0,26.3,91.05,26.35, Barpeta, Assam). Only the fields EvidEO reads are kept; geometry is the bbox polygon.",
  "features": [
   {
    "type": "Feature",

@@ -40,7 +40,7 @@ class InlineQueue:
         self.jobs: dict[str, Job] = {}
         self.receipts: dict[str, dict] = {}
         self._lock = threading.Lock()
-        self._pool = ThreadPoolExecutor(max_workers=concurrency, thread_name_prefix="satclip-tile")
+        self._pool = ThreadPoolExecutor(max_workers=concurrency, thread_name_prefix="evideo-tile")
 
     def submit(self, job: Job, tile_jobs: list[TileJob]) -> None:
         job.tiles_total = len(tile_jobs)
@@ -84,10 +84,10 @@ class InlineQueue:
 
 
 class RedisQueue:
-    """Keys: satclip:job:{id} (Job JSON), satclip:results:{id} (list of TileResult JSON),
-    satclip:tiles (pending TileJob JSON), satclip:processing (in-flight), satclip:receipt:{id}."""
+    """Keys: evideo:job:{id} (Job JSON), evideo:results:{id} (list of TileResult JSON),
+    evideo:tiles (pending TileJob JSON), evideo:processing (in-flight), evideo:receipt:{id}."""
 
-    TILES, PROCESSING = "satclip:tiles", "satclip:processing"
+    TILES, PROCESSING = "evideo:tiles", "evideo:processing"
 
     def __init__(self, client, trust: dict[str, Any], visibility_timeout_s: int = 300) -> None:
         self.r, self.trust, self.vt = client, trust, visibility_timeout_s
@@ -101,7 +101,7 @@ class RedisQueue:
                    cfg.get("trust", {}), int(q.get("visibility_timeout_s", 300)))
 
     def _save(self, job: Job) -> None:
-        self.r.set(f"satclip:job:{job.job_id}", job.model_dump_json(exclude={"results"}), ex=7 * 86400)
+        self.r.set(f"evideo:job:{job.job_id}", job.model_dump_json(exclude={"results"}), ex=7 * 86400)
 
     def submit(self, job: Job, tile_jobs: list[TileJob]) -> None:
         job.tiles_total, job.state = len(tile_jobs), JobState.running
@@ -114,18 +114,18 @@ class RedisQueue:
     def store_done(self, job: Job, receipt: Optional[dict] = None) -> None:
         self._save(job)
         if receipt:
-            self.r.set(f"satclip:receipt:{receipt['receipt_id']}", json.dumps(receipt, default=str))
+            self.r.set(f"evideo:receipt:{receipt['receipt_id']}", json.dumps(receipt, default=str))
 
     def get(self, job_id: str) -> Optional[Job]:
-        raw = self.r.get(f"satclip:job:{job_id}")
+        raw = self.r.get(f"evideo:job:{job_id}")
         if not raw:
             return None
         job = Job.model_validate_json(raw)
-        job.results = [TileResult.model_validate_json(x) for x in self.r.lrange(f"satclip:results:{job_id}", 0, -1)]
+        job.results = [TileResult.model_validate_json(x) for x in self.r.lrange(f"evideo:results:{job_id}", 0, -1)]
         return job
 
     def receipt(self, receipt_id: str) -> Optional[dict]:
-        raw = self.r.get(f"satclip:receipt:{receipt_id}")
+        raw = self.r.get(f"evideo:receipt:{receipt_id}")
         return json.loads(raw) if raw else None
 
     def work_once(self, block_s: int = 5) -> bool:
@@ -134,7 +134,7 @@ class RedisQueue:
             return False
         tj = TileJob.model_validate_json(raw)
         res = process(tj, self.cache)
-        n = self.r.rpush(f"satclip:results:{tj.job_id}", res.model_dump_json())
+        n = self.r.rpush(f"evideo:results:{tj.job_id}", res.model_dump_json())
         self.r.lrem(self.PROCESSING, 1, raw)
         job = self.get(tj.job_id)
         # Exactly one worker sees n == tiles_total, so exactly one finalizes.

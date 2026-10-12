@@ -39,7 +39,7 @@ A dataset of co-registered Sentinel-1 and Sentinel-2 time series, plus two basel
 - Test regions do not overlap training regions, which is good for honesty but limits density.
 - Pixel metrics (PSNR, SSIM) do not tell us whether flood or crop answers derived from the reconstruction are right.
 
-## What it means for SatClip
-- Before reaching for reconstruction, SatClip should exploit the time series: search several Sentinel-2 dates in the window and composite only s2cloudless-clear pixels, naming each contributing scene ID.
+## What it means for EvidEO
+- Before reaching for reconstruction, EvidEO should exploit the time series: search several Sentinel-2 dates in the window and composite only s2cloudless-clear pixels, naming each contributing scene ID.
 - When cloud fraction in the region mask is very high (the >90% regime where even the best models degrade), route the question to SAR instruments or abstain, never to a reconstructed optical image.
 - If we ever test optical gap filling for NDVI difference, SEN12MS-CR-TS is the benchmark, and we should report error stratified by cloud fraction, as this paper does.

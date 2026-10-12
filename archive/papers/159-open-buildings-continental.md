@@ -33,11 +33,11 @@ Building locations and footprints are basic inputs for planning, disaster respon
 - Later releases extended the dataset beyond Africa, including South Asia; that extension is not part of this paper and was not verified here.
 
 ## Limitations
-- Needs 50 cm commercial imagery, far finer than Sentinel-2's 10 m; the model is not transferable to SatClip's data.
+- Needs 50 cm commercial imagery, far finer than Sentinel-2's 10 m; the model is not transferable to EvidEO's data.
 - Footprints are a snapshot from a given imagery date, so they can be stale after rapid growth or destruction.
 - Per-region accuracy varies with context; the abstract reports aggregate gains, not per-country error.
 
-## What it means for SatClip
+## What it means for EvidEO
 - **Adopt as a data layer, not a model.** Load a precomputed footprint layer for the district, record its version and imagery date on the card, and intersect it with the SAR water mask to report "N mapped buildings inside the flooded area".
 - Mark that count as *inferred from an external layer*, separate from the measured water extent, and show the layer's own confidence threshold if one is published.
 - **Avoid** promising building detection from Sentinel-1 or Sentinel-2 imagery; this paper shows the task needs sub-metre data and a large labelled set.

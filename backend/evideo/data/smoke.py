@@ -1,4 +1,4 @@
-"""Live smoke check against the public catalogues: `python -m satclip.data.smoke`.
+"""Live smoke check against the public catalogues: `python -m evideo.data.smoke`.
 
 Searches Sentinel-1 and Sentinel-2 over a Barpeta tile, selects scenes, and reads one band window.
 """

@@ -4,11 +4,11 @@ import pytest
 
 fakeredis = pytest.importorskip("fakeredis")
 
-from satclip.config import load_settings
-from satclip.jobqueue import RedisQueue, new_job_id
-from satclip.models import Job, QueryRequest, TileJob
-from satclip.parser import parse
-from satclip.tiling import tiles_for_bbox
+from evideo.config import load_settings
+from evideo.jobqueue import RedisQueue, new_job_id
+from evideo.models import Job, QueryRequest, TileJob
+from evideo.parser import parse
+from evideo.tiling import tiles_for_bbox
 
 
 def test_redis_queue_roundtrip():

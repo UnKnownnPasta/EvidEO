@@ -42,8 +42,8 @@ Final configuration (segmentation plus DEM) reached 95.44% overall accuracy, 82.
 - Split size and CV/ratio bounds were set by the authors for this scene.
 - Producer's accuracy of 82% shows that missed water (flooded vegetation, wind, shadow confusion) remains.
 
-## What it means for SatClip
-- This is the reason SatClip's sar_water_otsu should not threshold a whole district at once: in a district where 3% is flooded, Otsu sees a unimodal histogram.
+## What it means for EvidEO
+- This is the reason EvidEO's sar_water_otsu should not threshold a whole district at once: in a district where 3% is flooded, Otsu sees a unimodal histogram.
 - Adopt tile pre-selection by CV and mean ratio as a cheap bimodality proxy alongside the Ashman D test from [[086-chini-hsba-thresholding]].
 - Pool the histograms of selected tiles before thresholding instead of averaging per-tile thresholds; it was the more stable option here.
 - Record in the evidence card how many tiles were used and the threshold value, so a reviewer can see when the estimate rests on very few tiles.

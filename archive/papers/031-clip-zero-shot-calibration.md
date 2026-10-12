@@ -30,8 +30,8 @@ Selected ECE values reported in Table 1 of the arXiv HTML (baseline, then their 
 ## Limitations
 No peer-reviewed venue was shown on the abstract page. Evaluation datasets are natural-image benchmarks; transfer of the temperature to very different domains such as satellite imagery is untested. A gap to supervised (in-domain) temperature scaling remains. No code link was given on the abstract page.
 
-## What it means for SatClip
+## What it means for EvidEO
 - RemoteCLIP and GeoRSCLIP similarity scores must not be shown raw as confidence; at minimum apply one learned temperature per backbone.
 - Do not borrow an ImageNet-fitted temperature for satellite tiles: fit the auxiliary temperature on a remote sensing set (for example EuroSAT or a small Indian Sentinel-2 labelled set), since the paper's own gap to in-domain calibration suggests domain matters.
-- The finding that one temperature transfers across prompts is useful operationally: SatClip's query router can rephrase class prompts without recalibrating, but the evaluation should still verify ECE per prompt family.
+- The finding that one temperature transfers across prompts is useful operationally: EvidEO's query router can rephrase class prompts without recalibrating, but the evaluation should still verify ECE per prompt family.
 - Pair this with conformal sets [A028] for formal coverage on top of better-calibrated scores.

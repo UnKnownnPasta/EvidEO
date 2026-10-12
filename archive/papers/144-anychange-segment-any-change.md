@@ -10,7 +10,7 @@ category: change-detection
 era: recent
 tags: [anychange, sam, foundation-model, zero-shot, training-free, bitemporal-latent-matching, point-query]
 verified: "2026-10-07 via arXiv export API for 2402.01188 (title, authors, NeurIPS 2024 comment), Crossref 10.52202/079017-2581 (NeurIPS 37, pages 81204-81224), and the arXiv PDF for Table 1 numbers and the limitations appendix"
-takeaway: "Zero-shot foundation-model change detection is real but low precision (roughly 4 to 31 percent pixel precision across four benchmarks, with high recall); SatClip could use it to propose candidate change regions, never to report a changed area"
+takeaway: "Zero-shot foundation-model change detection is real but low precision (roughly 4 to 31 percent pixel precision across four benchmarks, with high recall); EvidEO could use it to propose candidate change regions, never to report a changed area"
 ---
 
 # Zheng et al. 2024, AnyChange (Segment Any Change)
@@ -38,7 +38,7 @@ LEVIR-CD, S2Looking and xView2 (building-centric, very high resolution) and SECO
 - The authors note SAM's biases can produce physically impossible changes, and coverage of change types and geometries is limited by available datasets.
 - RGB, very high resolution evaluation only; no Sentinel-1 or Sentinel-2, and the change score is a ranking, not a calibrated probability.
 
-## What it means for SatClip
-- A good fit for an optional "where should I look?" layer: propose candidate change regions that SatClip's measured instruments (log-ratio, NDVI difference) then confirm or reject.
+## What it means for EvidEO
+- A good fit for an optional "where should I look?" layer: propose candidate change regions that EvidEO's measured instruments (log-ratio, NDVI difference) then confirm or reject.
 - Its high-recall, low-precision profile is exactly why a foundation model must not supply the number on a card; area statistics should come from the calibrated instruments.
 - The angle threshold is another uncalibrated score; if used, fit it on Indian labelled pairs and report its error-reject curve like any other confidence.

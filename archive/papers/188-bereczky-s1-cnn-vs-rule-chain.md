@@ -10,7 +10,7 @@ category: sar-optical-fusion
 era: recent
 tags: [sentinel-1, flood-mapping, water-mapping, cnn, u-net, deeplabv3plus, vv-vh, dual-polarisation, rule-based-baseline, s-1fs, dlr, sen1floods11, augmentation]
 verified: "2026-10-08 via curl to api.crossref.org (title, five authors, volume 15, pages 2023-2036, 2022) and api.openalex.org (abstract); WebFetch permission prompt timed out so curl was used; numbers below are from the abstract only"
-takeaway: "A dual-polarised (VV+VH) CNN beat DLR's operational Sentinel-1 rule chain by about 5 IoU points, and geometric augmentation hurt; SatClip should keep VH in its SAR water inputs and benchmark any learned model against its own threshold baseline"
+takeaway: "A dual-polarised (VV+VH) CNN beat DLR's operational Sentinel-1 rule chain by about 5 IoU points, and geometric augmentation hurt; EvidEO should keep VH in its SAR water inputs and benchmark any learned model against its own threshold baseline"
 ---
 
 # Bereczky et al. 2022, CNNs versus an operational Sentinel-1 flood chain
@@ -39,7 +39,7 @@ Operational services such as DLR's Sentinel-1 Flood Service (the chain described
 - Gains are averaged; no per-pixel uncertainty or calibration is reported in the abstract.
 - No Indian monsoon events named in the abstract.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt: keep both VV and VH as instrument inputs; the dual-polarisation gain is the clearest single lever.
-- Adopt: avoid flip and rotate augmentation if SatClip ever fine-tunes a SAR water model, since SAR geometry (look direction, layover) is not rotation invariant.
-- Beat: a learned model is only worth adding if it beats SatClip's Otsu plus terrain-mask chain on Indian chips; keep the rule chain as the default, transparent baseline.
+- Adopt: avoid flip and rotate augmentation if EvidEO ever fine-tunes a SAR water model, since SAR geometry (look direction, layover) is not rotation invariant.
+- Beat: a learned model is only worth adding if it beats EvidEO's Otsu plus terrain-mask chain on Indian chips; keep the rule chain as the default, transparent baseline.

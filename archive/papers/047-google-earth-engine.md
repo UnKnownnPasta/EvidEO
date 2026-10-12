@@ -10,7 +10,7 @@ category: data-infrastructure
 era: historical
 tags: [google-earth-engine, cloud-platform, data-catalog, lazy-evaluation, tiling, javascript-api, python-api, planetary-scale]
 verified: "2026-10-04 via https://research.google/pubs/google-earth-engine-planetary-scale-geospatial-analysis-for-everyone/"
-takeaway: "The reference cloud EO platform: a hosted multi-sensor catalogue with lazy, tile-parallel evaluation; most Indian SAR flood papers run on it, but it is closed and code-centric, so SatClip should match its ergonomics on open STAC plus COG"
+takeaway: "The reference cloud EO platform: a hosted multi-sensor catalogue with lazy, tile-parallel evaluation; most Indian SAR flood papers run on it, but it is closed and code-centric, so EvidEO should match its ergonomics on open STAC plus COG"
 ---
 
 # Google Earth Engine (Gorelick et al., 2017)
@@ -33,7 +33,7 @@ A platform that made planetary-scale analyses routine and became the default too
 - Reproducibility depends on the catalogue staying unchanged, and asset versions are not always pinned in published scripts.
 - Quotas and licensing questions for commercial or government use.
 
-## What it means for SatClip
+## What it means for EvidEO
 - Adopt its core execution ideas on an open stack: lazy evaluation over only the requested window and scale, and tile-wise parallel jobs on CPU workers, using STAC search (entry 050) and COG range reads (entry 049).
 - Avoid a hard dependency on GEE for the production path: our receipts must point to public STAC items and open code that anyone can re-run without an account.
 - Use GEE as a cross-check during development: re-implement the Kerala 2018 Otsu workflow (entry 042) and compare our flood area with a GEE run on the same dates to catch preprocessing differences (calibration, terrain flattening, speckle filtering).

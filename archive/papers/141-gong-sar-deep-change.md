@@ -10,7 +10,7 @@ category: change-detection
 era: historical
 tags: [sar, deep-learning, change-detection, difference-image-free, unsupervised-pretraining, multitemporal]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1109/TNNLS.2015.2435783 (title, five authors, venue, volume, issue, pages, January 2016) and abstract via OpenAlex; full text not fetched, so datasets and accuracy numbers are not confirmed"
-takeaway: "An early, influential case for learning SAR change directly from the image pair instead of a log-ratio; for SatClip it is a cross-check idea, not a replacement, because it trades away the transparent, auditable difference image"
+takeaway: "An early, influential case for learning SAR change directly from the image pair instead of a log-ratio; for EvidEO it is a cross-check idea, not a replacement, because it trades away the transparent, auditable difference image"
 ---
 
 # Gong et al. 2016, deep SAR change detection
@@ -34,7 +34,7 @@ Real multitemporal SAR datasets according to the abstract; their names, sensors 
 - Older SAR change benchmarks are small single scenes, so generalisation to Sentinel-1 over Indian river basins is untested.
 - No calibrated confidence or abstention mechanism is described in the abstract.
 
-## What it means for SatClip
-- Keep the log-ratio plus automatic threshold as SatClip's primary SAR flood-change instrument: its intermediate image can be shown, thresholded reproducibly and cited in a receipt.
+## What it means for EvidEO
+- Keep the log-ratio plus automatic threshold as EvidEO's primary SAR flood-change instrument: its intermediate image can be shown, thresholded reproducibly and cited in a receipt.
 - A learned pair-to-map model could serve as an independent second opinion; disagreement between it and the log-ratio map is a useful trigger for abstaining or lowering confidence.
-- Do not quote numbers from this paper in SatClip documentation until the full text is checked.
+- Do not quote numbers from this paper in EvidEO documentation until the full text is checked.

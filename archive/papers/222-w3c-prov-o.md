@@ -10,7 +10,7 @@ category: data-infrastructure
 era: historical
 tags: [provenance, w3c-prov, ontology, owl2, rdf, audit-trail, entity-activity-agent, receipts, reproducibility]
 verified: "2026-10-09 via WebFetch of https://www.w3.org/TR/prov-o/ (title, Recommendation status and date, editors, starting-point classes and properties, qualified terms, bundles, companion documents, scope exclusions)"
-takeaway: "A standard vocabulary (Entity, Activity, Agent, used, wasGeneratedBy, wasDerivedFrom, wasAssociatedWith) for saying what produced what, from which inputs, by whom and when; SatClip's receipt should be a PROV document so any answer can be traced to scenes, code version and calibration set with off-the-shelf tools"
+takeaway: "A standard vocabulary (Entity, Activity, Agent, used, wasGeneratedBy, wasDerivedFrom, wasAssociatedWith) for saying what produced what, from which inputs, by whom and when; EvidEO's receipt should be a PROV document so any answer can be traced to scenes, code version and calibration set with off-the-shelf tools"
 ---
 
 # W3C 2013, PROV-O
@@ -39,8 +39,8 @@ Data on the web and in pipelines is reused without a record of where it came fro
 - Encoding bundles in RDF is left open.
 - Verbose if used naively; a minimal profile is needed for small receipts.
 
-## What it means for SatClip
-- Adopt: model each answer as a PROV graph: the answer number and mask are Entities wasGeneratedBy an analysis Activity that used specific Sentinel-1/2 scene Entities (by STAC item ID, entry 050), a model weights Entity (hash) and a calibration-set Entity (ID, alpha), wasAssociatedWith SatClip as a SoftwareAgent actedOnBehalfOf the requesting office.
+## What it means for EvidEO
+- Adopt: model each answer as a PROV graph: the answer number and mask are Entities wasGeneratedBy an analysis Activity that used specific Sentinel-1/2 scene Entities (by STAC item ID, entry 050), a model weights Entity (hash) and a calibration-set Entity (ID, alpha), wasAssociatedWith EvidEO as a SoftwareAgent actedOnBehalfOf the requesting office.
 - Adopt: serialise the receipt as compact PROV-JSON or JSON-LD alongside the human-readable card, and embed the openEO process graph (entry 121) or pipeline config as the Plan, so a third party can both trace and re-run.
 - Adopt: use wasRevisionOf when an answer is recomputed after new scenes arrive, so fact-checkers see that an earlier card was superseded and why.
 - Avoid: do not put region geometry into PROV terms; reference a GeoJSON mask Entity by hash.
