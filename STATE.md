@@ -378,3 +378,24 @@ The scheduled-run series ends here at the owner's request; work continues locall
 **Most important finding:** the combination claim survives the whole-archive pass, and the evidence gap is now clearly on the user side: NOVELTY condition 4 (non-GIS users understand cards faster than maps) is untested, and Indian flood usefulness (condition 2) depends on water v1.2.
 
 **Next step:** see HANDOFF.md section 9 (deck wording check, water v1.2, a small usability study, papers 226 onward).
+
+### Session 2026-10-12 (live, user-directed): paper and short deck
+
+The user asked for a frank publishability check, our own result graphs, an IEEE-format paper and a 6-slide "why it matters" deck in the style of the team's earlier tech deck, without SIH framing and without claymorphism.
+
+**Done**
+- Read result tables of the priority papers (Sen1Floods11, VLEO-Bench, GEOBench-VLM, GeoChat, EarthDial, RSHallu, SHRUG-FM) and re-plotted them (`paper/figures/fig_landscape`).
+- New experiments in `paper/analysis/experiments.py` from committed per-chip rows (no new downloads): risk-coverage with bootstrap CI, leave-one-event-out calibration transfer, India local-calibration budget (500 random splits, three strategies), per-event AUROC, per-chip IoU vs the Sen1Floods11 baselines. Results in `paper/analysis/results.json`.
+- `paper/satclip.tex` + `satclip.pdf` (IEEEtran conference, 6 pages), `paper/README.md` (honest assessment, venues, IP notes).
+- `deck/why/SatClip-why-it-matters.pptx` (6 slides, native charts) built by `deck/why/build_why.js` (needs `PPTX_SKILL` env var pointing at the pptx skill for apply_theme).
+
+**Key findings**
+- Detector sanity: per-chip mean IoU 0.362 (test) and 0.434 (Bolivia) vs published Otsu-VH 0.359 and 0.386; ordinary detector, as expected.
+- Calibration transfer: over-confident on India (+19.5 points), Pakistan (+28.8), Sri Lanka (+9.7); under-confident on USA (-31.1).
+- Intercept-only refit on 8 Indian chips: over-confidence +20 to about +1, wrong published 55% to 28%, coverage 52% to 13%; pooling local chips into the global fit does not help.
+- Within-India AUROC of the raw score is 0.65, so the failure is mainly an offset.
+
+**Next**
+- Label chips from two or three more Indian flood events to make the local-calibration test cross-event.
+- Run a VLM (Qwen2-VL-2B or EarthDial) on the same 82 test chips as a head-to-head baseline (Colab GPU).
+- Usability study (NOVELTY condition 4).
