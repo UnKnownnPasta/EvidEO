@@ -11,6 +11,7 @@ era: recent
 tags: [qwen2-vl, vlm, small-vlm, 2b, dynamic-resolution, m-rope, open-weights, lora-base-model]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (WebFetch permission request timed out); title, full author list, code URL, model sizes and claims from arXiv metadata and abstract; peer-reviewed venue not checked beyond arXiv; licence of the 2B weights not verified"
 takeaway: "A strong open 2B VLM base whose dynamic-resolution input suits Sentinel chips of varying size, but EvidEO should use it only for intent parsing and explanation, never for the numbers"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Qwen2-VL technical report

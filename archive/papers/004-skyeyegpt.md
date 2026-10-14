@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, instruction-tuning, visual-grounding, captioning, video-captioning, vqa, llama2, minigpt-v2]
 verified: "2026-10-04 via https://arxiv.org/abs/2401.09712 and https://github.com/ZhanYang-nwpu/SkyEyeGPT"
 takeaway: "Lean frozen-encoder plus linear-projector design suits a CPU-first prototype; expect degradation from aerial to 10 m Sentinel resolution"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # SkyEyeGPT: Unifying Remote Sensing Vision-Language Tasks via Instruction Tuning with Large Language Model

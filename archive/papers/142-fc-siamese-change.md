@@ -11,6 +11,7 @@ era: historical
 tags: [siamese, fully-convolutional, u-net, oscd, sentinel-2, air-change, baseline]
 verified: "2026-10-07 via arXiv export API for 1810.08462 (title, authors, ICIP 2018 comment), Crossref 10.1109/ICIP.2018.8451652 (venue, pages 4063-4067), and the arXiv PDF for Table 1 numbers"
 takeaway: "The standard small learned baseline for Sentinel-2 change (FC-EF, FC-Siam-conc, FC-Siam-diff); its modest OSCD F1 near 58 percent shows learned 10 m change maps are far from reliable enough to be EvidEO's reported number"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Daudt, Le Saux and Boulch 2018, FC-Siamese change detection

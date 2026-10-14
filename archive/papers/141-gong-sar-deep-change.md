@@ -11,6 +11,7 @@ era: historical
 tags: [sar, deep-learning, change-detection, difference-image-free, unsupervised-pretraining, multitemporal]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1109/TNNLS.2015.2435783 (title, five authors, venue, volume, issue, pages, January 2016) and abstract via OpenAlex; full text not fetched, so datasets and accuracy numbers are not confirmed"
 takeaway: "An early, influential case for learning SAR change directly from the image pair instead of a log-ratio; for EvidEO it is a cross-check idea, not a replacement, because it trades away the transparent, auditable difference image"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Gong et al. 2016, deep SAR change detection

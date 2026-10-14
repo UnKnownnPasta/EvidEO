@@ -11,6 +11,7 @@ era: recent
 tags: [india, uttar-pradesh, rajasthan, odisha, bihar, crop-type, sentinel-2, smallholder, ground-reference, dataset, cc-by-4.0, field-ids]
 verified: "2026-10-08 via curl to https://api.datacite.org/dois/10.34911/rdnt.wu92p1 (title, creators, year, publisher, licence), curl to the Source Cooperative page and its Documentation.pdf (states, 13 classes, chip size and count, band list, label encoding); WebFetch permission request timed out and these two hosts are outside the arXiv and Crossref fallback list, so this is flagged; imagery acquisition dates and field counts are not stated in the pages read"
 takeaway: "An open CC BY 4.0 set of ground-collected crop-type labels for smallholder fields in Uttar Pradesh, Rajasthan, Odisha and Bihar on 10 m Sentinel-2 chips, with field IDs; EvidEO can use it to calibrate and test crop answers in the Indo-Gangetic districts it targets, but must source its own dates and Sentinel-1 data"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Radiant Earth Foundation and IDinsight 2022, AgriFieldNet India crop-type dataset

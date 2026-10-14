@@ -11,6 +11,7 @@ era: recent
 tags: [india, disaster-management, ndem, nrsc, mha, decision-support, flood-inundation, gis-database]
 verified: "2026-10-06 via https://ndem.nrsc.gov.in/documents/downloads/NDEM_Brochure_V3.pdf (full text read) and https://www.nrsc.gov.in/readmore_NDEM; later NDEM 5.0 release mentioned in news but its details were not checked"
 takeaway: "NDEM is the official channel through which district disaster managers already receive NRSC flood inundation maps, so EvidEO must position as a fast, auditable complement and export in formats NDEM users can ingest"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # NDEM: National Database for Emergency Management

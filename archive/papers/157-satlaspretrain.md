@@ -11,6 +11,7 @@ era: recent
 tags: [satlaspretrain, satlas, sentinel-2, naip, large-scale-labels, supervised-pretraining, multi-task, allen-ai]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, abstract with numbers, ICCV comment) and https://api.crossref.org (ICCV 2023 record); project page not fetched"
 takeaway: "Supervised multi-task pretraining on 302M labels gives strong Sentinel-2 backbones; useful for optical land-cover and structure instruments, but optical-only and US-heavy at high resolution"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Bastani et al. 2023, SatlasPretrain

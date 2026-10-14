@@ -11,6 +11,7 @@ era: recent
 tags: [levir-cd, dataset, building-change, siamese, attention, stanet, very-high-resolution, optical-rgb, google-earth]
 verified: "2026-10-04 via https://www.mdpi.com/2072-4292/12/10/1662"
 takeaway: "LEVIR-CD (637 pairs, 0.5 m, Texas buildings) became the default CD benchmark; useful for language templates and model comparison but not for calibrating 10 m Sentinel instruments"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # A Spatial-Temporal Attention-Based Method and a New Dataset for Remote Sensing Image Change Detection

@@ -11,6 +11,7 @@ era: recent
 tags: [conformal-prediction, prediction-sets, coverage-guarantee, raps, aps, distribution-free]
 verified: "2026-10-04 via https://arxiv.org/abs/2009.14193"
 takeaway: "RAPS wraps any classifier to output label sets with a finite-sample coverage guarantee (for example 90%), with sets often 5 to 10 times smaller than a Platt-scaling baseline"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Uncertainty Sets for Image Classifiers using Conformal Prediction

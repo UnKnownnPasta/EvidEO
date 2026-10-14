@@ -11,6 +11,7 @@ era: historical
 tags: [google-earth-engine, cloud-platform, data-catalog, lazy-evaluation, tiling, javascript-api, python-api, planetary-scale]
 verified: "2026-10-04 via https://research.google/pubs/google-earth-engine-planetary-scale-geospatial-analysis-for-everyone/"
 takeaway: "The reference cloud EO platform: a hosted multi-sensor catalogue with lazy, tile-parallel evaluation; most Indian SAR flood papers run on it, but it is closed and code-centric, so EvidEO should match its ergonomics on open STAC plus COG"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Google Earth Engine (Gorelick et al., 2017)

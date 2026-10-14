@@ -11,6 +11,7 @@ era: upcoming
 tags: [sentinel-1, sar, c-band, mission, revisit, copernicus, open-data, flood]
 verified: "2026-10-05 via https://www.esa.int/Newsroom/Press_Releases/Copernicus_Sentinel-1D_reaches_orbit_on_Ariane_6 and https://sentinels.copernicus.eu/web/success-stories/-/sentinel-1d-a-new-chapter-for-copernicus ; current commissioning status and exact operational revisit over India not confirmed"
 takeaway: "Sentinel-1C (Dec 2024) plus 1D (Nov 2025) restore two-satellite C-band SAR, about 6-day revisit at the equator, which directly raises how often EvidEO can answer a flood question with a fresh scene instead of abstaining"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Copernicus Sentinel-1D launch and restored two-satellite Sentinel-1 constellation (Sentinel-1C and 1D)

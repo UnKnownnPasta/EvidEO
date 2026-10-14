@@ -11,6 +11,7 @@ era: recent
 tags: [sar, vqa, captioning, benchmark, vision-language, umbra, capella, sardet-100k, sentinel-1-partial]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, abstract), https://arxiv.org/html/2504.03254v1 (data sources, statistics, headline gains), the GitHub README (TGRS acceptance January 2026) and api.crossref.org (DOI, journal, volume 64); WebFetch permission request timed out; per-model tables not checked"
 takeaway: "Largest SAR image-text benchmark (about 1.13M captions and QA over 118K SAR images, 0.1 to 25 m) showing generic VLMs read SAR poorly until fine-tuned; useful to test whether EvidEO's explainer misdescribes radar, but it has no flood, water or change questions"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Wei et al. 2026, SARLANG-1M

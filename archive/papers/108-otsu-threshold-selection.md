@@ -11,6 +11,7 @@ era: historical
 tags: [thresholding, histogram, otsu, unsupervised, binarization, water-mapping-baseline]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1109/TSMC.1979.4310076 (title, author, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
 takeaway: "The default automatic threshold that EvidEO must benchmark Kittler-Illingworth against, and a cheap fallback when the two-Gaussian fit fails"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Otsu thresholding

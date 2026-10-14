@@ -11,6 +11,7 @@ era: upcoming
 tags: [disaster-response, benchmark, tool-agents, mcp, sar, multi-temporal, argument-grounding, long-horizon, dora]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query?id_list=2605.11633 (title, authors, date, comment, abstract); numbers from the abstract only"
 takeaway: "The first end-to-end disaster-operations agent benchmark finds frontier LLMs fail on sensor-modality mismatch and long tool chains, and that tool-order hints barely help; this backs EvidEO's fixed, sensor-aware recipes over open-ended planning for flood questions"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Wang et al. 2026, DORA (disaster operations agent benchmark)

@@ -11,6 +11,7 @@ era: recent
 tags: [cog, geotiff, ogc-standard, http-range-requests, tiling, overviews, cloud-native, windowed-reads]
 verified: "2026-10-04 via https://docs.ogc.org/is/21-026/21-026.html"
 takeaway: "COG 1.0 formalises tiled GeoTIFFs with overviews and headers up front, served over HTTP range requests; this is what lets EvidEO read only the district window from a Sentinel scene on a CPU worker"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # OGC Cloud Optimized GeoTIFF Standard (21-026)

@@ -11,6 +11,7 @@ era: recent
 tags: [real-time-detection, rotated-detection, lightweight, depthwise-convolution, large-kernel, dynamic-label-assignment, mmdetection, mmrotate]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query?id_list=2212.07784 (title, authors, date, abstract); Crossref search found no conference or journal version; rotated-detection numbers are claimed in the abstract but not quoted because no figure is given there"
 takeaway: "If EvidEO ever adds a learned detector, start from the tiny RTMDet rotated variant in an open toolbox: one family covers boxes, rotated boxes and instance masks at several sizes, which suits a CPU budget better than heavy two-stage models"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Lyu et al. 2022, RTMDet

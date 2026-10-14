@@ -11,6 +11,7 @@ era: recent
 tags: [lrs-vqa, large-images, token-pruning, high-resolution, vqa, benchmark, efficiency, coarse-to-fine]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, abstract), https://arxiv.org/html/2503.07588 (benchmark construction and evaluation setup) and the GitHub README (ICCV 2025 acceptance); WebFetch permission request timed out; leaderboard numbers in Table 2 were not extracted, so no accuracy figures are given"
 takeaway: "LRS-VQA tests VLMs on huge scenes (up to 27,328 px across, 7,333 QA in 8 types) and the paper prunes vision tokens by zooming coarse to fine on text-relevant tiles; relevant to EvidEO only as a reason to crop to the district AOI in code before any model sees pixels"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Luo et al. 2025, LRS-VQA and coarse-to-fine token pruning

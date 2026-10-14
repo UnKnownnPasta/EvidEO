@@ -11,6 +11,7 @@ era: recent
 tags: [flood-mapping, worldfloods, ml4floods, sentinel-2, ndwi-baseline, onboard-processing, phisat-1, copernicus-ems, recall-first, permanent-water]
 verified: "2026-10-08 via curl to api.crossref.org (title, eight authors, journal, volume 11, article 7249, 31 March 2021), api.openalex.org (abstract) and the nature.com article page (Results section text); WebFetch permission prompt timed out so curl was used; Table 2 values were not in the extracted text so no IoU numbers are quoted"
 takeaway: "WorldFloods (119 verified flood events) shows a small CNN beats NDWI thresholds on Sentinel-2 flood water; NDWI at 0 generalises poorly on silty flood water and SWIR bands matter, both direct warnings for EvidEO's optical water fallback"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Mateo-Garcia et al. 2021, WorldFloods and onboard flood segmentation

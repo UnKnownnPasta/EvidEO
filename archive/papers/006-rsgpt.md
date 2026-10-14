@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, captioning, vqa, human-annotated, benchmark, rsicap, rsieval, instruction-tuning]
 verified: "2026-10-04 via https://arxiv.org/abs/2307.15266 and https://github.com/Lavender105/RSGPT"
 takeaway: "Copy RSICap's rich human-caption style and build a small Indian RSIEval-like test set; beat it on grounding and confidence"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # RSGPT: A Remote Sensing Vision Language Model and Benchmark

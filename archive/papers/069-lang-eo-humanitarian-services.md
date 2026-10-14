@@ -11,6 +11,7 @@ era: historical
 tags: [humanitarian, disaster-response, eo-uptake, user-needs, ngo, msf, information-service, operational]
 verified: "2026-10-04 via https://api.crossref.org/works/10.1080/22797254.2019.1684208 and https://api.semanticscholar.org (abstract); publisher page returned 403"
 takeaway: "Field report on delivering EO information to MSF and other NGOs, stressing that trust, reliability and workflow fit, not algorithms, limit uptake; EvidEO should design around delivery and trust for non-expert responders"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Earth observation tools and services to increase the effectiveness of humanitarian assistance

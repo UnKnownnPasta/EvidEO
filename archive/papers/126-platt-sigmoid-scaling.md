@@ -11,6 +11,7 @@ era: historical
 tags: [platt-scaling, sigmoid-calibration, post-hoc-calibration, svm, score-to-probability]
 verified: "2026-10-07 via Crossref search (api.crossref.org/works?query.bibliographic=...), record 10.7551/mitpress/1113.003.0008 gives title Probabilities for SV Machines, author Platt, book Advances in Large-Margin Classifiers, issued 2000-09-29; WebFetch was refused, curl used; the longer 1999 title is the common citation form and was not separately fetched; content summarized from standard knowledge, full text not fetched, dataset details not confirmed"
 takeaway: "Platt scaling is the simplest way to turn a raw EvidEO score (for example a backscatter margin below the Otsu threshold) into a probability, and is the baseline any fancier calibrator must beat"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Platt scaling, sigmoid calibration of classifier scores

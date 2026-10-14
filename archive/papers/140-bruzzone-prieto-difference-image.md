@@ -11,6 +11,7 @@ era: historical
 tags: [difference-image, unsupervised, expectation-maximization, bayes-threshold, markov-random-field, two-date-change]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1109/36.843009 (title, authors, venue, volume, issue, pages, May 2000) and abstract via OpenAlex; full text not fetched, so dataset details below are not confirmed"
 takeaway: "The template for EvidEO's two-date change instruments: model the difference image as a changed and unchanged mixture fitted by EM, pick the minimum-error Bayes threshold, and reuse the fitted posteriors as the confidence that drives abstention"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Bruzzone and Prieto 2000, automatic difference-image analysis

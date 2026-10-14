@@ -11,6 +11,7 @@ era: recent
 tags: [clip, dataset, peft, zero-shot, retrieval, semantic-localization, domain-adaptation, rs5m]
 verified: "2026-10-04 via https://arxiv.org/abs/2306.11300"
 takeaway: "Bake off GeoRSCLIP against RemoteCLIP; its PEFT results back the LoRA plan, but keep eval captions human-written"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # RS5M and GeoRSCLIP: A Large Scale Vision-Language Dataset and A Large Vision-Language Model for Remote Sensing

@@ -11,6 +11,7 @@ era: historical
 tags: [insar-coherence, urban-flood, sentinel-1, slc, building-footprint, hurricane-harvey, houston, double-bounce, hierarchical-split-based]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, issue, article number, abstract) and WebFetch of the open-access article at mdpi.com/2072-4292/11/2/107 (method, data, numbers, validation, limitations)"
 takeaway: "First demonstration that Sentinel-1 coherence (pre-event pair vs co-event pair, inside SAR-derived building footprints) maps flooded urban areas missed by intensity, adding 11% to the Houston flood area at 20 m; confirms EvidEO's urban blind spot is real and sizeable"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Chini et al. 2019, Sentinel-1 coherence for urban floods

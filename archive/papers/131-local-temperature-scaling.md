@@ -11,6 +11,7 @@ era: recent
 tags: [semantic-segmentation-calibration, temperature-scaling, spatially-varying-calibration, per-pixel-calibration, post-hoc-calibration]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=2008.05105 (title, authors, first posted 2020-08-12, comment Accepted by ICCV-2021, abstract); WebFetch was refused, curl used; summary based on the abstract, full text not fetched, numeric results not confirmed"
 takeaway: "Calibration for EvidEO's flood masks should be allowed to vary across the tile (river channels, hill shadow, urban areas), not a single global temperature, and must leave the mask itself unchanged"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Ding et al. 2021, Local Temperature Scaling (LTS)

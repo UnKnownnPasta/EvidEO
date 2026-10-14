@@ -11,6 +11,7 @@ era: historical
 tags: [insar-coherence, urban-flood, flooded-vegetation, agriculture, cosmo-skymed, multitemporal, double-bounce, emilia-romagna]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, issue, pages, DOI) and api.semanticscholar.org (abstract elided, paywalled); WebFetch of the Sapienza IRIS record iris.uniroma1.it/handle/11573/1090666 (abstract content). Full text not read"
 takeaway: "Multitemporal InSAR coherence catches floodwater in towns and crop fields that intensity thresholds miss or confuse, and can tell receded water from standing water; EvidEO's GRD-based pipeline cannot use it today, so urban and flooded-crop pixels must be flagged as unreliable"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Pulvirenti et al. 2016, coherence for urban and agricultural floods

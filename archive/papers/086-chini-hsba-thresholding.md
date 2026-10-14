@@ -11,6 +11,7 @@ era: historical
 tags: [flood-mapping, bimodality, ashman-d, hierarchical-tiling, gaussian-fitting, region-growing, change-detection, envisat, terrasar-x]
 verified: "2026-10-05 via https://www.list.lu/en/environment/scientific-publications/scientific-publications-detail/a-hierarchical-split-based-approach-for-parametric-thresholding-of-sar-images-flood-inundation-as-a (record and abstract) and https://eo4society.esa.int/wp-content/uploads/2023/11/HAZARD_Floods_Exercises_Chini.pdf (ESA training slides by the first author); final volume and issue not confirmed; full paper paywalled"
 takeaway: "Use Ashman D > 2 plus a 10% minority-class rule as EvidEO's explicit bimodality check, searching tiles of variable size rather than a fixed grid"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # A hierarchical split-based approach for parametric thresholding of SAR images: Flood inundation as a test case

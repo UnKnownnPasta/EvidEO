@@ -11,6 +11,7 @@ era: upcoming
 tags: [verbalized-confidence, vlm, calibration, ece, reasoning-trajectory, trajectory-grounding-score, tgs-bench, qwen3-vl]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=2609.18453 (title, four authors, date, abstract, comment 'EMNLP 2026 Main') and WebFetch of arxiv.org/html/2609.18453 (models, benchmarks, metric definitions, reported numbers); EMNLP acceptance only per the authors' comment, proceedings not checked; one ECE figure (0.081) was attributed in the text both to a 4B DynaMath comparison and to an 8B model in Figure 1, so the model size for that number is uncertain"
 takeaway: "A VLM's spoken confidence barely changes with what its reasoning actually contains, and RL calibration training improved ECE while making confidence even less tied to the reasoning; EvidEO must never use the VLM's self-reported confidence for the meter and should test any confidence signal by perturbing its evidence"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Yang et al. 2026, The Mirage of Calibrated Confidence

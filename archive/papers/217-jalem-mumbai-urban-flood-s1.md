@@ -11,6 +11,7 @@ era: recent
 tags: [mumbai, urban-flood, sentinel-1, vv, vh, bimodality, dip-test, kde-threshold, jrc-gsw, ward-level, bmc, chirps, india]
 verified: "2026-10-09 via WebSearch (candidate found) and WebFetch of the open-access article at mdpi.com/2673-4834/7/3/91 (title, authors, affiliations, dates, DOI, method, validation, numbers, author-stated limitations). The per-scene acquisition table and the VH table for years other than 2024 were not in the extracted text"
 takeaway: "Multi-year (2018 to 2025) Sentinel-1 flood mapping of Mumbai by ward, using tile-wise bimodality testing before thresholding and JRC permanent-water removal, checked against 500+ municipal and crowd-sourced flood points; useful as Indian urban reference points but its accuracy is not quantified"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Jalem et al. 2026, Mumbai urban floods from Sentinel-1

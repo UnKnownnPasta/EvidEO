@@ -11,6 +11,7 @@ era: recent
 tags: [sentinel-1, flood-mapping, water-mapping, cnn, u-net, deeplabv3plus, vv-vh, dual-polarisation, rule-based-baseline, s-1fs, dlr, sen1floods11, augmentation]
 verified: "2026-10-08 via curl to api.crossref.org (title, five authors, volume 15, pages 2023-2036, 2022) and api.openalex.org (abstract); WebFetch permission prompt timed out so curl was used; numbers below are from the abstract only"
 takeaway: "A dual-polarised (VV+VH) CNN beat DLR's operational Sentinel-1 rule chain by about 5 IoU points, and geometric augmentation hurt; EvidEO should keep VH in its SAR water inputs and benchmark any learned model against its own threshold baseline"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Bereczky et al. 2022, CNNs versus an operational Sentinel-1 flood chain

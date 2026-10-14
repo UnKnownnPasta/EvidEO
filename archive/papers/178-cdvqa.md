@@ -11,6 +11,7 @@ era: recent
 tags: [change-vqa, cdvqa, second-dataset, bi-temporal, aerial, automatic-qa-generation, change-ratio, benchmark]
 verified: "2026-10-08 via curl to https://api.crossref.org/works/10.1109/tgrs.2022.3203314 (title, authors, journal, volume, year), export.arxiv.org API (abstract, DOI link) and https://arxiv.org/html/2112.06343v2 (dataset construction, splits, Tables V and VI); WebFetch permission request timed out"
 takeaway: "The founding change-VQA benchmark: 2,968 aerial image pairs and about 122,000 template questions auto-generated from semantic change maps; the baseline gets about 65 to 69% overall but only 24 to 39% on change ratio and smallest change, which is why EvidEO computes such numbers from masks instead of asking a model"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Yuan et al. 2022, change detection based VQA (CDVQA)

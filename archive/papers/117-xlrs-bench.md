@@ -11,6 +11,7 @@ era: recent
 tags: [mllm-benchmark, ultra-high-resolution, counting, change-detection, visual-grounding, reasoning, bilingual]
 verified: "2026-10-06 via https://arxiv.org/abs/2503.23771 and https://arxiv.org/html/2503.23771; CVPR 2025 acceptance taken from the arXiv comment; project page fetched but lists no repo link; grounding table units are not stated clearly"
 takeaway: "On huge real scenes the best MLLMs average about 40% on four-option questions and almost never draw a correct box, so EvidEO should tile scenes and measure with instruments rather than ask a VLM to read a whole Sentinel scene"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # XLRS-Bench

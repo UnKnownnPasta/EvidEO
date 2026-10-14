@@ -11,6 +11,7 @@ era: recent
 tags: [stac, metadata, catalog, search-api, geojson, cloud-native, interoperability, sentinel, planetary-computer, copernicus]
 verified: "2026-10-04 via https://github.com/radiantearth/stac-spec/releases"
 takeaway: "STAC is the common search language of public EO catalogues (Item, Catalog, Collection, API); EvidEO should search with STAC API and record STAC Item IDs and hrefs in every receipt"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # SpatioTemporal Asset Catalog (STAC) Specification

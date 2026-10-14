@@ -11,6 +11,7 @@ era: upcoming
 tags: [survey, rs-reasoning, agentic-reasoning, rl-reasoning, calibrated-uncertainty, provenance, evaluation-gaps, earth-ai, openearthagent, terraagent]
 verified: "2026-10-09 via WebFetch of https://www.preprints.org/manuscript/202608.1840 (title, authors, posting date, abstract, coverage of uncertainty, provenance, agents and benchmarks; the last 2.6k characters and Sections 7 and 8 were truncated) and curl to https://api.crossref.org/works/10.20944/preprints202608.1840.v1 (title, authors, posted date 2026-08-26, preprint type)"
 takeaway: "An August 2026 survey that defines RS reasoning as multi-step inference backed by traceable evidence and finds that calibration, abstention and validated operational use are still missing in RS VLMs and EO agents (it cites no work that evaluates them); a useful third-party statement of the gap EvidEO fills"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Pan et al. 2026, RS reasoning survey

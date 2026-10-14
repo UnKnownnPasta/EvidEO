@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, llava, lora, captioning, vqa, instruction-tuning, optical]
 verified: "2026-10-04 via https://www.mdpi.com/2072-4292/16/9/1477 and https://github.com/BigData-KSU/RS-LLaVA"
 takeaway: "LoRA recipe and released 7B checkpoint are a fine-tune starting point; its ungrounded, confidence-free output is the gap EvidEO fills"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # RS-LLaVA: A Large Vision-Language Model for Joint Captioning and Question Answering in Remote Sensing Imagery

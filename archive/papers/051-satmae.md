@@ -11,6 +11,7 @@ era: recent
 tags: [masked-autoencoder, self-supervised, vit, multispectral, temporal, sentinel-2, fmow-sentinel, land-cover]
 verified: "2026-10-04 via https://arxiv.org/abs/2207.08051 and https://sustainlab-group.github.io/SatMAE/"
 takeaway: "The founding MAE recipe for multispectral and temporal satellite data; treat it as background and baseline, not as a EvidEO runtime component"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # SatMAE: Pre-training Transformers for Temporal and Multi-Spectral Satellite Imagery

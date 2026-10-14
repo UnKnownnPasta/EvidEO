@@ -11,6 +11,7 @@ era: recent
 tags: [building-footprints, instance-segmentation, u-net, self-training, mixup, open-buildings, africa, 50cm-imagery, exposure-layer]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query?id_list=2107.12283 (title, authors, date, abstract); no journal_ref on arXiv; India coverage of later Open Buildings releases is from general knowledge and was not checked against a source"
 takeaway: "Do not detect buildings from Sentinel; ingest a precomputed open footprint layer (Open Buildings or similar) as a versioned exposure layer so flood cards can say how many mapped buildings fall inside the water mask"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Sirko et al. 2021, continental-scale building detection (Open Buildings)

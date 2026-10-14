@@ -11,6 +11,7 @@ era: recent
 tags: [exclusion-map, sentinel-1, time-series, radar-shadow, layover, urban, dense-vegetation, sand, flood-mapping, false-water, gfm]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, article number; also the 2020 ISPRS Annals precursor with its abstract) and api.semanticscholar.org (full RSE abstract, open-access status). ScienceDirect full text could not be fetched (robots blocked), so thresholds and per-site numbers are not reproduced"
 takeaway: "Every SAR flood map should ship with an exclusion map of pixels where SAR cannot see water (shadow, layover, dense forest, urban, sand), derived from the Sentinel-1 time series itself via temporal median, minimum and standard deviation; EvidEO should compute one per district and report those pixels as unknown, not dry"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Zhao et al. 2021, SAR exclusion maps

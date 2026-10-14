@@ -11,6 +11,7 @@ era: recent
 tags: [cloud-removal, uncertainty, aleatoric, calibration, uce, negative-log-likelihood, l-tae, sen12ms-cr-ts, sentinel-1, sentinel-2, selective-prediction]
 verified: "2026-10-05 via https://openaccess.thecvf.com/content/CVPR2023W/EarthVision/html/Ebel_UnCRtainTS_Uncertainty_Quantification_for_Cloud_Removal_in_Optical_Satellite_Time_CVPRW_2023_paper.html, https://arxiv.org/abs/2304.05464v1 and https://ar5iv.labs.arxiv.org/html/2304.05464"
 takeaway: "Calibrated per-pixel variance lets you discard the most uncertain half of outputs and nearly halve error; the same rank-and-reject logic is EvidEO's abstain rule"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # UnCRtainTS: Uncertainty Quantification for Cloud Removal in Optical Satellite Time Series

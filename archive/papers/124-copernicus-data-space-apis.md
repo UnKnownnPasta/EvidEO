@@ -11,6 +11,7 @@ era: recent
 tags: [copernicus-data-space, cdse, stac, odata, s3, sentinel-1, catalogue, failover, openeo]
 verified: "2026-10-06 via https://documentation.dataspace.copernicus.eu/APIs/STAC.html (STAC 1.1.0, endpoint https://stac.dataspace.copernicus.eu/v1/, legacy endpoint deprecated from 17 Nov 2025, limited set of collections), https://documentation.dataspace.copernicus.eu/APIs/OData.html (query options and performance tips) and https://documentation.dataspace.copernicus.eu/APIs/S3.html (eodata endpoint, credentials); year 2025 reflects the current STAC endpoint, docs are continuously updated; a direct curl of the STAC collections endpoint did not return JSON from this sandbox, so the live collection list was not confirmed"
 takeaway: "CDSE is EvidEO's authoritative last-resort catalogue: its new STAC 1.1 endpoint and OData API index every Sentinel product, but pixel access needs S3 credentials and products are mostly SAFE archives, so it is the slowest and most fragile of the three failover routes"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Copernicus Data Space Ecosystem APIs

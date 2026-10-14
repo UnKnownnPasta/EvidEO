@@ -11,6 +11,7 @@ era: historical
 tags: [sar, change-detection, ratio, log-ratio, speckle, number-of-looks, decorrelation, coherence, ers-1, foundational]
 verified: "2026-10-08 via curl to api.crossref.org (title, two authors, volume 31, issue 4, pages 896-906, July 1993) and api.openalex.org (abstract; open copy listed at escholarship.org/uc/item/02j5r0qf, not fetched); WebFetch permission prompt timed out so curl was used"
 takeaway: "The origin of ratioing SAR intensities instead of subtracting them: ratio fits multiplicative speckle and works best with many looks, while speckle decorrelation suits single-look data; the reason EvidEO's SAR change instrument is a log-ratio"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Rignot and van Zyl 1993, change detection techniques for ERS-1 SAR

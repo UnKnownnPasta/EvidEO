@@ -11,6 +11,7 @@ era: recent
 tags: [vqa, abstention, selective-prediction, risk-coverage, effective-reliability, selector]
 verified: "2026-10-04 via https://arxiv.org/abs/2204.13631"
 takeaway: "Softmax-thresholded VQA models answer under 7.5% of questions at 1% risk; a learned multimodal selector raises coverage from 6.8% to 15.6%, and Effective Reliability penalises wrong answers more than abstentions"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Reliable Visual Question Answering: Abstain Rather Than Answer Incorrectly

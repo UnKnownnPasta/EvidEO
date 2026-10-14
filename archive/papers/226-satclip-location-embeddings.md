@@ -11,6 +11,7 @@ era: recent
 tags: [location-encoder, contrastive-pretraining, sentinel-2, geographic-embeddings, name-collision]
 verified: "2026-10-12 via WebSearch (AAAI OJS page, Microsoft Research page, mlanthology AAAI 2025 entry) and WebFetch of arxiv.org/abs/2311.17179 (title, five authors, dates, abstract); per-task numbers not extracted"
 takeaway: "Prior art for the NAME, not the method: SatCLIP is Microsoft's contrastive location encoder (AAAI 2025). Our project was called SatClip until 2026-10-12, a collision we missed for nine runs; it is now renamed EvidEO. Methodologically unrelated, but useful as a location prior"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Klemmer et al. 2025, SatCLIP

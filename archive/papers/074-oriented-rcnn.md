@@ -11,6 +11,7 @@ era: recent
 tags: [oriented-object-detection, two-stage, rotated-boxes, region-proposal, dota, hrsc2016, mmdetection]
 verified: "2026-10-04 via https://arxiv.org/abs/2108.05699 and https://github.com/jbwang1997/OBBDetection"
 takeaway: "Simple, fast two-stage rotated-box detector (75.87% mAP on DOTA, 96.50% on HRSC2016, 15.1 FPS on a GPU); a strong baseline if EvidEO ever adds ship detection, but its GPU speed does not translate to our CPU budget"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Oriented R-CNN for Object Detection

@@ -11,6 +11,7 @@ era: historical
 tags: [flood-mapping, terrasar-x, automatic-thresholding, hierarchical-tiling, fuzzy-logic, operational-service, global-validation, thailand]
 verified: "2026-10-05 via https://elib.dlr.de/96684 (bibliographic record and abstract); algorithm parameters cross-checked against https://extwiki.eodc.eu/GFM/PDD/GFM_algorithms/DLR_algo, which cites this paper; publisher full text not read (paywalled)"
 takeaway: "Proof that unsupervised tile thresholding plus fuzzy refinement survives 175 real flood scenes worldwide, including tropical Thailand; the robustness tricks matter more than the threshold rule"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # A fully automated TerraSAR-X based flood service

@@ -11,6 +11,7 @@ era: historical
 tags: [speckle, lee-filter, adaptive-filter, sar, local-statistics, denoising]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1109/TPAMI.1980.4766994 (title, author, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
 takeaway: "The Lee filter is the cheap, explainable speckle reducer EvidEO should apply to gamma0 before thresholding, with window size logged in the receipt"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Lee local statistics filter

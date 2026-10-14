@@ -11,6 +11,7 @@ era: upcoming
 tags: [conformal-risk-control, llm-agents, tool-use, retrieval, trajectory-level-risk, accept-or-intervene, anytime-alarm, distribution-drift, selective-prediction]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=2606.18467 (title, two authors, date, abstract, comment '26 pages, 11 figures') and WebFetch of arxiv.org/html/2606.18467 (method sections 3 to 6, Theorem 1, Propositions 1 and 2, limitation headings); the experiments section, target alpha values and all numeric results were not reachable in the HTML capture, so no results numbers are reported here"
 takeaway: "Calibrates an accept-or-intervene rule over the whole agent trajectory (retrieval, tool calls, synthesis) rather than the final answer, with a conformal guarantee on the risk of accepted runs; EvidEO's abstention should score scene search, preprocessing and mask steps, not just the final number"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Opoku and Banahene 2026, ToolChain-CRC

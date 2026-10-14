@@ -11,6 +11,7 @@ era: upcoming
 tags: [lora, dpo, multispectral, sar, sentinel-1, sentinel-2, rendered-views, sen1floods11, bigearthnet-v2, smolvlm2, qwen3-vl, evidence-consistency]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and curl to https://arxiv.org/html/2609.02187v1 (view list, LoRA rank, Table 1 to 3 values for Sen1Floods11 and the four backbones); WebFetch permission request timed out; no limitations section was found, so the limitations below are our own reading"
 takeaway: "Shows a small off-the-shelf VLM can read S1/S2 if bands are rendered as named images and tuned with rank-16 LoRA (Sen1Floods11 patch flood verification F1 0.53 to 0.77), but it still answers yes/no with no area, scene ID or calibrated confidence; EvidEO keeps numbers in the instrument and can borrow the named-view trick for its explainer"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Liu et al. 2026, lightweight LoRA adaptation of general VLMs to multispectral and SAR inputs

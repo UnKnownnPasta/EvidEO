@@ -11,6 +11,7 @@ era: historical
 tags: [hand, height-above-nearest-drainage, terrain-mask, dem, flood-prone-areas, exclusion-mask, amazonia, false-water]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, pages, DOI) and api.semanticscholar.org (authors, year; abstract elided by publisher); WebFetch of experts.arizona.edu record (abstract content); WebFetch of the GFM Product Definition wiki at extwiki.eodc.eu (how GFM applies a HAND threshold). Full text not read (publisher page blocked); DEM name, class thresholds and correlation coefficients not confirmed"
 takeaway: "HAND (height of each pixel above its nearest drainage channel) is the standard terrain prior for SAR flood maps; operational systems such as Copernicus GFM mask pixels with HAND of 10 m or more, which EvidEO should copy to kill terrain-shadow and hillside false water"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Nobre et al. 2011, HAND terrain model

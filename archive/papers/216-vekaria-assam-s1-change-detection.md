@@ -11,6 +11,7 @@ era: recent
 tags: [assam, brahmaputra, sentinel-1, change-detection, google-earth-engine, permanent-water-mask, shadow-mask, crop-damage, imerg, india]
 verified: "2026-10-09 via curl to api.crossref.org (title, four authors, journal, volume, issue, article number, DOI) and WebFetch of the Springer article page (abstract content, accuracy figures, access status: paywalled). Full text not read; polarisation, threshold values and the validation reference source were not visible"
 takeaway: "Six-year Sentinel-1 change-detection flood record for the Brahmaputra in Assam with permanent-water and shadow removal, reporting about 6 lakh ha flooded in peak years; a direct Indian analogue of sar_logratio_change, though its validation reference is unclear"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Vekaria et al. 2023, Assam Sentinel-1 change detection 2015 to 2020

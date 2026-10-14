@@ -11,6 +11,7 @@ era: recent
 tags: [foundation-model, embeddings, masked-autoencoder, vit, sentinel-1, sentinel-2, landsat, open-source, apache-2.0, source-cooperative]
 verified: "2026-10-04 via https://clay-foundation.github.io/model/ and https://clay-foundation.github.io/model/release-notes/specification.html"
 takeaway: "Apache-licensed multi-sensor embedding model with precomputed embeddings; useful for similarity search and change hints in EvidEO, never as the source of reported numbers"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Clay Foundation Model

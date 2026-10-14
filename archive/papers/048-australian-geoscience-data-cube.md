@@ -11,6 +11,7 @@ era: historical
 tags: [open-data-cube, analysis-ready-data, provenance, surface-reflectance, time-series, landsat, ceos, apache-2, hpc]
 verified: "2026-10-04 via https://openresearch-repository.anu.edu.au/items/a1274cca-c22d-4a4f-8b51-726487d18bc3/full"
 takeaway: "Open Data Cube foundations: analysis-ready, provenance-tracked data plus a light index and open (Apache 2.0) code make time series trustworthy; EvidEO should copy the provenance discipline, not the heavy ingest"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # The Australian Geoscience Data Cube (Lewis et al., 2017)

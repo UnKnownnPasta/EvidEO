@@ -11,6 +11,7 @@ era: recent
 tags: [temporal, change-detection, damage-assessment, vlm, instruction-tuning, llama-2, multi-image, vqa]
 verified: "2026-10-04 via https://arxiv.org/abs/2410.06234 and https://github.com/ermongroup/TEOChat"
 takeaway: "Use its temporal task taxonomy for before/after queries; too heavy for CPU and has no SAR or calibration, which EvidEO adds"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # TEOChat: A Large Vision-Language Assistant for Temporal Earth Observation Data

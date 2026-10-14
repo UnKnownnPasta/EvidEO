@@ -3,48 +3,64 @@ id: 201
 title: "TerraScope: Pixel-Grounded Visual Reasoning for Earth Observation"
 authors: "Yan Shu, Bin Ren, Zhitong Xiong, Xiao Xiang Zhu, Begüm Demir, Nicu Sebe, Paolo Rota"
 year: 2026
-venue: "CVPR 2026 main track (per arXiv comment, which contains a typo 'CVPR20206'); arXiv:2603.19039 (v1 March 2026)"
+venue: "CVPR 2026 main track (per arXiv comment, which contains a typo 'CVPR20206'); arXiv:2603.19039 (v1 19 March 2026, the only version)"
 link: https://arxiv.org/abs/2603.19039
-code: "Project page https://shuyansy.github.io/terrascope/ (per the paper); the paper mentions a code repository but gives no direct link in the text read"
+code: "Project page https://shuyansy.github.io/terrascope/ (per the paper); the paper says prompts and evaluation code are in its repository but gives no direct repo link in the text read"
 category: rs-vlm
 era: recent
 tags: [pixel-grounding, chain-of-thought, sar-optical-fusion, bi-temporal-change, sam-2, internvl3, terra-cot, terrascope-bench, area-quantification]
-verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?search_query=ti:TerraScope (title, authors, v1 date 2026-03-19, CVPR comment, abstract) and WebFetch of https://arxiv.org/html/2603.19039v1 (architecture, Terra-CoT sources, benchmark sub-tasks, Tables 1 to 3 numbers, stated limitations, compute); CVPR acceptance not cross-checked against the CVPR proceedings site"
-takeaway: "A CVPR 2026 RS VLM that interleaves SAM-2 masks into its reasoning, handles optical or SAR and bi-temporal inputs, and answers area and change questions (68.9 avg on its own benchmark vs 43.3 best zero-shot); the closest model-side rival to EvidEO's mask-plus-number answers, but it has no calibration, abstention, live retrieval or scene receipts"
+read_depth: "full"
+verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?search_query=ti:TerraScope (title, authors, v1 date 2026-03-19, CVPR comment, abstract) and WebFetch of https://arxiv.org/html/2603.19039v1 (architecture, Terra-CoT sources, benchmark sub-tasks, Tables 1 to 3 numbers, stated limitations, compute); CVPR acceptance not cross-checked against the CVPR proceedings site; 2026-10-14 full-text read via curl of https://arxiv.org/html/2603.19039 converted to plain text (sections read: abstract, 1 to 7, Tables 1 to 3, Appendix A to J including Algorithm 1, Tables A to K and failure analysis; keyword grep for calibration, abstention, provenance, SAR, cloud, CPU and plain-language terms)"
+takeaway: "A CVPR 2026 RS VLM that interleaves SAM-2 masks into its reasoning, picks optical or SAR features per token when both are supplied (favouring SAR under cloud), and answers area and change questions (68.9 avg on its own benchmark vs 43.3 best zero-shot); the closest model-side rival to EvidEO's mask-plus-number answers, but it has no calibration, abstention, scene retrieval or receipts and needs a GPU"
 ---
 
 # Shu et al. 2026, TerraScope
 
 ## Problem
-RS VLMs answer spatial questions (how much of this area is water, how many buildings changed) from text-level reasoning that is not tied to pixels, so the numbers cannot be checked and quantitative questions are weak.
+RS VLMs answer spatial questions (how much of this area is water, how many buildings changed) from text-level reasoning that is not tied to pixels, so the numbers cannot be checked and quantitative questions are weak. EO imagery has continuous land-cover transitions, so box-level grounding is too coarse.
 
 ## Approach
-- InternVL3 (8.1B) plus a SAM-2 image encoder and mask decoder, about 8.3B parameters in total.
-- The decoder emits a [SEG] token when it names a region; its hidden state prompts SAM-2, and the masked visual tokens are fed back into the reasoning chain (the authors call this thinking with pixels).
-- Optical and SAR are encoded separately; per token position the modality with the higher question-conditioned attention score is kept, so the model works with either sensor alone or both.
-- Multi-temporal input is fed as separate images with an explicit image index before each [SEG], limited to bi-temporal analysis.
-- Two training stages: 2M referring-segmentation pairs (BigEarthNet, ChatEarthNet), then 1M Terra-CoT reasoning samples with segmentation loss added to the language loss.
+- InternVL3 (8.1B) plus a SAM-2 image encoder (224M) and mask decoder (4M), about 8.3B parameters (Table C).
+- When the language decoder emits [SEG], its hidden state prompts SAM-2; visual tokens covered more than 50% by the mask (capped at 128 by spatial sampling) are injected back into the reasoning sequence (Sec. 3.2, Appendix C). Output is wrapped in think and answer tags.
+- Optical and SAR are encoded separately. When both are present, a text-to-visual attention score is computed per token and, inside each mask, the modality with the higher score is used (Eq. 4 and 5, Algorithm 1). The authors show it choosing SAR tokens in cloud-covered regions (Fig. 7).
+- Temporal input: an explicit "Image: t" indicator before each [SEG]; limited to bi-temporal analysis.
+- Training: stage 1 trains only the mask decoder on 2M referring-segmentation pairs (1.5M BigEarthNet, 0.5M ChatEarthNet); stage 2 fine-tunes projector, mask decoder and LoRA on the LLM over 1M Terra-CoT samples, with Dice plus cross-entropy segmentation loss at weight 0.5 (Sec. 3.2, 5, Appendix E.1).
 
 ## Data and benchmarks
-- Terra-CoT (1M samples) built from ChatEarthNet, BigEarthNet, xBD and TEOChat, with captions and reasoning generated by Qwen3-VL-235B from mask-overlaid images, plus template and LLM-composed spatial questions.
-- TerraScope-Bench: 3,837 expert-verified multiple-choice questions across six sub-tasks (coverage percentage, absolute area, distance, comparative area ranking, boundary relations, building change), scored on answer accuracy and mask IoU.
-- Also evaluated on Landsat30-AU and DisasterM3 (entry 118).
+- Terra-CoT (1M): 250K Cap-CoT captions generated by Qwen3-VL-235B from mask-overlaid images of ChatEarthNet, BigEarthNet, xBD and TEOChat; a TerraScope-Cap annotator then labels unlabelled optical, SAR and temporal imagery, and template (L1) and LLM-composed (L2) questions with reasoning traces are synthesised (Sec. 3.3, Appendix E.2).
+- TerraScope-Bench: 3,837 expert-verified multiple-choice questions from ChatEarthNet, BigEarthNet and xBD test sets: coverage percentage 855, absolute area 855, distance 129, comparative area 855, boundary relation 855, building change 288 (Sec. 4). Answers come from deterministic rules on masks (area uses 10 m Sentinel-2 pixels); GPT-4o rephrases and writes distractors; only samples all experts rate high quality are kept (Appendix D.2). Scored on answer accuracy and mask IoU.
+- Also evaluated zero-shot on Landsat30-AU and DisasterM3 (entry 118).
 
 ## Key results
-- TerraScope-Bench average 68.9, against 59.6 (fine-tuned GLM-4.1V-Think), 54.9 (fine-tuned InternVL3) and 43.3 (best zero-shot, Qwen3-VL-Think); GPT-4o 38.7.
-- DisasterM3 average 46.5 vs 38.8 for the best fine-tuned baseline; optical plus SAR subset 41.5 vs 19.6 for InternVL3-8B.
-- Ablation: text-only CoT 58.7, random-mask CoT 43.2, box CoT 62.8, full mask CoT 68.9.
-- Mask IoU is higher for correct answers (0.628) than wrong ones (0.443), correlation r = 0.607.
-- Inference about 2.48 s per sample and 22.4 GB peak memory on an A100, so GPU only.
+- TerraScope-Bench average 68.9 vs 59.6 (GLM-4.1V-Think fine-tuned on Terra-CoT), 54.9 (InternVL3 fine-tuned) and 43.3 (best zero-shot, Qwen3-VL-Think); GPT-4o 38.7; EarthDial 36.3; GeoChat 33.7 (Table 1).
+- DisasterM3 optical-optical average 46.5 vs 38.8 best fine-tuned baseline (Table 1); optical-SAR average 41.5 vs 19.6 for InternVL3-8B and 14.9 for EarthDial (Table H).
+- Optical plus SAR on TerraScope-Bench: text-guided selection lifts accuracy about one point over optical only (Table 3); in Table K, concatenating both modalities is slightly more accurate (73.0) than adaptive selection (72.6), which the authors prefer for shorter context.
+- CoT ablation: text-only CoT 58.7, random-mask CoT 43.2, box CoT 62.8, full mask CoT 68.9 (Table 2).
+- Mask IoU is higher for correct answers (0.628) than wrong ones (0.443), Pearson r = 0.607 (Sec. 5.2, Fig. 6).
+- RSVQA-LR 91.4 and BigEarthNet 69.2 vs EarthDial 92.7 and 68.8 (Table G).
+- Inference 2.48 s per sample and 22.4 GB peak memory (24.2 GB with 3+ masks) on one A100 80GB (Tables D, E).
 
 ## Limitations
-- Authors list hallucinated reasoning or masks, longer context from interleaved masks, RGB and SAR only (no multispectral), bi-temporal only, and error propagation from segmentation to answers; distance and building change remain weak.
-- No confidence, calibration or abstention analysis; uncertainty estimation for low-confidence masks is named as future work. Unparseable answers are simply scored wrong.
-- Works on prepared image chips; no scene retrieval, dates or provenance.
-- Training hyperparameters are reported inconsistently between the appendix table and Section 5.
+- Authors list hallucinated reasoning or masks, longer context from interleaved masks, RGB and SAR only (no multispectral or hyperspectral), bi-temporal only (Appendix A), and error propagation from segmentation to answers on small or low-contrast objects (Appendix J.2). Distance and building change stay weak (Table 1).
+- No confidence, calibration or abstention; uncertainty estimation that flags low-confidence masks is named only as future work (Appendix J.2). Unparseable answers are scored wrong (Appendix F.2).
+- Works on prepared image chips; both optical and SAR must be supplied by the user or dataset. No scene retrieval, dates or provenance.
+- Training hyperparameters are reported inconsistently: Sec. 5 says lr 1e-5 and batch size 2, Table B says lr 4e-5 and batch size 32.
 
 ## What it means for EvidEO
-- Beat: EvidEO's water and change percentages come from deterministic instruments (Otsu on SAR, log-ratio, NDVI difference) on full Sentinel scenes, not from a VLM's mask, and run on CPU; TerraScope needs about 22 GB of GPU memory.
+- Beat: EvidEO's water and change percentages come from deterministic instruments (Otsu on SAR, log-ratio, NDVI difference) on full Sentinel scenes it retrieves itself, not from a VLM's mask on supplied chips, and run on CPU; TerraScope needs about 22 GB of GPU memory.
 - Adopt: the observation that mask quality predicts answer correctness supports using EvidEO's own mask-quality signals (for example bimodality of the SAR histogram or mask fragmentation) as features for the calibrated confidence.
-- Adopt as a benchmark idea: coverage-percentage and area questions with mask IoU scoring are close to EvidEO's flood-extent questions; a small Indian version could reuse this format.
-- Novelty: weakens the claim only partly. It is the strongest published evidence that a VLM can produce pixel-grounded, SAR-capable, bi-temporal area answers, so EvidEO cannot claim mask-backed change answers or SAR handling as new. It does not touch calibrated confidence, abstention, scene receipts, live retrieval with SAR fallback, or CPU delivery to Indian officials, which remain EvidEO's differentiators.
+- Adopt as a benchmark idea: coverage-percentage and area questions with mask IoU scoring are close to EvidEO's flood-extent questions; a small Indian version could reuse this format and its deterministic answer rules.
+- Novelty: weakens the claim only partly. It is the strongest published evidence that a VLM can produce pixel-grounded, SAR-capable, bi-temporal area answers and prefer SAR in cloudy regions, so EvidEO cannot claim mask-backed change answers, SAR handling, or "uses radar where optical is clouded" as new at the model level. EvidEO's distinct claim must be scene-level: the system decides to fetch Sentinel-1 when the optical scene is cloudy.
+
+## Full-text check (2026-10-14)
+Ingredients (TerraScope's own system as built and evaluated):
+- C1 calibrated per-answer confidence: No. No probability or calibration; mask IoU correlates with correctness (Fig. 6) but is computed against ground truth, so it is not a runtime confidence.
+- C2 threshold abstention with next step: No. Flagging low-confidence masks is future work (Appendix J.2).
+- C3 scene receipts that reproduce: No. Chips from benchmark datasets; greedy decoding at temperature 0 makes evaluation deterministic (Appendix F.2), but answers name no scene IDs or dates and no re-run receipt is produced.
+- C4 SAR chosen automatically under cloud: part. When the user supplies both an optical and a SAR image, the model picks SAR tokens over clouded regions automatically (Eq. 5, Fig. 7, Algorithm 1). It does not detect cloud, retrieve scenes or choose which sensor to acquire, and the accuracy gain is about one point (Table 3).
+- C5 CPU or offline: No. A100 GPU, 22.4 GB peak (Table E).
+- C6 plain-language questions for non-experts: part. Natural-language questions with readable reasoning traces (Fig. 8, Appendix F.1), but answers are multiple-choice letters or short phrases on the benchmark and no non-expert study exists.
+
+Corrections to the earlier entry: added the optical-SAR selection details and its small, mixed ablation effect (Tables 3, K); added Table G, Table H rivals and memory with 3+ masks; noted EarthDial and GeoChat scores on TerraScope-Bench; earlier numbers otherwise confirmed.
+
+Novelty impact: 0 Yes, 2 part (C4, C6). Does not exceed two, but C4 part is the closest any reviewed paper comes to EvidEO's SAR-under-cloud ingredient, so EvidEO should define C4 at the scene-selection level and cite TerraScope as the token-level precedent.

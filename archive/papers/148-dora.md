@@ -11,6 +11,7 @@ era: recent
 tags: [dora, lora, peft, weight-decomposition, magnitude-direction, fine-tuning, vlm-instruction-tuning, llava]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (WebFetch permission request timed out); title, authors, ICML 2024 Oral comment and code URL from arXiv metadata and abstract; ICML proceedings page and repo not fetched; no numeric gains are quoted because the abstract gives none"
 takeaway: "A drop-in LoRA variant with no extra inference cost; worth an A/B run against plain LoRA on EvidEO's question-to-intent training set before committing to one"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # DoRA, weight-decomposed low-rank adaptation

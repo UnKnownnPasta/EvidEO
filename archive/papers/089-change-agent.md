@@ -11,6 +11,7 @@ era: recent
 tags: [change-detection, change-captioning, llm-agent, tool-use, bi-temporal, levir-mci, python-tools]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2403.19646 and https://arxiv.org/html/2403.19646 (journal ref TGRS 2024, DOI 10.1109/TGRS.2024.3425815)"
 takeaway: "Closest prior art to EvidEO's 'instrument as eyes, LLM as brain' split for change questions, but the LLM writes free Python and nothing is calibrated, receipted or allowed to abstain"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Change-Agent: Towards Interactive Comprehensive Remote Sensing Change Interpretation and Analysis

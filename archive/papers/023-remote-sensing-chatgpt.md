@@ -11,6 +11,7 @@ era: recent
 tags: [llm-agent, tool-use, chatgpt, task-decomposition, captioning, detection, segmentation]
 verified: "2026-10-04 via https://arxiv.org/abs/2401.09083 and https://github.com/HaonanGuo/Remote-Sensing-ChatGPT"
 takeaway: "Simple LLM plan-and-call-tools loop with no quantitative evaluation; copy the loop with an open CPU LLM and add confidence propagation and abstention"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Remote Sensing ChatGPT: Solving Remote Sensing Tasks with ChatGPT and Visual Models

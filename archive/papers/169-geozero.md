@@ -11,6 +11,7 @@ era: recent
 tags: [reasoning, reinforcement-learning, grpo, a2grpo, qwen3-vl, scene-classification, visual-grounding, vqa, captioning, open-weights]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract, code link) and curl to https://arxiv.org/html/2511.22645v3 (dataset table, Tables II to IV, supplementary diagnostic); WebFetch permission request timed out"
 takeaway: "RL can make an 8B RS VLM reason without hand-written chains of thought and its open data recipe is reusable, but it is RGB only and reports no confidence or abstention, so it is a parser or explainer candidate at most, not a measuring instrument"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Wang et al. 2025, GeoZero (RS reasoning without cold-start chain of thought)

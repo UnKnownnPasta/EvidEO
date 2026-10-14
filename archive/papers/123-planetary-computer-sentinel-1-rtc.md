@@ -11,6 +11,7 @@ era: recent
 tags: [planetary-computer, sentinel-1, rtc, gamma0, stac, cog, sas-token, azure]
 verified: "2026-10-06 via https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-1-rtc (description, methodology, CC-BY-4.0, temporal extent from 2014-10-10, providers, msft:requires_account=true), a live item search over Barpeta (S1D item dated 2026-10-02, EPSG:32646, 10 m, vv/vh float32 COGs, nodata -32768) and https://planetarycomputer.microsoft.com/api/sas/v1/token/sentinel-1-rtc (token endpoint answered anonymously); year 2022 is the approximate public release year and was not confirmed from an official page; whether anonymous tokens can actually read the blobs was not tested"
 takeaway: "Planetary Computer's sentinel-1-rtc is the most direct source of the gamma0 RTC that EvidEO's SAR instruments need, but it is flagged account-required and ships only vv and vh, so EvidEO must treat token failure as a normal failover case and derive its own shadow mask"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Planetary Computer Sentinel-1 RTC

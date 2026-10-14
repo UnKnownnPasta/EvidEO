@@ -11,6 +11,7 @@ era: upcoming
 tags: [sar, reasoning, chain-of-thought, grpo, reinforcement-learning, qwen3-vl, land-cover, counting, metadata-priors, fudan]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and curl to https://arxiv.org/html/2607.16819v1 (method, Table V numbers, conclusion); WebFetch permission request timed out; backbone size and test-set sizes not stated in the text we read"
 takeaway: "The newest SAR reasoning VLM still emits bare answers with no confidence, abstention or scene receipt, and its land-cover proportion error (MAE 7.67) is too coarse for flood extent, so EvidEO should keep SAR numbers in thresholds and use the VLM only to explain"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Yang et al. 2026, FUSAR-R1 (SAR reasoning model with chain of thought and GRPO)

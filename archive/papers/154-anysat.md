@@ -11,6 +11,7 @@ era: recent
 tags: [anysat, jepa, multimodal, multi-resolution, geoplex, sar, optical, flood, burn-scar, crop-type, change-detection]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, abstract) and https://api.crossref.org (CVPR 2025 proceedings record); repo URL from the abstract, not fetched; no numbers quoted because the abstract gives none"
 takeaway: "A single JEPA model that accepts any mix of resolutions and sensors and covers flood and crop tasks; useful as a flexible second opinion, not as the source of card numbers"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Astruc et al. 2025, AnySat

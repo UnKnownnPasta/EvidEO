@@ -11,6 +11,7 @@ era: recent
 tags: [geospatial-copilot, tool-augmented-agents, benchmark, function-calling, gpt-4, react, sar, sentinel-2]
 verified: "2026-10-04 via https://arxiv.org/abs/2404.15500 and https://arxiv.org/html/2404.15500"
 takeaway: "GPT-4 agent success fell as tool chains grew longer; keep EvidEO plans short and fixed and track tool-call correctness"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # GeoLLM-Engine: A Realistic Environment for Building Geospatial Copilots

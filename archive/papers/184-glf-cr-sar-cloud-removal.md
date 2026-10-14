@@ -11,6 +11,7 @@ era: recent
 tags: [cloud-removal, sar-optical-fusion, sentinel-1, sentinel-2, sen12ms-cr, speckle, dynamic-filtering, monsoon-cloud, arxiv-2206.02850]
 verified: "2026-10-08 via curl to export.arxiv.org/api/query (id 2206.02850: title, seven authors, abstract) and api.crossref.org (journal, volume 192, pages 268-278, October 2022 issue); code README fetched from raw.githubusercontent.com; WebFetch permission prompt timed out so curl was used; only the 1.7 dB PSNR gain from the abstract is quoted, no table values"
 takeaway: "Uses co-registered Sentinel-1 to fill cloudy Sentinel-2 pixels with about 1.7 dB PSNR gain on SEN12MS-CR; useful as a context image for EvidEO, but synthesized pixels must never feed NDVI or water masks as if they were observed"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Xu et al. 2022, GLF-CR (SAR-enhanced cloud removal)

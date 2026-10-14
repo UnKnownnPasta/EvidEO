@@ -47,7 +47,7 @@ This file is the shared memory between scheduled runs. Read it first, append a r
 
 ## Open questions and items to verify
 
-- The deck reference "unified multimodal LLM for cross-sensor EO evaluated on SAR and BigEarthNet" is assumed to be EarthGPT (A002). This needs confirming with the team.
+- Resolved 2026-10-14 (full-text read): the deck's "unified multimodal LLM for cross-sensor EO evaluated on SAR and BigEarthNet" is EarthDial (A003), not EarthGPT; EarthGPT has no SAR metric or BigEarthNet result. EarthGPT DOI is 10.1109/TGRS.2024.3409624.
 - Some entries carry numbers relayed through summarising fetches. Spot-check them before they go on slides:
   - A001 (GeoChat), A003 (EarthDial), A011 (RSVQA), A015 (FloodNet), A016 (RSICD), A022 (Sen1Floods11).
 - Unresolved discrepancies flagged in the entries:
@@ -404,3 +404,12 @@ The user asked for a frank publishability check, our own result graphs, an IEEE-
 
 - Same session, later: renamed project to EvidEO after the user pointed out the SatCLIP collision; archived A226 (SatCLIP) and A227 (Kolluru et al. 2026, flood detection limits by land cover and flood type, now cited in the paper). Paper is `paper/evideo.tex`, deck `deck/why/EvidEO-why-it-matters.pptx`.
 - Same session: code-side migration to EvidEO done (73 tests pass, API smoke test OK on the renamed package).
+
+### Session 2026-10-14 (live): full-text pass
+
+- The user asked whether papers had really been read. Tally from the `verified` fields before this pass: about 84 reached full text (via a summarising fetch tool), 71 abstract plus official page, 57 abstract or metadata only, 15 partly from background knowledge.
+- Re-read 37 papers from raw full text (curl to arXiv HTML or PDF, local tag-stripping or pdftotext, five parallel agents plus main-session spot checks of key claims in 202, 208, 001, 095, 213 and a main-session read of A084). Each has a "Full-text check (2026-10-14)" section.
+- Every entry now has a `read_depth` front-matter field: full 35, partial 64 (earlier summarising-fetch reads), abstract 128. Convention: new entries must state read_depth honestly.
+- NOVELTY.md section 5.8: revised matrix. No research system read in full delivers more than one of C1 to C6 in full; claim narrowed on C4 (TerraScope, A208), C5 (A208 CPU-only board) and C6 (Google Earth AI). Closest: GFM ensemble likelihood (A213) and RSure-Agent (A164).
+- Paper corrections: RSHallu range wording, GeoChat RSVQA-LR not zero-shot, split-based citation moved to Martinis 2009, added RSure-Agent, onboard CPU agents, TerraScope SAR-under-cloud, GFM details. All other cited numbers confirmed against tables.
+- Deck slide 6 matrix rebuilt from full-text verdicts.

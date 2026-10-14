@@ -11,6 +11,7 @@ era: recent
 tags: [natural-language-interface, visualization, query-parsing, ambiguity, vega-lite, toolkit, nli]
 verified: "2026-10-04 via https://arxiv.org/abs/2008.10723 (arXiv API metadata) and https://github.com/nl4dv/nl4dv"
 takeaway: "Python toolkit that turns a natural-language data question into a structured JSON of attributes, tasks and charts, with explicit ambiguity flags; EvidEO's question parser should emit a similar inspectable spec"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # NL4DV: A Toolkit for Generating Analytic Specifications for Data Visualization from Natural Language Queries

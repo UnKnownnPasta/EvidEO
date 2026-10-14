@@ -11,6 +11,7 @@ era: upcoming
 tags: [challenge, sar, x-band, insar, time-series, change-detection, capella, self-supervised]
 verified: "2026-10-05 via https://www.grss-ieee.org/resources/news/in-focus-inside-the-2026-ieee-grss-data-fusion-contest/ and https://www.grss-ieee.org/community/technical-committees/winners-of-the-2026-ieee-grss-data-fusion-contest-sar-temporal-storytelling/ ; dataset download page and quantitative scores not found"
 takeaway: "The field's flagship 2026 contest asked teams to turn SAR time series into readable stories of change, validating EvidEO's framing; but entries were open-ended research on commercial X-band, not abstaining, receipted answers on free data"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # 2026 IEEE GRSS Data Fusion Contest: SAR Temporal Storytelling

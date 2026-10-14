@@ -124,7 +124,7 @@ async function icon(Comp, color, size = 256) {
   });
   s.addText("Sources: VLEO-Bench (GPT-4V, specialist), GEOBench-VLM (GPT-4o, EarthDial), GeoChat paper. Benchmarks differ.", { x: 5.15, y: 3.55, w: 4.55, h: 0.3, fontSize: 9, color: HEX.muted, margin: 0, isTextBox: true });
   box(s, 5.15, 3.92, 4.55, 1.18, "hallucination box", HEX.sand);
-  s.addText([{ text: "31 to 64%", options: { bold: true, fontSize: 24, color: "8A4A0F", fontFace: "Times New Roman", breakLine: true } },
+  s.addText([{ text: "32 to 64%", options: { bold: true, fontSize: 24, color: "8A4A0F", fontFace: "Times New Roman", breakLine: true } },
              { text: "of remote-sensing VLM answers contain hallucinations, judged by experts (RSHallu, 2026). None states when not to trust it.", options: { fontSize: 11, color: C.text1 } }],
             { x: 5.3, y: 3.97, w: 4.3, h: 1.08, margin: 0, isTextBox: true, valign: "top" });
   s.addNotes("Whose problem: district officials, insurance officers, fact-checkers. Why it lasts: questions are local and constant, answers are produced centrally; the skills gap is about tenfold; monsoon clouds return every year. Why chat AI does not fix it: it is fluent but cannot locate what you asked about, and it never tells you when to distrust it. Chart values are read from each paper's tables; benchmarks differ, so compare orders of magnitude.");
@@ -223,17 +223,17 @@ async function icon(Comp, color, size = 256) {
   // ===== Slide 6: why it matters =====
   s = pres.addSlide({ masterName: "CONTENT_T", sectionTitle: "Why EvidEO" });
   T(s, "Why It Matters, and What Is Next");
-  head(s, 0.3, 0.82, 5.3, "NO SYSTEM IN 225 PAPERS HAS MORE THAN TWO OF THESE");
-  const cols = ["", "EvidEO", "EO-Gym", "NRSC maps", "SHRUG-FM", "RS-VLMs"];
-  const rows = [["Calibrated confidence per answer", "●", "", "", "◐", ""], ["Abstains with a next step", "●", "", "", "◐", ""], ["Scene receipts that re-run", "●", "", "◐", "", ""],
-                ["Radar chosen under cloud", "●", "●", "●", "", ""], ["CPU or offline", "●", "◐", "●", "", "◐"], ["Plain-language questions", "●", "●", "", "", "●"]];
-  const cell = (t, i, j) => ({ text: t, options: { bold: j === 1 || i === 0, color: j === 1 ? HEX.navy : HEX.ink, align: j === 0 ? "left" : "center", fill: { color: i === 0 ? HEX.tint : HEX.white }, fontSize: j === 0 ? 10 : (i === 0 ? 10 : 12) } });
+  head(s, 0.3, 0.82, 5.3, "READ IN FULL: NO OTHER SYSTEM HAS MORE THAN ONE");
+  const cols = ["", "EvidEO", "Copernicus GFM", "RSure-Agent", "EO-Gym", "Google Earth AI"];
+  const rows = [["Calibrated confidence per answer", "●", "◐", "", "", ""], ["Abstains with a next step", "●", "◐", "◐", "", ""], ["Scene receipts that re-run", "●", "◐", "◐", "◐", ""],
+                ["Radar chosen under cloud", "●", "", "", "◐", ""], ["CPU or offline", "●", "", "", "◐", ""], ["Plain-language questions", "●", "", "◐", "◐", "●"]];
+  const cell = (t, i, j) => ({ text: t, options: { bold: j === 1 || i === 0, color: j === 1 ? HEX.navy : HEX.ink, align: j === 0 ? "left" : "center", fill: { color: i === 0 ? HEX.tint : HEX.white }, fontSize: j === 0 ? 10 : (i === 0 ? 9 : 12) } });
   s.addTable([cols.map((c, j) => cell(c, 0, j)), ...rows.map((r, i) => r.map((c, j) => cell(c, i + 1, j)))], {
-    x: 0.3, y: 1.2, w: 5.3, colW: [1.9, 0.68, 0.68, 0.72, 0.72, 0.6], rowH: 0.36, border: { type: "solid", pt: 0.75, color: HEX.line }, fontFace: "Calibri", valign: "middle", margin: 0.04,
+    x: 0.3, y: 1.2, w: 5.3, colW: [1.85, 0.62, 0.74, 0.7, 0.62, 0.77], rowH: 0.36, border: { type: "solid", pt: 0.75, color: HEX.line }, fontFace: "Calibri", valign: "middle", margin: 0.04,
   });
-  s.addText("● has it   ◐ partial form.  From our 225-paper archive review (NOVELTY.md, section 5.3).", { x: 0.3, y: 3.8, w: 5.3, h: 0.28, fontSize: 9, color: HEX.muted, margin: 0, isTextBox: true });
+  s.addText("● has it   ◐ partial form. Full-text reads of the 37 closest papers (NOVELTY.md 5.8).", { x: 0.3, y: 3.8, w: 5.3, h: 0.28, fontSize: 9, color: HEX.muted, margin: 0, isTextBox: true });
   box(s, 0.3, 4.15, 5.3, 0.98, "honest limits", HEX.sand);
-  s.addText([{ text: "Honest limits: ", options: { bold: true } }, { text: "the detector is a 2016-style threshold chain; Indian labels come from one event; no user study yet; the 914 km² figure includes the river and wetlands." }],
+  s.addText([{ text: "Honest limits: ", options: { bold: true } }, { text: "the detector is a classic split-based threshold chain; Indian labels come from one event; no user study yet; the 914 km² figure includes the river and wetlands." }],
             { x: 0.42, y: 4.2, w: 5.06, h: 0.88, fontSize: 11, color: C.text1, margin: 0, isTextBox: true, valign: "middle" });
   vline(s, 5.85, 0.9, 4.25);
   head(s, 6.05, 0.82, 3.65, "NEXT");
@@ -244,7 +244,7 @@ async function icon(Comp, color, size = 256) {
     s.addText(n[0], { x: 6.05, y, w: 3.65, h: 0.3, fontSize: 13, bold: true, color: C.accent1, margin: 0, isTextBox: true });
     s.addText(n[1], { x: 6.05, y: y + 0.3, w: 3.65, h: 0.55, fontSize: 11, color: C.text1, margin: 0, isTextBox: true, valign: "top" });
   });
-  s.addNotes("Why it matters: every ingredient exists somewhere, but no system in our 225-paper archive delivers more than two of these six together, and none tells a non-expert when not to trust an answer. The bottleneck we found is local labels and instrument quality, not bigger language models. Next: improve the instrument, gather Indian labels across events, run a small user study, and submit the paper.");
+  s.addNotes("Why it matters: every ingredient exists somewhere in partial form, but after reading the 37 closest papers in full, no research system delivers more than one of these six in full, and none tells a non-expert when not to trust an answer. The bottleneck we found is local labels and instrument quality, not bigger language models. Next: improve the instrument, gather Indian labels across events, run a small user study, and submit the paper.");
 
   await pres.writeFile({ fileName: OUT });
   await applyTheme(OUT, THEME);

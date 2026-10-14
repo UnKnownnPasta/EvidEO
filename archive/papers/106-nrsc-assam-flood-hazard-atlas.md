@@ -11,6 +11,7 @@ era: recent
 tags: [india, assam, flood-hazard, nrsc, ndma, asdma, radarsat, risat-1a, sentinel-1, village-level, district-level]
 verified: "2026-10-06 via the NRSC PDF linked above (front matter, executive summary, criteria, observations and limitations read); substitutes for the suggested NDMA flood guidelines, whose PDF on ndma.gov.in could not be fetched"
 takeaway: "NRSC's official Assam atlas classifies every 50 m pixel and village by how many times it flooded in 26 years, giving EvidEO both a prior for plausibility checks and the hazard vocabulary district officials already use"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # NRSC Flood Hazard Zonation Atlas of Assam (1998-2023)

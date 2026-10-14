@@ -11,6 +11,7 @@ era: upcoming
 tags: [sar, l-band, s-band, nasa, isro, india, mission, flood, agriculture, soil-moisture, open-data, hdf5]
 verified: "2026-10-05 via https://nisar-docs.asf.alaska.edu/availability-overview/, https://nisar-docs.asf.alaska.edu/products-overview/, https://www.isro.gov.in/Mission_GSLVF16_NISAR_Home.html, https://www.earthdata.nasa.gov/data/platforms/space-based-platforms/nisar"
 takeaway: "Free L-band and S-band SAR with a 12-day repeat, provisional calibrated products since July 2026 and S-band samples on ISRO Bhoonidhi; L-band sees flooding under crop canopy, an obvious next instrument for EvidEO once access and format are wired in"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # NASA-ISRO Synthetic Aperture Radar (NISAR) mission and data products

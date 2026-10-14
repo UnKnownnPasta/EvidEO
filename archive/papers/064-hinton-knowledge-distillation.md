@@ -11,6 +11,7 @@ era: historical
 tags: [knowledge-distillation, model-compression, soft-targets, temperature, cpu-inference, ensembles, specialists]
 verified: "2026-10-04 via https://arxiv.org/abs/1503.02531 and https://ar5iv.labs.arxiv.org/html/1503.02531"
 takeaway: "Classic recipe for training a small student model on a large teacher's softened outputs; EvidEO can use it to shrink a CLIP land-cover head or a question parser so it runs fast on CPU"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Distilling the Knowledge in a Neural Network

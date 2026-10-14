@@ -11,6 +11,7 @@ era: recent
 tags: [tessera, pixel-timeseries, embeddings, sentinel-1, sentinel-2, barlow-twins, int8, precomputed-embeddings, label-efficient, cpu-friendly]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract); Crossref lists only blog-style DOIs, no venue; repo URL from the abstract, not fetched; no accuracy numbers quoted because the abstract gives none"
 takeaway: "Open, global, annual 10 m int8 Sentinel-1/2 embeddings with small heads: a cheap offline input for crop and land-cover second opinions, but annual granularity cannot answer dated flood questions"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Feng et al. 2025, TESSERA pixel-wise S1/S2 embeddings

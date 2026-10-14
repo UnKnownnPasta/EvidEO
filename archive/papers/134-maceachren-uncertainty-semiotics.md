@@ -11,6 +11,7 @@ era: historical
 tags: [uncertainty-visualization, cartography, visual-variables, map-symbols, user-study]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1109/TVCG.2012.279 (title, authors, volume, issue, pages, year) and PubMed PMID 26357158 abstract; full text not fetched, so specific symbol rankings below are summarized from the abstract and general knowledge of the paper, and no numeric results are claimed"
 takeaway: "Map uncertainty symbols are not equally intuitive, so EvidEO's map overlay should encode low-confidence or cloud-masked pixels with a symbol type users read correctly at a glance, tested with real officials rather than chosen by the developer"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # MacEachren et al. 2012, visual semiotics of uncertainty on maps

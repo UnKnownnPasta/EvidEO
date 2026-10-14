@@ -11,6 +11,7 @@ era: recent
 tags: [flood, disaster, vqa, segmentation, uav, hurricane-harvey, counting]
 verified: "2026-10-04 via https://arxiv.org/abs/2012.02951 and https://doaj.org/article/de2388e23953411c95be84c370c38d76"
 takeaway: "Borrow the flood question taxonomy rescaled to 10 m Sentinel, and guard against flood versus permanent water confusion with a reference layer"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # FloodNet: A High Resolution Aerial Imagery Dataset for Post Flood Scene Understanding

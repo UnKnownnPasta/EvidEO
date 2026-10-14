@@ -11,6 +11,7 @@ era: recent
 tags: [sentinel-1, flood-mapping, bayesian, uncertainty, datacube, harmonic-model, seasonality, no-sensitivity-mask, copernicus-gfm, near-real-time, greece]
 verified: "2026-10-08 via curl to api.crossref.org (title, eight authors, volume 14, issue 15, article 3673, 31 July 2022) and api.openalex.org (abstract); MDPI full text was not readable from this environment, so method details beyond the abstract are not given; WebFetch permission prompt timed out so curl was used"
 takeaway: "The TU Wien member of the Copernicus GFM ensemble classifies each Sentinel-1 pixel by Bayes rule against its own seasonal backscatter history, giving a per-pixel flood probability and a no-sensitivity mask; the cleanest template for EvidEO's calibrated SAR water confidence"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Bauer-Marschallinger et al. 2022, Bayesian flood mapping from a Sentinel-1 datacube

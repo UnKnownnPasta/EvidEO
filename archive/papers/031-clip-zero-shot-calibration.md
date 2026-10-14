@@ -11,6 +11,7 @@ era: recent
 tags: [clip, zero-shot, calibration, temperature-scaling, ece, vlm]
 verified: "2026-10-04 via https://arxiv.org/abs/2303.12748"
 takeaway: "CLIP zero-shot scores are miscalibrated; one temperature learned per CLIP model on an auxiliary set transfers across prompts and datasets, so calibrate RemoteCLIP once and reuse"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Enabling Calibration In The Zero-Shot Inference of Large Vision-Language Models

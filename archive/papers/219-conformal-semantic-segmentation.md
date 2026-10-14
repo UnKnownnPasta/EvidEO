@@ -11,6 +11,7 @@ era: recent
 tags: [conformal-risk-control, semantic-segmentation, multi-class-pixel-sets, uncertainty-heatmap, varisco, loveda, remote-sensing, post-hoc]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=2405.05145 (title, authors, date, abstract), curl to api.crossref.org (CVPRW 2024, pages 3574-3584, DOI), and WebFetch of arxiv.org/html/2405.05145 (method, losses, datasets, Tables 1 and 2, code URL, limitations)"
 takeaway: "Applies Conformal Risk Control to multi-class segmentation so each pixel gets a set of plausible classes with an image-level risk guarantee, and turns set size into a heatmap; tested on LoveDA aerial land cover, so EvidEO can reuse it for class-level masks and an 'ambiguous pixels' layer"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Mossina, Dalmau and Andéol 2024, Conformal semantic segmentation

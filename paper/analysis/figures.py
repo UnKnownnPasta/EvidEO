@@ -51,13 +51,14 @@ from matplotlib.patches import Patch
 a.legend(handles=[Patch(color=GRAY, label="general VLM"), Patch(color=NAVY, label="remote-sensing VLM"),
                   Patch(color=TEAL, label="supervised specialist")], loc="center right", frameon=False)
 y2 = np.arange(len(hallu))
-b.barh(y2, [h[1] for h in hallu], color=NAVY, height=0.62)
+GEN = {"LLaVA-1.5", "Qwen2-VL", "mPLUG-Owl3"}
+b.barh(y2, [h[1] for h in hallu], color=[GRAY if h[0] in GEN else NAVY for h in hallu], height=0.62)
 b.barh(y2, [100 - h[1] for h in hallu], left=[h[1] for h in hallu], color="#E9D3BC", height=0.62)
 for i, h in enumerate(hallu):
     b.text(h[1] - 2, i, f"{h[1]:.0f}%", va="center", ha="right", fontsize=7, color="white")
 b.set_yticks(y2, [h[0] for h in hallu], fontsize=6.5); b.set_xlim(0, 100)
 b.set_xlabel("Answers judged hallucination-free by experts (%)")
-b.set_title("(b) Remote-sensing VLM answers without hallucination", loc="left")
+b.set_title("(b) Answers without hallucination (RSHallu)", loc="left")
 b.grid(axis="y", visible=False)
 save(fig, "fig_landscape")
 

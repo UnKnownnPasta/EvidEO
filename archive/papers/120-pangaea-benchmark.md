@@ -11,6 +11,7 @@ era: recent
 tags: [foundation-models, benchmark, sen1floods11, change-detection, sar, geographic-bias, limited-labels]
 verified: "2026-10-06 via https://arxiv.org/abs/2412.04204, https://arxiv.org/html/2412.04204 (v2), Crossref record for 10.1109/mgrs.2025.3628194 and https://raw.githubusercontent.com/VMarsocci/pangaea-bench/main/README.md; journal title differs from arXiv title as shown"
 takeaway: "On Sen1Floods11 a plain supervised UNet beats every geospatial foundation model and RemoteCLIP reaches only about 55 water IoU, so EvidEO should keep classical SAR thresholding as its water instrument and not swap in a foundation model or RemoteCLIP for flood extent"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # PANGAEA

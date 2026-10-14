@@ -11,6 +11,7 @@ era: recent
 tags: [cloud-removal, dataset, sentinel-1, sentinel-2, multi-temporal, time-series, s2cloudless, google-earth-engine, 3d-cnn]
 verified: "2026-10-05 via https://arxiv.org/abs/2201.09613v1 and https://arxiv.org/pdf/2201.09613 (full text); holdout split record at https://mediatum.ub.tum.de/1659251"
 takeaway: "A year of co-registered S1/S2 time series with real clouds: shows that several cloudy dates plus SAR beat one date, and that very cloudy (>90%) cases stay hard"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # SEN12MS-CR-TS: A Remote Sensing Data Set for Multi-modal Multi-temporal Cloud Removal

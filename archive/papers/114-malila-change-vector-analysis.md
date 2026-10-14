@@ -11,6 +11,7 @@ era: historical
 tags: [change-detection, change-vector-analysis, landsat, forest, multi-temporal, bitemporal]
 verified: "2026-10-06 via https://docs.lib.purdue.edu/lars_symp/385 (title, author, year, LARS Symposia series, abstract); page numbers and exact symposium title not confirmed on that page"
 takeaway: "Origin of change vector analysis: describe change as magnitude plus direction in a transformed feature space, which lets EvidEO say what kind of change happened, not just that something changed"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Malila 1980, change vector analysis

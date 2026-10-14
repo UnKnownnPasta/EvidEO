@@ -11,6 +11,7 @@ era: recent
 tags: [galileo, multimodal, sar, optical, elevation, weather, pixel-timeseries, masked-modeling, contrastive, flood-detection, crop-mapping]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract); Crossref search found no venue record; ICML claim and repo URL not verified"
 takeaway: "One generalist encoder over optical, SAR, elevation and weather that handles both images and pixel time series and names flood detection and crop mapping as targets: the strongest learned second-opinion candidate for EvidEO's two beachhead questions"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Tseng et al. 2025, Galileo

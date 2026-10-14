@@ -11,6 +11,7 @@ era: recent
 tags: [overreliance, explanations, cost-benefit, verification-cost, appropriate-reliance]
 verified: "2026-10-07 via arXiv API for 2212.06823 (title, authors, abstract) and https://api.crossref.org/works/10.1145/3579605 (journal, volume 7, issue CSCW1, pages 1-38, date 2023-04-14); explanation types checked in the arXiv PDF"
 takeaway: "Explanations only cut overreliance when they make checking the AI cheaper than trusting it, so EvidEO's evidence (scene chips, before/after thumbnails) must let an official verify the headline number in seconds"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Vasconcelos et al. 2023, explanations that lower verification cost

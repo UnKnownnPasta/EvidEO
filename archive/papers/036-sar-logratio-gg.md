@@ -11,6 +11,7 @@ era: historical
 tags: [sar, log-ratio, unsupervised, thresholding, kittler-illingworth, generalized-gaussian, despeckling, ers-2, interpretable]
 verified: "2026-10-04 via https://api.crossref.org/works/10.1109/TGRS.2004.842441"
 takeaway: "Canonical SAR change recipe (despeckle, log-ratio, automatic threshold from a fitted two-class model); adopt it nearly as-is for Sentinel-1 change with the fitted model doubling as a confidence source"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # An unsupervised approach based on the generalized Gaussian model to automatic change detection in multitemporal SAR images

@@ -11,6 +11,7 @@ era: historical
 tags: [india, geoportal, nrsc, isro, ogc-services, wms, irs-data, disaster-support, government]
 verified: "2026-10-06 via https://bhuvan.nrsc.gov.in/bhuvan/PDF/Bhuvan%20Brochure.pdf (brochure text read) and https://www.ogc.org/blog-article/bhuvan-transforming-indias-governance-with-geospatial-insights/; no peer-reviewed paper describing Bhuvan was found; brochure publication year not printed; usage figures come from the OGC blog, not an audited source"
 takeaway: "Bhuvan is the map Indian officials already know, so EvidEO should publish its evidence-card masks as OGC-compatible layers that overlay on Bhuvan rather than ask users to switch platforms"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Bhuvan geoportal (NRSC/ISRO)

@@ -11,6 +11,7 @@ era: recent
 tags: [conformal-prediction, risk-control, false-negative-rate, distribution-free, segmentation, finite-sample-guarantee]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=2208.02814 (title, authors, first posted 2022-08-04, abstract, code link in comment) and OpenReview search api2.openreview.net (forum 33XGfHLtZg, venue ICLR 2024 spotlight, same five authors); WebFetch was refused, curl used; summary based on the abstract, full text not fetched"
 takeaway: "Lets EvidEO pick its flood-mask threshold from labelled Indian events so that the expected share of truly flooded area it misses stays below a stated level, with a finite-sample guarantee"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Angelopoulos et al. 2024, Conformal Risk Control

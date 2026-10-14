@@ -11,6 +11,7 @@ era: historical
 tags: [dataset, worldview-3, overhead-imagery, fine-grained, small-objects, axis-aligned-boxes, humanitarian]
 verified: "2026-10-04 via https://export.arxiv.org/api/query?id_list=1802.07856 and https://ar5iv.labs.arxiv.org/html/1802.07856"
 takeaway: "Over 1 million objects in 60 classes from 0.3 m WorldView-3 imagery, with a weak SSD baseline; shows how hard fine-grained small-object detection is even at 0.3 m, reinforcing that EvidEO should not count objects in Sentinel data"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # xView: Objects in Context in Overhead Imagery

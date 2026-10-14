@@ -11,6 +11,7 @@ era: recent
 tags: [sentinel-1, sar, flood-mapping, otsu, thresholding, kerala-2018, google-earth-engine, vv, india, validation-event]
 verified: "2026-10-04 via https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0237324"
 takeaway: "Otsu on Sentinel-1 VV (Lee 5x5) mapped the Kerala August 2018 flood at about 94.7% OA (kappa 0.87 to 0.88) against Sentinel-2; a ready Indian validation event and baseline for our SAR water instrument"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Flood inundation mapping, Kerala 2018 (Otsu on Sentinel-1 in GEE)

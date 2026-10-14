@@ -11,6 +11,7 @@ era: recent
 tags: [foundation-model, generative, any-to-any, sentinel-1, sentinel-2, terratorch, flood-mapping, ibm, esa, open-weights]
 verified: "2026-10-05 via https://arxiv.org/abs/2504.11171, https://arxiv.org/html/2504.11171v1, https://huggingface.co/ibm-esa-geospatial/TerraMind-1.0-base, ICCV 2025 open access listing (search result)"
 takeaway: "Open Apache-2.0 any-to-any model over Sentinel-1/2, DEM, LULC and NDVI with strong water mapping; a candidate fine-tuned instrument or cross-check for EvidEO, but its generated 'imagined' modalities must never feed evidence-card numbers"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # TerraMind: Large-Scale Generative Multimodality for Earth Observation

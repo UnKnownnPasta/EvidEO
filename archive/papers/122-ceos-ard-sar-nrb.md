@@ -11,6 +11,7 @@ era: recent
 tags: [ceos-ard, card4l, analysis-ready-data, sar, gamma0, rtc, normalised-radar-backscatter, metadata, data-mask]
 verified: "2026-10-06 via https://ceos.org/ard/ (spec listing, v1.3.1 dated 11 July 2026) and the PFS PDF itself (NRB definition, Threshold/Goal structure, data mask, scattering area and local incidence angle layers, DEM requirements); exact numeric radiometric and geometric accuracy thresholds not extracted"
 takeaway: "CEOS-ARD NRB is the checklist for what a trustworthy gamma0 RTC input looks like (data mask with layover and shadow, local incidence angle, scattering area, DEM provenance), and EvidEO should record which of these its RTC source supplies on every evidence card"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # CEOS-ARD SAR Product Family Specification (NRB)
