@@ -1,6 +1,6 @@
 # EvidEO deck (M7)
 
-- `legacy/satclip-14-slides-2026-10-09.pptx` (retired 2026-10-12, old name, claymorphism; `build_deck.js` would now write `evideo.pptx` but needs fresh screenshots). Current deck: `why/EvidEO-why-it-matters.pptx`, built by `why/build_why.js`.
+- `legacy/satclip-14-slides-2026-10-09.pptx` (retired 2026-10-12, old name, claymorphism; `build_deck.js` would now write `evideo.pptx` but needs fresh screenshots). Current deck: `why/Tellio-why-it-matters.pptx`, built by `why/build_why.js`.
 - Former description of the 14-slide deck: 14-slide pitch and demo deck in claymorphism style (soft extruded cards with paired outer and inner shadows, pastel palette with dark ink text). Speaker notes on every slide name the source of each number.
 - Rebuild:
   1. Start the API: `cd backend && uvicorn evideo.api.main:app --port 8000`.
