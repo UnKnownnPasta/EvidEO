@@ -1,5 +1,5 @@
 // EvidEO web UI (M4). Plain JavaScript, no build step, so it runs from any static server or offline.
-// Flow: ask -> show what was understood -> stream tile progress -> evidence card + map overlay.
+// Flow: 1 location + question -> 2 dates (config) -> 3 what was understood, tile progress, evidence card + map overlay.
 "use strict";
 const $ = (id) => document.getElementById(id);
 const API = location.port === "8080" || location.protocol === "file:" ? "http://localhost:8000" : "";
@@ -30,6 +30,47 @@ const iso = (d) => d.toISOString().slice(0, 10);
 function windowFor(day) {
   const d = new Date(`${day}T00:00:00Z`), h = ui.window_half_days * 864e5;
   return { start: iso(new Date(d - h)), end: iso(new Date(+d + h)) };
+}
+
+// ---------- stages: ask -> config -> run ----------
+const STAGES = ["ask", "config", "run"];
+function setStage(name) {
+  state.stage = name;
+  $("stage-ask").classList.toggle("hidden", name !== "ask");
+  $("stage-config").classList.toggle("hidden", name !== "config");
+  if (name !== "run") { $("understood").classList.add("hidden"); $("card").classList.add("hidden"); }
+  const at = STAGES.indexOf(name);
+  document.querySelectorAll("#flow li").forEach((li, i) => {
+    li.classList.toggle("done", i < at);
+    if (i === at) li.setAttribute("aria-current", "step"); else li.removeAttribute("aria-current");
+  });
+}
+function recap() {
+  $("recap-place").textContent = state.picked ? `${state.picked.name}, ${state.picked.state}` : "From your question";
+  $("recap-q").textContent = $("q").value.trim();
+}
+// Dates written in the question (YYYY-MM-DD) pre-fill the date step so the user only confirms them.
+function prefillDates() {
+  if ($("d1").value) return;
+  const found = [...new Set($("q").value.match(/\d{4}-\d{2}-\d{2}/g) || [])].sort();
+  if (!found.length) return;
+  const two = found.length >= 2;
+  document.querySelector(`input[name=mode][value=${two ? "two" : "one"}]`).checked = true;
+  syncMode();
+  $("d1").value = found[0];
+  if (two) $("d2").value = found[1];
+}
+function toConfig() {
+  const err = $("q-err");
+  if ($("q").value.trim().length < 3) { err.textContent = "Type a question first, or tap an example."; err.classList.remove("hidden"); $("q").focus(); return; }
+  err.classList.add("hidden");
+  recap(); prefillDates(); setStage("config");
+  $("cfg-h").focus();
+}
+function toAsk() {
+  if (state.source) state.source.close();
+  setBusy(false); setStage("ask");
+  $("q").focus();
 }
 
 // ---------- map ----------
@@ -85,6 +126,7 @@ function pick(h) {
   closeList();
   place.value = "";
   state.picked = h;
+  if (!$("q").value.trim()) $("q").placeholder = `e.g. How much of ${h.name} was under water on 2024-07-11?`;
   const box = $("place-picked");
   const rm = el("button", { type: "button", class: "chip clay-sm", "aria-label": `Remove ${h.name}, ${h.state}` }, `${h.name}, ${h.state}  ✕`);
   rm.addEventListener("click", () => { state.picked = null; box.classList.add("hidden"); box.replaceChildren(); place.focus(); });
@@ -111,11 +153,12 @@ place.addEventListener("keydown", (e) => {
 place.addEventListener("blur", () => setTimeout(closeList, 120));
 
 // ---------- dates ----------
-document.querySelectorAll("input[name=mode]").forEach((r) => r.addEventListener("change", () => {
+function syncMode() {
   const two = document.querySelector("input[name=mode]:checked").value === "two";
   $("d2-wrap").classList.toggle("hidden", !two);
   $("d1-label").textContent = two ? "Before date" : "Date";
-}));
+}
+document.querySelectorAll("input[name=mode]").forEach((r) => r.addEventListener("change", syncMode));
 $("d1").max = $("d2").max = iso(new Date());
 
 // ---------- progress ----------
@@ -250,10 +293,11 @@ $("copy").addEventListener("click", async () => {
   try { await navigator.clipboard.writeText(rid); $("copy").textContent = "Copied"; } catch { $("copy").textContent = rid; }
   setTimeout(() => { $("copy").textContent = "Copy receipt ID"; }, 2000);
 });
-$("again").addEventListener("click", () => { $("q").focus(); $("q").select(); });
+$("again").addEventListener("click", toAsk);
+$("restart").addEventListener("click", toAsk);
 
 // ---------- ask ----------
-function setBusy(b) { $("go").disabled = b; $("go").querySelector(".go-label").textContent = b ? "Measuring..." : "Ask"; $("ask").setAttribute("aria-busy", String(b)); }
+function setBusy(b) { $("go").disabled = b; $("go").querySelector(".go-label").textContent = b ? "Measuring..." : "Run measurement"; $("stage-config").setAttribute("aria-busy", String(b)); }
 function buildRequest() {
   const text = $("q").value.trim();
   const body = { text };
@@ -268,10 +312,11 @@ async function submit(override) {
   const err = $("q-err");
   if (override) $("q").value = override.text;
   const body = override || buildRequest();
-  if (body.text.length < 3) { err.textContent = "Type a question first, or tap an example."; err.classList.remove("hidden"); $("q").focus(); return; }
+  if (body.text.length < 3) { toAsk(); err.textContent = "Type a question first, or tap an example."; err.classList.remove("hidden"); return; }
   err.classList.add("hidden");
   if (state.source) state.source.close();
   setBusy(true);
+  setStage("run");
   $("card").classList.add("hidden");
   $("understood").classList.remove("hidden");
   $("understood-text").textContent = "Reading your question";
@@ -302,8 +347,10 @@ async function submit(override) {
     $("progress-text").textContent = "Lost the live progress stream. The job may still finish; ask again to see it.";
   };
 }
-$("ask").addEventListener("submit", (e) => { e.preventDefault(); submit(); });
-$("q").addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); submit(); } });
+$("stage-ask").addEventListener("submit", (e) => { e.preventDefault(); toConfig(); });
+$("stage-config").addEventListener("submit", (e) => { e.preventDefault(); submit(); });
+$("back").addEventListener("click", () => { setStage("ask"); $("q").focus(); });
+$("q").addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); toConfig(); } });
 
 // ---------- boot ----------
 function renderExamples() {
@@ -328,5 +375,5 @@ function renderExamples() {
   initBasemap();
   renderExamples();
   const q = new URLSearchParams(location.search).get("q");
-  if (q) { $("q").value = q; submit(); }
+  if (q) { $("q").value = q; submit(); } else setStage("ask");
 })();

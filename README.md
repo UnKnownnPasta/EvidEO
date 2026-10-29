@@ -23,8 +23,11 @@ More screens (mobile, dark mode, abstention, ambiguous district): [docs/screensh
 ## Run it
 
 ```bash
-# no Docker, in-process queue
-cd backend && pip install -e ".[dev]" && uvicorn evideo.api.main:app --reload
+# no Docker, in-process queue (Python 3.10+; use a venv so rasterio's wheel lands in the same interpreter you run)
+cd backend
+python -m venv .venv && source .venv/bin/activate     # Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -e ".[dev]"
+python -m uvicorn evideo.api.main:app --reload
 # open http://localhost:8000 ; tests: python -m pytest -q
 
 # full stack with Redis and scalable workers
@@ -42,7 +45,7 @@ cd backend && python -m evideo.livecheck "How much of Barpeta was under water on
 # instrument and refitted, so the card answers again with a fitted confidence.
 ```
 
-The optional land-cover instrument needs `pip install -e ".[ml]"` (CPU torch and open_clip); without it, land-cover questions abstain with a clear reason.
+The land-cover instrument (torch and open_clip, about 1 GB) is part of the base install. If the model cannot load, land-cover questions abstain with a clear reason.
 
 ## Who it is for
 

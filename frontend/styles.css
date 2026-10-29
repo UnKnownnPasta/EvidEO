@@ -69,6 +69,17 @@ h1 { margin: 0; font-size: 1.4rem; letter-spacing: .2px; }
 .pill.ok { color: var(--ok); background: var(--ok-bg); }
 .pill.bad { color: var(--warn); background: var(--warn-bg); }
 
+/* Step indicator */
+.flow { max-width: 1240px; margin: 0 auto 18px; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
+.flow li { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; border-radius: 999px; font-weight: 700; font-size: .9rem; color: var(--muted); background: var(--bg); box-shadow: var(--shadow-in); }
+.flow li span { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: .8rem; font-weight: 900; background: var(--surface); box-shadow: var(--shadow-sm); }
+.flow li[aria-current=step] { color: var(--accent); background: var(--surface); box-shadow: var(--shadow-sm); }
+.flow li[aria-current=step] span { background: var(--accent); color: #fff; }
+@media (prefers-color-scheme: dark) { .flow li[aria-current=step] span { color: #1b1740; } }
+.flow li.done span { background: var(--ok); color: #fff; font-size: 0; }
+.flow li.done span::before { content: "\2713"; font-size: .8rem; }
+@media (prefers-color-scheme: dark) { .flow li.done span { color: #10261d; } }
+
 /* Layout: one column on phones, question and card left with a sticky map right on wide screens */
 .layout { max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 980px) {
@@ -104,11 +115,10 @@ textarea { font-size: 1.08rem; }
 .go[disabled] { opacity: .7; cursor: progress; }
 @media (prefers-color-scheme: dark) { .go { box-shadow: 8px 8px 18px rgba(0, 0, 0, .5), inset 2px 2px 6px rgba(255, 255, 255, .25); } }
 
-/* Optional place and date pickers */
-.more { margin-top: 16px; padding: 4px 16px; }
-.more[open] { padding-bottom: 16px; }
-.more summary, .drawer summary { cursor: pointer; font-weight: 800; min-height: 44px; display: flex; align-items: center; border-radius: 12px; }
-.field { margin: 14px 0 0; border: 0; padding: 0; min-width: 0; }
+/* Place and date pickers */
+.drawer summary { cursor: pointer; font-weight: 800; min-height: 44px; display: flex; align-items: center; border-radius: 12px; }
+.field.first { margin-top: 0; }
+.field { margin: 18px 0 0; border: 0; padding: 0; min-width: 0; }
 .combo { position: relative; }
 .listbox { position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 1200; margin: 0; padding: 8px; list-style: none; max-height: 260px; overflow: auto; border-radius: 20px; }
 .listbox li { padding: 10px 12px; border-radius: 12px; cursor: pointer; min-height: 44px; display: flex; justify-content: space-between; gap: 8px; }
@@ -124,6 +134,16 @@ textarea { font-size: 1.08rem; }
 .seg input:focus-visible + span { box-shadow: var(--focus); }
 .dates { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 12px; }
 .date span { display: block; font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
+
+/* Config recap and button row */
+.recap { margin: 0; padding: 14px 16px; display: grid; gap: 10px; }
+.recap dt { font-weight: 800; font-size: .75rem; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.recap dd { margin: 2px 0 0; font-weight: 700; overflow-wrap: anywhere; }
+.btn-row { display: flex; gap: 12px; align-items: stretch; margin-top: 18px; }
+.btn-row .go { margin-top: 0; flex: 1; }
+.btn-row .action { padding: 10px 22px; }
+.u-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
+.u-head .label { margin: 0; }
 
 /* Understood and progress */
 .understood { font-size: 1.05rem; font-weight: 700; margin: 0 0 12px; }
