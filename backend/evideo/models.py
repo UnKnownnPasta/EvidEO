@@ -30,6 +30,7 @@ class QueryRequest(BaseModel):
     bbox: Optional[BBox] = None
     region: Optional[str] = None       # gazetteer key picked in the UI ("barpeta|assam"); wins over names in the text
     windows: Optional[list[DateWindow]] = None
+    intent: Optional[Intent] = None    # set by the configuration step when the user changes the analysis type
 
 
 class ParsedQuery(BaseModel):

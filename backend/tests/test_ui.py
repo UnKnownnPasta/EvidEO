@@ -49,3 +49,31 @@ def test_frontend_has_no_em_dashes_and_no_external_scripts():
         assert "\u2014" not in text, f.name
         if f.suffix == ".html":
             assert not re.search(r'<script[^>]+src="https?://', text), "scripts must be vendored for offline installs"
+
+
+def test_parse_step_returns_the_technical_configuration_without_running():
+    c = TestClient(create_app())
+    r = c.post("/v1/parse", json={"text": "How much of Barpeta was under water on 2024-07-11?"}).json()
+    assert r["parsed"]["problems"] == [] and r["parsed"]["region"] == "barpeta|assam"
+    cfg = r["config"]
+    assert cfg["instrument"] == "sar_water_otsu" and cfg["instrument_version"] and cfg["n_tiles"] > 100 and not cfg["too_large"]
+    assert cfg["publish_threshold"] == 0.6 and "enabled" in cfg["terrain"]
+    assert {i["value"] for i in r["intents"]} >= {"water_extent", "water_change", "vegetation_change"}
+
+
+def test_config_step_can_change_the_analysis_and_reports_missing_pieces():
+    c = TestClient(create_app())
+    base = {"text": "How much of Barpeta was under water on 2024-07-11?"}
+    r = c.post("/v1/parse", json={**base, "intent": "water_change"}).json()
+    assert r["parsed"]["intent"] == "water_change" and r["parsed"]["problems"] == ["need_two_dates"]
+    amb = c.post("/v1/parse", json={"text": "How much of Aurangabad was under water on 2024-08-10?"}).json()
+    assert "ambiguous_area" in amb["parsed"]["problems"] and amb["config"]["n_tiles"] == 0
+    oos = c.post("/v1/parse", json={"text": "How many cars are parked in Barpeta on 2024-07-11?"}).json()
+    assert oos["parsed"]["problems"] == ["out_of_scope"]
+
+
+def test_ui_is_the_three_step_wizard_with_a_permanent_map():
+    html = TestClient(create_app()).get("/").text
+    for landmark in ('id="stage-ask"', 'id="stage-config"', 'id="intent"', 'id="tech"', 'class="clay panel mapbox"', "<title>Tellio</title>"):
+        assert landmark in html
+    assert html.index('id="stage-config"') < html.index('id="understood"') < html.index('id="card"') < html.index('id="map"')

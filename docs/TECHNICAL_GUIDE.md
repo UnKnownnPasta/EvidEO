@@ -1,4 +1,4 @@
-# EvidEO technical guide, from zero
+# Tellio technical guide, from zero
 
 **Who this is for:** you know Python and JavaScript. You know nothing about satellites, remote sensing, GIS, statistics for classifiers, or queues. After one read you should be able to open any file in `backend/evideo/` and know why it exists.
 
@@ -13,7 +13,7 @@ A satellite image is a 2D array (`numpy` array of floats) plus two pieces of met
 - **a CRS** (coordinate reference system): which map projection the rows and columns live in. Latitude/longitude is `EPSG:4326`. For measuring areas we use **UTM** (`EPSG:32646` for eastern India), where one pixel step is a fixed number of metres.
 - **a transform**: a small matrix (an "affine transform") that converts `(row, col)` to `(x, y)` in that CRS. Python library `rasterio` holds both.
 
-A pixel is a square of ground, for example 20 m x 20 m = 0.0004 sq km. "Area of water" is therefore `number_of_water_pixels * pixel_area`. Almost every number EvidEO reports is that one multiplication, so the hard part is deciding which pixels are water.
+A pixel is a square of ground, for example 20 m x 20 m = 0.0004 sq km. "Area of water" is therefore `number_of_water_pixels * pixel_area`. Almost every number Tellio reports is that one multiplication, so the hard part is deciding which pixels are water.
 
 ### 1.2 The two satellites we use (Copernicus Sentinel)
 | | Sentinel-1 ("radar", S1) | Sentinel-2 ("optical", S2) |
@@ -61,10 +61,10 @@ Browser (HTML+JS) --POST /v1/queries--> FastAPI --parse--> tile jobs --> queue -
 ```
 
 ### 2.1 Frontend (`frontend/index.html`, `app.js`, `styles.css`)
-Plain HTML/CSS/JS with **no build step and no framework**. `app.js` does `fetch('/v1/queries', {method:'POST', ...})`, then opens an `EventSource` (Server-Sent Events: a one-way stream from server to browser over plain HTTP, simpler than WebSockets) on `/v1/jobs/<id>/events`. Each tile result updates a progress bar; the final event is the evidence card. The map is **Leaflet** (a JS map library, bundled in `frontend/vendor/` so it works offline). The UI is built for accessibility: keyboard-only use, contrast of at least 4.5:1, 44 px touch targets, light and dark themes.
+Plain HTML/CSS/JS with **no build step and no framework**. The page is a three-step wizard with the map always on the right: (1) a single question box; (2) a configuration screen, filled by `POST /v1/parse` (parse only, reads no pixels), showing the parsed analysis, district and dates as editable fields plus the read-only technical settings (instrument and version, satellite rule, tile count, publication threshold, terrain mask), re-parsed live whenever you change a field and blocking the Run button while anything is missing or ambiguous; (3) `fetch('/v1/queries', {method:'POST', ...})` to run it, then it opens an `EventSource` (Server-Sent Events: a one-way stream from server to browser over plain HTTP, simpler than WebSockets) on `/v1/jobs/<id>/events`. Each tile result updates a progress bar; the final event is the evidence card. The map is **Leaflet** (a JS map library, bundled in `frontend/vendor/` so it works offline). The UI is built for accessibility: keyboard-only use, contrast of at least 4.5:1, 44 px touch targets, light and dark themes.
 
 ### 2.2 API (`backend/evideo/api/main.py`)
-**FastAPI** (a Python web framework, like Express for Python) with **Pydantic** models (`models.py`) that validate every request and response. Endpoints you will meet: `POST /v1/queries` (start), `GET /v1/jobs/{id}/events` (SSE stream), `GET /v1/receipts/{id}`, `GET /v1/masks/{name}` (the PNG overlays), `GET /v1/regions` (district search). The API is **stateless**: any replica can serve any request because job state lives in the queue.
+**FastAPI** (a Python web framework, like Express for Python) with **Pydantic** models (`models.py`) that validate every request and response. Endpoints you will meet: `POST /v1/parse` (parse and describe the configuration, no data read), `POST /v1/queries` (start), `GET /v1/jobs/{id}/events` (SSE stream), `GET /v1/receipts/{id}`, `GET /v1/masks/{name}` (the PNG overlays), `GET /v1/regions` (district search). The API is **stateless**: any replica can serve any request because job state lives in the queue.
 
 ### 2.3 Understanding the question (`parser.py`, `gazetteer.py`)
 A **rule-based parser** (keyword lists in English, Hindi and romanised Hindi "Hinglish", plus multi-format date parsing) turns text into a `ParsedQuery`:

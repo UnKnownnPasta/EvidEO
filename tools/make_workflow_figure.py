@@ -7,7 +7,7 @@ from matplotlib.patches import FancyBboxPatch
 
 STEPS = [
     ("1  Ask", "#7c6cf0", ["Plain words, any district,", "two dates. English, Hindi", "or Hinglish.", "\"How much of Barpeta was", "under water on 11 July?\""]),
-    ("2  Understand", "#5b8def", ["Rules read place, dates and", "question type.", "Echoed back as", "\"I understood...\"", "before any pixel is read."]),
+    ("2  Configure", "#5b8def", ["Rules read place, dates and", "question type.", "Shown as an editable", "configuration; nothing runs", "until you confirm."]),
     ("3  Find scenes", "#2fa4a0", ["Public Sentinel catalogues.", "Monsoon: radar first", "(sees through cloud).", "Only the district's pixels", "are read, not whole scenes."]),
     ("4  Measure", "#3aa66a", ["District cut into 5 km tiles,", "run in parallel.", "Fixed, versioned instrument:", "threshold the radar signal,", "optional: skip steep or high ground."]),
     ("5  Trust check", "#e0a030", ["Confidence fitted on", "hand-labelled flood maps.", "Below 0.60: no number,", "instead \"insufficient", "evidence\" and what helps."]),
