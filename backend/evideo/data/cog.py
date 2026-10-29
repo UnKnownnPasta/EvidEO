@@ -125,6 +125,52 @@ def read_window(href: str, bbox_lonlat, res_m: Optional[float] = None, band: int
                         valid_fraction=valid, bounds=(left, bottom, right, top))
 
 
+DEM_URL = ("https://copernicus-dem-30m.s3.amazonaws.com/Copernicus_DSM_COG_10_{ns}{lat:02d}_00_{ew}{lon:03d}_00_DEM/"
+           "Copernicus_DSM_COG_10_{ns}{lat:02d}_00_{ew}{lon:03d}_00_DEM.tif")
+
+
+def dem_tile_urls(bbox_lonlat) -> list[str]:
+    """Copernicus GLO-30 COG tiles (1 degree, public bucket, no signing) that overlap a lon/lat box."""
+    w, s, e, n = bbox_lonlat
+    out = []
+    for lat in range(int(np.floor(s)), int(np.floor(n - 1e-9)) + 1):
+        for lon in range(int(np.floor(w)), int(np.floor(e - 1e-9)) + 1):
+            out.append(DEM_URL.format(ns="N" if lat >= 0 else "S", lat=abs(lat), ew="E" if lon >= 0 else "W", lon=abs(lon)))
+    return out
+
+
+def read_dem_on_grid(crs: str, bounds: tuple[float, float, float, float], shape: tuple[int, int]) -> np.ndarray:
+    """Copernicus GLO-30 heights (m) warped bilinearly onto the grid (crs, bounds, shape), e.g. a Sentinel-1
+    tile, so slope and HAND line up with the radar pixels. NaN where the DEM has no coverage (sea, gaps)."""
+    import rasterio
+    from rasterio.errors import RasterioIOError
+    from rasterio.transform import from_bounds
+    from rasterio.warp import Resampling, reproject, transform_bounds
+
+    dst = np.full(shape, np.nan, dtype="float32")
+    dst_tf = from_bounds(*bounds, shape[1], shape[0])
+    lonlat = transform_bounds(crs, "EPSG:4326", *bounds, densify_pts=21)
+    for url in dem_tile_urls(lonlat):
+        last: Optional[Exception] = None
+        for attempt in range(READ_ATTEMPTS):
+            u = url if attempt == 0 else f"{url}?evideo_retry={attempt}"
+            try:
+                with rasterio.Env(**GDAL_ENV), rasterio.open(u) as ds:
+                    part = np.full(shape, np.nan, dtype="float32")
+                    reproject(rasterio.band(ds, 1), part, dst_transform=dst_tf, dst_crs=crs, dst_nodata=np.nan,
+                              resampling=Resampling.bilinear)
+                dst = np.where(np.isfinite(dst), dst, part)
+                break
+            except RasterioIOError as exc:
+                last = exc
+                if "404" in str(exc) or "not recognized" in str(exc):   # tile absent (open sea): no DEM there
+                    break
+                time.sleep(0.5 * (attempt + 1))
+        else:
+            raise last  # type: ignore[misc]
+    return dst
+
+
 def scl_cloud_fraction(scl: np.ndarray) -> float:
     """Share of valid pixels flagged as cloud, shadow or cirrus in the Sentinel-2 scene classification."""
     v = scl[np.isfinite(scl)]
