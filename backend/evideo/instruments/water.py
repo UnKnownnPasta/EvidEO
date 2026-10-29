@@ -16,6 +16,10 @@ sar_water_otsu (water_extent)
   threshold (rejected above -18 dB gamma0, default -22 dB). Bounds were chosen on the Sen1Floods11
   train split only. If VH cannot be read the instrument falls back to VV only and says so.
   Blobs under 10 px are dropped.
+  v1.2 adds an optional terrain mask (config terrain.enabled, default off until the calibration is refitted
+  with it): pixels steeper than 5 degrees or at HAND >= 10 m (evideo/terrain.py, as Copernicus GFM and NRSC
+  do) are "not assessable". They are left out of the threshold fit, the water map and the measured area,
+  and the card reports their area. If the DEM cannot be read the instrument runs without it and says so.
   Outside the monsoon the data layer may choose Sentinel-2 instead: NDWI = (green - nir) / (green + nir)
   with water at NDWI > 0 (McFeeters), on SCL-clear pixels only.
 
@@ -151,7 +155,21 @@ def _sar_water(job: TileJob, prov, sel, res: float) -> tuple[Optional[dict], Opt
         return None, "tile lies outside the named district"
     if valid.sum() < 0.5 * inside * vv.size:
         return None, f"only {valid.mean():.0%} of the tile has valid radar pixels"
-    fit = fit_sar_threshold(np.where(np.isfinite(vv), vv, np.nan))
+    terrain = None
+    tcfg = prov.cfg.get("terrain", {})
+    if tcfg.get("enabled"):
+        from .. import terrain as _terrain
+        try:
+            t = _terrain.terrain_for_tile(r.crs, r.bounds, vv.shape, prov.cfg)
+            terrain = {**t["stats"], "applied": True}
+            valid = valid & t["assessable"]
+            if valid.sum() < 0.3 * inside * vv.size:
+                return None, (f"{terrain['not_assessable_share']:.0%} of the tile is steep or high above the nearest "
+                              f"drainage, where radar cannot tell flood water from shadow")
+        except Exception as exc:  # noqa: BLE001  (terrain is an add-on; the tile result stands without it)
+            terrain = {"applied": False, "error": f"{type(exc).__name__}: {str(exc)[:100]}"}
+    fit = fit_sar_threshold(np.where(valid, vv, np.nan) if terrain and terrain.get("applied")
+                            else np.where(np.isfinite(vv), vv, np.nan))
     if fit["source"] == "default":
         # Not enough bimodal evidence inside the tile: refit on the 3 x 3 tile neighbourhood at 40 m,
         # like the AOI-wide tile selection of archive A083. Deterministic, so receipts reproduce.
@@ -169,7 +187,8 @@ def _sar_water(job: TileJob, prov, sel, res: float) -> tuple[Optional[dict], Opt
     water, q = classify_sar_water(vv, valid, fit, vh)
     if vh is not None:
         fit = {**fit, "vh_threshold_db": q["vh_threshold_db"], "vh_source": q["vh_source"]}
-    return {"raster": r, "water": water, "valid": valid, "fit": fit, "quality": q, "values": vv, "vh": vh}, None
+    return {"raster": r, "water": water, "valid": valid, "fit": fit, "quality": q, "values": vv, "vh": vh,
+            "terrain": terrain}, None
 
 
 def _s2_water(job: TileJob, prov, sel, res: float) -> tuple[Optional[dict], Optional[str]]:
@@ -219,11 +238,20 @@ def classify_sar_change(a: dict[str, Any], b_db: np.ndarray, b_vh: Optional[np.n
     return {"valid": valid, "water_b": water_b, "new": new, "receded": receded, "cand": cand, "rc": rc, "raw": raw}
 
 
+def _terrain_params(m: dict, res: float) -> dict[str, Any]:
+    t = m.get("terrain")
+    if not t:
+        return {}
+    if not t.get("applied"):
+        return {"terrain": t}
+    return {"terrain": t, "not_assessable_km2": round(t["not_assessable_share"] * m["valid"].size * pixel_km2(res), 4)}
+
+
 def _measure(job, prov, sel, res):
     return (_sar_water if sel.sensor == "S1" else _s2_water)(job, prov, sel, res)
 
 
-@register("sar_water_otsu", "1.1")
+@register("sar_water_otsu", "1.2")
 def sar_water_otsu(job: TileJob) -> TileResult:
     prov = get_provider()
     cfg = prov.cfg
@@ -249,7 +277,8 @@ def sar_water_otsu(job: TileJob) -> TileResult:
                       params={"method": method, "sensor": sel.sensor, "selection": sel.reason,
                               "fallback_used": sel.fallback_used, "res_m": res, "fit": m["fit"], **m["quality"],
                               "measured_km2": round(measured, 4), "sigma_abs_km2": round(sigma_abs, 4),
-                              "sigma_floor_km2": round(0.05 * measured, 4), "calibration": cal.status})
+                              "sigma_floor_km2": round(0.05 * measured, 4), "calibration": cal.status,
+                              **_terrain_params(m, res)})
 
 
 @register("sar_logratio_change", "1.1")

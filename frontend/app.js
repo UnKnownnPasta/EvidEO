@@ -1,14 +1,15 @@
-// EvidEO web UI (M4). Plain JavaScript, no build step, so it runs from any static server or offline.
-// Flow: 1 location + question -> 2 dates (config) -> 3 what was understood, tile progress, evidence card + map overlay.
+// Tellio web UI. Plain JavaScript, no build step, so it runs from any static server or offline.
+// Flow: 1 question in words -> 2 configuration (what Tellio parsed, editable, plus the technical settings)
+//       -> 3 progress, then the evidence card. The map stays on the right throughout.
 "use strict";
 const $ = (id) => document.getElementById(id);
 const API = location.port === "8080" || location.protocol === "file:" ? "http://localhost:8000" : "";
 const ui = { abstain_below: 0.6, bands: [], window_half_days: 6, basemap: {}, examples: [] };
-const state = { region: null, regionLayer: null, overlays: null, lastCard: null, source: null };
+const state = { region: null, regionLayer: null, overlays: null, lastCard: null, source: null, picked: null, parsed: null, intents: [], cfg: null };
 
 const NEEDS_INPUT = new Set(["out_of_scope", "missing_area", "invalid_area", "missing_dates", "need_two_dates", "ambiguous_area"]);
 const REASONS = {
-  out_of_scope: "This is not one of the four questions EvidEO can measure.",
+  out_of_scope: "This is not one of the questions Tellio can measure.",
   missing_area: "I could not tell which place you mean.",
   invalid_area: "The area is not valid.",
   missing_dates: "The question has no date.",
@@ -39,32 +40,103 @@ function setStage(name) {
   $("stage-ask").classList.toggle("hidden", name !== "ask");
   $("stage-config").classList.toggle("hidden", name !== "config");
   if (name !== "run") { $("understood").classList.add("hidden"); $("card").classList.add("hidden"); }
+  $("stage-ask").setAttribute("aria-busy", "false");
   const at = STAGES.indexOf(name);
   document.querySelectorAll("#flow li").forEach((li, i) => {
     li.classList.toggle("done", i < at);
     if (i === at) li.setAttribute("aria-current", "step"); else li.removeAttribute("aria-current");
   });
 }
-function recap() {
-  $("recap-place").textContent = state.picked ? `${state.picked.name}, ${state.picked.state}` : "From your question";
-  $("recap-q").textContent = $("q").value.trim();
+const PROBLEM_TEXT = {
+  out_of_scope: "Tellio cannot measure this kind of question. Pick one of the analyses below, or rephrase.",
+  missing_area: "Pick the district.",
+  invalid_area: "The area is not valid. Pick a district.",
+  missing_dates: "Add a date.",
+  need_two_dates: "This analysis compares two dates. Add both.",
+  ambiguous_area: "More than one district has this name. Pick one.",
+};
+const midDate = (w) => iso(new Date((+new Date(`${w.start}T00:00:00Z`) + +new Date(`${w.end}T00:00:00Z`)) / 2));
+const needsTwo = () => (state.intents.find((i) => i.value === $("intent").value)?.dates_needed || 1) === 2;
+function syncDates() {
+  const two = needsTwo();
+  $("d2-wrap").classList.toggle("hidden", !two);
+  $("d1-label").textContent = two ? "Before date" : "Date";
 }
-// Dates written in the question (YYYY-MM-DD) pre-fill the date step so the user only confirms them.
-function prefillDates() {
-  if ($("d1").value) return;
-  const found = [...new Set($("q").value.match(/\d{4}-\d{2}-\d{2}/g) || [])].sort();
-  if (!found.length) return;
-  const two = found.length >= 2;
-  document.querySelector(`input[name=mode][value=${two ? "two" : "one"}]`).checked = true;
-  syncMode();
-  $("d1").value = found[0];
-  if (two) $("d2").value = found[1];
+function buildRequest() {
+  const body = { text: $("q").value.trim() };
+  if (state.picked) body.region = state.picked.key;
+  const intent = $("intent").value;
+  if (intent && intent !== "unsupported") body.intent = intent;
+  const d1 = $("d1").value, d2 = $("d2").value;
+  if (needsTwo()) { if (d1 && d2) body.windows = [windowFor(d1), windowFor(d2)]; }
+  else if (d1) body.windows = [windowFor(d1)];
+  return body;
 }
-function toConfig() {
+async function parseNow() {
+  const res = await fetch(`${API}/v1/parse`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(buildRequest()) });
+  if (!res.ok) throw new Error("parse failed");
+  return res.json();
+}
+function renderTech(cfg, intent) {
+  const rows = [];
+  if (cfg.instrument) rows.push(["Instrument", `${cfg.instrument} v${cfg.instrument_version}`]);
+  if (cfg.sensor_rule) rows.push(["Satellite choice", cfg.sensor_rule]);
+  rows.push(["Search window", `plus or minus ${cfg.window_half_days} days around each date`]);
+  rows.push(["Map tiles", cfg.n_tiles ? `${cfg.n_tiles} tiles of ${cfg.tile_deg} degrees (about ${cfg.tile_km} km), measured in parallel at ${cfg.read_res_m} m` : `0 so far (limit ${cfg.max_tiles})`]);
+  rows.push(["Publication rule", `a number is shown only at confidence ${Number(cfg.publish_threshold).toFixed(2)} or above`]);
+  if (intent === "water_extent" || intent === "water_change")
+    rows.push(["Terrain mask", cfg.terrain.enabled ? `on: slope above ${cfg.terrain.slope_max_deg} degrees or height above drainage of ${cfg.terrain.hand_max_m} m or more is not assessable` : "off (switch it on in the server configuration)"]);
+  $("tech").replaceChildren(...rows.flatMap(([k, v]) => [el("dt", { text: k }), el("dd", { text: v })]));
+}
+function renderConfig(out, initial) {
+  const p = out.parsed;
+  state.parsed = p; state.cfg = out.config;
+  if (initial) {
+    state.intents = out.intents;
+    const sel = $("intent");
+    sel.replaceChildren(...(p.intent === "unsupported" ? [el("option", { value: "unsupported", text: "Choose an analysis" })] : []),
+      ...out.intents.map((i) => el("option", { value: i.value, text: i.label })));
+    sel.value = p.intent;
+    if (p.region && p.place_name) { const [name, st] = p.place_name.split(", "); setPicked({ key: p.region, name, state: st }); }
+    const wins = p.windows || [];
+    if (wins[0]) $("d1").value = midDate(wins[0]);
+    if (wins[1]) $("d2").value = midDate(wins[1]);
+  }
+  syncDates();
+  $("understood-cfg").textContent = `I understood your question as: ${p.understood_as}`;
+  const probs = [...p.problems.map((k) => PROBLEM_TEXT[k] || k)];
+  if (out.config.too_large) probs.push(`This area needs ${out.config.n_tiles} tiles; the limit is ${out.config.max_tiles}. Pick a smaller area.`);
+  const box = $("cfg-problems");
+  box.classList.toggle("hidden", !probs.length);
+  box.replaceChildren(...probs.map((t) => el("p", { text: t })));
+  const ch = $("place-choices");
+  ch.classList.toggle("hidden", !p.candidate_keys.length);
+  ch.replaceChildren(...p.candidate_keys.map((k, i) => {
+    const b = el("button", { type: "button", class: "chip clay-sm", text: `Use ${p.candidates[i]}` });
+    b.addEventListener("click", () => { const [name, st] = p.candidates[i].split(", "); setPicked({ key: k, name, state: st }); reparse(); });
+    return b;
+  }));
+  renderTech(out.config, p.intent);
+  $("go").disabled = probs.length > 0;
+  if (p.region) showRegion(p.region);
+}
+let reparseTimer = null;
+function reparse() {
+  clearTimeout(reparseTimer);
+  reparseTimer = setTimeout(async () => { try { renderConfig(await parseNow(), false); } catch { /* the previous configuration stays visible */ } }, 200);
+}
+async function toConfig() {
   const err = $("q-err");
   if ($("q").value.trim().length < 3) { err.textContent = "Type a question first, or tap an example."; err.classList.remove("hidden"); $("q").focus(); return; }
   err.classList.add("hidden");
-  recap(); prefillDates(); setStage("config");
+  state.picked = null; $("place-picked").replaceChildren(); $("place-picked").classList.add("hidden");
+  $("d1").value = $("d2").value = "";
+  $("intent").replaceChildren(); state.parsed = null;   // a new question starts from its own parse, not the last one's choices
+  $("next").disabled = true;
+  try { renderConfig(await parseNow(), true); }
+  catch { $("next").disabled = false; err.textContent = "Tellio's server could not be reached. Check your connection and try again."; err.classList.remove("hidden"); return; }
+  $("next").disabled = false;
+  setStage("config");
   $("cfg-h").focus();
 }
 function toAsk() {
@@ -122,18 +194,16 @@ function renderList() {
   if (active >= 0) place.setAttribute("aria-activedescendant", `opt-${active}`);
   [...list.children].forEach((li, i) => li.addEventListener("mousedown", (e) => { e.preventDefault(); pick(hits[i]); }));
 }
-function pick(h) {
-  closeList();
-  place.value = "";
+function setPicked(h) {
   state.picked = h;
-  if (!$("q").value.trim()) $("q").placeholder = `e.g. How much of ${h.name} was under water on 2024-07-11?`;
   const box = $("place-picked");
-  const rm = el("button", { type: "button", class: "chip clay-sm", "aria-label": `Remove ${h.name}, ${h.state}` }, `${h.name}, ${h.state}  ✕`);
-  rm.addEventListener("click", () => { state.picked = null; box.classList.add("hidden"); box.replaceChildren(); place.focus(); });
+  const rm = el("button", { type: "button", class: "chip clay-sm", "aria-label": `Remove ${h.name}, ${h.state}` }, `${h.name}, ${h.state}  \u2715`);
+  rm.addEventListener("click", () => { state.picked = null; box.classList.add("hidden"); box.replaceChildren(); place.focus(); reparse(); });
   box.replaceChildren(rm);
   box.classList.remove("hidden");
   showRegion(h.key);
 }
+function pick(h) { closeList(); place.value = ""; setPicked(h); reparse(); }
 place.addEventListener("input", () => {
   clearTimeout(timer);
   const q = place.value.trim();
@@ -152,14 +222,11 @@ place.addEventListener("keydown", (e) => {
 });
 place.addEventListener("blur", () => setTimeout(closeList, 120));
 
-// ---------- dates ----------
-function syncMode() {
-  const two = document.querySelector("input[name=mode]:checked").value === "two";
-  $("d2-wrap").classList.toggle("hidden", !two);
-  $("d1-label").textContent = two ? "Before date" : "Date";
-}
-document.querySelectorAll("input[name=mode]").forEach((r) => r.addEventListener("change", syncMode));
+// ---------- dates and analysis ----------
 $("d1").max = $("d2").max = iso(new Date());
+$("intent").addEventListener("change", () => { syncDates(); reparse(); });
+$("d1").addEventListener("change", reparse);
+$("d2").addEventListener("change", reparse);
 
 // ---------- progress ----------
 function step(name) {
@@ -237,11 +304,11 @@ function renderCard(card, parsed) {
   const c = $("card");
   c.classList.remove("hidden");
   c.classList.toggle("abstain", card.abstained);
-  // Two kinds of "no": EvidEO needs a detail from you, or the satellite evidence was not good enough.
+  // Two kinds of "no": Tellio needs a detail from you, or the satellite evidence was not good enough.
   const needsInput = card.abstained && NEEDS_INPUT.has(card.reason);
   $("badge").className = `badge ${!card.abstained ? "ok" : needsInput ? "input" : "abstain"}`;
   $("badge").textContent = !card.abstained ? "Answer" : needsInput ? "Needs one detail" : "Not enough evidence";
-  $("card-title").textContent = !card.abstained ? "Measured answer" : needsInput ? "Nothing measured yet" : "EvidEO did not publish a number";
+  $("card-title").textContent = !card.abstained ? "Measured answer" : needsInput ? "Nothing measured yet" : "Tellio did not publish a number";
   $("headline").innerHTML = headline(card);
   $("headline").classList.toggle("hidden", !$("headline").innerHTML);
   $("answer").textContent = card.answer_text;
@@ -252,7 +319,7 @@ function renderCard(card, parsed) {
     $("meter-fill").style.width = `${Math.max(2, card.confidence * 100)}%`;
     $("meter-threshold").style.left = `calc(${ui.abstain_below * 100}% - 1px)`;
     $("meter-text").textContent = `Confidence ${card.confidence.toFixed(2)} (${card.confidence_band || "unrated"}). ` +
-      `EvidEO publishes a number only at or above ${ui.abstain_below.toFixed(2)} (the marker).`;
+      `Tellio publishes a number only at or above ${ui.abstain_below.toFixed(2)} (the marker).`;
   }
 
   const box = $("abstain-box");
@@ -263,7 +330,7 @@ function renderCard(card, parsed) {
     const keys = parsed?.candidate_keys || [], labels = parsed?.candidates || [];
     $("choices").replaceChildren(...keys.map((k, i) => {
       const b = el("button", { type: "button", class: "chip clay-sm", text: `Use ${labels[i]}` });
-      b.addEventListener("click", () => { const [name, st] = labels[i].split(", "); pick({ key: k, name, state: st }); submit(); });
+      b.addEventListener("click", () => { const [name, st] = labels[i].split(", "); setPicked({ key: k, name, state: st }); submit(); });
       return b;
     }), ...(card.follow_ups || []).map((f) => {
       const b = el("button", { type: "button", class: "chip clay-sm", text: f.label });
@@ -296,18 +363,8 @@ $("copy").addEventListener("click", async () => {
 $("again").addEventListener("click", toAsk);
 $("restart").addEventListener("click", toAsk);
 
-// ---------- ask ----------
-function setBusy(b) { $("go").disabled = b; $("go").querySelector(".go-label").textContent = b ? "Measuring..." : "Run measurement"; $("stage-config").setAttribute("aria-busy", String(b)); }
-function buildRequest() {
-  const text = $("q").value.trim();
-  const body = { text };
-  if (state.picked) body.region = state.picked.key;
-  const two = document.querySelector("input[name=mode]:checked").value === "two";
-  const d1 = $("d1").value, d2 = $("d2").value;
-  if (two && d1 && d2) body.windows = [windowFor(d1), windowFor(d2)];
-  else if (!two && d1) body.windows = [windowFor(d1)];
-  return body;
-}
+// ---------- run ----------
+function setBusy(b) { $("go").disabled = b || !!state.parsed?.problems?.length; $("go").querySelector(".go-label").textContent = b ? "Measuring..." : "Run measurement"; $("stage-config").setAttribute("aria-busy", String(b)); }
 async function submit(override) {
   const err = $("q-err");
   if (override) $("q").value = override.text;
@@ -319,15 +376,15 @@ async function submit(override) {
   setStage("run");
   $("card").classList.add("hidden");
   $("understood").classList.remove("hidden");
-  $("understood-text").textContent = "Reading your question";
-  step("parse"); progress(0, 0);
+  $("understood-text").textContent = state.parsed ? state.parsed.understood_as : "Reading your question";
+  step("scenes"); progress(0, 0);
   let res, out;
   try {
     res = await fetch(`${API}/v1/queries`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) });
     out = await res.json();
   } catch {
     setBusy(false);
-    renderCard({ abstained: true, answer_text: "EvidEO's server could not be reached.", next_step: "Check your connection and try again." });
+    renderCard({ abstained: true, answer_text: "Tellio's server could not be reached.", next_step: "Check your connection and try again." });
     return;
   }
   if (!res.ok) { setBusy(false); renderCard({ abstained: true, answer_text: typeof out.detail === "string" ? out.detail : "The request was not valid." }); return; }
@@ -350,6 +407,7 @@ async function submit(override) {
 $("stage-ask").addEventListener("submit", (e) => { e.preventDefault(); toConfig(); });
 $("stage-config").addEventListener("submit", (e) => { e.preventDefault(); submit(); });
 $("back").addEventListener("click", () => { setStage("ask"); $("q").focus(); });
+$("stage-config").addEventListener("keydown", (e) => { if (e.key === "Enter" && e.target.tagName === "INPUT" && e.target.role === "combobox") e.preventDefault(); });
 $("q").addEventListener("keydown", (e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); toConfig(); } });
 
 // ---------- boot ----------
@@ -375,5 +433,5 @@ function renderExamples() {
   initBasemap();
   renderExamples();
   const q = new URLSearchParams(location.search).get("q");
-  if (q) { $("q").value = q; submit(); } else setStage("ask");
+  if (q) { $("q").value = q; toConfig(); } else setStage("ask");
 })();

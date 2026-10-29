@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <title>EvidEO</title>
+  <title>Tellio</title>
   <meta name="description" content="Ask a plain-language question about an Indian district. Get a measured answer with its satellite evidence, or an honest 'not enough evidence'.">
   <!-- Leaflet is vendored (frontend/vendor) so the UI also works on air-gapped installs. -->
   <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="styles.css?v=3">
+  <link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
   <a class="skip" href="#q">Skip to question</a>
@@ -16,67 +16,65 @@
   <header class="top clay">
     <span class="logo" aria-hidden="true"></span>
     <div class="brand">
-      <h1>EvidEO</h1>
+      <h1>Tellio</h1>
       <p class="tag">Ask about any district. Get a measured answer with its evidence, or an honest "not enough evidence".</p>
     </div>
     <span id="status" class="pill clay-sm" role="status" aria-live="polite">Connecting</span>
   </header>
 
   <ol class="flow" id="flow" aria-label="Steps">
-    <li data-stage="ask" aria-current="step"><span>1</span> Location and question</li>
-    <li data-stage="config"><span>2</span> Dates</li>
-    <li data-stage="run"><span>3</span> Processing and answer</li>
+    <li data-stage="ask" aria-current="step"><span>1</span> Ask</li>
+    <li data-stage="config"><span>2</span> Configuration</li>
+    <li data-stage="run"><span>3</span> Progress and results</li>
   </ol>
 
   <main class="layout">
-    <!-- 1. Ask: where and what -->
+    <div class="col">
+    <!-- 1. Ask: language only -->
     <form id="stage-ask" class="clay panel ask" autocomplete="off" novalidate aria-labelledby="ask-h">
-      <h2 id="ask-h" class="h2">Where and what?</h2>
+      <h2 id="ask-h" class="h2">What do you want to know?</h2>
+      <label for="q" class="label">Your question, in your own words</label>
+      <textarea id="q" rows="4" required minlength="3" maxlength="500" aria-describedby="q-hint q-err"
+        placeholder="How much of Barpeta was under water on 2024-07-11?"></textarea>
+      <p id="q-hint" class="hint">English, Hindi or Hinglish. Name a district and a date. Tellio answers water extent, water change, crop or greenness change, and what the land looks like.</p>
+      <p id="q-err" class="err hidden" role="alert"></p>
+      <div class="chips" role="group" aria-label="Example questions" id="examples"></div>
+      <button type="submit" class="go clay-btn" id="next"><span class="go-label">Continue</span></button>
+    </form>
+
+    <!-- 2. Configuration: what Tellio parsed, editable, plus the technical settings it will run with -->
+    <form id="stage-config" class="clay panel ask hidden" autocomplete="off" novalidate aria-labelledby="cfg-h">
+      <h2 id="cfg-h" class="h2" tabindex="-1">Check what Tellio will run</h2>
+      <p id="understood-cfg" class="understood"></p>
+      <div id="cfg-problems" class="abstain-box input hidden" role="status"></div>
 
       <div class="field first">
-        <label for="place" class="label">1. Location</label>
-        <div class="combo">
-          <input id="place" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false"
-            aria-controls="place-list" aria-describedby="place-hint" placeholder="Start typing a district, e.g. Barpeta" spellcheck="false">
-          <ul id="place-list" role="listbox" class="listbox clay hidden" aria-label="Matching districts"></ul>
-        </div>
-        <p id="place-hint" class="hint">Optional if your question names the district. A picked district wins over any place in the question.</p>
-        <div id="place-picked" class="picked hidden"></div>
+        <label for="intent" class="label">Analysis</label>
+        <select id="intent"></select>
       </div>
 
       <div class="field">
-        <label for="q" class="label">2. Your question</label>
-        <textarea id="q" rows="3" required minlength="3" maxlength="500" aria-describedby="q-hint q-err"
-          placeholder="How much of Barpeta was under water on 2024-07-11?"></textarea>
-        <p id="q-hint" class="hint">EvidEO answers four kinds of question: water extent, water change, crop or greenness change, and what the land looks like.</p>
-        <p id="q-err" class="err hidden" role="alert"></p>
-        <div class="chips" role="group" aria-label="Example questions" id="examples"></div>
+        <label for="place" class="label">District</label>
+        <div class="combo">
+          <input id="place" type="text" role="combobox" aria-autocomplete="list" aria-expanded="false"
+            aria-controls="place-list" placeholder="Start typing a district, e.g. Barpeta" spellcheck="false">
+          <ul id="place-list" role="listbox" class="listbox clay hidden" aria-label="Matching districts"></ul>
+        </div>
+        <div id="place-picked" class="picked hidden"></div>
+        <div id="place-choices" class="chips hidden" role="group" aria-label="Which district do you mean?"></div>
       </div>
-
-      <button type="submit" class="go clay-btn" id="next"><span class="go-label">Next: choose dates</span></button>
-    </form>
-
-    <!-- 2. Configure: dates -->
-    <form id="stage-config" class="clay panel ask hidden" autocomplete="off" novalidate aria-labelledby="cfg-h">
-      <h2 id="cfg-h" class="h2" tabindex="-1">Set the dates</h2>
-
-      <dl class="recap clay-inset">
-        <div><dt>Location</dt><dd id="recap-place"></dd></div>
-        <div><dt>Question</dt><dd id="recap-q"></dd></div>
-      </dl>
 
       <fieldset class="field">
         <legend class="label">Dates</legend>
-        <div class="seg clay-inset" role="radiogroup" aria-label="Date mode">
-          <label><input type="radio" name="mode" value="one" checked><span>One date</span></label>
-          <label><input type="radio" name="mode" value="two"><span>Compare two dates</span></label>
-        </div>
         <div class="dates">
           <label class="date"><span id="d1-label">Date</span><input type="date" id="d1" min="2015-01-01"></label>
           <label class="date hidden" id="d2-wrap"><span>After date</span><input type="date" id="d2" min="2015-01-01"></label>
         </div>
-        <p class="hint">Each date becomes a search window of plus or minus <span id="half">6</span> days, about one Sentinel-1 revisit. Leave blank to use the dates written in your question.</p>
+        <p class="hint">Each date becomes a search window of plus or minus <span id="half">6</span> days, about one Sentinel-1 revisit.</p>
       </fieldset>
+
+      <h3 class="label tech-h">Technical configuration</h3>
+      <dl class="tech clay-inset" id="tech"></dl>
 
       <div class="btn-row">
         <button type="button" class="clay-sm action" id="back">Back</button>
@@ -84,10 +82,10 @@
       </div>
     </form>
 
-    <!-- 2. What EvidEO understood and how far it got -->
+    <!-- 3a. Progress -->
     <section id="understood" class="clay panel hidden" aria-labelledby="u-h">
       <div class="u-head">
-        <h2 id="u-h" class="label">I understood your question as</h2>
+        <h2 id="u-h" class="label">Running</h2>
         <button type="button" id="restart" class="clay-sm action">New question</button>
       </div>
       <p id="understood-text" class="understood"></p>
@@ -141,7 +139,9 @@
       </div>
     </section>
 
-    <!-- 4. Map -->
+    </div>
+
+    <!-- Map: always visible on the right -->
     <section class="clay panel mapbox" aria-labelledby="map-h">
       <div class="map-head">
         <h2 id="map-h" class="label">Map</h2>
@@ -153,8 +153,8 @@
     </section>
   </main>
 
-  <footer class="muted foot">Team Stardust, SIH 2026 (SIH26167). Data: Copernicus Sentinel-1 and Sentinel-2 via public STAC catalogues. District boundaries: geoBoundaries (ODbL).</footer>
+  <footer class="muted foot">Tellio by Team Stardust, SIH 2026 (SIH26167). Data: Copernicus Sentinel-1 and Sentinel-2 via public STAC catalogues. District boundaries: geoBoundaries (ODbL).</footer>
   <script src="vendor/leaflet/leaflet.js"></script>
-  <script src="app.js?v=3"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>

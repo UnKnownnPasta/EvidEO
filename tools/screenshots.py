@@ -44,7 +44,14 @@ def main():
             page.goto(BASE, wait_until="networkidle")
             if q:
                 page.fill("#q", q)
-                page.click("#next")  # step 1 -> 2 (dates are pre-filled from the question)
+                page.click("#next")  # step 1 -> 2 (configuration, pre-filled from the question)
+                page.wait_for_selector("#stage-config:not(.hidden)")
+                page.wait_for_timeout(800)
+                if page.is_disabled("#go"):  # needs one more detail: capture the configuration step itself
+                    page.screenshot(path=os.path.join(OUT, f"{name}.png"), full_page=True)
+                    print("saved (configuration step)", name, file=sys.stderr)
+                    ctx.close()
+                    continue
                 page.click("#go")    # step 2 -> 3
                 page.wait_for_selector("#card:not(.hidden)", timeout=180_000)
                 page.wait_for_timeout(2500)  # let overlays and base map tiles load

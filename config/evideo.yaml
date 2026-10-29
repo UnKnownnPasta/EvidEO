@@ -50,6 +50,12 @@ trust:
     - {min: 0.0,  label: low}
   calibration_dir: config/calibration
 
+terrain:                   # water v1.2: mark steep and high-above-drainage pixels "not assessable" (GFM, NRSC practice)
+  enabled: false           # off until the water calibration is refitted with the mask (change them together)
+  slope_max_deg: 5.0
+  hand_max_m: 10.0         # NRSC uses 15; neither is validated on Indian floodplains yet
+  channel_km2: 1.0         # upslope area that makes a cell a drainage channel
+
 outputs:
   masks_dir: backend/runtime/masks   # per-tile PNG overlays; share this volume between api and workers
   read_res_m: 20                     # measurement resolution (S2 10 m bands are averaged to 20 m)

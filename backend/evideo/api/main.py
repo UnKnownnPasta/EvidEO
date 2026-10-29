@@ -1,4 +1,4 @@
-"""EvidEO HTTP API. Stateless: all job state lives in the queue backend.
+"""Tellio HTTP API (code package: evideo). Stateless: all job state lives in the queue backend.
 
 Run:  uvicorn evideo.api.main:app --reload   (from backend/)
 """
@@ -18,6 +18,7 @@ from fastapi.staticfiles import StaticFiles
 from .. import __version__
 from ..aggregate import card_for_problems
 from ..config import settings
+from ..instruments import get as get_instrument
 from ..jobqueue import make_queue, new_job_id
 from ..models import Job, JobState, QueryRequest, TileJob
 from .. import gazetteer
@@ -29,7 +30,7 @@ from ..tiling import tiles_for_bbox
 def create_app(cfg: Optional[dict[str, Any]] = None) -> FastAPI:
     cfg = cfg or settings()
     queue = make_queue(cfg)
-    app = FastAPI(title="EvidEO API", version=__version__,
+    app = FastAPI(title="Tellio API", version=__version__,
                   description="Plain-language questions about land, answered with evidence cards.")
     app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["GET", "POST"], allow_headers=["*"])
     app.state.queue, app.state.cfg = queue, cfg
@@ -70,9 +71,54 @@ def create_app(cfg: Optional[dict[str, Any]] = None) -> FastAPI:
         return {"count": len(found), "catalogs": app.state.stac.health(),
                 "scenes": [{**sc.evidence(), "bbox": sc.bbox, "covers_request": sc.covers(b)} for sc in found]}
 
+    _LABELS = {"water_extent": "Water extent", "water_change": "Water change", "vegetation_change": "Crop or greenness change",
+               "land_cover": "Land cover (experimental)", "describe": "Describe the land"}
+    _SENSOR_RULES = {
+        "water_extent": "Radar (Sentinel-1) first in June to September, because it sees through cloud; otherwise optical (Sentinel-2) if the tile is clear, with radar as fallback.",
+        "water_change": "Two same-orbit radar scenes in the monsoon; otherwise an optical pair on pixels clear on both dates.",
+        "vegetation_change": "Optical (Sentinel-2) NDVI on pixels clear on both dates; radar is not used for crops yet.",
+        "land_cover": "Optical (Sentinel-2) true-colour patches.",
+        "describe": "Optical (Sentinel-2) water and vegetation indices.",
+    }
+
+    @app.post("/v1/parse")
+    def parse_only(req: QueryRequest) -> dict:
+        """Step 2 of the UI: what Tellio understood and exactly what it would run, without reading any pixels.
+        The same request, sent to /v1/queries, runs it."""
+        parsed = parse(req, intent=req.intent)
+        conf = parsed.intent.value
+        instrument = cfg.get("intents", {}).get(conf)
+        version = get_instrument(instrument)[0] if instrument else None
+        size = float(cfg.get("tiling", {}).get("tile_deg", 0.05))
+        n_tiles, limit = 0, int(cfg.get("tiling", {}).get("max_tiles_per_job", 400))
+        if parsed.bbox and "invalid_area" not in parsed.problems:
+            tiles = tiles_for_bbox(parsed.bbox, size)
+            if parsed.region:
+                from shapely.geometry import box
+                outline = gazetteer.outline_lonlat(parsed.region)
+                if outline is not None:
+                    tiles = [(tid, tb) for tid, tb in tiles if outline.intersects(box(*tb))]
+            n_tiles = len(tiles)
+        terrain = cfg.get("terrain", {})
+        read_res = cfg.get("outputs", {}).get("read_res_m", 20)
+        return {
+            "parsed": parsed.model_dump(mode="json"),
+            "intents": [{"value": k, "label": _LABELS.get(k, k), "dates_needed": 2 if k in ("water_change", "vegetation_change") else 1}
+                        for k in cfg.get("intents", {})],
+            "config": {
+                "instrument": instrument, "instrument_version": version,
+                "sensor_rule": _SENSOR_RULES.get(conf), "window_half_days": 6,
+                "tile_deg": size, "tile_km": round(size * 111.32, 1), "n_tiles": n_tiles, "max_tiles": limit,
+                "too_large": n_tiles > limit, "read_res_m": read_res,
+                "publish_threshold": cfg.get("trust", {}).get("abstain_below", 0.6),
+                "terrain": {"enabled": bool(terrain.get("enabled")), "slope_max_deg": terrain.get("slope_max_deg", 5.0),
+                            "hand_max_m": terrain.get("hand_max_m", 10.0)},
+            },
+        }
+
     @app.post("/v1/queries", status_code=202)
     def create_query(req: QueryRequest) -> dict:
-        parsed = parse(req)
+        parsed = parse(req, intent=req.intent)
         job = Job(job_id=new_job_id(), parsed=parsed)
         if parsed.problems:
             job.card, job.state = card_for_problems(job), JobState.done
