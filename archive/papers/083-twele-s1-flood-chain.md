@@ -9,7 +9,7 @@ code: none found
 category: sar-optical-fusion
 era: historical
 tags: [flood-mapping, sentinel-1, automatic-thresholding, tile-based, kittler-illingworth, fuzzy-logic, hand, region-growing, near-real-time, vv-vs-vh]
-verified: "2026-10-05 via https://elib.dlr.de/102476 (bibliographic record and abstract), https://elib.dlr.de/102505 (companion LPS 2016 paper) and https://extwiki.eodc.eu/GFM/PDD/GFM_algorithms/DLR_algo (operational descendant algorithm description); publisher full text at tandfonline is paywalled and was not read"
+verified: "2026-10-29 DLR eLib abstract only (full text paywalled)"
 takeaway: "Blueprint for sar_water_otsu: pick bimodal, darker-than-average tiles, threshold them, then refine with slope, size and HAND fuzzy rules; VV is slightly better than VH in calm wind"
 ---
 
@@ -49,3 +49,8 @@ Two flood scenarios at the Greece-Turkey border, validated against reference dat
 - Sanity-bound the VV threshold: if Otsu returns a value above -15 dB, treat it as a failed split (likely no real water class) and abstain or fall back to a permanent-water percentile, flagged as a fallback.
 - Add cheap post-filters before counting flooded area: slope above about 18 degrees and HAND-high terrain suppress water; drop blobs under about 8 to 10 px.
 - Default to VV, keep VH as a cross-check; note wind as a known failure mode in the explanation.
+
+## Full-text check (2026-10-29)
+Full text still not read: paywalled, no open copy found (DLR eLib 102476 lists "Full text not available"; Semantic Scholar marks it closed). Only the abstract on the DLR record was re-read.
+- Abstract confirms: fully automated NRT chain, under 45 minutes after data are available, two test sites of one flood at the Greece-Turkey border, overall accuracy 94.0 to 96.1% and kappa 0.879 to 0.910, slightly higher accuracy with VV than VH under calm wind.
+- So the accuracy evidence is two sites from a single event in a temperate setting, against optical-derived or manual references. The draft says our instrument "follows the split-based approach"; that rests on the abstract and the operational GFM description, not on a reading of the paper.

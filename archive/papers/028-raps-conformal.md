@@ -9,7 +9,7 @@ code: https://github.com/aangelopoulos/conformal_classification
 category: trust-calibration
 era: recent
 tags: [conformal-prediction, prediction-sets, coverage-guarantee, raps, aps, distribution-free]
-verified: "2026-10-04 via https://arxiv.org/abs/2009.14193"
+verified: "2026-10-29 full text of arXiv v5 PDF; earlier 2026-10-04 via arXiv abstract"
 takeaway: "RAPS wraps any classifier to output label sets with a finite-sample coverage guarantee (for example 90%), with sets often 5 to 10 times smaller than a Platt-scaling baseline"
 ---
 
@@ -35,3 +35,8 @@ Coverage is marginal (on average over inputs), not conditional on each input or 
 - Map set size to abstention: if the conformal set at the chosen level contains contradictory answers (both flooded and not flooded), abstain and tell the user what extra evidence (a later SAR pass, a cloud-free optical scene) would help.
 - Calibrate per region and season, and check coverage per district group, because marginal coverage can hide failures in exactly the under-represented Indian areas EvidEO targets.
 - The official code is small and model-agnostic, so it can wrap RemoteCLIP zero-shot logits on CPU with negligible overhead.
+
+## Full-text check (2026-10-29)
+Read the full arXiv v5 text.
+- RAPS gives a marginal coverage guarantee under exchangeability, for sets of labels. It is not conformal risk control (a different paper, entry 133, Angelopoulos, Bates, Fisch, Lei and Schuster). The draft's "next steps" sentence cited this paper for conformal risk control and now cites entry 133.
+- The guarantee holds on average over images, not for a given image or region, and exchangeability is exactly what a new geographic region may break. ImageNet-V2 is its only shifted-data test.

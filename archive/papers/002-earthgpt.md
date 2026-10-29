@@ -9,7 +9,7 @@ code: https://github.com/wivizhang/EarthGPT
 category: rs-vlm
 era: recent
 tags: [vlm, multi-sensor, sar, infrared, optical, instruction-tuning, mmrs-1m, llama2]
-verified: "2026-10-04 via https://arxiv.org/abs/2401.16822 and https://github.com/wivizhang/EarthGPT"
+verified: "2026-10-29 full text of arXiv PDF; earlier 2026-10-04 via arXiv HTML"
 takeaway: "MMRS-1M (optical, SAR, infrared) is a ready seed for LoRA data; its pixel-level weakness supports keeping masks in a separate, non-LLM head"
 ---
 
@@ -28,7 +28,7 @@ The main contribution is MMRS-1M: over 1M image-text instruction pairs assembled
 The fetched HTML version reports zero-shot scene classification of 77.37% on CLRS and 74.72% on NaSC-TG2, ahead of the compared MLLMs. I did not confirm SAR-specific or detection numbers from the fetched pages.
 
 ## Limitations
-The paper acknowledges difficulty on tasks that need precise pixel-level localization. SAR coverage comes from existing curated datasets, not from Sentinel-1 GRD scenes as distributed, so transfer to raw Sentinel-1 is untested here. Released model weights were not clearly stated in the repo. No calibrated confidence or abstention mechanism is described.
+The paper's stated future work is better oriented-box detection and more modalities (a pixel-level localization admission was not found in the text); it says MMRS-1M holds limited SAR and infrared data compared with optical. SAR coverage comes from existing curated datasets, not from Sentinel-1 GRD scenes as distributed, so transfer to raw Sentinel-1 is untested here. Released model weights were not clearly stated in the repo. No calibrated confidence or abstention mechanism is described.
 
 ## What it means for EvidEO
 - MMRS-1M is a ready source of SAR and optical instruction pairs: mine it for our LoRA fine-tune instead of writing all templates from scratch (check per-source licenses first).
@@ -36,3 +36,10 @@ The paper acknowledges difficulty on tasks that need precise pixel-level localiz
 - Use it as evidence that one assistant across SAR and optical is feasible, which supports our cloud-cover fallback story.
 - Pixel-level weakness reinforces our plan to output region masks from a segmentation or change-detection head, not from the language model.
 - Report NaSC-TG2 or CLRS zero-shot accuracy for RemoteCLIP alongside EarthGPT's numbers if we claim classification quality.
+
+## Full-text check (2026-10-29)
+Read the full arXiv PDF text (IEEE TGRS version).
+- Confirmed: 77.37% on CLRS and 74.72% on NaSC-TG2 (zero-shot), 34 datasets, over 1M pairs.
+- The SAR sources are AIR-SARShip-2.0, HRSID and SSDD, all ship detection. The SAR evidence in the paper is qualitative (Fig. 4, counting storage tanks and ships) plus a note that it detected all SAR ships with horizontal boxes but missed ships with oriented boxes.
+- Oriented-box detection on MAR20 zero-shot: AP@50 87.86 against about 90 for specialists.
+- No confidence or abstention in the text.

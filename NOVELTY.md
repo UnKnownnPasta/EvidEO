@@ -34,8 +34,8 @@ The dimensions are the ones that matter to a district official, extension office
 | GeoDisaster agents [A174] (2026 benchmark, IIT Bombay) | Yes, disaster questions incl. Sentinel-1 floods | Workflows over prepared data | Yes, in a SAR flood subset | Not per answer | Via workflows | No (authors list uncertainty as future work) | No | Runnable workflows | No | Benchmark |
 | Earth-Agent-Pro [A166] (2026 preprint) | Yes | Via tools | Partial | No | Via tools | No | No | Evidence log for self-repair only | No | Preprint |
 | QAG-360K / VisTA [A179] (2024 preprint) | Yes, change questions | No (bitemporal optical pairs supplied) | No | No | **Yes: a change mask with every answer, empty when nothing changed** | No | No | No | No | Test set on request |
-| EO-Gym agent [A176] (2026 preprint) | Yes | Yes, inside its environment (fetches older scenes, switches optical to SAR) | **Yes, learned** | No | Via tools | No | No | No | Small (4B LoRA) | Preprint |
-| TerraScope [A201] (CVPR 2026) | Yes | No | Reads optical or SAR, no automatic choice | No | **Yes, pixel masks behind area answers** | No | No | No | No (GPU) | Open per paper |
+| EO-Gym agent [A176] (2026 preprint) | Yes | Yes, inside its environment (local lookups of older scenes and of paired optical and SAR views) | Tool call to an optical-to-SAR view, chosen by the question, not by cloud (benchmark only) | No | Via tools | No | No | No | Small (4B LoRA) | Preprint |
+| TerraScope [A201] (CVPR 2026) | Yes | No | Learned token-level choice between optical and SAR from the question text (cloud example in the paper); concatenation scored slightly higher; prepared chips, no live scene search | No | **Yes, pixel masks behind area answers** | No | No | No | No (GPU) | Open per paper |
 | SHRUG-FM [A202] (CVPR EarthVision 2026) | No (segmentation model) | No | No (Sentinel-2 optical) | No | Flood masks | **Reliability scores, stated as not calibrated** | **Rejects unreliable flood maps; no next step** | No | Not stated | Research code |
 | UnivEARTH agents [A204] (ACL 2026 Findings) | Yes | **Yes, via Earth Engine code the agent writes** | Not automatic | No | Via code | No | No | No | No (cloud LLM) | Needs Earth Engine |
 | OpenEarthAgent [A205] (ECCV 2026) | Yes | No | No | No | Via tools | No | No | **Deterministic replay of tool traces** | No | Open |
@@ -136,7 +136,7 @@ The claim is novelty of **combination and packaging for a specific user**, which
 ### Run 8 evidence that strengthens or tests the claim
 
 - **Grounded change answers are no longer new on their own.** QAG-360K and its VisTA model [A179] already answer plain-language change questions with a pixel mask, and expect an empty mask when nothing changed. CDVQA [A178] shows learned models answer change-ratio questions badly (about 39% right), which supports computing ratios from masks. EvidEO's claim must therefore rest on the combination: calibrated per-answer confidence, threshold abstention with a next step, Sentinel-1/2 scene IDs and dates, a re-runnable receipt, SAR-first monsoon handling, and delivery to non-experts for Indian districts. No archived system has more than two of these.
-- **Small tuned models that choose tools and switch to SAR now exist.** EO-Gym [A176] trains a 4B LoRA model to fetch older scenes and move from optical to SAR, beating a frontier model; RS-Agent [A195] and CangLing-KnowFlow [A194] show that classifying the task first and following expert workflow templates gives over 95% planning accuracy. This validates EvidEO's closed set of question types and code-chosen sensors, and removes "automatic SAR fallback" as a distinguishing claim by itself. None of them reports calibrated confidence or abstains.
+- **Small tuned models that choose tools and switch to SAR now exist.** EO-Gym [A176] trains a 4B LoRA model to call retrieval tools for older scenes and for paired optical and SAR views in a local benchmark (the SAR switch is a tool the question calls for, not a cloud test), beating a frontier model; RS-Agent [A195] and CangLing-KnowFlow [A194] show that classifying the task first and following expert workflow templates gives over 95% planning accuracy. This validates EvidEO's closed set of question types and code-chosen sensors, and removes "automatic SAR fallback" as a distinguishing claim by itself. None of them reports calibrated confidence or abstains.
 - **Numbers are where agents fail.** TerraBench [A177] finds the best agent gets only 22.9% of numeric answers within tolerance, and wrong argument values are the top failure; JL1-CC&QA [A182] finds judges reject invented exact percentages. Both support EvidEO's rule that numbers come only from instruments and that parsed arguments are checked in code.
 - **The field's own agenda matches EvidEO's design.** A 2026 position paper on agentic remote sensing [A193] asks for projection, time window, provenance and an uncertainty measure to be carried through every step, using flood area as its example, but offers no system, calibration method or abstention rule. EvidEO is a working instance of that agenda.
 - **SAR VLMs still misread radar [A180, A192].** Even after heavy tuning, general VLMs need large SAR corpora, and a lightweight S1/S2 adaptation reaches only 0.77 F1 on per-patch flood calls with no area or confidence [A192]. This supports keeping the VLM away from backscatter.
@@ -147,7 +147,7 @@ The claim is novelty of **combination and packaging for a specific user**, which
 
 - **Abstention for flood maps now has published prior art.** SHRUG-FM [A202] (CVPR EarthVision 2026) flags unreliable foundation-model flood predictions (Sentinel-2, optical) using input out-of-distribution scores and prediction uncertainty, and rejects them. Its scores are explicitly not calibrated, it answers no questions and gives no next step. EvidEO's abstention claim is therefore narrowed again: "abstention over a calibrated measurement of a user's question, with a next step and a receipt", not "the first EO system that rejects outputs".
 - **Live retrieval by an LLM agent is not new on its own.** UnivEARTH [A204] (ACL 2026 Findings) has agents write Google Earth Engine code that fetches real imagery; the best agent reaches about 40% zero-shot and 64.5% with self-debugging, with no abstention or calibration. This supports EvidEO's fixed instrument recipes and removes "fetches live data" as a standalone differentiator.
-- **Deterministic re-runs of tool traces exist.** OpenEarthAgent [A205] (ECCV 2026) replays tool traces and computes NDVI, NBR and NDBI change. It overlaps EvidEO's receipt and index-change ideas, but carries no confidence, no abstention, no scene search and no SAR. The receipt claim becomes "a receipt tied to Sentinel scene IDs whose re-run is measured to reproduce the same output hash", which M6 demonstrated.
+- **Deterministic re-runs of tool traces exist.** OpenEarthAgent [A205] (ECCV 2026) replays tool traces and computes NDVI, NBR and NDBI change. It overlaps EvidEO's receipt and index-change ideas, but carries no confidence, no abstention, no scene search and no SAR water or flood analysis (it uses SAR only for ship, aircraft and vehicle detection sets). The receipt claim becomes "a receipt tied to Sentinel scene IDs whose re-run is measured to reproduce the same output hash", which M6 demonstrated.
 - **Pixel-grounded area answers exist.** TerraScope [A201] (CVPR 2026) answers area and change questions backed by masks from optical or SAR. It needs a GPU and has no calibration, provenance or abstention. Masks on their own are not a EvidEO novelty.
 - **Faithful, step-grounded reasoning exists.** RSThinker [A206] (ICLR 2026) ties each reasoning step to an image box. EvidEO should not claim auditable reasoning in general, only auditable measurement.
 - **The research agenda names EvidEO's features but does not build them.** ANASSA [A207] lists provenance, uncertainty and an "insufficient evidence" outcome as requirements without an implementation; the 2026 reasoning survey [A209] finds no RS reasoning system that evaluates calibration or abstention and no validated operational deployment. Being a working, measured system is part of the claim.
@@ -161,7 +161,7 @@ The claim is novelty of **combination and packaging for a specific user**, which
 - **TerraScope [A201] or OpenEarthAgent [A205] adding confidence.** Either has most of the plumbing.
 
 - **VisTA / QAG-360K [A179] with confidence.** It already returns a change mask with each answer; adding a calibrated score, abstention and Sentinel provenance would make it a direct competitor for change questions.
-- **EO-Gym [A176] with calibrated answers.** It already does the sensor switching and scene fetching; a reliability head would overlap strongly.
+- **EO-Gym [A176] with calibrated answers.** It already has sensor-switching and scene-fetching tools (local benchmark, no live data, no flood-extent task); a reliability head would still overlap with its agent loop.
 
 - **A calibrated RS VLM.** Conformal risk control [A133] and local temperature scaling [A131] are general tools; an RS VLM that ships with them and per-answer scene provenance would overlap strongly with EvidEO. None found as of run 7; ScaleEarth [A171] is the first 2026 RS model seen to abstain on calibrated uncertainty, but only for its own resolution estimate.
 - **RSure-Agent [A164] with a user-facing confidence.** If its learned per-tool reliability were turned into a per-answer probability with scene provenance, it would overlap with EvidEO's trust claim. Watch for a follow-up or code release.
@@ -209,7 +209,7 @@ Yes = has it as defined; part = a weaker form (in brackets); blank = no or not d
 
 | System | C1 | C2 | C3 | C4 | C5 | C6 | Full |
 |---|---|---|---|---|---|---|---|
-| EO-Gym agent [A176] | | | | Yes (learned) | part (4B) | Yes | 2 |
+| EO-Gym agent [A176] | | | | tool call only | part (4B) | Yes | 2 |
 | NRSC / NDEM flood maps [E3, E5, A046] | | | part (scene and date, no re-run) | Yes | Yes (government infrastructure) | | 2 |
 | FloodReasonBench model [A183] | | | | | Yes (Jetson) | Yes (close-range imagery, not satellite) | 2 |
 | Onboard crisis agents [A208] | part (agreement score, not calibrated) | | | part (routes to a SAR flood tool by hazard, not by cloud) | Yes (quantised, edge board) | | 1 |
@@ -240,7 +240,7 @@ Yes = has it as defined; part = a weaker form (in brackets); blank = no or not d
 | N3 | **Calibrated confidence on each answer**, fitted on hand labels and published with its error | SHRUG-FM [A202] (uncalibrated reliability), RSure-Agent [A164] (internal), ScaleEarth [A171] (resolution only) | User-facing probability with a reported ECE and coverage; refit reproduces exactly | V3: water ECE 0.139 to 0.074 on held-out chips; change ECE 0.041; refit from committed rows gives identical numbers | **Holds for water; crop is labelled placeholder** |
 | N4 | **Threshold abstention with a next step**, including one-tap follow-ups | SHRUG-FM [A202] (rejects, no next step), VHM [A078] (learned refusal), GeoBenchX [A093] (scores refusal) | Abstains over a calibrated measurement at a stated line (0.60), separates "needs one detail" from "not enough evidence", and offers what would help | V4: live change card abstains at 0.23 and offers two published extents; out-of-scope and ambiguous answers in 0.01 to 0.03 s | **Holds** |
 | N5 | **Scene receipts measured to reproduce** | OpenEarthAgent [A205] (replays tool traces), W3C PROV-O [A222] (a model, not a system) | Receipt tied to Sentinel scene IDs whose cold re-run gives the same output hash, checked across days | V5: run 8 receipts re-run on 2026-10-10 with identical outputs | **Holds** |
-| N6 | **SAR-first in monsoon, automatic** | EO-Gym [A176] (learned switch), NRSC practice [E32] | Rule in code (monsoon months, cloud share), stated on the card in plain words | V2: `selection_notes` on the Barpeta card | **Not unique alone**; part of N1 |
+| N6 | **SAR-first in monsoon, automatic** | EO-Gym [A176] (optical-to-SAR retrieval tool in a local benchmark), NRSC practice [E32] | Rule in code (monsoon months, cloud share), stated on the card in plain words | V2: `selection_notes` on the Barpeta card | **Not unique alone**; part of N1 |
 | N7 | **Ease: CPU, free data, no training needed for day-one value** | A208 (edge), openEO and odc-stac [A121, A125] (data layer) | Whole answer path on a 2 vCPU machine with public catalogues; the trained model only improves parsing | V6: whole district in 54 to 98 s cold, 0.5 s warm; linear scaling with workers | **Holds as packaging**, not as a method claim |
 | N8 | **Built for non-expert Indian users** | GIS Copilot [A167], GeoDisaster [A174] (Indian authors, benchmark) | District gazetteer, Indian date formats, Hindi and Hinglish, accessible mobile UI | V7: hand-written intent test 0.682 full match; keyboard walkthrough passes | **Holds as design; usefulness to real officers untested** |
 
@@ -265,3 +265,42 @@ Yes = has it as defined; part = a weaker form (in brackets); blank = no or not d
 ### 5.7 Final statement
 
 EvidEO's novelty is a combination and delivery claim, verified against the whole archive: it is the only system found that gives a non-expert a plain-language answer about an Indian district with a calibrated confidence, a threshold abstention with a next step, Sentinel scene receipts that re-run identically, automatic SAR under monsoon cloud, and a CPU-only path on free data. Each ingredient exists elsewhere; the combination, built and measured, does not. The claim would weaken if any watch-list system (section 4) adds calibrated, user-facing confidence plus abstention to its existing ingredients, and it is only as useful as the instruments behind it, which for Indian floods still need work (condition 2).
+
+## 6. What the full-text pass changed (batch 1, 2026-10-29)
+
+Source: `docs/verification/paper_pass_50.md`. Ten papers read in full text (A013, A014, A033, A176, A201, A202, A204, A205, A213, A227). More batches will extend this table.
+
+### 6.1 Implications
+
+| Finding (where in the paper) | What it changes | Action for EvidEO | Status |
+|---|---|---|---|
+| VLMs are weak on precise tasks: GPT-4V IoU 0.16 vs 0.68 [A013, Table 7]; best GEOBench-VLM average 41.7% and best referring precision 0.34 [A014, Fig. 4, Table 4] | Supports "the model parses, instruments measure" | Keep the rule; cite the tables, not the abstracts | Holds |
+| Hallucination is worst on image attributes such as sensor and resolution [A033, Table 1: HFIA 0.17 for two models with HFall up to 0.69] | The explanation layer, not only the measurement, needs a check | Compare sensor, resolution, date and every number in the explanation with the receipt fields before showing it | **To build** |
+| Code-writing agents fail on syntax (21 to 30%) and empty collections (about 15%); feedback raises accuracy but also wrong answers (15.7 to 26.0%) [A204, Sections 4.1 to 4.4] | A better model will lower failures but not remove silent wrong answers | Run a head-to-head with a current model on our question set (section 6.2) | **To run** |
+| EO-Gym and TerraScope switch between optical and SAR, as a tool call or as learned token choice [A176, A201] | Automatic SAR choice is not unique alone (N6 already says so) | Lead with answer reliability, receipts and abstention; keep SAR-first as part of the combination | Wording fixed |
+| No agent paper reports confidence or abstention [A176, A201, A204, A205] | The gap we claim is real in this sample | Show calibrated answers with coverage numbers | Holds |
+| Operational GFM likelihood is the mean of three algorithms' scores, checked with one Q-Q plot, no accuracy reported [A213, Sections III and V] | Even the official product ships an uncalibrated confidence index | Report agreement of two or three of our own water tests; do not call it a probability until calibrated | **To build** |
+| GFM and DLR use slope, radar shadow and distance-to-drainage exclusions [A213, Sections II and IV] | A terrain mask is standard practice, and we have none | Add HAND or slope exclusion and a permanent-water layer (SOLUTION.md risks 12 and 15) | **Open gap** |
+| Detection depends on land cover and flood type: cropland IoU 52%, tree cover and built-up 4%; riverine F1 0.69, cyclone 0.56, flash 0.55 (3 events) [A227, Section 4] | Calibration may need to vary by regime, not only by region | Test per-land-cover and per-flood-type calibration | **To test** |
+| Fragmentation index below 5 went with F1 above 0.7 [A227, Section 4] | A label-free reliability signal | Test as an extra feature for the confidence head | **To test** |
+| Selective rejection does not always win: SHRUG-FM is not best at 75% coverage on floods [A202, Table 2] | Our selective-prediction claim needs its own coverage curves | Publish risk against coverage per instrument | Planned (risk 8) |
+| Reference products disagree by definition (SAR GFM vs optical DSWx) [A227] | Matching NRSC or GFM maps is not ground truth | Report disagreements as definitional, not as our error | Adopt |
+
+### 6.2 How EvidEO answers the "modern AI" objection
+
+Newer models will write working Earth Engine code more often than the 2025-era numbers in A204 and A176. The structural problems stay, so the design answers them without assuming the model gets better.
+
+| Problem with a free-running agent | EvidEO mechanism | What is shown | What is not yet shown |
+|---|---|---|---|
+| Fluent answer from missing or empty data | Fixed instruments; scene IDs and dates on the card; abstain below a confidence threshold; say what would fix it | Card abstained at 0.35 on a Darbhanga scene-classification test (SOLUTION.md, instrument table) | Abstention rate on a realistic question set |
+| Not repeatable | Versioned instrument, parameters and output hash in a receipt | Re-run reproduced the output hash (M6) | Reproducibility across other machines and months |
+| Confidence not stated | Calibrated confidence per tile | Calibration is over-confident when moved to India by 20 points (draft, Fig. loeo) | A per-regime calibration that transfers |
+| Reader cannot audit code | Plain-language card with observed versus inferred | Design stated | User test with a district officer |
+| Sensor, resolution or date misdescribed | (planned) check the explanation against receipt fields | Nothing yet | Build the check, section 6.1 |
+| Physical errors the model cannot know about (shadow, steep terrain) | (planned) HAND or slope exclusion | Nothing yet | Build; the PLOS ONE Sindhudurg radar-shadow error is the target case |
+
+**Head-to-head experiment (not yet run).** Give a current frontier model free use of Earth Engine or STAC code on our question set, with no instruments. Compare with EvidEO on correctness against the NRSC or hand reference, agreement across five repeated runs, how often it abstains when the evidence is poor, and whether its stated confidence matches its error. Report coverage and risk for both. Until this is run, the claim rests on 2025-era numbers and on design reasoning only.
+
+### 6.3 Reading rule
+
+Take numbers from tables and body text, name the place, and check points against relative gain and preprint against peer review. Written into `archive/README.md`.

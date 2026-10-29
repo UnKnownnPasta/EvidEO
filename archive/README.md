@@ -9,6 +9,7 @@ A verified, annotated archive of research that shapes EvidEO. One file per paper
 - Front matter: `id, title, authors, year, venue, link, code, category, era, tags, verified, takeaway`.
 - Sections: Problem, Approach, Data and benchmarks, Key results, Limitations, What it means for EvidEO.
 - Own words only, no long quotes, no PDFs committed (links only).
+- Numbers come from the paper's tables and body text, not its abstract. Any figure used in `paper/evideo.tex`, `SOLUTION.md` or `NOVELTY.md` must name where it was found (table or section) in the entry. An entry whose `verified` field says abstract or metadata only is a lead, not a source: do not quote its numbers in the paper. Check whether a gain is in points or relative, and whether a venue is peer reviewed or an arXiv preprint. Pass log: `docs/verification/paper_pass_50.md`.
 - `era`: historical (before 2020), recent (2020 to 2026, published), upcoming (2026 preprints, challenges, announced datasets).
 - After adding papers, run `python tools/build_index.py` to regenerate `index.csv` and the catalog below. It fails on duplicate IDs or titles.
 

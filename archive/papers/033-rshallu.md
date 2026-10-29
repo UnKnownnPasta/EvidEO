@@ -9,7 +9,7 @@ code: none
 category: trust-calibration
 era: upcoming
 tags: [hallucination, remote-sensing, rs-vlm, benchmark, image-level-hallucination, mitigation, geochat, lhrs-bot]
-verified: "2026-10-04 via https://arxiv.org/abs/2602.10799"
+verified: "2026-10-04 via https://arxiv.org/abs/2602.10799; 2026-10-29 full PDF text and Tables 1 and 6 read"
 takeaway: "RS VLMs answer hallucination-free only about 36% to 69% of the time on RSHalluEval, including errors about modality and resolution; strong evidence that EvidEO's VLM must not produce measurements"
 ---
 
@@ -25,7 +25,7 @@ Three contributions. (1) A taxonomy that adds image-level hallucination (wrong i
 RSHalluEval, RSHalluCheck and RSHalluShield as above, evaluated on general models (LLaVA-1.5, mPLUG-Owl3, Qwen2-VL) and RS-specific models (GeoChat, LHRS-Bot, LHRS-Bot-Nova, VHM).
 
 ## Key results
-From the expert evaluation table as summarised from the arXiv HTML: overall hallucination-free rate ranged from 36.33% (LHRS-Bot, worst) to 68.33% (VHM, best RS model), with mPLUG-Owl3 at 69.00%, the best general model. So domain-specific RS models did not reliably beat general ones. Mitigation improved hallucination-free rates by up to 21.63 percentage points while keeping downstream task performance, per the abstract. The local checker was much faster than the online mode in the reported comparison but weaker on image-attribute errors. These figures come from a tool-assisted read of the HTML and should be rechecked against the PDF before citing.
+From the expert evaluation table as summarised from the arXiv HTML: overall hallucination-free rate ranged from 36.33% (LHRS-Bot, worst) to 68.33% (VHM, best RS model), with mPLUG-Owl3 at 69.00%, the best general model. So domain-specific RS models did not reliably beat general ones. Mitigation improved hallucination-free rates by up to 21.63% relative (LLaVA-1.5 HFall 0.5007 to 0.6090, which is +10.8 points; the abstract's "percentage points" is wrong, checked against Table 6) while keeping downstream task performance. The local checker was much faster than the online mode in the reported comparison but weaker on image-attribute errors. Table 1 expert rows were rechecked against the PDF text on 2026-10-29: LHRS-Bot 36.33, GeoChat 44.17, LHRS-Bot-Nova 67.00, Qwen2-VL 67.83, VHM 68.33, mPLUG-Owl3 69.00.
 
 ## Limitations
 Unpublished preprint; code and data were announced but not released at verification time. Benchmark size is modest (about 2k evaluation pairs). The automatically generated mitigation data gives terse single-word scene answers that differ from expert style. Evaluation relies partly on an LLM judge, itself a possible error source. Coverage of SAR, multispectral indices and multi-temporal change questions was not confirmed.

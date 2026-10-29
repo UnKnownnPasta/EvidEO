@@ -9,7 +9,7 @@ code: none
 category: trust-calibration
 era: historical
 tags: [calibration, temperature-scaling, ece, reliability-diagram, platt-scaling, post-hoc]
-verified: "2026-10-04 via https://arxiv.org/abs/1706.04599"
+verified: "2026-10-29 full text of arXiv PDF; earlier 2026-10-04 via arXiv abstract"
 takeaway: "Modern deep nets are overconfident; fit one temperature on held-out data to calibrate any score, report ECE and a reliability diagram, accuracy is unchanged"
 ---
 
@@ -35,3 +35,8 @@ Calibration is only guaranteed in-distribution: a temperature fitted on one data
 - Fit the temperature on a held-out Indian validation set, separately per instrument and ideally per season (monsoon versus dry), since a single global value will not survive the Europe-to-India and dry-to-wet shifts.
 - Publish ECE and a reliability diagram per instrument in the evaluation report; a "calibrated confidence" claim without them is not credible to judges.
 - Note that SAR thresholding and spectral indices produce no probability at all: EvidEO needs a mapping (for example logistic regression on margin-from-threshold plus scene quality features) before this method applies.
+
+## Full-text check (2026-10-29)
+Read the full arXiv PDF text.
+- ECE uses M = 15 bins (Table 1 caption); our draft uses 10 bins and cites it only for the ECE idea. Temperature scaling is described as a single-parameter variant of Platt scaling; Platt, isotonic and BBQ are covered for the binary case.
+- Every experiment is in distribution (same train and test distribution). The paper does not test calibration under dataset or geographic shift (the only "shift" in the text is internal covariate shift in batch norm). This supports our leave-one-event-out test as a different question.

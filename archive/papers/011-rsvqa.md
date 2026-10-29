@@ -9,7 +9,7 @@ code: https://github.com/syvlo/RSVQA
 category: rs-benchmark
 era: recent
 tags: [vqa, sentinel-2, openstreetmap, auto-generated-qa, counting, presence, language-bias]
-verified: "2026-10-04 via https://arxiv.org/abs/2003.07333 and https://rsvqa.sylvainlobry.com/"
+verified: "2026-10-29 full text of arXiv PDF; earlier 2026-10-04 via arXiv and project page"
 takeaway: "Sentinel-2 VQA baseline to evaluate on first; copy OSM-template QA generation and always run a blind (no-image) baseline to expose language bias"
 ---
 
@@ -28,7 +28,7 @@ Questions and answers are generated automatically from OpenStreetMap vector data
 - Data on Zenodo, linked from https://rsvqa.sylvainlobry.com/.
 
 ## Key results
-As read from the paper (ar5iv render): LR test overall accuracy about 79.1%, HR test set 1 about 83.2%, HR test set 2 (Philadelphia) about 78.2%. Counting is the weakest type (roughly 61 to 69%). The authors also report that the model still scores about 73.8% when given random images, which signals strong language bias.
+As read from the paper (ar5iv render): LR test average accuracy (AA) 79.08% and overall accuracy (OA) 81.49%; HR test set 1 AA 83.23% and OA 85.24%; HR test set 2 (Philadelphia) AA 78.23% and OA 76.33%. Counting is the weakest type (roughly 61 to 69%). The authors also report that the model still scores 73.78% (LR), 73.78% (HR set 1) and 72.51% (HR set 2) when each question is paired with a random image, against 81.49%, 85.24% and 76.33% with the right image, which signals strong language bias.
 
 ## Limitations
 OSM labels are incomplete, so ground truth is noisy. Templates limit linguistic diversity. Counting is treated as classification, and the drop on the unseen city shows weak geographic transfer. No calibration or abstention.
@@ -39,3 +39,9 @@ OSM labels are incomplete, so ground truth is noisy. Templates limit linguistic 
 - Always run a blind-image (question-only) baseline: if the model scores well without the image, our confidence is meaningless.
 - Avoid answering counts from 10 m imagery as if they were exact; route counts through detection with explicit uncertainty or abstain.
 - Report per-question-type accuracy and a held-out-region split, not a single headline number.
+
+## Full-text check (2026-10-29)
+Read from the arXiv PDF (Tables II and III, language-bias paragraph, conclusion).
+- The earlier entry called AA "overall accuracy"; the tables give both AA and OA, now stated above.
+- Counting is 67.01% (LR) and 68.63% / 61.47% (HR sets 1 and 2).
+- On the held-out city the gap between right and random image is only about 4 points (76.33 vs 72.51): a question-only guess is nearly as good. This supports checking an answer against the actual scene.

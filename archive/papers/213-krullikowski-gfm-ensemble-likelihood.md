@@ -9,7 +9,7 @@ code: "Not released; the likelihood layer is distributed operationally as part o
 category: trust-calibration
 era: recent
 tags: [gfm, copernicus, ensemble, likelihood, uncertainty, sentinel-1, flood-mapping, user-communication, exclusion-mask]
-verified: "2026-10-09 via curl to api.crossref.org (JSTARS record: title, 11 authors, volume, pages, DOI; TechRxiv preprint record with full abstract; the preprint lists 10 authors, without Renaud Hostache); WebFetch of the GFM Product Definition wiki at extwiki.eodc.eu (likelihood layer range and the 50 cut-off, LIST/DLR/TUW algorithms, TUW uncertainty flipped). IEEE Xplore and TechRxiv full text did not render, so harmonisation formulas and any numeric accuracy were not read"
+verified: "2026-10-09 via curl to api.crossref.org (JSTARS record: title, 11 authors, volume, pages, DOI; TechRxiv preprint record with full abstract; the preprint lists 10 authors, without Renaud Hostache); WebFetch of the GFM Product Definition wiki at extwiki.eodc.eu (likelihood layer range and the 50 cut-off, LIST/DLR/TUW algorithms, TUW uncertainty flipped). 2026-10-29: IEEE Xplore open-access full text read in Chrome up to the Q-Q discussion (conclusion not loaded); harmonisation formulas and the absence of numeric accuracy confirmed"
 takeaway: "Copernicus GFM gives every flood pixel a 0 to 100 likelihood by harmonising and averaging the uncertainty outputs of three independent Sentinel-1 algorithms; EvidEO can mimic this cheaply by running two or three of its own water tests and reporting agreement as confidence"
 ---
 
@@ -29,7 +29,7 @@ The Copernicus Global Flood Monitoring (GFM) service produces a flood mask for e
 ## Key results
 - In Myanmar, the ensemble stayed robust where the individual algorithms disagreed, and the likelihood layer conveyed that disagreement to users.
 - In Somalia, where misclassification is likely, averaging reduced false detections, and low likelihood values flagged results to use with caution.
-- The abstract reports these qualitatively; numeric scores were not read (full text not accessed).
+- Full text (open access) read 2026-10-29: the paper reports no accuracy, F1 or calibration error. Evidence is one quantile-quantile plot for Myanmar against a Sentinel-2 flood map made one day later (predicted probabilities mostly higher than empirical, empirical peaks at 0.9) and a qualitative Somalia case.
 
 ## Limitations
 - Averaging rescaled scores from different methods gives a confidence index, not a calibrated probability; a likelihood of 70 is not shown to mean 70% of such pixels are flooded.

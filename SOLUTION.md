@@ -48,10 +48,10 @@ Every other use is the same machinery pointed at a different instrument.
 The problem is structural, not a temporary gap waiting for a better model.
 
 1. **Questions are local and constant; answers are produced centrally.** India has over 700 districts, and every flood season brings thousands of local questions. The central system produces a few hundred map products a year [E2], with no published delivery time [gap noted in the evidence brief]. Even excellent central mapping cannot answer each official's own polygon and dates on demand.
-2. **The skills gap is large and slow to close.** India's own task force counted roughly 25,000 to 50,000 trained geospatial users against a need of about 500,000 more [E21, E22]. It also said decision-makers in particular need basic orientation [E23]. Training programmes are large but cannot turn every officer into an analyst [E27]. NRSC researchers themselves have proposed a chatbot for non-GIS users of Bhuvan [E29], which confirms the need from inside ISRO.
+2. **The skills gap is large and slow to close.** India's own task force counted roughly 25,000 to 50,000 trained geospatial users against a need of about 500,000 more [E21, E22]. These are 2013 figures; DST's January 2026 slides still use them, and no newer official count exists. It also said decision-makers in particular need basic orientation [E23]. Training programmes are large but cannot turn every officer into an analyst [E27]. NRSC researchers themselves have proposed a chatbot for non-GIS users of Bhuvan [E29], which confirms the need from inside ISRO.
 3. **The monsoon returns every year, and so do the clouds.**
    - Cloud cover is above 60% over most of India from June to September [E30].
-   - In the Western Ghats it reaches about 90% in July and August, and optical water maps miss about a quarter of surface water there [E31, A045].
+   - In three Western Ghats districts it averaged 90 to 92% in July and August, and the optical JRC water product left about 23 to 25% of surface water unmapped (an annual average, per the paper's Figure 7) [E31, A045].
    - NRSC itself prefers radar for floods [E32].
 
    Any optical-only tool fails exactly when it is needed most.

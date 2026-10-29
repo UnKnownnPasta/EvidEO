@@ -9,7 +9,7 @@ code: https://github.com/mbzuai-oryx/geochat
 category: rs-vlm
 era: recent
 tags: [vlm, grounding, referring-detection, vqa, scene-classification, llava, instruction-tuning, optical-rgb]
-verified: "2026-10-04 via https://arxiv.org/abs/2311.15826"
+verified: "2026-10-29 full text of arXiv v1 PDF; earlier 2026-10-04 via arXiv abstract"
 takeaway: "Baseline RS chat model (RGB only, 7B); reuse its task-token routing and dataset-to-instruction recipe, but do not trust VLM-emitted boxes (about 10.6% referring detection acc@0.5)"
 ---
 
@@ -28,7 +28,7 @@ The authors build a multimodal instruction-following set from existing RS image-
 From the paper PDF: zero-shot scene classification of 84.43% on UCMerced and 72.03% on AID, and 90.70% average accuracy on RSVQA-LRBEN. Referring detection is weak: 10.6% accuracy at IoU 0.5 overall.
 
 ## Limitations
-Grounding is the clear weak spot: small-object accuracy at IoU 0.5 is reported around 2.9% versus 21.7% for large objects, and multi-object grounding drops to about 4.3%. Training data is RGB optical only (no SAR, no multispectral, no time series). Interpolated positional encoding is a workaround for, not a solution to, very large tiles. The model gives no calibrated confidence and no built-in abstention.
+Grounding is the clear weak spot: small-object accuracy at IoU 0.5 is reported around 2.9% versus 21.7% for large objects, and multi-object grounding drops to about 4.3%. Training data is optical only (no SAR, no multispectral, no time series); it includes FloodNet aerial VQA, but no flood metric is reported. Interpolated positional encoding is a workaround for, not a solution to, very large tiles. The model gives no calibrated confidence and no built-in abstention.
 
 ## What it means for EvidEO
 - Treat GeoChat as the baseline "RS chat" reference: its 7B LLaVA stack is too heavy for our CPU prototype, but its task-token idea (separate modes for classify, caption, VQA, ground) maps cleanly onto our query router.
@@ -36,3 +36,12 @@ Grounding is the clear weak spot: small-object accuracy at IoU 0.5 is reported a
 - RGB only means it cannot serve monsoon-season flood queries; EvidEO must keep a Sentinel-1 path that does not depend on this model family.
 - Its instruction-pair recipe (convert existing labelled datasets into templated Q and A) is a cheap template for our planned LoRA fine-tune data.
 - Benchmark against its UCMerced/AID zero-shot numbers when reporting RemoteCLIP scene classification, so judges can compare like for like.
+
+## Full-text check (2026-10-29)
+Read the full arXiv v1 PDF (10 pages).
+- The 90.70% on RSVQA-LRBEN covers presence, comparison and rural/urban questions only. The paper omits area and count questions "because the responses are numerical". Those are the questions EvidEO cares about.
+- Table 6 prints an average of 90.70 for GeoChat, but its three columns (91.09, 90.33, 94.00) average 91.81, which is the figure LHRS-Bot's paper reports for it. The printed average is internally inconsistent. GeoChat is not best on LR (RSGPT 92.29, which was fine-tuned on the target data).
+- Zero-shot RSVQA-HRBEN average is 72.30 (presence 58.45, comparison 83.19).
+- 10.6% overall acc@0.5 (Table 7): small 2.9, medium 13.6, large 21.7; multi-object 4.3; [refer] 10.5, [grounding] 11.8. The benchmark is built by the authors from SAMRS validation images with templated expressions and pseudo-labelled classes, so it is not human-written referring expressions.
+- FloodNet (aerial, post-flood) is in the training mix and Fig. 5 shows a confident flood answer ("three buildings are flooded"), with no flood-specific score.
+- No confidence, calibration or abstention anywhere in the text. Venue (CVPR 2024) is not in this v1 PDF.

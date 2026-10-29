@@ -9,7 +9,7 @@ code: https://github.com/The-AI-Alliance/GEO-Bench-VLM
 category: rs-benchmark
 era: recent
 tags: [benchmark, mcq, counting, segmentation, temporal, multi-task, open-vlm, gpt-4o]
-verified: "2026-10-04 via https://arxiv.org/abs/2411.19325 and https://github.com/The-AI-Alliance/GEO-Bench-VLM"
+verified: "2026-10-04 via https://arxiv.org/abs/2411.19325 and https://github.com/The-AI-Alliance/GEO-Bench-VLM; 2026-10-29 PDF text, Tables 2 to 5 and Fig. 4 caption read"
 takeaway: "Best open VLM reaches only about 42% MCQ accuracy on geospatial tasks, which justifies tool grounding plus abstention; reuse its task taxonomy"
 ---
 
@@ -27,10 +27,10 @@ The authors (eight in total, including Fahad Shahbaz Khan, Paolo Fraccaro, Alexa
 - 13 models evaluated per the README, including LLaVA-OneVision, GPT-4o, Qwen2-VL and EarthDial.
 
 ## Key results
-The best model, LLaVA-OneVision, reaches about 41.7% accuracy on the multiple-choice questions, slightly ahead of GPT-4o, and the authors describe this as roughly double random guessing. Per-task numbers were not verified here.
+The best model, LLaVA-OneVision, reaches about 41.7% accuracy on the multiple-choice questions, slightly ahead of GPT-4o, and the authors describe this as roughly double random guessing. Checked against the PDF on 2026-10-29: 41.7% average, 13 VLMs; referring-expression detection precision at IoU 0.5 is 0.3408 for Sphinx (best), 0.2429 EarthDial, 0.1518 Qwen2-VL, 0.1151 GeoChat, 0.0087 GPT-4o (Table 4).
 
 ## Limitations
-Multiple-choice scoring can overstate ability compared with free-form answers. The arXiv listing itself does not state a venue; ICCV 2025 is taken from the README. Coverage of SAR and Indian geography was not confirmed from the pages fetched.
+Multiple-choice scoring can overstate ability compared with free-form answers. The arXiv listing itself does not state a venue; ICCV 2025 is taken from the README. The benchmark does include SAR (So2Sat, QuakeSet), multispectral and multi-temporal tasks; Indian geography is not a focus.
 
 ## What it means for EvidEO
 - Even the best open VLM is weak on geospatial tasks, so the VLM must not be our only source of truth; tool-grounded pipelines plus abstention are justified.

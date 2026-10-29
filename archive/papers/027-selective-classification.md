@@ -9,7 +9,7 @@ code: none
 category: trust-calibration
 era: historical
 tags: [selective-prediction, abstention, reject-option, risk-coverage, guarantees, softmax-response]
-verified: "2026-10-04 via https://arxiv.org/abs/1705.08500 and https://nips.cc/virtual/2017/poster/9264"
+verified: "2026-10-29 full text of arXiv PDF; earlier 2026-10-04 via arXiv and NeurIPS page"
 takeaway: "Pick the abstention threshold from a target risk with a statistical guarantee on held-out data; trading coverage for reliability (2% ImageNet top-5 error at about 60% coverage)"
 ---
 
@@ -35,3 +35,8 @@ The guarantee holds only if test data comes from the same distribution as the he
 - Plot risk-coverage curves for each instrument and report the operating point on the evidence card methodology page, so users see how often EvidEO answers and how often it is wrong when it does.
 - Keep a separate calibration set per region and season; the guarantee breaks under distribution shift, which is exactly what monsoon versus dry imagery introduces.
 - The confidence function matters more than the threshold: rank quality features such as cloud fraction, SAR incidence angle and margin from the water threshold, not just raw model scores.
+
+## Full-text check (2026-10-29)
+Read the full arXiv PDF text.
+- The paper defines coverage, risk and the risk-coverage curve, and the SGR algorithm that guarantees a risk bound. It does not define the area under the risk-coverage curve (AURC). AURC is defined in Geifman, Uziel and El-Yaniv, ICLR 2019 (arXiv 1805.08206), whose full text states it and the normalised E-AURC. The draft now cites both.
+- The headline result (2% top-5 error guaranteed with 99.9% probability at about 60% coverage on ImageNet) is stated in the abstract and Section 5. It assumes test data are drawn from the same distribution as the calibration set.

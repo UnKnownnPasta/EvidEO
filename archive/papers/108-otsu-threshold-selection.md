@@ -9,7 +9,7 @@ code: "none found (implemented in scikit-image threshold_otsu and OpenCV THRESH_
 category: historical
 era: historical
 tags: [thresholding, histogram, otsu, unsupervised, binarization, water-mapping-baseline]
-verified: "2026-10-06 via https://api.crossref.org/works/10.1109/TSMC.1979.4310076 (title, author, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
+verified: "2026-10-29 full text of 1979 paper (Purdue copy); earlier 2026-10-06 via Crossref"
 takeaway: "The default automatic threshold that EvidEO must benchmark Kittler-Illingworth against, and a cheap fallback when the two-Gaussian fit fails"
 ---
 
@@ -40,3 +40,9 @@ The paper illustrates the method on a small set of gray-level images and their h
 - Implement Otsu alongside Kittler-Illingworth on gamma0 dB tiles and record both thresholds in the evidence card receipt; large disagreement is a signal to lower confidence.
 - Use Otsu's separability score (or a bimodality test) as a gate: if a tile is not bimodal, do not threshold it, and let the split-based tile selection skip it.
 - Never apply Otsu to a whole district histogram where water is a few percent of pixels; that is exactly the small-class failure case.
+
+## Full-text check (2026-10-29)
+Read the full 1979 paper (Purdue-hosted copy of the IEEE scan; OCR text, six pages).
+- Confirmed: threshold chosen to maximise between-class variance, equivalent to the two other discriminant criteria; extends to several thresholds.
+- The paper also defines a separability measure eta* in (0, 1], invariant to shift and scale of the grey levels, as a measure of the "bimodality of the histogram". EvidEO gates tiles with Ashman's D instead; eta* is a cheaper per-tile signal to test.
+- It shows the method still returns a threshold on a unimodal histogram (its Fig. 2) and admits it has no proof that the criterion is unimodal. Nothing in it concerns radar or water.

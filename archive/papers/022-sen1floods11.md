@@ -9,7 +9,7 @@ code: https://github.com/cloudtostreet/Sen1Floods11
 category: sar-optical-fusion
 era: recent
 tags: [sentinel-1, sentinel-2, flood-mapping, segmentation, weak-labels, dataset, south-asia]
-verified: "2026-10-04 via https://openaccess.thecvf.com/content_CVPRW_2020/papers/w11/Bonafilia_Sen1Floods11_A_Georeferenced_Dataset_to_Train_and_Test_Deep_Learning_CVPRW_2020_paper.pdf"
+verified: "2026-10-29 full text of PDF; earlier 2026-10-04 via CVF PDF"
 takeaway: "Standard Sentinel-1 flood baseline (11 events, 68 hand-labelled chips in India); EvidEO fits its water calibration on it (run 6), and the Indian chips show VV-only thresholds miss much of the labelled flood, so VH matters"
 ---
 
@@ -36,3 +36,10 @@ Only 11 events, no urban floods in validation, minimal hyperparameter tuning, an
 - Weak labels from Sentinel-2 can scale training cheaply; adopt that for India where cloud-free optical pairs exist.
 - Report IoU on a geographically held-out event, as they did with Bolivia, to avoid overstating accuracy to officials.
 - Ship flood masks with scene ID and date per chip, mirroring their georeferenced design.
+
+## Full-text check (2026-10-29)
+Read the full PDF text from the CVF open-access site (main text, tables and references).
+- Confirmed: 4,831 chips, 120,406 km2, 446 hand-labelled; Table 1 (10 events) Otsu-VH 0.4571 permanent, 0.2850 flood, 0.3591 all water; Sentinel-2 weak 0.3389 flood and 0.4084 all; Table 2 (Bolivia) Sentinel-1 weak 0.3871 and Otsu 0.3862 all water. The draft table (0.359 and 0.386) matches.
+- The hand labels are Sentinel-2 maps (same day or within 2 days) corrected by analysts, so the reference is optical-derived, not a ground survey. The Otsu baseline is the same family as our instrument, but it smooths VH with a focal mean (a despeckle step we do not have) and runs on 1 km blocks chosen by variance.
+- The text says 4,370 weak chips in the introduction and 4,385 in Section 2; 4,831 minus 446 is 4,385, so 4,370 is a typo. The paper cites Otsu as Automatica 1975; the correct source is IEEE SMC 1979.
+- Event countries are given in Fig. 3 (image) and were not read; the India chip count comes from the public bucket, as the entry already says.
