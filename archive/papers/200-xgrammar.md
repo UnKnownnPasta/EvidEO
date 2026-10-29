@@ -11,6 +11,7 @@ era: recent
 tags: [constrained-decoding, json-schema, context-free-grammar, structured-output, pushdown-automaton, token-mask-cache, llama.cpp, outlines, cpu]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract, MLSys '25 comment) and curl to https://arxiv.org/html/2411.15100 (method details, baselines including llama.cpp grammar engine and Outlines, test hardware, Table 4 syntactic accuracy); WebFetch permission request timed out"
 takeaway: "A grammar engine that makes JSON-schema constrained decoding nearly free by precomputing token masks for most of the vocabulary (up to 100x lower per-token mask cost than prior engines); EvidEO's intent parser should decode under its JSON schema with such an engine so every parse is valid, at negligible CPU cost"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Dong et al. 2025, XGrammar

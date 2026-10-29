@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, visual-grounding, referring-segmentation, obb, text-mask, llava, dataset, optical-rgb]
 verified: "2026-10-05 via https://arxiv.org/abs/2411.11904, https://arxiv.org/html/2411.11904 and https://github.com/zytx121/GeoGround README"
 takeaway: "Shows masks can be emitted as compact text by a plain LLaVA, so even a small VLM could point at regions; but its masks are coarse and need SAM to be competitive, so keep instrument masks as the truth"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # GeoGround: A Unified Large Vision-Language Model for Remote Sensing Visual Grounding

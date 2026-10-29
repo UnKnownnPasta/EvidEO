@@ -11,6 +11,7 @@ era: historical
 tags: [natural-language-interface, visual-analytics, ambiguity-widgets, spatial-queries, pragmatics]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1145/2984511.2984588 (title, authors, pages, date 2016-10-16) and Semantic Scholar abstract; full text not fetched, so details of the user evaluation are not stated here"
 takeaway: "When a question is ambiguous (which district, which date, what counts as flooded), EvidEO should show the default it chose as an editable chip, as Eviza's ambiguity widgets do, rather than silently guessing or refusing"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Setlur et al. 2016, Eviza

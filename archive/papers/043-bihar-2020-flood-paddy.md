@@ -11,6 +11,7 @@ era: recent
 tags: [bihar, flood-mapping, sentinel-1, sentinel-2, paddy, crop-damage, google-earth-engine, monsoon-2020, india, flood-duration]
 verified: "2026-10-04 via https://link.springer.com/article/10.1007/s12524-021-01487-3"
 takeaway: "Bihar monsoon 2020: S1 plus S2 in GEE mapped about 7,019 sq km submerged and water standing on paddy for 50 to 65 days; a model for flood-on-crop questions, but method details sit behind a paywall"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Flood extent and flood-affected paddy in Bihar, 2020

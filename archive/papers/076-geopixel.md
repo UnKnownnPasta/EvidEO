@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, pixel-grounding, segmentation, grounded-conversation, high-resolution, sam2, internlm, optical-rgb]
 verified: "2026-10-05 via https://arxiv.org/abs/2501.13925, https://arxiv.org/html/2501.13925 and https://github.com/mbzuai-oryx/GeoPixel (README states ICML 2025 acceptance)"
 takeaway: "First RS chat model that emits masks inside its answer; useful pattern for linking each claim to a region, but masks are about 52 mIoU so EvidEO's region mask must still come from instruments"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # GeoPixel: Pixel Grounding Large Multimodal Model in Remote Sensing

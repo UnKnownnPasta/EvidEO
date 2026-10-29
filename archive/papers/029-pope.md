@@ -11,6 +11,7 @@ era: recent
 tags: [hallucination, lvlm, benchmark, yes-no-probing, pope, evaluation]
 verified: "2026-10-04 via https://arxiv.org/abs/2305.10355"
 takeaway: "LVLMs often claim objects that are not there, especially frequent or co-occurring ones; POPE's yes/no probing with adversarial negatives is a cheap template for EvidEO's hallucination tests"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Evaluating Object Hallucination in Large Vision-Language Models

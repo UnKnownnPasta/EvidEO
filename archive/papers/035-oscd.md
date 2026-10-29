@@ -11,6 +11,7 @@ era: historical
 tags: [sentinel-2, multispectral, urban-change, dataset, oscd, siamese, early-fusion, pixel-level-labels, benchmark]
 verified: "2026-10-04 via https://arxiv.org/abs/1810.08468"
 takeaway: "OSCD is the small but standard Sentinel-2 urban change benchmark (24 pairs, 13 bands, pixel labels); use it to calibrate optical change thresholds, not to train large models"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Urban Change Detection for Multispectral Earth Observation Using Convolutional Neural Networks

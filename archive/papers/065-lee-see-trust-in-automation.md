@@ -11,6 +11,7 @@ era: historical
 tags: [trust, reliance, calibration, automation, decision-support, review, display-design]
 verified: "2026-10-04 via https://journals.sagepub.com/doi/10.1518/hfes.46.1.50_30392"
 takeaway: "Foundational review arguing that trust should match automation capability (calibrated trust), not be maximised; EvidEO should design the evidence card to expose when and why instruments are reliable"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Trust in Automation: Designing for Appropriate Reliance

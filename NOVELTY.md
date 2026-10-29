@@ -266,6 +266,50 @@ Yes = has it as defined; part = a weaker form (in brackets); blank = no or not d
 
 EvidEO's novelty is a combination and delivery claim, verified against the whole archive: it is the only system found that gives a non-expert a plain-language answer about an Indian district with a calibrated confidence, a threshold abstention with a next step, Sentinel scene receipts that re-run identically, automatic SAR under monsoon cloud, and a CPU-only path on free data. Each ingredient exists elsewhere; the combination, built and measured, does not. The claim would weaken if any watch-list system (section 4) adds calibrated, user-facing confidence plus abstention to its existing ingredients, and it is only as useful as the instruments behind it, which for Indian floods still need work (condition 2).
 
+## 5.8 Full-text re-check of the closest systems (2026-10-14)
+
+Section 5.3 was judged from archive entries, many written from abstracts. On 2026-10-14 the 37 papers that the novelty claim or the paper draft depends on were re-read from raw full text (arXiv HTML or PDF converted locally, methods, tables, limitations and appendices, plus a keyword sweep for calibration, abstention, provenance, SAR, cloud, CPU and non-expert terms). 35 are now `read_depth: full`; A227 is partial (supplement not on arXiv) and A083 (Twele 2016) has no open full text. Each entry has a "Full-text check (2026-10-14)" section with section references.
+
+### Revised matrix (full-text verdicts; Yes / part / blank)
+
+| System | C1 | C2 | C3 | C4 | C5 | C6 | Full |
+|---|---|---|---|---|---|---|---|
+| Copernicus GFM ensemble [A213] | part (per-pixel likelihood, not fitted, no ECE) | part (exclusion layer; low-confidence pixels set to non-flood, not abstained) | part (scene timestamps, no re-run) | | | | 0 |
+| RSure-Agent [A164] | (per tool-type success prior, not per answer) | part ("insufficient" observations with a reason; no threshold; goes to the agent, not the user) | part (sources and thresholds logged; no scene IDs or re-run) | | | part | 0 |
+| EO-Gym [A176] | | | part (deterministic environment, no scene IDs in answers) | part (agent switches to SAR by question type, never by cloud) | part (offline data, H200 GPUs) | part (LLM-generated questions) | 0 |
+| Onboard crisis agents [A208] | | | | part (routes floods to Sentinel-1 by hazard, not cloud) | **Yes** (whole pipeline on a 16-core ARM CPU board, no accelerator) | | 1 |
+| Google Earth AI [A095] | (intervals across benchmark runs only) | (baselines told not to abstain) | (sources named, answers vary between runs) | | | **Yes** (built for non-experts) | 1 |
+| TerraScope [A201] | | | | part (favours SAR features over clouded regions when the user supplies both images) | (A100) | part | 0 |
+| SHRUG-FM [A202] | (scores deliberately uncalibrated, Sec. 3) | part (binary reject, next step is manual review) | | | | | 0 |
+| OpenEarthAgent [A205], Earth-Agent [A094], Earth-Agent-Pro [A166] | | | part (replayable tool traces) | | | part | 0 |
+| GeoBenchX [A093] (benchmark) | | part (scores a reject tool, no threshold) | part (frozen data, named datasets) | | | part | 0 |
+| ANASSA [A207], agentic RS position paper [A193] | required only | required only | required only | A193 requires | | A207 requires | 0 (nothing built) |
+| GeoChat, EarthGPT, EarthDial, LHRS-Bot, VHM, A179, A171, A172, A174, A183, A194, A195, A204 | | VHM part (learned false-premise rejection) | A174 part | | A179, A183 part | part | 0 |
+| NRSC / NDEM flood maps [A046] (not a paper system; unchanged) | | | part | Yes | Yes | | 2 |
+
+### What changed
+
+1. **The claim got stronger in one way.** Read in full, no research system delivers more than one ingredient in full (A208 C5, A095 C6). Several abstract-level "part" credits were too generous (SHRUG-FM C1, EO-Gym C4 and C6, EarthDial C5, FloodReasonBench C5, whose language model runs on a remote server).
+2. **It got narrower in three places,** which the claim wording must reflect:
+   - C4: radar preference under cloud exists inside a model (TerraScope) and SAR routing exists by hazard type (A208) or question type (EO-Gym). EvidEO's distinct part is that the *system* detects cloud in the scene it fetched and goes to Sentinel-1 on its own.
+   - C5: CPU-only LLM-plus-tools EO analysis is shown on a space-qualified board (A208). EvidEO cannot claim CPU feasibility as new, only as part of the combination.
+   - C6: plain-language answers for non-experts are Google Earth AI's explicit goal. Not a differentiator alone.
+3. **Closest single works to cite explicitly:** GFM ensemble likelihood (A213, three partial: per-pixel likelihood, exclusion layer, timestamps) and RSure-Agent (A164, three partial: insufficient-evidence observations, logged sources, natural-language tasks). Neither fits its confidence to labels or reports a calibration error, and neither abstains at a stated line in front of the user.
+4. **The idea of combining these is not new; building and measuring it is.** A193 and A207 (2026) list provenance, uncertainty and abstention as requirements for agentic RS systems but implement none of them.
+
+### Final wording (supersedes 5.4 N1 where they differ)
+
+"Among the systems we read in full, none attaches a label-fitted, calibration-checked confidence to each answer and abstains at a stated threshold; the closest (GFM's per-pixel likelihood, RSure-Agent's insufficient-evidence observations) have unfitted or internal versions. EvidEO is, as far as we found, the first working system that combines that with Sentinel scene receipts shown to re-run identically, automatic radar fallback triggered by cloud in the fetched scene, a CPU-only path and plain-language questions, and it measures the result at the level of the answer."
+
+### Number corrections found in the pass (applied to the paper on 2026-10-14)
+
+- RSHallu: 69% hallucination-free is mPLUG-Owl3 (general model); best remote-sensing model is VHM at 68.3%. Expert scores use 300 sampled answers per model.
+- GeoChat's RSVQA-LR result (printed average 90.70; sub-scores average 91.81) is not zero-shot: RSVQA-LR training questions are in its instruction set.
+- The split-based thresholding citation now points to Martinis et al. 2009 (A084, read in full), which describes split selection plus Kittler-Illingworth thresholding; Twele 2016 could not be read.
+- VRSBench: the 57.4% grounding figure is for unique objects only; GeoChat overall at IoU 0.5 is 49.8% (Table 4).
+- A179's 82.6 mIoU in its text contradicts its own Table 2 (44.94); use the table.
+- EarthGPT has no SAR metric and no BigEarthNet result; the deck's "cross-sensor MLLM evaluated on SAR and BigEarthNet" fits EarthDial, not EarthGPT (closes an open question in STATE.md).
+
 ## 6. What the full-text pass changed (batch 1, 2026-10-29)
 
 Source: `docs/verification/paper_pass_50.md`. Ten papers read in full text (A013, A014, A033, A176, A201, A202, A204, A205, A213, A227). More batches will extend this table.

@@ -11,6 +11,7 @@ era: historical
 tags: [dataset, aerial-imagery, oriented-bounding-box, benchmark, very-high-resolution, small-objects]
 verified: "2026-10-04 via https://arxiv.org/abs/1711.10398, https://ar5iv.labs.arxiv.org/html/1711.10398 and https://captain-whu.github.io/DOTA/"
 takeaway: "The standard oriented-box benchmark for aerial object detection (15 classes, very high resolution); useful context but its objects are mostly below Sentinel-2's 10 m pixel, so EvidEO should not promise object counts"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # DOTA: A Large-scale Dataset for Object Detection in Aerial Images

@@ -11,6 +11,7 @@ era: historical
 tags: [reject-option, abstention, bayes-decision, selective-prediction, error-reject-curve]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1109/TIT.1970.1054406 (title, venue, volume, issue, pages, year; Crossref lists author as C. Chow, full name C. K. Chow from common citation); content summarized from standard knowledge of the paper, full text not fetched"
 takeaway: "The theoretical root of EvidEO's abstention: reject when the best posterior falls below a threshold, and choose that threshold from the error-reject curve rather than by feel"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Chow 1970, error-reject tradeoff

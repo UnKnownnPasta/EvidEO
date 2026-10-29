@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, sar, optical-sar-fusion, sentinel-1, pixel-grounding, segmentation, benchmark, internvl2, sam2, 4b]
 verified: "2026-10-05 via https://arxiv.org/abs/2506.01667, https://arxiv.org/html/2506.01667 and https://github.com/shuyansy/EarthMind README"
 takeaway: "Strongest evidence that plain VLMs ignore SAR when given SAR plus optical; supports EvidEO's choice to read SAR with instruments, and EarthMind-Bench is a ready SAR-only test set"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # EarthMind: Leveraging Cross-Sensor Data for Advanced Earth Observation Interpretation with a Unified Multimodal LLM

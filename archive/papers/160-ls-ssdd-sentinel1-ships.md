@@ -11,6 +11,7 @@ era: recent
 tags: [sar, sentinel-1, ship-detection, small-objects, large-scene, ais, false-alarms, pure-background, dataset]
 verified: "2026-10-07 via curl to api.crossref.org (title, authors, journal, volume, issue, article number, date) and api.openalex.org (abstract); not on arXiv; no accuracy numbers quoted because the abstract gives none"
 takeaway: "The right benchmark if EvidEO ever answers 'are there vessels here' from Sentinel-1: whole-scene, small-ship, AIS-checked labels, and an explicit focus on suppressing land false alarms"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Zhang et al. 2020, LS-SSDD-v1.0 (small ships in large Sentinel-1 scenes)

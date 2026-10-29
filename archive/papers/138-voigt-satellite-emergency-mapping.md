@@ -11,6 +11,7 @@ era: historical
 tags: [emergency-mapping, disaster-response, international-charter, copernicus-ems, user-uptake]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1126/science.aad8728 (title, all authors, volume, issue, pages, date 2016-07-15) and Semantic Scholar abstract; full text not fetched, so only abstract-level findings are stated and no per-region counts are claimed"
 takeaway: "Satellite emergency mapping is already routine for Asian disasters, but delivered as expert map products; EvidEO's niche is turning the same evidence into a fast, honest answer card that non-experts can act on, with clear limits"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Voigt et al. 2016, global trends in satellite emergency mapping

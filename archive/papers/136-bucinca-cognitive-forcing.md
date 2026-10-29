@@ -11,6 +11,7 @@ era: recent
 tags: [overreliance, cognitive-forcing, explainable-ai, appropriate-reliance, need-for-cognition]
 verified: "2026-10-07 via arXiv API for 2102.09692 (title, authors, abstract, DOI 10.1145/3449287), https://api.crossref.org/works/10.1145/3449287 (journal, volume 5, issue CSCW1, pages 1-21, year 2021) and the arXiv PDF (condition names, nutrition task, MTurk)"
 takeaway: "Making users commit to their own guess or ask for the AI answer reduces blind acceptance but is disliked, so EvidEO could offer an optional 'check it yourself first' step for high-stakes cards and should keep the default card fast"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Buçinca et al. 2021, cognitive forcing against overreliance

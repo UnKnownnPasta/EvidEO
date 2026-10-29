@@ -11,6 +11,7 @@ era: recent
 tags: [uncertainty-expression, natural-language-hedging, overreliance, appropriate-reliance, trust, user-study, pre-registered, llm-search]
 verified: "2026-10-09 via curl to api.crossref.org (title, five authors, FAccT 2024, pages 822-835, DOI), curl to export.arxiv.org (arXiv comment 'Accepted to FAccT 2024'), and WebFetch of arxiv.org/abs/2405.00623 (participants, task, conditions, findings); effect sizes not read from the full text"
 takeaway: "In a pre-registered study with 404 people, first-person hedges ('I'm not sure, but...') lowered agreement with an LLM and raised accuracy by cutting overreliance on wrong answers; impersonal hedges had weaker, non-significant effects, so EvidEO's low-confidence wording must be user-tested, not assumed"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Kim et al. 2024, Natural-language uncertainty and reliance

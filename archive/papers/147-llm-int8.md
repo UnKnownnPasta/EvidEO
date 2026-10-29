@@ -11,6 +11,7 @@ era: recent
 tags: [int8, quantization, outlier-features, mixed-precision, vector-wise-quantization, bitsandbytes, inference-memory]
 verified: "2026-10-07 via WebFetch on https://arxiv.org/abs/2208.07339 (title, authors, NeurIPS 2022 camera-ready comment, abstract); NeurIPS proceedings page and code repo not fetched"
 takeaway: "Explains why naive 8-bit quantization breaks transformers (rare large outlier features) and gives a safe 8-bit baseline that EvidEO's quantized builds must match on intent accuracy"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # LLM.int8(), outlier-aware 8-bit inference

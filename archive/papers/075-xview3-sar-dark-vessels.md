@@ -11,6 +11,7 @@ era: recent
 tags: [sar, sentinel-1, ship-detection, dataset, ais, vh-vv, maritime, iuu-fishing]
 verified: "2026-10-04 via https://arxiv.org/abs/2206.00897, https://ar5iv.labs.arxiv.org/html/2206.00897 and https://github.com/DIUx-xView/xview3-reference"
 takeaway: "Large Sentinel-1 VV/VH ship detection benchmark (991 scenes, 243,018 labelled objects); the closest object-detection work to EvidEO's own data, useful for SAR preprocessing and as a model for honest, partially reliable labels"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # xView3-SAR: Detecting Dark Fishing Activity Using Synthetic Aperture Radar Imagery

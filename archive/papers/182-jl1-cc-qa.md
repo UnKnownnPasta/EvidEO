@@ -11,6 +11,7 @@ era: upcoming
 tags: [change-captioning, change-vqa, jilin-1, satellite, change-masks, llm-generated-annotations, llm-judge, benchmark]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract) and https://arxiv.org/html/2606.31745 (dataset construction, statistics, conclusion); WebFetch permission request timed out; the paper reports no model baselines, so none are given"
 takeaway: "Adds 17,021 change captions and 20,060 open-ended change QA pairs to 5,000 Jilin-1 satellite pairs with binary masks, and its LLM judge rejected answers that invented precise percentages; a ready multi-task change set for EvidEO's explainer tests but with no baselines yet and optical only"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Liu et al. 2026, JL1-CC&QA

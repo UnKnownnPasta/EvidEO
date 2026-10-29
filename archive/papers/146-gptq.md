@@ -11,6 +11,7 @@ era: recent
 tags: [gptq, post-training-quantization, weight-only, 4-bit, 3-bit, second-order, one-shot, llm-compression]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (WebFetch permission request timed out); title, authors, ICLR 2023 comment, code URL and numbers from the arXiv abstract; ICLR proceedings page and GitHub repo not fetched; method details beyond the abstract summarized from general knowledge of the paper"
 takeaway: "A one-shot, calibration-based 3 to 4-bit weight quantizer to benchmark against AWQ when shrinking EvidEO's merged 2B intent model, judged on intent-JSON accuracy rather than perplexity"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # GPTQ, one-shot post-training weight quantization

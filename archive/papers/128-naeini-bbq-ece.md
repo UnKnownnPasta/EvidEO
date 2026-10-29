@@ -11,6 +11,7 @@ era: historical
 tags: [bayesian-binning, bbq, expected-calibration-error, ece, mce, histogram-binning, post-hoc-calibration]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1609/aaai.v29i1.9602 (title, authors, journal, volume 29, issue 1, date 2015); WebFetch was refused, curl used; content summarized from standard knowledge, full text not fetched, dataset names and numeric results not confirmed"
 takeaway: "Gives EvidEO the ECE and MCE metrics for checking that a stated 0.80 confidence is right about 80 percent of the time, plus a binning calibrator that averages over bin choices"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Naeini et al. 2015, Bayesian Binning into Quantiles (BBQ)

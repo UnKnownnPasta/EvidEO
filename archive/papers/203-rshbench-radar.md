@@ -11,6 +11,7 @@ era: upcoming
 tags: [hallucination, rshbench, rs-vqa, training-free, attention-guided-zoom, llm-as-judge, factual-vs-logical-hallucination, geozero]
 verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?id_list=2603.02754 (title, authors, date, abstract) and WebFetch of https://arxiv.org/html/2603.02754v1 (RSHBench size and sources, judge protocol and kappa values, RADAR method, Tables 2 and 3 numbers, limitations)"
 takeaway: "A 2026 RS hallucination benchmark (RSHBench, 371 items, factual vs logical subtypes, three-LLM-judge majority vote) finds 47 to 61% of RS-VQA outputs hallucinate; a training-free attention-guided zoom (RADAR) cuts GeoZero's rate from 49.9% to 38.8%; strong evidence for EvidEO's choice to keep numbers out of the VLM"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Liu et al. 2026, RSHBench and RADAR

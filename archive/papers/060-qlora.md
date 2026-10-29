@@ -11,6 +11,7 @@ era: recent
 tags: [qlora, lora, quantization, 4-bit, nf4, double-quantization, paged-optimizers, bitsandbytes, peft, guanaco]
 verified: "2026-10-04 via https://arxiv.org/abs/2305.14314, https://proceedings.neurips.cc/paper_files/paper/2023/hash/1feb87871436031bdc0f2beaa62a049b-Abstract.html and https://github.com/artidoro/qlora"
 takeaway: "4-bit base plus LoRA adapters makes VLM fine-tuning fit on one consumer or free-tier GPU; EvidEO's LoRA pipeline should offer a QLoRA mode"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # QLoRA: Efficient Finetuning of Quantized LLMs

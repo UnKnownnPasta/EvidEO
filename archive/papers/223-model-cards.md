@@ -11,6 +11,7 @@ era: historical
 tags: [model-cards, documentation, disaggregated-evaluation, intended-use, transparency, accountability, audit]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=1810.03993 (title, nine authors, dates, journal_ref FAT* '19, DOI) and WebFetch of arxiv.org/pdf/1810.03993 (card sections, two example cards, metrics, stated limitations); per-group numbers live in figures and were not read"
 takeaway: "Proposes a short standard document per model listing intended use, evaluation factors, metrics with disaggregated results and caveats; EvidEO should publish one model card per sensor-task pair, with per-state, per-season and per-terrain error and calibration, and link it from every receipt"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Mitchell et al. 2019, Model Cards

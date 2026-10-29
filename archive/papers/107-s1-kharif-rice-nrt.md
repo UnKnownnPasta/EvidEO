@@ -11,6 +11,7 @@ era: historical
 tags: [india, andhra-pradesh, kharif, rice, sentinel-1, random-forest, google-earth-engine, early-season, near-real-time]
 verified: "2026-10-06 via https://isprs-archives.copernicus.org/articles/XLII-4/433/2018/ (abstract and metadata) and https://api.crossref.org/works/10.5194/isprs-archives-XLII-4-433-2018; full PDF not read, so per-date accuracy tables were not checked"
 takeaway: "Kharif rice in coastal Andhra Pradesh can be mapped from Sentinel-1 alone with about 84 percent independent accuracy, and accuracy rises as each new monsoon acquisition arrives, so EvidEO's sown-area answers should state how many SAR dates they used and abstain early in the season"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Near real time kharif rice mapping with Sentinel-1

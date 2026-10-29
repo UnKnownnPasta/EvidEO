@@ -11,6 +11,7 @@ era: recent
 tags: [vqa, counting, relational-reasoning, segmentation-guided, rmse, city-planning, benchmark]
 verified: "2026-10-06 via https://arxiv.org/abs/2312.12222, https://arxiv.org/html/2312.12222 (v1) and https://raw.githubusercontent.com/Junjue-Wang/EarthVQA/master/README.md; AAAI 2024 acceptance taken from the arXiv comment, AAAI proceedings volume and pages not checked"
 takeaway: "Even a VQA model that is fed segmentation masks scores far lower on counting and comprehensive analysis than on yes/no judging, which backs EvidEO's choice to compute counts and areas from masks and let the language model only phrase them"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # EarthVQA

@@ -11,6 +11,7 @@ era: recent
 tags: [clip, contrastive, zero-shot, retrieval, counting, foundation-model, data-scaling, remotecount]
 verified: "2026-10-04 via https://arxiv.org/abs/2306.11029"
 takeaway: "Default CPU zero-shot and retrieval backbone; validate on Indian Sentinel-2 and calibrate its similarity scores before abstention"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # RemoteCLIP: A Vision Language Foundation Model for Remote Sensing

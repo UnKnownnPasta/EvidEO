@@ -11,6 +11,7 @@ era: historical
 tags: [mc-dropout, bayesian-deep-learning, model-uncertainty, epistemic, gaussian-process, uncertainty-estimation, foundation]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract, comment stating publication in ICML 2016 and an October 2016 correction to standard errors); WebFetch permission request timed out; ICML proceedings page not fetched, so volume and page numbers are not given"
 takeaway: "The founding paper for MC dropout: keep dropout on at test time and average several passes to get a cheap model-uncertainty estimate; EvidEO can use it on its flood or crop segmentation head as one input to the confidence score, but must still calibrate it, since raw MC dropout is not calibrated by itself"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Gal and Ghahramani 2016, MC dropout as approximate Bayesian inference

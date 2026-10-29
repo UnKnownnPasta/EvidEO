@@ -11,6 +11,7 @@ era: recent
 tags: [sar, vlm, benchmark, instruction-tuning, grounding, counting, sentinel-1-adjacent]
 verified: "2026-10-04 via https://arxiv.org/abs/2502.08168 and https://github.com/JimmyMa99/SARChat"
 takeaway: "About 2M SAR image-text pairs and released checkpoints give a SAR baseline, but imagery is mostly high-res targets, so test on Indian Sentinel-1"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # SARChat-Bench-2M: A Multi-Task Vision-Language Benchmark for SAR Image Interpretation

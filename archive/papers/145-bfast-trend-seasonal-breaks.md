@@ -11,6 +11,7 @@ era: historical
 tags: [bfast, time-series, ndvi, seasonality, structural-breaks, phenology, disturbance]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1016/j.rse.2009.08.014 (title, four authors, venue, volume, issue, pages, 2010), abstract from the Wageningen University research portal page, and the CRAN bfast package page"
 takeaway: "Seasonality alone can masquerade as change in a two-date NDVI difference; EvidEO's crop-change instrument should compare against the same season's expected NDVI and abstain when a drop could be ordinary phenology or harvest"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Verbesselt et al. 2010, BFAST

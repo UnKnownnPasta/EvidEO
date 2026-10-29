@@ -11,6 +11,7 @@ era: recent
 tags: [foundation-model, masked-autoencoder, hls, landsat, sentinel-2, multi-temporal, flood-mapping, terratorch, nasa, ibm]
 verified: "2026-10-04 via https://arxiv.org/abs/2412.02732 and https://github.com/NASA-IMPACT/Prithvi-EO-2.0"
 takeaway: "Open NASA/IBM multi-temporal HLS model with flood and crop fine-tune recipes; best GPU candidate for a learned second opinion next to EvidEO's optical instruments, not a CPU default"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Prithvi-EO-2.0: A Versatile Multi-Temporal Foundation Model for Earth Observation Applications

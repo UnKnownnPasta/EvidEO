@@ -11,6 +11,7 @@ era: recent
 tags: [sar, ship-detection, dataset, rotated-boxes, polygon-segmentation, evaluation-protocol, reproducibility, inshore-offshore]
 verified: "2026-10-07 via curl to api.crossref.org (title, authors, journal, volume, issue, article number, date) and api.openalex.org (abstract); not on arXiv; source sensors of SSDD images not stated in the abstract and not checked"
 takeaway: "A case study in why fixed evaluation protocols matter: the most used SAR ship benchmark was being split and scored inconsistently, so EvidEO must publish its own frozen splits and scoring rules with every instrument"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Zhang et al. 2021, SSDD official release

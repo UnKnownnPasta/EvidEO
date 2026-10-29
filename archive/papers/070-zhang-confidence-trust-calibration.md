@@ -11,6 +11,7 @@ era: recent
 tags: [confidence-display, trust-calibration, explanations, shap, user-study, decision-support, human-ai-teams]
 verified: "2026-10-04 via https://arxiv.org/abs/2001.02114 and https://ar5iv.labs.arxiv.org/html/2001.02114"
 takeaway: "Showing a confidence score helped people rely on AI more when it was confident, but did not raise joint accuracy, and SHAP explanations did not help calibration; EvidEO should show calibrated confidence and treat it as a reliance aid, not an accuracy fix"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Effect of Confidence and Explanation on Accuracy and Trust Calibration in AI-Assisted Decision Making

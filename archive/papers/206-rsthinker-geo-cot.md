@@ -11,6 +11,7 @@ era: recent
 tags: [geo-cot, rsthinker, chain-of-thought, grpo, verifiable-reasoning, visual-grounding, object-counting, glm-4.1v, geo-cot380k]
 verified: "2026-10-09 via curl to https://export.arxiv.org/api/query?id_list=2509.22221 (title, authors, dates, abstract), curl of https://arxiv.org/html/2509.22221v2 (base model, Geo-CoT380k composition, reward design, counting table, conclusion, code links) and curl of https://mlanthology.org/iclr/2026/liu2026iclr-faithful/ (ICLR 2026 listing)"
 takeaway: "RSThinker (GLM-4.1V-9B, SFT on 380k grounded rationales then GRPO) answers RS tasks with a trace whose each claim points to a box; it beats RS VLMs on counting and grounding, and makes errors visible, but verifiability here means boxes in a trace, not calibrated confidence or data provenance"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Liu et al. 2026, Geo-CoT and RSThinker

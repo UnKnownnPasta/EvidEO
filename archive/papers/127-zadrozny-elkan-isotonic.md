@@ -11,6 +11,7 @@ era: historical
 tags: [isotonic-regression, pav, post-hoc-calibration, multiclass-calibration, binary-coupling]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1145/775047.775151 (title, authors, proceedings, pages 694-699, date 2002-07-23); WebFetch was refused, curl used; content summarized from standard knowledge, full text not fetched, dataset names and numeric results not confirmed"
 takeaway: "Isotonic regression is EvidEO's default non-parametric calibrator for instrument scores once there are enough labelled tiles, since it assumes only that a higher score should never mean a lower flood probability"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Zadrozny and Elkan 2002, isotonic calibration

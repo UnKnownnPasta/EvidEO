@@ -11,6 +11,7 @@ era: historical
 tags: [rice-mapping, paddy, sentinel-1, vh, random-forest, google-earth-engine, northeast-india, assam, bangladesh, cloud-prone, crop-mask]
 verified: "2026-10-04 via https://pmc.ncbi.nlm.nih.gov/articles/PMC6472375"
 takeaway: "Sentinel-1 VH time series plus random forest mapped 2017 paddy at 10 m in Northeast India and Bangladesh per season (Boro, Aus, Aman) at 94 to 98% OA; reuse as a crop mask and adopt VH time series for rice questions"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Paddy rice maps for Northeast India and Bangladesh from Sentinel-1

@@ -11,6 +11,7 @@ era: recent
 tags: [oriented-detection, large-kernel, receptive-field, context, lightweight-backbone, dota, fair1m, hrsc2016]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query?id_list=2303.09030 (title, authors, abstract, results) and api.crossref.org (ICCV 2023 proceedings DOI 10.1109/iccv51070.2023.01540; IJCV 2024 extension DOI 10.1007/s11263-024-02247-9); extension content not read"
 takeaway: "Shows that remote sensing objects need context from a wide, object-dependent window; useful as an RS-tuned backbone if detection is ever needed, but its results are on sub-metre imagery and do not transfer to Sentinel counts"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Li et al. 2023, LSKNet (large selective kernels)

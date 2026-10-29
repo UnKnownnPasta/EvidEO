@@ -11,6 +11,7 @@ era: recent
 tags: [conformal-prediction, remote-sensing, hyperspectral, pixel-classification, spatial-correlation, coverage-guarantee]
 verified: "2026-10-04 via https://arxiv.org/abs/2409.01236 and https://github.com/J4ckLiu/SACP"
 takeaway: "Conformal prediction works for per-pixel RS classification, and smoothing non-conformity scores over spatial neighbours gives smaller sets at the same guaranteed coverage; apply it to EvidEO masks"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Spatial-Aware Conformal Prediction for Trustworthy Hyperspectral Image Classification

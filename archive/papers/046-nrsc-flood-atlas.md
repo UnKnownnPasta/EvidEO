@@ -11,6 +11,7 @@ era: recent
 tags: [nrsc, isro, ndem, flood-atlas, flood-frequency, sar, optical, india, official-methodology, ndma]
 verified: "2026-10-04 via https://ndem.nrsc.gov.in/documents/downloads/allindia_flood_techdoc.pdf"
 takeaway: "The official Indian baseline: 25 years (1998 to 2022) of IRS and foreign optical/SAR flood layers, SAR water by variable thresholding, validated by state agencies; EvidEO should complement it, not compete"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Flood Affected Area Atlas of India (NRSC/ISRO, 2023)

@@ -11,6 +11,7 @@ era: recent
 tags: [transformer, bit, semantic-tokens, siamese, building-change, levir-cd, whu-cd, dsifn-cd, efficient, optical-rgb]
 verified: "2026-10-04 via https://arxiv.org/abs/2103.00208"
 takeaway: "Strong, small (about 3.5M params) learned CD baseline at 89.3 F1 on LEVIR-CD but only 69.3 on DSIFN; a cross-check at most, never the source of EvidEO's number"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Remote Sensing Image Change Detection with Transformers

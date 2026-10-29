@@ -11,6 +11,7 @@ era: recent
 tags: [constrained-decoding, guided-generation, json-schema, regex, finite-state-machine, cfg, outlines, structured-output]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (WebFetch permission request timed out); title, authors, date and abstract from arXiv; no journal or conference reference listed on arXiv; repo URL not fetched; no speed numbers quoted because the abstract gives none"
 takeaway: "Constrain the intent model's decoding to EvidEO's JSON schema so every output parses and only allowed fields and values can appear, at little extra cost on CPU"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Willard and Louf 2023, efficient guided generation (Outlines)

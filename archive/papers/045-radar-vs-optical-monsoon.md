@@ -11,6 +11,7 @@ era: recent
 tags: [monsoon, cloud-cover, sentinel-1, landsat, jrc-global-surface-water, western-ghats, karnataka, kerala, maharashtra, surface-water, optical-limits]
 verified: "2026-10-04 via https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0314033"
 takeaway: "In Western Ghats districts, July to August cloud cover averaged about 90%, leaving roughly a quarter of surface water unmapped in the optical JRC product; Sentinel-1 VV recovered it, so monsoon questions must default to SAR"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Radar versus optical under monsoon cloud (Western Ghats)

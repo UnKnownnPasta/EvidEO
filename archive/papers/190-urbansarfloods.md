@@ -11,6 +11,7 @@ era: recent
 tags: [sentinel-1, slc, interferometric-coherence, pre-post-event, urban-flood, flood-mapping, bitemporal, class-imbalance, benchmark]
 verified: "2026-10-08 via curl to export.arxiv.org/api/query (title, three authors, abstract, comment 'Accepted by CVPR 2024 EarthVision Workshop') and the GitHub README (CVF open access link, data location); WebFetch permission prompt timed out so curl was used; the README mentions corrections to the paper which were not reviewed; no IoU values quoted"
 takeaway: "Pre- and during-flood Sentinel-1 intensity plus interferometric coherence over 18 events shows urban flooding is still largely missed by CNNs; EvidEO should say plainly that its SAR intensity water mask does not cover flooded towns"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Zhao, Xiong and Zhu 2024, UrbanSARFloods

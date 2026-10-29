@@ -11,6 +11,7 @@ era: recent
 tags: [foundation-model, spectral, sentinel-2, 3d-transformer, masked-autoencoder, change-detection, segmentation, segmunich, bigearthnet]
 verified: "2026-10-04 via https://arxiv.org/abs/2311.07113 and https://github.com/danfenghong/IEEE_TPAMI_SpectralGPT"
 takeaway: "3D spatial-spectral MAE for Sentinel-2 with change detection results; reference for spectral-aware features, but GPL licence and size keep it out of EvidEO core"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # SpectralGPT: Spectral Remote Sensing Foundation Model

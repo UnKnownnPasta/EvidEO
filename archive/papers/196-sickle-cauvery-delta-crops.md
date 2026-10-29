@@ -11,6 +11,7 @@ era: recent
 tags: [india, tamil-nadu, cauvery-delta, paddy, crop-type, phenology, yield, sentinel-1, sentinel-2, landsat-8, smallholder, ground-survey, dataset]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, abstract, WACV comment), curl to https://api.crossref.org (WACV DOI and pages) and curl to https://arxiv.org/html/2312.00069v1 (challenges section, project URL); WebFetch permission request timed out; per-task benchmark numbers sit in a table that did not extract cleanly and are not quoted"
 takeaway: "A ground-surveyed Indian smallholder paddy dataset (388 plots, 4 Cauvery Delta districts, Sentinel-1, Sentinel-2 and Landsat-8, 2018 to 2021) with sowing, transplanting and harvest dates; EvidEO can use it as a held-out Indian set to calibrate and test crop-change answers, treating labels as noisy as the authors advise"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Sani et al. 2024, SICKLE (Cauvery Delta, Tamil Nadu)

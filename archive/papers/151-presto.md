@@ -11,6 +11,7 @@ era: recent
 tags: [presto, pixel-timeseries, lightweight, self-supervised, sentinel-1, sentinel-2, crop-mapping, cpu-friendly, feature-extractor]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract); Crossref title search found no venue record; repo URL not fetched; no numbers quoted because the abstract gives none"
 takeaway: "A small pixel-timeseries encoder that runs cheaply and feeds simple heads: the best fit among foundation models for a CPU-side crop-condition second opinion, but it outputs embeddings, not calibrated answers"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Tseng et al. 2023, Presto (Pretrained Remote Sensing Transformer)

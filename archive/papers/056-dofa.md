@@ -11,6 +11,7 @@ era: recent
 tags: [foundation-model, dofa, hypernetwork, wavelength-conditioned, multi-sensor, sar, sentinel-1, sentinel-2, hyperspectral, torchgeo]
 verified: "2026-10-04 via https://arxiv.org/abs/2403.15356 and https://github.com/zhu-xlab/DOFA"
 takeaway: "One encoder for any band set via wavelength conditioning (DOFA); lets EvidEO use a single learned backbone for both Sentinel-1 and Sentinel-2 in experiments"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Neural Plasticity-Inspired Multimodal Foundation Model for Earth Observation

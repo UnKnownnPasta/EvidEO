@@ -11,6 +11,7 @@ era: recent
 tags: [copernicus-fm, copernicus-pretrain, copernicus-bench, sentinel-1, sentinel-2, sentinel-3, sentinel-5p, hypernetwork, metadata-encoding, sar]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, abstract, ICCV comment) and https://api.crossref.org (ICCV 2025 proceedings record); repo URL not fetched"
 takeaway: "Covers every Sentinel mission with metadata-aware encoding and ships Copernicus-Bench; a good benchmark source for SAR tasks, but too heavy and indirect to sit in EvidEO's truth path"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Wang et al. 2025, Copernicus-FM

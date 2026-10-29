@@ -11,6 +11,7 @@ era: recent
 tags: [openeo, data-cube, api, cloud-processing, interoperability, process-graph, copernicus-data-space, ogc]
 verified: "2026-10-06 via https://api.crossref.org/works/10.3390/rs13061125 (title, all 17 authors, volume, issue, article number, abstract) and https://openeo.org/ (API 1.3.0 released Feb 2026, OGC Community Standard May 2026); full text at mdpi.com was blocked, so details of the two test cases beyond the abstract are not confirmed"
 takeaway: "openEO is the standard way to push a EvidEO instrument to a backend such as Copernicus Data Space as a portable process graph, so EvidEO should keep its instruments expressible as data cube steps and record that graph in the receipt"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # The openEO API

@@ -11,6 +11,7 @@ era: recent
 tags: [sentinel-1, sentinel-2, multi-label, land-cover, corine, retrieval, europe, pretraining, benchmark]
 verified: "2026-10-04 via https://arxiv.org/abs/2105.07921, https://ar5iv.labs.arxiv.org/html/2105.07921 and https://bigearth.net/"
 takeaway: "Use BigEarthNet-pretrained S1/S2 encoders next to RemoteCLIP, expose only labels separable at 10 m, and measure the Europe-to-India domain gap"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # BigEarthNet-MM: A Large Scale Multi-Modal Multi-Label Benchmark Archive for Remote Sensing Image Classification and Retrieval

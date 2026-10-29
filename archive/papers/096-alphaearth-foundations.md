@@ -11,6 +11,7 @@ era: upcoming
 tags: [big-tech, embedding-field, foundation-model, sentinel-1, sentinel-2, landsat, earth-engine, sparse-labels]
 verified: "2026-10-05 via https://arxiv.org/abs/2507.22291 and https://arxiv.org/html/2507.22291v1; Earth Engine catalog page could not be fetched, so dataset ID and license wording not checked directly"
 takeaway: "Precomputed annual 10 m embeddings for every land pixel make cheap land-cover and change features available to anyone, a strong optional baseline for EvidEO, but annual, opaque and not usable for a specific flood date"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # AlphaEarth Foundations: An embedding field model for accurate and efficient global mapping from sparse label data

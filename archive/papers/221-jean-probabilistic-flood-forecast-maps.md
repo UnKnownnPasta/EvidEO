@@ -11,6 +11,7 @@ era: recent
 tags: [uncertainty-visualisation, flood-maps, probabilistic-maps, map-design, decision-makers, municipalities, colour-scale, qualitative-study]
 verified: "2026-10-09 via WebSearch then WebFetch of hess.copernicus.org/articles/27/3351/2023/ (title, authors, volume, pages, DOI, publication date 21 September 2023, methods, reported percentages, limitations); the last ~8% of the page (end of prototype 4 results, discussion and conclusions) was not read"
 takeaway: "Interviews with 140 ministry, municipal, agency, farmer and citizen respondents found probabilistic flood maps are often misread (exceedance probabilities, depth versus level) and that words plus numbers are preferred; EvidEO's map cards should show extent first, use plain probability wording, and avoid user-adjusted probability sliders"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Jean et al. 2023, Communicating probabilistic flood forecast maps

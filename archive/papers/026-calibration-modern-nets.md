@@ -11,6 +11,7 @@ era: historical
 tags: [calibration, temperature-scaling, ece, reliability-diagram, platt-scaling, post-hoc]
 verified: "2026-10-29 full text of arXiv PDF; earlier 2026-10-04 via arXiv abstract"
 takeaway: "Modern deep nets are overconfident; fit one temperature on held-out data to calibrate any score, report ECE and a reliability diagram, accuracy is unchanged"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # On Calibration of Modern Neural Networks

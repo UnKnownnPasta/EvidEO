@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, small-model, 0.7b, florence-2, multi-task, change-detection, segmentation, grounding, dataset, cpu-friendly]
 verified: "2026-10-05 via https://arxiv.org/abs/2503.11070, https://arxiv.org/html/2503.11070 and https://github.com/TianHuiLab/Falcon README"
 takeaway: "A 0.7B RS model that does grounding, segmentation and bitemporal change detection is the most CPU-plausible RS VLM to date; worth testing as EvidEO's parser/explainer or as a cross-check, never as the measuring instrument"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Falcon: A Remote Sensing Vision-Language Foundation Model (Technical Report)

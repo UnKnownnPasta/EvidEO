@@ -11,6 +11,7 @@ era: historical
 tags: [thresholding, kittler-illingworth, minimum-error, gaussian-mixture, sar-water, flood-mapping]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1016/0031-3203(86)90030-0 (title, authors, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
 takeaway: "The core of EvidEO's SAR water instrument: fit two Gaussians to the gamma0 dB histogram and pick the Bayes minimum error threshold, with the criterion value doubling as a quality check"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Kittler-Illingworth minimum error thresholding

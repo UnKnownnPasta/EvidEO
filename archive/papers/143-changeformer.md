@@ -11,6 +11,7 @@ era: recent
 tags: [changeformer, transformer, siamese, levir-cd, dsifn-cd, learned-difference, very-high-resolution]
 verified: "2026-10-07 via arXiv export API for 2201.01293 (title, authors, IGARSS 2022 acceptance comment, code link), Crossref 10.1109/IGARSS46834.2022.9883686 (venue, pages 207-210, July 2022), and the arXiv PDF for Table 1 numbers"
 takeaway: "A widely used learned CD baseline whose large DSIFN gain comes from a 192-patch test set on very high resolution imagery; a reminder that benchmark F1 says little about 10 m Sentinel change and cannot stand in for EvidEO's calibrated instruments"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Bandara and Patel 2022, ChangeFormer

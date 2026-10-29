@@ -11,6 +11,7 @@ era: historical
 tags: [probabilistic-flood-map, per-pixel-probability, histogram-decomposition, bayes, reliability-diagram, sar, data-assimilation, uncertainty]
 verified: "2026-10-09 via curl to api.crossref.org (title, authors, journal, volume, issue, pages, DOI) and api.semanticscholar.org (authors, venue; abstract elided, paywalled); WebFetch of the LIST publication page at list.lu (abstract content, study sites, reliability-diagram error range). IEEE Xplore page did not render; full text not read"
 takeaway: "Turns a SAR flood map into a per-pixel flood probability by fitting water and non-water backscatter distributions to the image histogram and applying Bayes; the direct upgrade path from EvidEO's single Otsu cut to a calibrated posterior"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Giustarini et al. 2016, probabilistic SAR flood mapping

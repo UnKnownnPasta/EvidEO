@@ -11,6 +11,7 @@ era: recent
 tags: [scale-mae, masked-autoencoder, ground-sample-distance, multiscale, positional-encoding, vit, knn-classification, spacenet]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, abstract with numbers, ICCV comment) and https://api.crossref.org (ICCV 2023 record); repo URL not verified"
 takeaway: "Encoding ground sample distance into positional embeddings makes features robust across resolutions; a design lesson for any EvidEO learned head that mixes 10 m Sentinel with finer imagery"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Reed et al. 2023, Scale-MAE

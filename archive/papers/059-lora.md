@@ -11,6 +11,7 @@ era: recent
 tags: [lora, parameter-efficient-fine-tuning, peft, low-rank, adapters, transformers, gpt-3]
 verified: "2026-10-04 via https://arxiv.org/abs/2106.09685 and https://iclr.cc/virtual/2022/poster/6319"
 takeaway: "The adapter method behind EvidEO's VLM fine-tuning pipeline; merge adapters for zero-latency CPU inference and keep the base weights frozen and versioned"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # LoRA: Low-Rank Adaptation of Large Language Models

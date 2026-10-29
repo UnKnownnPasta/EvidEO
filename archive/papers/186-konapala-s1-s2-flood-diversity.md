@@ -11,6 +11,7 @@ era: recent
 tags: [flood-mapping, sentinel-1, sentinel-2, dem, terrain, sen1floods11, u-net, hsv, water-indices, fusion]
 verified: "2026-10-08 via curl to api.crossref.org (journal title, three authors, volume 180, pages 163-173, October 2021) and api.openalex.org for the authors' EGU General Assembly 2021 abstract of the same title (doi 10.5194/egusphere-egu21-10445, Konapala and Kumar); the journal abstract was not retrievable (Crossref and OpenAlex had none; ScienceDirect page not readable), so all numbers below come from the EGU 2021 abstract and may differ from the final paper; WebFetch permission prompt timed out so curl was used"
 takeaway: "On Sen1Floods11, adding a DEM to Sentinel-1 raised median flood F1 from 0.63 to 0.74 (EGU abstract figures), strong evidence that EvidEO's SAR water instrument needs terrain inputs or masks"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Konapala, Kumar and Ahmad 2021, Sentinel-1 and Sentinel-2 combinations for flood mapping

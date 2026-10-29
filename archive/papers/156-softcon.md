@@ -11,6 +11,7 @@ era: recent
 tags: [softcon, soft-contrastive, dinov2, continual-pretraining, sar, multispectral, bigearthnet, resnet50, vit-s, lightweight]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, abstract with numbers, TGRS comment) and https://api.crossref.org (TGRS record); repo URL not fetched"
 takeaway: "Small SAR and multispectral backbones (ResNet50, ViT-S) that match larger models on BigEarthNet: the most CPU-practical pretrained SAR encoder candidate for a learned land-cover or water head"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Wang, Albrecht and Zhu 2024, SoftCon

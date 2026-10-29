@@ -11,6 +11,7 @@ era: recent
 tags: [cloud-removal, dsen2-cr, residual-network, sentinel-1, sentinel-2, cloud-adaptive-loss, sen12ms-cr, keras]
 verified: "2026-10-04 via https://github.com/ameraner/dsen2-cr, https://paperswithcode.com/paper/cloud-removal-in-sentinel-2-imagery-using-a and https://www.asg.ed.tum.de/sipeo/news/article/eo-data-science-paper-wins-isprs-best-paper-of-2020-award/"
 takeaway: "Baseline for SAR-guided cloud filling; flag reconstructed areas and skip indices there; too heavy for per-query CPU use"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Cloud removal in Sentinel-2 imagery using a deep residual neural network and SAR-optical data fusion

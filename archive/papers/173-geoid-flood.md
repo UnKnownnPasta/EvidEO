@@ -11,6 +11,7 @@ era: upcoming
 tags: [flood-mapping, sentinel-1, grd, rtc, sentinel-2, dem, copernicus-ems, benchmark, foundation-models, terramind, permanent-water, temporal-holdout]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, date, abstract, workshop comment) and curl to https://arxiv.org/html/2608.02315v1 (splits, Tables 2 to 5 text, limitations); WebFetch permission request timed out; workshop acceptance taken from the arXiv comment only"
 takeaway: "A new 2026 Sentinel-1 flood benchmark with event-level splits, a temporally disjoint 2026 test set and separate permanent-water and flooded-water labels; ideal for scoring and calibrating EvidEO's SAR flood instrument, though only 79 of 219 events are outside Europe"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Chiriaco et al. 2026, GEOID-Flood benchmark

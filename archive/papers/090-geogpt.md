@@ -11,6 +11,7 @@ era: recent
 tags: [gis-agent, langchain, react, tool-use, gpt-3.5, hallucinated-arguments, input-validation]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2307.07930 and https://arxiv.org/html/2307.07930"
 takeaway: "Early GIS tool agent that openly reports run-to-run instability and hallucinated file and tool arguments; its tool-side input validation is a cheap guard EvidEO should copy for every instrument"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # GeoGPT: Understanding and Processing Geospatial Tasks through An Autonomous GPT

@@ -11,6 +11,7 @@ era: recent
 tags: [autonomous-gis, llm-geo, gpt-4, code-generation, solution-graph, vision-paper]
 verified: "2026-10-05 via https://export.arxiv.org/api/query?id_list=2305.06453, https://arxiv.org/pdf/2305.06453, https://pure.psu.edu/en/publications/autonomous-gis-the-next-generation-ai-powered-gis/ (IJDE 16(2):4668-4686, DOI 10.1080/17538947.2023.2278895) and the LLM-Geo GitHub README"
 takeaway: "Influential vision of an LLM that generates, verifies and runs its own GIS workflows; EvidEO deliberately takes the opposite, non-generative path and should cite this as the alternative it rejects for reliability"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Autonomous GIS: the next-generation AI-powered GIS

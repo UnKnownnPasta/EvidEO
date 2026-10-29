@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, sar, alphaearth, geospatial-embeddings, qwen2.5-vl, two-stage-sft, counting, detection, gaofen-3]
 verified: "2026-10-05 via https://arxiv.org/abs/2602.19190, https://arxiv.org/html/2602.19190 and https://cvpr.thecvf.com/virtual/2026/poster/40157 (CVPR 2026 poster listing, no code link)"
 takeaway: "Injecting location-keyed AlphaEarth embeddings lifts a 7B SAR VLM by 7 to 12 points, a hint that EvidEO could add a precomputed geospatial prior; but its own counting accuracy is about 53% on a small test set, so SAR answers still need instruments"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # FUSAR-GPT: A Spatiotemporal Feature-Embedded and Two-Stage Decoupled Visual Language Model for SAR Imagery

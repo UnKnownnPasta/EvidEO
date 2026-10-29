@@ -11,6 +11,7 @@ era: recent
 tags: [odc-stac, open-data-cube, xarray, dask, stac, cog, windowed-read, datacube]
 verified: "2026-10-06 via https://raw.githubusercontent.com/opendatacube/odc-stac/develop/README.rst, https://odc-stac.readthedocs.io/en/latest/_api/odc.stac.load.html (parameters: bbox, geopolygon, crs, resolution, groupby incl. solar_day, chunks, fail_on_error, pool, patch_url, fuse_func) and https://pypi.org/pypi/odc-stac/json (version 0.5.3, first upload 2021-08-26); GitHub API metadata (licence, stars) was not reachable from this session; no peer-reviewed paper found"
 takeaway: "odc-stac turns a STAC search result into a district-clipped, grid-aligned xarray cube with windowed COG reads, which is close to exactly EvidEO's data layer, so EvidEO should reuse it (with patch_url for signing and fail_on_error off) rather than hand-roll reprojection and mosaicking"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # odc-stac

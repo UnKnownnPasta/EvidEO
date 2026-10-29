@@ -11,6 +11,7 @@ era: historical
 tags: [platt-scaling, sigmoid-calibration, post-hoc-calibration, svm, score-to-probability]
 verified: "2026-10-29 pages 1-5 of the 1999 preprint read as images; earlier 2026-10-07 via Crossref"
 takeaway: "Platt scaling is the simplest way to turn a raw EvidEO score (for example a backscatter margin below the Otsu threshold) into a probability, and is the baseline any fancier calibrator must beat"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Platt scaling, sigmoid calibration of classifier scores

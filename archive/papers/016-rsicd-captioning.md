@@ -11,6 +11,7 @@ era: historical
 tags: [captioning, rsicd, dataset, annotation-guidelines, lstm, attention, bleu, cider, google-earth]
 verified: "2026-10-04 via https://arxiv.org/abs/1712.07835, https://ar5iv.labs.arxiv.org/html/1712.07835 and Semantic Scholar API record"
 takeaway: "Use its caption annotation rules as EvidEO's caption style guide; do not trust BLEU or CIDEr without a grounding check"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Exploring Models and Data for Remote Sensing Image Caption Generation

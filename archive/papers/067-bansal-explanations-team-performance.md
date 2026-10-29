@@ -11,6 +11,7 @@ era: recent
 tags: [explanations, human-ai-teams, complementary-performance, over-reliance, confidence, user-study, chi]
 verified: "2026-10-04 via https://arxiv.org/abs/2006.14779 and https://ar5iv.labs.arxiv.org/html/2006.14779"
 takeaway: "Explanations made people accept AI answers more often whether right or wrong, adding nothing over showing confidence alone; EvidEO's VLM explanations must not make wrong numbers more persuasive"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Does the Whole Exceed its Parts? The Effect of AI Explanations on Complementary Team Performance

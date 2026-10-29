@@ -11,6 +11,7 @@ era: recent
 tags: [india, crop-insurance, pmfby, yield-estimation, sentinel-1, eos-04, crop-mask, mncfc, policy]
 verified: "2026-10-06 via https://apsac.ap.gov.in/wp-content/uploads/2023/01/Document2.pdf (manual text read; hosted by Andhra Pradesh Space Applications Centre) and https://pmfby.gov.in/pdf/EoI_for_empanelment_of_WIP_under_YE_TECH_181023.pdf (MNCFC EoI, Sept 2023, which cites the manual); a copy on pmfby.gov.in itself was not located"
 takeaway: "YES-TECH makes satellite crop masks and modelled yields legally count for 30 percent of insurance loss assessment, and it lists Sentinel-1 and EOS-04 backscatter as inputs, so EvidEO's agriculture answers should be framed at insurance unit level with explicit validation"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # PMFBY YES-TECH manual

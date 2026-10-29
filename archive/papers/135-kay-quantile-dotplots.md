@@ -11,6 +11,7 @@ era: historical
 tags: [uncertainty-visualization, quantile-dotplot, mobile, non-experts, frequency-framing]
 verified: "2026-10-07 via https://api.crossref.org/works/10.1145/2858036.2858558 (title, authors, pages, year) and the author-hosted PDF at https://www.mjskay.com/papers/chi_2016_uncertain_bus.pdf (abstract, survey of 172 users, about 1.15x variance reduction, participant counts)"
 takeaway: "Non-experts on a phone read uncertainty best as a small number of countable discrete outcomes, so EvidEO's confidence meter and flooded-area range should use a frequency framing (for example 20 dots) instead of a density curve or a bare percentage"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Kay et al. 2016, quantile dotplots for mobile uncertainty

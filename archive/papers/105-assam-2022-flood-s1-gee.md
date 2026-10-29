@@ -11,6 +11,7 @@ era: recent
 tags: [india, assam, flood-2022, sentinel-1, google-earth-engine, mndwi, landsat, district-statistics, change-detection]
 verified: "2026-10-06 via https://api.crossref.org/works/10.3390/su151411413 (title, authors, volume, abstract) and https://pure.kfupm.edu.sa/en/publications/large-scale-flood-hazard-monitoring-and-impact-assessment-on-land/; mdpi.com full text was blocked, so thresholds, polarisation, scene dates and any accuracy assessment were not confirmed"
 takeaway: "A peer-reviewed Assam 2022 Sentinel-1 study reports a flooded area of about 33,900 km2 (43 percent of the state) with no stated uncertainty, which is exactly the kind of headline number EvidEO should reproduce with scene IDs, a confidence and an abstention rule"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Assam 2022 floods with Sentinel-1 on Earth Engine

@@ -11,6 +11,7 @@ era: historical
 tags: [hci, design-guidelines, human-ai-interaction, ux, error-handling, expectations, chi]
 verified: "2026-10-04 via https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/ and Crossref record for 10.1145/3290605.3300233"
 takeaway: "18 validated design guidelines for AI products; EvidEO should use them as a checklist for its chat UI and evidence card, especially setting expectations, scoping when unsure and supporting correction"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Guidelines for Human-AI Interaction

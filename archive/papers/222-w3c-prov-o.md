@@ -11,6 +11,7 @@ era: historical
 tags: [provenance, w3c-prov, ontology, owl2, rdf, audit-trail, entity-activity-agent, receipts, reproducibility]
 verified: "2026-10-09 via WebFetch of https://www.w3.org/TR/prov-o/ (title, Recommendation status and date, editors, starting-point classes and properties, qualified terms, bundles, companion documents, scope exclusions)"
 takeaway: "A standard vocabulary (Entity, Activity, Agent, used, wasGeneratedBy, wasDerivedFrom, wasAssociatedWith) for saying what produced what, from which inputs, by whom and when; EvidEO's receipt should be a PROV document so any answer can be traced to scenes, code version and calibration set with off-the-shelf tools"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # W3C 2013, PROV-O

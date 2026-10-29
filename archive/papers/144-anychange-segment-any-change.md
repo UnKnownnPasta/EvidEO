@@ -11,6 +11,7 @@ era: recent
 tags: [anychange, sam, foundation-model, zero-shot, training-free, bitemporal-latent-matching, point-query]
 verified: "2026-10-07 via arXiv export API for 2402.01188 (title, authors, NeurIPS 2024 comment), Crossref 10.52202/079017-2581 (NeurIPS 37, pages 81204-81224), and the arXiv PDF for Table 1 numbers and the limitations appendix"
 takeaway: "Zero-shot foundation-model change detection is real but low precision (roughly 4 to 31 percent pixel precision across four benchmarks, with high recall); EvidEO could use it to propose candidate change regions, never to report a changed area"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Zheng et al. 2024, AnyChange (Segment Any Change)

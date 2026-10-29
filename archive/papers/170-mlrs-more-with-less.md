@@ -11,6 +11,7 @@ era: recent
 tags: [general-vlm, internvl3.5, sam3, tool-use, grpo, grto, multi-task-rl, sar, multi-temporal, ultra-high-resolution, data-scaling]
 verified: "2026-10-07 via curl to https://export.arxiv.org/api/query (title, authors, dates, ACCV 2026 comment) and curl to https://arxiv.org/html/2607.15942v2 (method, training setup, scaling results, limitations); WebFetch permission request timed out; ACCV acceptance taken from the arXiv comment only"
 takeaway: "A plain InternVL3.5-8B trained with multi-task RL that either answers or calls SAM3 matches specialised RS VLMs, which supports EvidEO's 'small model decides, a tool measures' split; but its temporal VQA got worse with training and it reports no confidence or abstention"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Ailuro et al. 2026, MLRS (general VLM plus a segmentation tool, trained with RL)

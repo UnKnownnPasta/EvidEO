@@ -11,6 +11,7 @@ era: recent
 tags: [torchgeo, pytorch, rasterio, gdal, cog, geosampler, reprojection, data-loading, multispectral-pretrained, sentinel-2, landsat]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract, GitHub URL), curl to https://api.crossref.org (ACM TSAS record, DOI 10.1145/3707459, 2025) and curl to https://arxiv.org/html/2111.08872v4 (SIGSPATIAL 2022 header, COG benchmark setup, caching discussion); WebFetch permission request timed out; sampling-rate figures are in plots and are not quoted"
 takeaway: "The standard PyTorch library for loading georeferenced rasters by spatial query, with samplers that read windows from COGs and reproject on the fly; EvidEO can reuse its GeoDataset and GridGeoSampler pattern for windowed S1/S2 reads, and should pre-align layers because on-the-fly warping is the main slowdown"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Stewart et al. 2022, TorchGeo

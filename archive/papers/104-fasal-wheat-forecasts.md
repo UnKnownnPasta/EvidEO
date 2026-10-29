@@ -11,6 +11,7 @@ era: historical
 tags: [india, fasal, mncfc, crop-forecasting, wheat, sentinel-2, resourcesat-2, district-statistics, official-statistics]
 verified: "2026-10-06 via https://isprs-archives.copernicus.org/articles/XLII-3-W6/223/2019/ (abstract and PDF read) and https://desagri.gov.in/programs-schemes/forecasting-agricultural-output-using-space-agro-meteorology-and-land-based-observations-fasal/ (FASAL programme page); exact per-year RMSE values in the paper's tables were not transcribed"
 takeaway: "India's official crop forecasting already compares satellite area estimates with government statistics by deviation, RMSE and correlation at district level, so EvidEO should validate its agriculture instrument the same way and report the deviation on the evidence card"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # FASAL wheat forecasts (MNCFC)

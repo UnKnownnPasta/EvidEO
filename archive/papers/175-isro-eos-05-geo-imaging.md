@@ -11,6 +11,7 @@ era: upcoming
 tags: [isro, eos-05, gslv-f17, geosynchronous-imaging, india, mission, revisit, monsoon, data-access-unknown]
 verified: "2026-10-07 via curl to https://www.isro.gov.in/ (home page news: launched 4 September 2026 at 02:55 IST; three orbit-raising manoeuvre notices), https://www.isro.gov.in/Mission_GSLVF17.html (mission success, page dated 29 August 2026, description) and the mission brochure PDF (orbit and mass); WebFetch not used for this item; sensor bands, resolution and data policy are not stated in the pages read, so none are given here"
 takeaway: "ISRO has put an imaging satellite in geosynchronous orbit over India, which could give many looks per day during monsoon cloud gaps; EvidEO should plan an adapter but cannot rely on it until ISRO publishes sensor specs and open data access"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # ISRO 2026, GSLV-F17/EOS-05 geosynchronous Earth observation satellite

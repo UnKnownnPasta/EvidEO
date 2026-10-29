@@ -11,6 +11,7 @@ era: historical
 tags: [ndwi, spectral-index, optical-water, green-nir, open-water, sentinel-2]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1080/01431169608948714 (title, author, venue, volume, issue, pages, year); method summary from standard knowledge of the paper, full text not fetched"
 takeaway: "Gives EvidEO its optical water instrument, (Green minus NIR) over (Green plus NIR) on Sentinel-2 B3 and B8, used only on cloud-free, shadow-masked pixels as a cross-check on SAR"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # McFeeters NDWI

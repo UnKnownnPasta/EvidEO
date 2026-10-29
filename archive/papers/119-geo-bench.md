@@ -11,6 +11,7 @@ era: recent
 tags: [foundation-models, benchmark, classification, segmentation, iqm, bootstrap, sentinel-2, evaluation-protocol]
 verified: "2026-10-06 via https://arxiv.org/abs/2306.03831, https://arxiv.org/html/2306.03831, Crossref record (DOI 10.52202/075280-2223, Advances in NeurIPS 36) and https://raw.githubusercontent.com/ServiceNow/geo-bench/main/README.md; that it ran in the Datasets and Benchmarks track was not confirmed on the fetched pages"
 takeaway: "GEO-Bench's evaluation protocol (many seeds, interquartile mean, bootstrapped confidence intervals) is the template EvidEO should follow when it reports any instrument accuracy, and its finding that RS pre-training often did not beat ImageNet weights warns against assuming a geo model is better"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # GEO-Bench

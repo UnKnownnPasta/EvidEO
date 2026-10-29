@@ -11,6 +11,7 @@ era: recent
 tags: [sentinel-1, sentinel-2, flood-mapping, segmentation, weak-labels, dataset, south-asia]
 verified: "2026-10-29 full text of PDF; earlier 2026-10-04 via CVF PDF"
 takeaway: "Standard Sentinel-1 flood baseline (11 events, 68 hand-labelled chips in India); EvidEO fits its water calibration on it (run 6), and the Indian chips show VV-only thresholds miss much of the labelled flood, so VH matters"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Sen1Floods11: A Georeferenced Dataset to Train and Test Deep Learning Flood Algorithms for Sentinel-1

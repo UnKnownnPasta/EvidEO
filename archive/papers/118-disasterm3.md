@@ -11,6 +11,7 @@ era: recent
 tags: [disaster, vlm-benchmark, sar, optical, bi-temporal, damage-counting, referring-segmentation, reports]
 verified: "2026-10-06 via https://arxiv.org/abs/2505.21089, https://arxiv.org/html/2505.21089 (v2, 20 Oct 2025) and https://raw.githubusercontent.com/Junjue-Wang/DisasterM3/master/README.md; NeurIPS 2025 acceptance only from the README, track and proceedings page not checked"
 takeaway: "The closest benchmark to EvidEO's use case: general and RS VLMs score barely above chance on disaster damage counting and degrade on SAR, which is direct support for EvidEO's instrument-first, SAR-first, VLM-explains-only design"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # DisasterM3

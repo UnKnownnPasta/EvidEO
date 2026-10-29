@@ -11,6 +11,7 @@ era: recent
 tags: [dataset, survey, optical-remote-sensing, benchmark, horizontal-boxes, google-earth, multi-resolution]
 verified: "2026-10-04 via https://arxiv.org/abs/1909.00133 and full text PDF https://arxiv.org/pdf/1909.00133"
 takeaway: "Survey plus the DIOR benchmark (23,463 images, 20 classes, 0.5 to 30 m); a reference for mixed-resolution detection, but EvidEO should cite it only to justify scoping out object-level questions"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Object Detection in Optical Remote Sensing Images: A Survey and A New Benchmark

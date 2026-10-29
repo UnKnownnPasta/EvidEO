@@ -11,6 +11,7 @@ era: recent
 tags: [change-captioning, levir-cc, vision-language, transformer, rsiccformer, natural-language, building-change, optical-rgb]
 verified: "2026-10-04 via https://research.buaa.edu.cn/en/publications/remote-sensing-image-change-captioning-with-dual-branch-transform/"
 takeaway: "LEVIR-CC (10,077 pairs, 50,385 captions, half no-change) is the standard change-captioning set; good template data for EvidEO's explanation layer, but captions carry no measured quantities"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Remote Sensing Image Change Captioning With Dual-Branch Transformers: A New Method and a Large Scale Dataset

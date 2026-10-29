@@ -11,6 +11,7 @@ era: historical
 tags: [deep-ensembles, predictive-uncertainty, epistemic-uncertainty, out-of-distribution, proper-scoring-rules]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=1612.01474 (title, authors, first posted 2016-12-05, comment NIPS 2017, abstract); WebFetch was refused, curl used; summary based on the abstract plus standard knowledge, full text not fetched"
 takeaway: "Running several independently varied instrument settings and reporting their spread is a cheap, model-agnostic way for EvidEO to widen confidence when the instruments disagree"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Lakshminarayanan et al. 2017, Deep Ensembles

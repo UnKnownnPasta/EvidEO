@@ -11,6 +11,7 @@ era: historical
 tags: [selective-prediction, abstention, reject-option, risk-coverage, guarantees, softmax-response]
 verified: "2026-10-29 full text of arXiv PDF; earlier 2026-10-04 via arXiv and NeurIPS page"
 takeaway: "Pick the abstention threshold from a target risk with a statistical guarantee on held-out data; trading coverage for reliability (2% ImageNet top-5 error at about 60% coverage)"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Selective Classification for Deep Neural Networks

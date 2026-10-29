@@ -9,8 +9,9 @@ code: none found
 category: sar-optical-fusion
 era: historical
 tags: [flood-mapping, split-based-thresholding, terrasar-x, kittler-illingworth, coefficient-of-variation, segmentation, dem-refinement, open-access]
-verified: "2026-10-05 via https://nhess.copernicus.org/articles/9/303/2009/ (abstract page) and https://nhess.copernicus.org/articles/9/303/2009/nhess-9-303-2009.pdf (open-access full text)"
+verified: "2026-10-05 via https://nhess.copernicus.org/articles/9/303/2009/ (abstract page) and https://nhess.copernicus.org/articles/9/303/2009/nhess-9-303-2009.pdf (open-access full text); 2026-10-14 full text read by the main session from the open-access NHESS PDF via pdftotext (Sec. 2: image tiling, split selection, Kittler-Illingworth minimum-error thresholding on the selected splits)"
 takeaway: "Origin of tile-wise SAR flood thresholding: only threshold tiles whose variability and darkness indicate both water and land, then pool their histograms"
+read_depth: "full"
 ---
 
 # Towards operational near real-time flood detection using a split-based automatic thresholding procedure on high resolution TerraSAR-X data

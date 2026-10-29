@@ -11,6 +11,7 @@ era: recent
 tags: [vlm, small-vlm, smolvlm, siglip, smollm2, pixel-shuffle, on-device, cpu, video, open-source]
 verified: "2026-10-04 via https://arxiv.org/abs/2504.05299, https://arxiv.org/html/2504.05299v1 and https://github.com/huggingface/smollm"
 takeaway: "Fully open 256M to 2.2B VLMs built for edge devices; the most realistic CPU base for EvidEO's question parser and explainer, fine-tuned with LoRA"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # SmolVLM: Redefining small and efficient multimodal models

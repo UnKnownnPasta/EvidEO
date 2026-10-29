@@ -11,6 +11,7 @@ era: historical
 tags: [dataset-shift, calibration-under-shift, deep-ensembles, temperature-scaling, uncertainty-benchmark, ood]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=1906.02530 (title, authors, first posted 2019-06-06, comment Advances in Neural Information Processing Systems 2019, abstract); WebFetch was refused, curl used; summary based on the abstract plus standard knowledge, full text not fetched, numeric results not confirmed"
 takeaway: "A calibration fitted on one region or season will drift when EvidEO meets a new district or an unusual monsoon, so calibration must be re-checked per region and season, and confidence should fall as inputs move away from the calibration data"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Ovadia et al. 2019, uncertainty under dataset shift

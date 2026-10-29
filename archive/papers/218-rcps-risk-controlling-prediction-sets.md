@@ -11,6 +11,7 @@ era: recent
 tags: [conformal-prediction, risk-control, rcps, segmentation, pixel-sets, upper-confidence-bound, high-probability-guarantee, polyp-segmentation]
 verified: "2026-10-09 via curl to export.arxiv.org/api/query?id_list=2101.02703 (title, five authors, dates, abstract, code link), curl to api.crossref.org (JACM 68(6), pp. 1-34, DOI 10.1145/3478535, issued 2021-09-30), and WebFetch of arxiv.org/html/2101.02703 (Section 5.4 segmentation setup, loss, alpha and delta, calibration size, limitations); exact achieved-risk numbers for segmentation are shown only as histograms and were not read off"
 takeaway: "Calibrates a single threshold on held-out data so that, with probability at least 1 minus delta, the expected per-object share of missed pixels stays below alpha; the high-probability version of entry 133 and a direct recipe for EvidEO's flood-mask threshold"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Bates et al. 2021, Risk-Controlling Prediction Sets (RCPS)

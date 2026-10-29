@@ -11,6 +11,7 @@ era: historical
 tags: [ndvi, vegetation-index, red-nir, crop-monitoring, spectral-index]
 verified: "2026-10-06 via https://api.crossref.org/works/10.1016/0034-4257(79)90013-0 (title, author, venue, volume, issue, pages, year); experimental details summarized from standard knowledge of the paper, full text not fetched"
 takeaway: "The foundation of EvidEO's NDVI-difference instrument: red and NIR combinations track green biomass, so NDVI change between clear dates is a defensible crop-damage signal"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Tucker 1979, red and NIR vegetation indices

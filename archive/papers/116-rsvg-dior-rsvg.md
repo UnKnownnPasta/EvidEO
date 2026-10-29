@@ -11,6 +11,7 @@ era: recent
 tags: [visual-grounding, referring-expressions, dior, bounding-box, benchmark, transformer]
 verified: "2026-10-06 via https://arxiv.org/abs/2210.12634, https://arxiv.org/html/2210.12634 (v1), Crossref record for 10.1109/tgrs.2023.3250471 and https://raw.githubusercontent.com/ZhanYang-nwpu/RSVG-pytorch/main/README.md; results quoted from arXiv v1 and may differ slightly from the TGRS version; README names the model MGVLF while arXiv v1 calls the module MLCM"
 takeaway: "DIOR-RSVG is the standard test for pointing at a named object in a scene, and its failure modes (clutter, ambiguous phrases) show why EvidEO should ground questions to an administrative polygon, not to a model-predicted box"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # RSVG / DIOR-RSVG

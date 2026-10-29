@@ -11,6 +11,7 @@ era: recent
 tags: [dataset, openstreetmap, clip, zero-shot, fine-grained, retrieval, google-earth-engine, skyclip]
 verified: "2026-10-04 via https://arxiv.org/abs/2312.12856 and https://ojs.aaai.org/index.php/AAAI/article/view/28393"
 takeaway: "Reuse the OSM-to-caption trick for Indian training pairs, watching for sparse rural OSM coverage; add SkyCLIP to the backbone bake-off"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # SkyScript: A Large and Semantically Diverse Vision-Language Dataset for Remote Sensing

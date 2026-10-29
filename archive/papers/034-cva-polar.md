@@ -11,6 +11,7 @@ era: historical
 tags: [unsupervised, change-vector-analysis, cva, polar-coordinates, multispectral, optical, thresholding, interpretable]
 verified: "2026-10-04 via https://api.crossref.org/works/10.1109/TGRS.2006.885408"
 takeaway: "Formal basis for optical change vector analysis: magnitude says whether something changed, direction says what kind; use it as the transparent Sentinel-2 change instrument instead of a black-box network"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # A Theoretical Framework for Unsupervised Change Detection Based on Change Vector Analysis in the Polar Domain

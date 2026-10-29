@@ -11,6 +11,7 @@ era: recent
 tags: [sar, sentinel-1, sentinel-2, contrastive, masked-autoencoder, radar-optical-fusion, alibi, ssl4eo-s12, vit]
 verified: "2026-10-04 via https://arxiv.org/abs/2311.00566 and https://github.com/antofuller/CROMA"
 takeaway: "MIT-licensed radar plus optical encoder trained on Sentinel-1/2; best candidate for a learned SAR feature cross-check next to EvidEO's Otsu water instrument"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # CROMA: Remote Sensing Representations with Contrastive Radar-Optical Masked Autoencoders

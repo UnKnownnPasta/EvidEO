@@ -11,6 +11,7 @@ era: recent
 tags: [clip, mobileclip, efficient, knowledge-distillation, zero-shot, datacompdr, openclip, edge, cpu]
 verified: "2026-10-04 via https://arxiv.org/abs/2311.17049 and https://github.com/apple/ml-mobileclip"
 takeaway: "Small, fast CLIP models via reinforced training; a CPU-friendly alternative encoder for EvidEO's zero-shot land cover instrument if licence and accuracy on Sentinel-2 check out"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # MobileCLIP: Fast Image-Text Models through Multi-Modal Reinforced Training

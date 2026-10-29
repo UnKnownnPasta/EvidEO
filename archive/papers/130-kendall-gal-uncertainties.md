@@ -11,6 +11,7 @@ era: historical
 tags: [aleatoric-uncertainty, epistemic-uncertainty, semantic-segmentation, per-pixel-uncertainty, bayesian-deep-learning, mc-dropout]
 verified: "2026-10-07 via arXiv API export.arxiv.org/api/query?id_list=1703.04977 (title, authors, first posted 2017-03-15, comment NIPS 2017, abstract); WebFetch was refused, curl used; summary based on the abstract plus standard knowledge, full text not fetched"
 takeaway: "EvidEO should separate uncertainty from the sensor (speckle, cloud, mixed pixels, which more data cannot fix) from uncertainty from the method (thresholds tuned elsewhere, which local labels can fix), and say which one caused an abstention"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Kendall and Gal 2017, aleatoric versus epistemic uncertainty

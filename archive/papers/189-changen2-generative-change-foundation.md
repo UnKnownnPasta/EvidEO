@@ -11,6 +11,7 @@ era: recent
 tags: [change-detection, generative-model, diffusion-transformer, synthetic-data, zero-shot, foundation-model, levir-cd, s2looking, second, doi-10.1109/TPAMI.2024.3475824]
 verified: "2026-10-08 via curl to export.arxiv.org/api/query (title, five authors, abstract, comment that it extends ICCV 2023 Changen) and api.crossref.org (TPAMI volume 47, issue 2, pages 725-741, February 2025); WebFetch permission prompt timed out so curl was used"
 takeaway: "Generates synthetic before-after image pairs with change labels from single-date images, giving zero-shot change detectors within about 3% of supervised on LEVIR-CD; a cheap route to Indian training data, but trained on very high resolution building change, not Sentinel floods or crops"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # Zheng et al. 2025, Changen2 (generative change foundation model)

@@ -57,7 +57,7 @@ Citation keys: `[A###]` = `archive/papers/###-*.md`; `[E##]` = claim in `docs/re
 | M4 Frontend | done (run 5) | `frontend/` (plain HTML/CSS/JS, vendored Leaflet) |
 | M5 Training code | done (runs 6 to 7) | `training/` (+ `training/README.md`) |
 | M6 Quality | done (run 8) | `tools/demo.py`, `tools/reproduce.py`, `tools/loadtest.py`, `docs/QUALITY.md`, `docs/demo/` |
-| M7 Deck | done (run 9) | `deck/legacy/satclip-14-slides-2026-10-09.pptx` (14 slides, retired; current deck `deck/why/EvidEO-why-it-matters.pptx`), `deck/build_deck.js`, `deck/README.md` |
+| M7 Deck | done (run 9) | `deck/legacy/satclip-14-slides-2026-10-09.pptx` (14 slides, retired; current deck `deck/why/Tellio-why-it-matters.pptx`), `deck/build_deck.js`, `deck/README.md` |
 | M8 Innovation verification | done (2026-10-10) | NOVELTY.md section 5, `docs/VERIFICATION.md`, `tools/novelty_scan.py`, `docs/verification/` |
 | Archive | 225 papers, IDs 001 to 225, next ID **226** | `archive/papers/`, `archive/index.csv`, `archive/README.md` |
 | Tests | 73 passing | `backend/tests/` |

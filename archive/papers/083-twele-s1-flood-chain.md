@@ -9,7 +9,8 @@ code: none found
 category: sar-optical-fusion
 era: historical
 tags: [flood-mapping, sentinel-1, automatic-thresholding, tile-based, kittler-illingworth, fuzzy-logic, hand, region-growing, near-real-time, vv-vs-vh]
-verified: "2026-10-29 DLR eLib abstract only (full text paywalled)"
+read_depth: "abstract (no open full text: DLR elib holds no file, OpenAlex reports closed access)"
+verified: "2026-10-05 via https://elib.dlr.de/102476 (bibliographic record and abstract), https://elib.dlr.de/102505 (companion LPS 2016 paper) and https://extwiki.eodc.eu/GFM/PDD/GFM_algorithms/DLR_algo (operational descendant algorithm description); publisher full text at tandfonline is paywalled and was not read; 2026-10-14 full-text search: elib.dlr.de/102476 states the archive cannot provide the full text (Open Access: Nein), OpenAlex lists the work as closed with no repository full text, no arXiv or author copy found; full text still not read (sections read: abstract only); 2026-10-29 second full-text read from the PDF (see the 2026-10-29 section below)"
 takeaway: "Blueprint for sar_water_otsu: pick bimodal, darker-than-average tiles, threshold them, then refine with slope, size and HAND fuzzy rules; VV is slightly better than VH in calm wind"
 ---
 
@@ -49,6 +50,11 @@ Two flood scenarios at the Greece-Turkey border, validated against reference dat
 - Sanity-bound the VV threshold: if Otsu returns a value above -15 dB, treat it as a failed split (likely no real water class) and abstain or fall back to a permanent-water percentile, flagged as a fallback.
 - Add cheap post-filters before counting flooded area: slope above about 18 degrees and HAND-high terrain suppress water; drop blobs under about 8 to 10 px.
 - Default to VV, keep VH as a cross-check; note wind as a known failure mode in the explanation.
+
+## Full-text check (2026-10-14)
+- Not possible: no open copy exists. The DLR elib record (102476) says the archive cannot provide the full text and marks it not open access; OpenAlex reports closed access with no repository full text; no arXiv version or author manuscript was found. read_depth stays abstract, and the algorithm parameters above remain sourced from the later GFM operational description, not from the 2016 paper.
+- What the abstract does support: a fully automatic Sentinel-1 chain, delivery under 45 minutes after data appear on the ESA hub, two Greece-Turkey border test sites with overall accuracy 94.0% to 96.1% and kappa 0.879 to 0.910, and slightly better accuracy with VV than VH in calm wind. The abstract does not itself describe tile selection, Kittler-Illingworth thresholding or fuzzy refinement; those details come from companion and descendant documents.
+- Refusal and calibration: nothing in the abstract on uncertainty, confidence or abstention.
 
 ## Full-text check (2026-10-29)
 Full text still not read: paywalled, no open copy found (DLR eLib 102476 lists "Full text not available"; Semantic Scholar marks it closed). Only the abstract on the DLR record was re-read.

@@ -11,6 +11,7 @@ era: recent
 tags: [cloud-removal, sentinel-1, sentinel-2, sen12ms-cr, cyclegan, s2cloudless, gan, global, all-season]
 verified: "2026-10-04 via https://arxiv.org/abs/2009.07683, https://ar5iv.labs.arxiv.org/html/2009.07683 and https://patrickTUM.github.io/cloud_removal/"
 takeaway: "SEN12MS-CR is the monsoon cloud-gap test set; use cloud masks to choose between optical, SAR and abstaining, never present filled pixels as observed"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Multisensor Data Fusion for Cloud Removal in Global and All-Season Sentinel-2 Imagery

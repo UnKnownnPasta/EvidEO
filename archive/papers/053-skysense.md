@@ -11,6 +11,7 @@ era: recent
 tags: [foundation-model, multi-modal, sar, sentinel-1, sentinel-2, worldview, contrastive, geo-context, billion-scale]
 verified: "2026-10-04 via https://arxiv.org/abs/2312.10115 and https://github.com/Jack-bo1220/SkySense"
 takeaway: "Billion-parameter optical plus SAR plus time model showing fusion helps; a ceiling to cite, but non-commercial weights and size rule it out for EvidEO"
+read_depth: "abstract (abstract page, metadata, README or official page only; some summaries partly from background knowledge (see verified)"
 ---
 
 # SkySense: A Multi-Modal Remote Sensing Foundation Model Towards Universal Interpretation for Earth Observation Imagery

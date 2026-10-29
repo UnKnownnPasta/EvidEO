@@ -11,6 +11,7 @@ era: upcoming
 tags: [eo-agents, tool-use, benchmark, numeric-tolerance, provenance, sentinel-2, era5, simulation, react]
 verified: "2026-10-08 via curl to https://export.arxiv.org/api/query (title, authors, dates, abstract) and curl to https://arxiv.org/html/2606.13148 (introduction, framework, benchmark construction, failure analysis); WebFetch permission request timed out; per-track and per-model tables beyond those quoted were not checked"
 takeaway: "403-task Earth-science agent benchmark that scores numbers against tolerances and audits provenance; best model Claude Sonnet 4.6 gets 59.2 on tool use but only 22.9% of numeric answers within tolerance, so tool access alone does not give correct quantities and EvidEO must validate tool arguments in code"
+read_depth: "partial (earlier run reached full text or tables through a summarising fetch tool, not re-read line by line)"
 ---
 
 # Nguyen et al. 2026, TerraBench
