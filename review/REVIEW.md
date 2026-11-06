@@ -147,112 +147,162 @@ EvidEO reports 8 of 8 demo receipts (713 tiles) re-running to identical hashes, 
 
 **Better language models might close the gap.** TerraScope-style pixel-grounded models interleave masks into their reasoning and report 68.9 average against 43.3 for the best zero-shot model, on their own benchmark [A201, F]. If a model like that reached reliable area measurement on Sentinel-1, the argument for keeping numbers out of the model weakens a lot. Nobody has shown that it can, and nobody has shown that it can't.
 
-**Abstention.** This is the part I find hardest to settle. The appeal is easy to state. If a system declines when its confidence is low, fewer wrong figures get published, and every method in 4.4 is built around that. Li et al. report the false-negative rate for water dropping from 36.9% to 28.5% once OOD inputs are abstained [A]. EvidEO's own numbers go the same direction: wrong published answers fall from 45% to 26%, at 43% coverage [O]. That coverage figure is the catch. More than half the questions get no number at that confidence line, and the same property that makes the system safe is what makes it frustrating to use.
+**Abstention.** This is the part I find hardest to settle. The appeal is easy to state. If a system declines when its confidence is low, fewer wrong figures get published, and every method in 4.4 is built around that. Li et al. report the false-negative rate for water dropping from 36.9% to 28.5% once OOD inputs are abstained [A]. EvidEO's own numbers go the same direction: wrong published answers fall from 45% to 26%, at 43% coverage [O].
 
-The literature doesn't tell us which side a real user would pick. A district official in the middle of a flood may want a low-confidence figure flagged as low-confidence and not a refusal. A journalist about to publish may want the opposite. Section 4.5 found no study that measured it. Until someone does, "abstention is worth its coverage cost" is an argument and not a result. Two things should make it easier to accept: a stated next step on every abstention, such as when the next useful satellite pass is, and coverage reported by region and not as one global number. Neither of these has been tested either.
+Look at what 43% coverage means, though. Over half of the questions get no number. For a district officer in a flood week, "no answer, here is what to try next" may be a perfectly good outcome for some questions and a plain failure for others, and nothing in the literature says which. The two figures also aren't on the same footing. Li et al.'s reduction is an average false-negative rate for water reported in the abstract (we have not checked how it is computed), while ours is an answer-level error rate among published answers, with a tolerance we chose. Putting them side by side flatters both.
 
-**Pixel versus answer.** Many papers improve IoU by a few points. A trust-focused reading says the error and coverage of the published answer matter more than the pixels behind it. That is a choice of framing, and a reasonable person could prefer the other. We chose answer-level because the end user never sees a pixel.
+There is a second problem. The coverage cost depends on where the threshold sits, and the threshold depends on a calibration that, by our own regional result, shifts by 10 to 30 points between regions [O]. So the 43% might be 30% or 60% somewhere else, and we don't know which way it moves. A re-fit on eight local chips fixes the calibration but costs coverage, which pushes the same trade-off further out.
 
-**Novelty by combination.** The archive concluded that no archived system combines calibrated per-answer confidence, threshold abstention with a next step, replayable receipts, SAR-first monsoon handling, CPU-only operation and plain-language delivery for Indian districts. Li et al. [2026] (calibration plus OOD abstention for SAR floods) is a closer neighbour than anything the archive held when that conclusion was drawn. The combination claim still stands only if all the components are counted together, and it should be re-checked whenever the watch-list in Section 7 moves.
+I don't have a clean resolution. One reading says abstention is simply the price of honesty and officials should accept it. The other says a system that withholds the majority of answers will just be abandoned for a worse tool that always answers, and then abstention has lowered reliability in practice. The second reading is speculation on my part. It is not obviously wrong. Only a study with real users (research question 7 below) can separate them, and until then the claim that abstention improves decisions stays untested.
 
-### 5.3 Where the wider search agreed with the archive, and where it differed
+**Pixel versus answer.** Many papers improve IoU by a few points. A trust-focused view puts answer-level error and coverage first. That is a framing choice, not an established fact, and I have made it here.
 
-The wider search confirmed every direction the archive already held. It added five things: a direct conformal-plus-abstention paper for SAR floods, a verbalised-confidence literature, a provenance-in-openEO paper, one recent Indian validation example, and the observation that decision-maker studies exist for flood forecast maps but not for satellite extents. It did not find a competing end-to-end assistant that publishes calibrated, region-checked, abstaining flood answers. Given the search limits in Section 2, that is weak evidence of absence and not proof.
+**Novelty by combination.** The archive concluded that no archived system combines calibrated per-answer confidence, threshold abstention with a next step, replayable receipts, SAR-first monsoon handling, CPU-only operation and plain-language Indian delivery. Li et al. [2026] is a closer neighbour than anything the archive held. The combination claim only holds if all the components are counted, and it should be re-checked whenever the watch-list in Section 7 moves.
+
+### 5.3 Archive versus wider search
+
+The wider search confirmed all five directions the archive already held. It added a direct conformal-plus-abstention SAR flood paper, a verbalised-confidence literature, a provenance-in-openEO paper, a recent Indian validation example, and evidence that decision-maker studies exist for forecast maps but not for satellite extents. It did not find a competing end-to-end assistant that publishes calibrated, region-checked, abstaining flood answers. Given the search limits in Section 2, that is weak evidence of absence.
 
 ## 6. Gaps and leads
 
-### 6.1 Evidence we looked for and did not find
+### 6.1 Gaps
 
 1. Leave-one-region-out evaluation of calibrated or conformal SAR flood answers, with coverage reported by region.
-2. Answer-level evaluation (published area within tolerance of a reference) for any language-driven EO system.
+2. Answer-level evaluation (area within tolerance of a reference) for any language-driven EO system.
 3. Any user study of a language-driven EO assistant with real decision-makers.
-4. A measured replay-determinism test of EO answers by anyone other than the project.
+4. A replay-determinism test of EO answers by anyone other than the project.
 5. A Sentinel-1 flood reference set for Indian events beyond the Sen1Floods11 Indian chips, with peak-monsoon labels.
 
-### 6.2 A disagreement we could not resolve
+### 6.2 Unresolved disagreement
 
-Reference definitions of "flood" (permanent water, floodplain, wet paddy) differ across products [A227, A]. This review can't say which is right for Indian district reporting.
+Reference definitions of flood (permanent water, floodplain, wet paddy) differ across products [A227, A]. This review can't say which is right for Indian district reporting.
 
 ### 6.3 Leads not verified (not used as evidence)
 
-- Lim et al. 2024, *Discover Water*, on uncertainty representation in flood maps and geographic decisions. The publisher page was blocked.
-- A Majuli Island flood-frequency study (63.44% mean overall accuracy, kappa 0.27) and a lower-Ganges 2016 to 2024 Sentinel-1 study (an EGU 2026 abstract). Both were seen only in search snippets.
-- The GFM annual quality-assessment reports (JRC and CEMS) and an independent 20-event GFM comparison (an EGU 2026 abstract).
-- A remote-sensing abstention dataset named in one search result ("RSSA"), attributed to an arXiv ID that turned out to be VHM. Unresolved, so not cited.
-- IC-EO, AgentAbstain and RSure-Agent, surfaced by the last round of searches and not read.
+- Lim et al. 2024, *Discover Water*, uncertainty representation in flood maps (publisher page blocked).
+- Majuli Island flood-frequency accuracy (63.44% mean overall accuracy, kappa 0.27) and a lower-Ganges 2016 to 2024 Sentinel-1 study (EGU 2026 abstract), seen only in snippets.
+- GFM annual quality-assessment reports (JRC, CEMS) and an independent 20-event GFM comparison (EGU 2026 abstract).
+- Any RS abstention dataset. One search result named "RSSA", attributed to an arXiv ID that turned out to be VHM. Unresolved; do not cite.
 
 ## 7. Research agenda
 
-1. Run a leave-one-event-out and leave-one-region-out test of Li et al.-style conformal risk control against threshold abstention on Sen1Floods11, Kuro Siwo and any new Indian labels.
-2. Label two or three more Indian events (Assam, Bihar) at peak monsoon. This is the largest single gain for every claim in Section 4.4.
-3. Define an answer-level benchmark: question, place, dates, reference area, tolerance, publish-or-abstain, scored on error among published answers and on coverage by region.
-4. Run the same questions through a pixel-grounded RS model (TerraScope-class) and through the instrument pipeline, and compare error and calibration.
+1. Run leave-one-event-out and leave-one-region-out tests of Li et al.-style conformal risk control against threshold abstention, on Sen1Floods11, Kuro Siwo and any new Indian labels.
+2. Label two or three further Indian events (Assam, Bihar) at peak monsoon. This would help every claim in 4.4 more than anything else.
+3. Define an answer-level benchmark: question, place, dates, reference area, tolerance, publish-or-abstain, scored on error among published answers and coverage by region.
+4. Run the same questions through a TerraScope-class model and through the instrument pipeline, and compare error and calibration.
 5. Test verbalised confidence on EO numeric answers against instrument-derived confidence.
-6. Condition uncertainty on land cover and flood type, using the detection limits reported in A227.
-7. Run a small user study with officers and journalists that compares a number alone, a number with confidence, and a number with abstention and next step, measuring joint decision accuracy and reliance.
-8. Publish a replay-determinism test protocol and ask other EO assistants to pass it.
-9. Maintain the watch-list: SHRUG-FM and Li et al. follow-ups, TerraScope or OpenEarthAgent adding confidence, EarthDial follow-ups, RSure-Agent, Google Earth AI, and the NRSC Bhuvan chat.
+6. Condition uncertainty on land cover and flood type, using the detection limits in A227.
+7. Run a small user study with officers and journalists comparing a number alone, number plus confidence, and number plus abstention with next step, measuring joint decision accuracy and reliance.
+8. Publish a replay-determinism protocol and invite other EO assistants to run it.
+9. Maintain the watch-list: SHRUG-FM and Li et al. follow-ups, TerraScope or OpenEarthAgent adding confidence, EarthDial follow-ups, Google Earth AI, NRSC Bhuvan chat.
 
 ## 8. Limitations
 
-- **Search.** A general web search with unknown recall, no Boolean database strings, US-only results, run on a single day in a field that moves monthly. Section 2 and Appendix B are a record of what was done, not a guarantee of completeness.
-- **Reading depth.** Five new sources were read at abstract or landing-page level. Green et al. and PRISMA were confirmed from search results and abstracts. Archive entries carry their own verification fields, and entries marked as leads were not used for numbers.
-- **One reviewer.** No second rater checked selection or tags, so the SANRA self-score in Appendix A is indicative only.
-- **Conflict of interest.** The review was commissioned by the team that built one of the systems discussed. Counter-evidence is in 5.2 and the strength column in 5.1 is there so readers can discount accordingly.
-- **Preprints.** Many 2026 sources are arXiv preprints without peer review, and the strength ratings in 5.1 reflect that.
-- **Scope.** Floods and Sentinel-1 only. The framework may not transfer to crops, optical land cover or very-high-resolution tasks.
-- **Speed of change.** One new paper, for example a conformal-plus-abstention assistant, could change Section 5.2.
+**Search.** The search leaned on a general web tool with unknown recall, US-only results and no Boolean database strings. Section 2 is a record of what was done and not a guarantee of completeness. The field moves monthly, and the search is dated 2026-11-06.
+
+**Reading depth.** Five of the newer primary sources were assessed on abstracts or landing pages only, because of time and access. Green et al. and PRISMA were checked from search results and abstracts. Archive entries carry their own verification fields, and leads weren't used for numbers.
+
+**Single reviewer.** There was no independent second reviewer, so selection and the evidence tags haven't been cross-checked.
+
+**Competing interest.** The reviewers built one of the systems discussed. The counter-evidence is in 5.2 and the strength table is in 5.1 so readers can discount accordingly.
+
+**Preprints.** Many 2026 sources are unreviewed arXiv preprints, and the strength ratings reflect that.
+
+**Scope.** The work covers floods and Sentinel-1. The framework may not transfer to crops, optical land cover or very high-resolution tasks.
+
+**Fast change.** One new paper, such as a conformal-plus-abstention assistant, could overturn Section 5.2.
 
 ## 9. Conclusions
 
-The evidence converges on a design more than on a result. Keep numbers out of the language layer. Produce them with instruments whose failure modes are known. Attach confidence that has been checked in the region where it is used. Abstain with a next step. Record enough to replay the answer. The first of these, and the unreliability of the language layer, are well supported. The rest are partly supported. What remains a hypothesis is that calibrated abstention survives a change of region and helps real decisions. Those two are the most valuable things to test next.
+The evidence supports a design more than a result. Numbers should come from instruments whose failure modes are known, not from the language layer. Confidence should be checked in the region where it is used. When the system abstains it should say what to do next, and enough should be recorded to replay the answer. The failure of the language layer on numbers is well established, and the case for tools is partly established. Whether calibrated abstention survives a change of region, and whether it helps real decisions, is still a hypothesis. Those are the two most useful things to test next.
 
-## Appendix A. How the review follows the guidance
+## Appendix A. Self-assessment against SANRA
 
-| SANRA item | Where addressed | Self-score (0 to 2; indicative, one rater) | Weakness to fix before submission |
+This is a subjective self-check by the single author. It is not an independent or definitive quality measure.
+
+| SANRA item | Where addressed | Score (0 to 2) | To fix |
 |---|---|---|---|
-| 1. Importance explained | Section 1 | 2 | None |
-| 2. Aims and questions stated | Section 1 (RQ1 to RQ5) | 2 | None |
-| 3. Literature search described | Section 2, Appendix B | 1 | Non-bibliographic tool; add Scopus, Web of Science and IEEE Xplore searches with strings |
-| 4. Referencing | Evidence tags, reference list | 1 | Five new sources abstract-only; read full text |
+| 1. Importance | Section 1 | 2 | None |
+| 2. Aims stated | Section 1 | 2 | None |
+| 3. Search described | Section 2, Appendix B | 1 | Add Scopus, Web of Science and IEEE Xplore searches with strings |
+| 4. Referencing | Tags, reference list | 1 | Read the full text of the five abstract-only sources |
 | 5. Scientific reasoning | Sections 3, 4, 5.2 | 2 | Needs a second rater |
-| 6. Appropriate endpoint data | Table in 5.1; tagged numbers | 1 | Many numbers come from archive records; recheck against the papers before publication |
+| 6. Endpoint data | Table 5.1 | 1 | Recheck archive-recorded numbers against the papers |
 
-Total 9 of 12, self-assessed, to be replaced by an independent score. The SANRA paper reports a mean of 6.0 over the 30 manuscripts it field-tested, so 9 would sit above that, but its authors say the scale needs more validity testing, and a self-score proves little.
-
-Practice taken from Green et al.: a standardised approach, a stated search, critical appraisal through the evidence tags, and a theme-based structure. PRISMA 2020 items used: rationale, objectives, information sources, search dates, selection counts and limitations. Not met: protocol registration, a second reviewer, a risk-of-bias tool and formal synthesis. Those belong to systematic reviews.
+Total: 9 of 12. The SANRA authors report a mean of 6.0 over the 30 manuscripts they field-tested, but they also say the scale needs further validation, and a self-score proves little. Following Green et al., we used a standardised approach, a stated search, critical appraisal through evidence tags, and a theme-based structure. From PRISMA 2020 we used rationale, objectives, information sources, search dates, selection counts and limitations. Not met: protocol registration, second reviewer, risk-of-bias tool, formal synthesis.
 
 ## Appendix B. Search log (2026-11-06)
 
-| # | Topic | Outcome |
-|---|---|---|
-| 1 | Narrative review structure, SANRA | SANRA, CASRAI guide, ETH guidance |
-| 2 | PRISMA 2020 | 27-item checklist; J Clin Epidemiol 134:178-189 |
-| 3 | IEEE GRSM review guidelines | Not found; IEEE Sensors Magazine survey guidance seen |
-| 4 | RS vision-language and agent surveys, 2025 to 2026 | Leads mostly already in archive (A193, A201, A205) |
-| 5 | SANRA original paper | Baethge et al. 2019 verified |
-| 6 | Green et al. | Verified at abstract level |
-| 7 | RS hallucination benchmarks | RSHallu, RSHBench (A033, A203) |
-| 8 | Conformal and uncertainty for SAR floods | Li et al. 2026 and Konidakis et al. 2025 (new) |
-| 9 | GFM validation | A213, A227; GFM reports (leads) |
-| 10 | Decision-maker studies, uncertain flood maps | Jean et al. 2023 (A221); Lim et al. 2024 (lead) |
-| 11 | Unanswerable questions, abstention | General-domain only; RS claim unresolved |
-| 12 | Verbalised confidence | Tian et al. 2023 (new) |
-| 13 | Indian Sentinel-1 flood validation | Soudagar and Thakur 2025 (new); others leads |
-| 14 | EO provenance | Omidi et al. 2025 (new) |
+1. Narrative review structure, SANRA. Outcome: SANRA, CASRAI guide, ETH guidance.
+2. PRISMA 2020. Outcome: 27-item checklist, J Clin Epidemiol 134:178-189.
+3. IEEE GRSM review guidelines. Outcome: not found.
+4. RS VLM and agent surveys 2025-26. Outcome: leads mostly in archive (A193, A201, A205).
+5. SANRA original paper. Outcome: verified.
+6. Green et al. Outcome: verified at abstract level.
+7. RS hallucination benchmarks. Outcome: RSHallu, RSHBench (A033, A203).
+8. Conformal and uncertainty for SAR floods. Outcome: Li et al. 2026; Konidakis et al. 2025 (new).
+9. GFM validation. Outcome: A213, A227, GFM reports (leads).
+10. Decision-maker studies, flood maps. Outcome: Jean et al. 2023 (A221); Lim et al. 2024 (lead).
+11. Unanswerable questions, abstention. Outcome: general domain only; RS claim unresolved.
+12. Verbalised confidence. Outcome: Tian et al. 2023 (new).
+13. Indian Sentinel-1 flood validation. Outcome: Soudagar and Thakur 2025 (new); others leads.
+14. EO provenance. Outcome: Omidi et al. 2025 (new).
 
-## References
+## Bibliography
 
-Archive entries are cited as [A###] and live in `archive/papers/###-*.md`. Their links are in `archive/index.csv`. Sources new to this review:
+### Part 1. Sources new to this review
 
-1. Baethge C, Goldbeck-Wood S, Mertens S. SANRA, a scale for the quality assessment of narrative review articles. *Res Integr Peer Rev* 2019;4:5. doi:10.1186/s41073-019-0064-8
-2. Green BN, Johnson CD, Adams A. Writing narrative literature reviews for peer-reviewed journals: secrets of the trade. *J Chiropr Med* 2006;5(3):101-117. doi:10.1016/S0899-3467(07)60142-6 (reprint of J Sports Chiropr Rehabil 2001;15:5-19)
-3. Page MJ, McKenzie JE, Bossuyt PM, et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. *J Clin Epidemiol* 2021;134:178-189. doi:10.1016/j.jclinepi.2021.03.001 (also BMJ 2021;372:n71)
-4. Li Y, Matgen P, Chini M. Quantifying and communicating uncertainty in SAR-based flood mapping via density-aware neural networks and conformal risk control. *IEEE Trans Geosci Remote Sens* 2026;64:4202520. doi:10.1109/TGRS.2026.3661208
-5. Konidakis I, Panayidou K, Tsagkatakis G, Tsakalides P. Uncertainty-aware flood segmentation from Sentinel 2 observations with conformal prediction. IGARSS 2025, pp. 2116-2120. doi:10.1109/IGARSS55030.2025.11242848
-6. Tian K, Mitchell E, Zhou A, Sharma A, Rafailov R, Yao H, Finn C, Manning CD. Just ask for calibration: strategies for eliciting calibrated confidence scores from language models fine-tuned with human feedback. EMNLP 2023. arXiv:2305.14975
-7. Omidi H, Sacco L, Hutter V, et al. Towards provenance-aware Earth observation workflows: the openEO case study. arXiv:2506.08597, 2025.
-8. Soudagar R, Thakur AK. Quantifying spatiotemporal variability of Patna's 2023 monsoon flood using Sentinel-1 SAR data and Moran's Index. *Int Arch Photogramm Remote Sens Spatial Inf Sci* 2025;XLVIII-G:1367-1372. doi:10.5194/isprs-archives-XLVIII-G-2025-1367-2025
-9. Jean V, Boucher M-A, Frini A, Roussel D. Uncertainty in three dimensions: the challenges of communicating probabilistic flood forecast maps. *Hydrol Earth Syst Sci* 2023;27:3351-3373. doi:10.5194/hess-27-3351-2023 (= A221)
-10. Munir MA, et al. Agentic AI for remote sensing: technical challenges and research directions. arXiv:2604.24919, 2026 (= A193; position paper)
-11. Kolluru V, et al. Land cover and flood type govern the detection limits of satellite-based flood mapping across diverse global flood events. arXiv:2606.07780, 2026 (= A227; preprint)
+1. Baethge C, Goldbeck-Wood S, Mertens S. SANRA, a scale for the quality assessment of narrative review articles. *Res Integr Peer Rev* 2019;4:5. https://doi.org/10.1186/s41073-019-0064-8
+2. Green BN, Johnson CD, Adams A. Writing narrative literature reviews for peer-reviewed journals: secrets of the trade. *J Chiropr Med* 2006;5(3):101-117. https://doi.org/10.1016/S0899-3467(07)60142-6
+3. Page MJ, McKenzie JE, Bossuyt PM, et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. *J Clin Epidemiol* 2021;134:178-189. https://doi.org/10.1016/j.jclinepi.2021.03.001
+4. Li Y, Matgen P, Chini M. Quantifying and communicating uncertainty in SAR-based flood mapping via density-aware neural networks and conformal risk control. *IEEE Trans Geosci Remote Sens* 2026;64:4202520. https://doi.org/10.1109/TGRS.2026.3661208
+5. Konidakis I, Panayidou K, Tsagkatakis G, Tsakalides P. Uncertainty-aware flood segmentation from Sentinel 2 observations with conformal prediction. IGARSS 2025, pp. 2116-2120. https://doi.org/10.1109/IGARSS55030.2025.11242848
+6. Tian K, Mitchell E, Zhou A, Sharma A, Rafailov R, Yao H, Finn C, Manning CD. Just ask for calibration: strategies for eliciting calibrated confidence scores from language models fine-tuned with human feedback. EMNLP 2023. https://arxiv.org/abs/2305.14975
+7. Omidi H, Sacco L, Hutter V, et al. Towards provenance-aware Earth observation workflows: the openEO case study. arXiv 2025. https://arxiv.org/abs/2506.08597
+8. Soudagar R, Thakur AK. Quantifying spatiotemporal variability of Patna's 2023 monsoon flood using Sentinel-1 SAR data and Moran's Index. *Int Arch Photogramm Remote Sens Spatial Inf Sci* 2025;XLVIII-G:1367-1372. https://doi.org/10.5194/isprs-archives-XLVIII-G-2025-1367-2025
+9. Jean V, Boucher M-A, Frini A, Roussel D. Uncertainty in three dimensions: the challenges of communicating probabilistic flood forecast maps. *Hydrol Earth Syst Sci* 2023;27:3351-3373. https://doi.org/10.5194/hess-27-3351-2023 (= A221)
+10. Munir MA, et al. Agentic AI for remote sensing: technical challenges and research directions. arXiv 2026. https://arxiv.org/abs/2604.24919 (= A193)
+11. Kolluru V, et al. Land cover and flood type govern the detection limits of satellite-based flood mapping across diverse global flood events. arXiv 2026. https://arxiv.org/abs/2606.07780 (= A227)
+
+### Part 2. Archive tags used in the text
+
+Each entry lives at `archive/papers/###-*.md`. Titles, years and links are copied from `archive/index.csv`.
+
+| Tag | Title | Year | Link |
+|---|---|---|---|
+| A001 | GeoChat: Grounded Large Vision-Language Model for Remote Sensing | 2024 | https://arxiv.org/abs/2311.15826 |
+| A012 | VRSBench: A Versatile Vision-Language Benchmark Dataset for Remote Sensing Image Understanding | 2024 | https://arxiv.org/abs/2406.12384 |
+| A013 | Good at captioning, bad at counting: Benchmarking GPT-4V on Earth observation data | 2024 | https://arxiv.org/abs/2401.17600 |
+| A014 | GEOBench-VLM: Benchmarking Vision-Language Models for Geospatial Tasks | 2024 | https://arxiv.org/abs/2411.19325 |
+| A026 | On Calibration of Modern Neural Networks | 2017 | https://arxiv.org/abs/1706.04599 |
+| A027 | Selective Classification for Deep Neural Networks | 2017 | https://arxiv.org/abs/1705.08500 |
+| A028 | Uncertainty Sets for Image Classifiers using Conformal Prediction | 2021 | https://arxiv.org/abs/2009.14193 |
+| A033 | RSHallu: Dual-Mode Hallucination Evaluation for Remote-Sensing Multimodal Large Language Models with Domain-Tailored Mitigation | 2026 | https://arxiv.org/abs/2602.10799 |
+| A070 | Effect of Confidence and Explanation on Accuracy and Trust Calibration in AI-Assisted Decision Making | 2020 | https://doi.org/10.1145/3351095.3372852 |
+| A078 | VHM: Versatile and Honest Vision Language Model for Remote Sensing Image Analysis | 2025 | https://arxiv.org/abs/2403.20213 |
+| A083 | Sentinel-1-based flood mapping: a fully automated processing chain | 2016 | https://doi.org/10.1080/01431161.2016.1192304 |
+| A121 | The openEO API: Harmonising the Use of Earth Observation Cloud Services Using Virtual Data Cube Functionalities | 2021 | https://doi.org/10.3390/rs13061125 |
+| A122 | CEOS-ARD Product Family Specification: Synthetic Aperture Radar (Normalised Radar Backscatter [NRB], Polarimetric Radar, Ocean Radar Backscatter, Geocoded SLC, Interferometric Radar, Composite Backscatter), Version 1.3.1 | 2026 | https://ceos.org/ard/files/PFS/SAR/v1.3.1/CEOS-ARD_PFS_SAR_v1.3.1.pdf |
+| A129 | Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles | 2017 | https://arxiv.org/abs/1612.01474 |
+| A132 | Can You Trust Your Model's Uncertainty? Evaluating Predictive Uncertainty Under Dataset Shift | 2019 | https://arxiv.org/abs/1906.02530 |
+| A133 | Conformal Risk Control | 2024 | https://arxiv.org/abs/2208.02814 |
+| A136 | To Trust or to Think: Cognitive Forcing Functions Can Reduce Overreliance on AI in AI-assisted Decision-making | 2021 | https://arxiv.org/abs/2102.09692 |
+| A137 | Explanations Can Reduce Overreliance on AI Systems During Decision-Making | 2023 | https://arxiv.org/abs/2212.06823 |
+| A176 | EO-Gym: A Multimodal, Interactive Environment for Earth Observation Agents | 2026 | https://arxiv.org/abs/2605.01250 |
+| A187 | Satellite-Based Flood Mapping through Bayesian Inference from a Sentinel-1 SAR Datacube | 2022 | https://doi.org/10.3390/rs14153673 |
+| A188 | Sentinel-1-Based Water and Flood Mapping: Benchmarking Convolutional Neural Networks Against an Operational Rule-Based Processing Chain | 2022 | https://doi.org/10.1109/JSTARS.2022.3152127 |
+| A190 | UrbanSARFloods: Sentinel-1 SLC-Based Benchmark Dataset for Urban and Open-Area Flood Mapping | 2024 | https://arxiv.org/abs/2406.04111 |
+| A193 | Agentic AI for Remote Sensing: Technical Challenges and Research Directions | 2026 | https://arxiv.org/abs/2604.24919 |
+| A201 | TerraScope: Pixel-Grounded Visual Reasoning for Earth Observation | 2026 | https://arxiv.org/abs/2603.19039 |
+| A202 | SHRUG-FM: Reliability-Aware Foundation Models for Earth Observation | 2026 | https://arxiv.org/abs/2511.10370 |
+| A203 | Seeing Clearly without Training: Mitigating Hallucinations in Multimodal LLMs for Remote Sensing | 2026 | https://arxiv.org/abs/2603.02754 |
+| A204 | Towards LLM Agents for Earth Observation | 2026 | https://arxiv.org/abs/2504.12110 |
+| A205 | OpenEarthAgent: A Unified Framework for Tool-Augmented Geospatial Agents | 2026 | https://arxiv.org/abs/2602.17665 |
+| A209 | From Perception to Reasoning in Remote Sensing: A Survey and Outlook | 2026 | https://www.preprints.org/manuscript/202608.1840 |
+| A212 | Probabilistic Flood Mapping Using Synthetic Aperture Radar Data | 2016 | https://doi.org/10.1109/TGRS.2016.2592951 |
+| A213 | Estimating Ensemble Likelihoods for the Sentinel-1-Based Global Flood Monitoring Product of the Copernicus Emergency Management Service | 2023 | https://doi.org/10.1109/JSTARS.2023.3292350 |
+| A214 | Use of SAR Data for Detecting Floodwater in Urban and Agricultural Areas: The Role of the Interferometric Coherence | 2016 | https://doi.org/10.1109/TGRS.2015.2482001 |
+| A215 | Sentinel-1 InSAR Coherence to Detect Floodwater in Urban Areas: Houston and Hurricane Harvey as A Test Case | 2019 | https://doi.org/10.3390/rs11020107 |
+| A219 | Conformal Semantic Image Segmentation: Post-hoc Quantification of Predictive Uncertainty | 2024 | https://arxiv.org/abs/2405.05145 |
+| A221 | Uncertainty in three dimensions: the challenges of communicating probabilistic flood forecast maps | 2023 | https://doi.org/10.5194/hess-27-3351-2023 |
+| A227 | Land cover and flood type govern the detection limits of satellite-based flood mapping across diverse global flood events | 2026 | https://arxiv.org/abs/2606.07780 |
