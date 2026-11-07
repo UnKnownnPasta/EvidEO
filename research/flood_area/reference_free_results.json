@@ -1,0 +1,374 @@
+{
+ "India": {
+  "chips": 68,
+  "S1+S2+JRC": {
+   "true_water_share": 0.12373336316147632,
+   "estimated_water_share": 0.08169330348021703,
+   "share_error_pct": -33.97633314661912,
+   "S1_map_share_error_pct": -27.193130429704993,
+   "S2_map_share_error_pct": 82.84061835648492,
+   "gaps": {
+    "S1_se": 0.38008489638497556,
+    "S1_sp": 0.007192435771146921,
+    "S2_se": 0.0354587517636874,
+    "S2_sp": -0.0344260746285906
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.12373336316147632,
+   "estimated_water_share": 0.16213802833754254,
+   "share_error_pct": 31.03824562333023,
+   "S1_map_share_error_pct": -27.193130429704993,
+   "S2_map_share_error_pct": 82.84061835648492,
+   "gaps": {
+    "S1_se": -0.054324482656676665,
+    "S1_sp": 0.016140544775065435,
+    "S2_se": -0.04132694393737757,
+    "S2_sp": 0.029629575187404167
+   },
+   "passes": false
+  }
+ },
+ "ALL": {
+  "chips": 440,
+  "S1+S2+JRC": {
+   "true_water_share": 0.10559697072808277,
+   "estimated_water_share": 0.08295525851903524,
+   "share_error_pct": -21.44163043024314,
+   "S1_map_share_error_pct": 15.752441964875379,
+   "S2_map_share_error_pct": 58.22538245565645,
+   "gaps": {
+    "S1_se": 0.269279253384778,
+    "S1_sp": 0.008009061513358673,
+    "S2_se": 0.02651915099734603,
+    "S2_sp": -0.019603886117134595
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.10559697072808277,
+   "estimated_water_share": 0.1370937050343393,
+   "share_error_pct": 29.827308576267882,
+   "S1_map_share_error_pct": 15.752441964875379,
+   "S2_map_share_error_pct": 58.22538245565645,
+   "gaps": {
+    "S1_se": 0.1468672456530401,
+    "S1_sp": 0.04750443957829198,
+    "S2_se": -0.25059138627514366,
+    "S2_sp": -0.0072842852577523765
+   },
+   "passes": false
+  }
+ },
+ "Bolivia": {
+  "chips": 15,
+  "S1+S2+JRC": {
+   "true_water_share": 0.1600084310610207,
+   "estimated_water_share": 0.18487528410543846,
+   "share_error_pct": 15.540964235149938,
+   "S1_map_share_error_pct": 8.348037468423923,
+   "S2_map_share_error_pct": 70.72109668863615,
+   "gaps": {
+    "S1_se": 0.038550601422116526,
+    "S1_sp": 0.03406181692038501,
+    "S2_se": -0.0034109136412969754,
+    "S2_sp": 0.024553586006228922
+   },
+   "passes": true
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.1600084310610207,
+   "estimated_water_share": 0.1996216055719238,
+   "share_error_pct": 24.75692952441753,
+   "S1_map_share_error_pct": 8.348037468423923,
+   "S2_map_share_error_pct": 70.72109668863615,
+   "gaps": {
+    "S1_se": -0.008692988156471793,
+    "S1_sp": 0.03890732190061408,
+    "S2_se": -0.022998737885752685,
+    "S2_sp": 0.03535377442154608
+   },
+   "passes": true
+  }
+ },
+ "Ghana": {
+  "chips": 48,
+  "S1+S2+JRC": {
+   "true_water_share": 0.06287471811794207,
+   "estimated_water_share": 0.035004517095361176,
+   "share_error_pct": -44.32656218084545,
+   "S1_map_share_error_pct": -43.90072493370353,
+   "S2_map_share_error_pct": 24.72962119271327,
+   "gaps": {
+    "S1_se": 0.5431415586409917,
+    "S1_sp": 0.006839080399619446,
+    "S2_se": 0.06648767848619397,
+    "S2_sp": -0.023294196779605647
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.06287471811794207,
+   "estimated_water_share": 0.035194715279705226,
+   "share_error_pct": -44.024058742202165,
+   "S1_map_share_error_pct": -43.90072493370353,
+   "S2_map_share_error_pct": 24.72962119271327,
+   "gaps": {
+    "S1_se": 0.54611795458825,
+    "S1_sp": 0.0071438760824162895,
+    "S2_se": 0.05867700478118576,
+    "S2_sp": -0.02339514070561044
+   },
+   "passes": false
+  }
+ },
+ "Mekong": {
+  "chips": 30,
+  "S1+S2+JRC": {
+   "true_water_share": 0.2412265495265024,
+   "estimated_water_share": 0.19608281605547287,
+   "share_error_pct": -18.714247482145332,
+   "S1_map_share_error_pct": -18.71510751043941,
+   "S2_map_share_error_pct": 23.958705200107453,
+   "gaps": {
+    "S1_se": 0.20297447109305589,
+    "S1_sp": 0.005234859624538513,
+    "S2_se": 0.0028686463807899854,
+    "S2_sp": -0.05069332144558958
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.2412265495265024,
+   "estimated_water_share": 0.2119055128555154,
+   "share_error_pct": -12.15497909684508,
+   "S1_map_share_error_pct": -18.71510751043941,
+   "S2_map_share_error_pct": 23.958705200107453,
+   "gaps": {
+    "S1_se": 0.13089345050090506,
+    "S1_sp": 0.005862594201379467,
+    "S2_se": 0.0006354093583189613,
+    "S2_sp": -0.03387929126242195
+   },
+   "passes": false
+  }
+ },
+ "Nigeria": {
+  "chips": 18,
+  "S1+S2+JRC": {
+   "true_water_share": 0.23562560844149932,
+   "estimated_water_share": 0.16103847321475556,
+   "share_error_pct": -31.654935862059368,
+   "S1_map_share_error_pct": -30.665750414055402,
+   "S2_map_share_error_pct": 21.34625798422314,
+   "gaps": {
+    "S1_se": 0.3301042446891398,
+    "S1_sp": 0.005140742538568666,
+    "S2_se": 0.007426904595374539,
+    "S2_sp": -0.08071772281322531
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.23562560844149932,
+   "estimated_water_share": 0.1633692380798049,
+   "share_error_pct": -30.665754388761222,
+   "S1_map_share_error_pct": -30.665750414055402,
+   "S2_map_share_error_pct": 21.34625798422314,
+   "gaps": {
+    "S1_se": 0.33604227871435866,
+    "S1_sp": 0.009058668141902482,
+    "S2_se": -0.009689076172003985,
+    "S2_sp": -0.0816901098404218
+   },
+   "passes": false
+  }
+ },
+ "Pakistan": {
+  "chips": 28,
+  "S1+S2+JRC": {
+   "true_water_share": 0.07498462572141919,
+   "estimated_water_share": 0.05314341795140222,
+   "share_error_pct": -29.12758123399965,
+   "S1_map_share_error_pct": 326.56986854606845,
+   "S2_map_share_error_pct": 84.42225017179061,
+   "gaps": {
+    "S1_se": 0.23186571114138854,
+    "S1_sp": 0.00367855776618764,
+    "S2_se": -0.022614730454194376,
+    "S2_sp": -0.021595299886771002
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.07498462572141919,
+   "estimated_water_share": 0.24323351737415275,
+   "share_error_pct": 224.3778508381267,
+   "S1_map_share_error_pct": 326.56986854606845,
+   "S2_map_share_error_pct": 84.42225017179061,
+   "gaps": {
+    "S1_se": 0.30431119757510117,
+    "S1_sp": 0.1877838096521398,
+    "S2_se": -0.6918468046626324,
+    "S2_sp": -0.026460439033492156
+   },
+   "passes": false
+  }
+ },
+ "Paraguay": {
+  "chips": 66,
+  "S1+S2+JRC": {
+   "true_water_share": 0.08113707547307714,
+   "estimated_water_share": 0.09532250413879832,
+   "share_error_pct": 17.4832881059759,
+   "S1_map_share_error_pct": 83.51524758230255,
+   "S2_map_share_error_pct": 127.70928911835966,
+   "gaps": {
+    "S1_se": 0.11584972477746813,
+    "S1_sp": 0.024644617644875022,
+    "S2_se": 0.015471805242643466,
+    "S2_sp": 0.015088085759220382
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.08113707547307714,
+   "estimated_water_share": 0.14766882359933317,
+   "share_error_pct": 81.99919425039243,
+   "S1_map_share_error_pct": 83.51524758230255,
+   "S2_map_share_error_pct": 127.70928911835966,
+   "gaps": {
+    "S1_se": 0.1044033288886198,
+    "S1_sp": 0.0800067781395899,
+    "S2_se": -0.2929371176466635,
+    "S2_sp": 0.016243746829331496
+   },
+   "passes": false
+  }
+ },
+ "Somalia": {
+  "chips": 26,
+  "S1+S2+JRC": {
+   "true_water_share": 0.06510291693981364,
+   "estimated_water_share": 0.09622515902996992,
+   "share_error_pct": 47.804681499798505,
+   "S1_map_share_error_pct": 226.35357805350003,
+   "S2_map_share_error_pct": 77.87400427016968,
+   "gaps": {
+    "S1_se": -0.13064680059909645,
+    "S1_sp": -0.0011776927211571975,
+    "S2_se": -0.006672370473631117,
+    "S2_sp": 0.030255355530330652
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.06510291693981364,
+   "estimated_water_share": 0.20301948342132659,
+   "share_error_pct": 211.84391262992733,
+   "S1_map_share_error_pct": 226.35357805350003,
+   "S2_map_share_error_pct": 77.87400427016968,
+   "gaps": {
+    "S1_se": 0.4384957465870516,
+    "S1_sp": 0.1756836693289202,
+    "S2_se": -0.7452493945123917,
+    "S2_sp": -0.03423085054946606
+   },
+   "passes": false
+  }
+ },
+ "Spain": {
+  "chips": 30,
+  "S1+S2+JRC": {
+   "true_water_share": 0.13153804924090964,
+   "estimated_water_share": 0.09772664571104628,
+   "share_error_pct": -25.70465635227596,
+   "S1_map_share_error_pct": -23.903098868666998,
+   "S2_map_share_error_pct": 29.63393999016233,
+   "gaps": {
+    "S1_se": 0.2627631452327359,
+    "S1_sp": 0.0023049469560407765,
+    "S2_se": 0.011785490834574142,
+    "S2_sp": -0.03397710917109953
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.13153804924090964,
+   "estimated_water_share": 0.1070701764385438,
+   "share_error_pct": -18.60136511341548,
+   "S1_map_share_error_pct": -23.903098868666998,
+   "S2_map_share_error_pct": 29.63393999016233,
+   "gaps": {
+    "S1_se": 0.2286072050667206,
+    "S1_sp": 0.00828606560962386,
+    "S2_se": -0.03775602619479179,
+    "S2_sp": -0.030305770699000423
+   },
+   "passes": false
+  }
+ },
+ "Sri-Lanka": {
+  "chips": 42,
+  "S1+S2+JRC": {
+   "true_water_share": 0.11799271503666825,
+   "estimated_water_share": 0.09370533582379302,
+   "share_error_pct": -20.583795537993606,
+   "S1_map_share_error_pct": -4.651275567935286,
+   "S2_map_share_error_pct": 72.91776913011594,
+   "gaps": {
+    "S1_se": 0.21964351266469595,
+    "S1_sp": 0.0027753137055972488,
+    "S2_se": 0.025727679615941912,
+    "S2_sp": -0.020564945583236405
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.11799271503666825,
+   "estimated_water_share": 0.15354574039279828,
+   "share_error_pct": 30.131542735567464,
+   "S1_map_share_error_pct": -4.651275567935286,
+   "S2_map_share_error_pct": 72.91776913011594,
+   "gaps": {
+    "S1_se": -0.03589113054926918,
+    "S1_sp": 0.024732966848303395,
+    "S2_se": -0.1285867821971064,
+    "S2_sp": 0.013075922858496791
+   },
+   "passes": false
+  }
+ },
+ "USA": {
+  "chips": 69,
+  "S1+S2+JRC": {
+   "true_water_share": 0.04563775032137423,
+   "estimated_water_share": 0.03341569983513988,
+   "share_error_pct": -26.780571785788066,
+   "S1_map_share_error_pct": 8.8049235786423,
+   "S2_map_share_error_pct": 11.8576765620456,
+   "gaps": {
+    "S1_se": 0.2756914492042324,
+    "S1_sp": 0.000862381677528834,
+    "S2_se": 0.0961830800108916,
+    "S2_sp": -0.007950609709601597
+   },
+   "passes": false
+  },
+  "S1+S2+VH": {
+   "true_water_share": 0.04563775032137423,
+   "estimated_water_share": 0.054161944741024974,
+   "share_error_pct": 18.67794612930006,
+   "S1_map_share_error_pct": 8.8049235786423,
+   "S2_map_share_error_pct": 11.8576765620456,
+   "gaps": {
+    "S1_se": 0.19806550513266408,
+    "S1_sp": 0.017520331567229763,
+    "S2_se": -0.22719679337470988,
+    "S2_sp": -0.004973375175331807
+   },
+   "passes": false
+  }
+ }
+}

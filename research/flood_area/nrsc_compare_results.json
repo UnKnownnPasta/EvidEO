@@ -1,0 +1,84 @@
+{
+ "status_counts": {
+  "ok": 1299,
+  "low_valid": 12,
+  "no_scene": 9
+ },
+ "all_tiles": {
+  "tiles": 1299,
+  "s1_flood_km2": 1071.1856,
+  "nrsc_flood_km2": 448.38480000000004,
+  "s1_water_km2": 2606.4772000000003,
+  "s1_pre_water_km2": 1425.9248000000002,
+  "area_ratio_s1_over_nrsc": 2.3889873162515767,
+  "pixel_iou": 0.3543301977667198,
+  "nrsc_covered_by_s1": 0.8866527143649828,
+  "s1_confirmed_by_nrsc": 0.3711416583643395,
+  "tile_pearson": 0.8994512653752348,
+  "tiles_with_nrsc_flood": 222
+ },
+ "plain_tiles": {
+  "tiles": 642,
+  "s1_flood_km2": 1061.3836000000001,
+  "nrsc_flood_km2": 448.1868,
+  "s1_water_km2": 2582.186,
+  "s1_pre_water_km2": 1413.3244000000002,
+  "area_ratio_s1_over_nrsc": 2.368172378124479,
+  "pixel_iou": 0.3573320385556034,
+  "nrsc_covered_by_s1": 0.8867070605381505,
+  "s1_confirmed_by_nrsc": 0.3744267388341029,
+  "tile_pearson": 0.8982552201972619,
+  "tiles_with_nrsc_flood": 217
+ },
+ "nrsc_flood_all_valid_km2": 448.76840000000004,
+ "estimator_targeting_nrsc_plain": {
+  "25": {
+   "difference": {
+    "coverage": 0.91125,
+    "median_half_width_pct": 75.32614302401836,
+    "median_abs_error_pct": 26.812841431296064
+   },
+   "stratified_difference": {
+    "coverage": 0.91425,
+    "median_half_width_pct": 59.95624840658024,
+    "median_abs_error_pct": 20.94876714149301
+   }
+  },
+  "50": {
+   "difference": {
+    "coverage": 0.9225,
+    "median_half_width_pct": 53.244636957026344,
+    "median_abs_error_pct": 18.373142627136723
+   },
+   "stratified_difference": {
+    "coverage": 0.91625,
+    "median_half_width_pct": 40.92993440396544,
+    "median_abs_error_pct": 14.847938404254638
+   }
+  },
+  "100": {
+   "difference": {
+    "coverage": 0.9355,
+    "median_half_width_pct": 36.32509783184656,
+    "median_abs_error_pct": 12.736956108479767
+   },
+   "stratified_difference": {
+    "coverage": 0.93875,
+    "median_half_width_pct": 28.764815867773603,
+    "median_abs_error_pct": 9.646882680889735
+   }
+  },
+  "200": {
+   "difference": {
+    "coverage": 0.948,
+    "median_half_width_pct": 23.33208461959164,
+    "median_abs_error_pct": 8.008362584529513
+   },
+   "stratified_difference": {
+    "coverage": 0.94775,
+    "median_half_width_pct": 18.43768802072621,
+    "median_abs_error_pct": 6.405674985707302
+   }
+  }
+ }
+}

@@ -1,0 +1,783 @@
+{
+ "India": {
+  "chips": 64,
+  "true_km2": 189.648,
+  "map_km2": 124.636,
+  "map_error_pct": -34.28035096600017,
+  "water_share_of_chips_with_water": 0.96875,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.834,
+     "median_half_width_pct": 101.792821128986,
+     "median_abs_error_pct": 30.233696110689273,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9176,
+     "median_half_width_pct": 29.872958928172885,
+     "median_abs_error_pct": 11.414409854045388,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.6666,
+     "median_half_width_pct": 54.12390542956927,
+     "median_abs_error_pct": 22.508233942646658,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9408,
+     "median_half_width_pct": 42.344782192804495,
+     "median_abs_error_pct": 11.796169746055853,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.9036,
+     "median_half_width_pct": 59.340043429140245,
+     "median_abs_error_pct": 19.21285750442926,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.914,
+     "median_half_width_pct": 19.524099640853827,
+     "median_abs_error_pct": 7.82080485952923,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8542,
+     "median_half_width_pct": 39.41997315308673,
+     "median_abs_error_pct": 14.62502248858837,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9234,
+     "median_half_width_pct": 20.58236323925173,
+     "median_abs_error_pct": 7.983211001434237,
+     "no_interval_share": 0.0
+    }
+   },
+   "32": {
+    "labels_only": {
+     "coverage": 0.9388,
+     "median_half_width_pct": 32.91178535585092,
+     "median_abs_error_pct": 10.900404960769425,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.92,
+     "median_half_width_pct": 14.148020778924325,
+     "median_abs_error_pct": 4.801948873702856,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.9094,
+     "median_half_width_pct": 24.44428709413385,
+     "median_abs_error_pct": 8.262684966446985,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9112,
+     "median_half_width_pct": 12.896922952688463,
+     "median_abs_error_pct": 4.805956297983634,
+     "no_interval_share": 0.0
+    }
+   }
+  },
+  "protocol_pass": {
+   "labels_only": false,
+   "difference": true,
+   "ratio": false,
+   "stratified_difference": true
+  }
+ },
+ "Bolivia": {
+  "chips": 14,
+  "true_km2": 43.299600000000005,
+  "map_km2": 31.4008,
+  "map_error_pct": -27.480161479551782,
+  "water_share_of_chips_with_water": 0.8571428571428571,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.8996,
+     "median_half_width_pct": 95.47532778263594,
+     "median_abs_error_pct": 26.193544513113274,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9426,
+     "median_half_width_pct": 21.11818050668218,
+     "median_abs_error_pct": 6.036198948720088,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.7874,
+     "median_half_width_pct": 10.925047943143538,
+     "median_abs_error_pct": 4.0833152487405755,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.8984,
+     "median_half_width_pct": 33.367908664788125,
+     "median_abs_error_pct": 6.210680930077874,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "Ghana": {
+  "chips": 35,
+  "true_km2": 45.9104,
+  "map_km2": 28.0924,
+  "map_error_pct": -38.81037847633652,
+  "water_share_of_chips_with_water": 0.6285714285714286,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.668,
+     "median_half_width_pct": 137.09392066360866,
+     "median_abs_error_pct": 62.450174688088104,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.683,
+     "median_half_width_pct": 62.67010478761436,
+     "median_abs_error_pct": 30.497991740433548,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.4576,
+     "median_half_width_pct": 32.37907026797983,
+     "median_abs_error_pct": 34.513734538223275,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.8444,
+     "median_half_width_pct": 294.22230306155,
+     "median_abs_error_pct": 31.160840826188977,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.844,
+     "median_half_width_pct": 87.76465280365346,
+     "median_abs_error_pct": 32.563972433261306,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.7184,
+     "median_half_width_pct": 47.61783477846818,
+     "median_abs_error_pct": 20.53796634313793,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.5306,
+     "median_half_width_pct": 27.776029465441795,
+     "median_abs_error_pct": 25.69385583850074,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.7972,
+     "median_half_width_pct": 73.01926247499304,
+     "median_abs_error_pct": 17.79291838014916,
+     "no_interval_share": 0.0
+    }
+   },
+   "32": {
+    "labels_only": {
+     "coverage": 0.8998,
+     "median_half_width_pct": 26.08667464649072,
+     "median_abs_error_pct": 8.022351689377572,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9168,
+     "median_half_width_pct": 15.415434337574933,
+     "median_abs_error_pct": 3.055748261831736,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8246,
+     "median_half_width_pct": 16.34820883009436,
+     "median_abs_error_pct": 1.2914929530144381,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.902,
+     "median_half_width_pct": 18.745035505530826,
+     "median_abs_error_pct": 3.467778784569749,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "Mekong": {
+  "chips": 30,
+  "true_km2": 176.88440000000003,
+  "map_km2": 152.25,
+  "map_error_pct": -13.926835831763583,
+  "water_share_of_chips_with_water": 0.9666666666666667,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.913,
+     "median_half_width_pct": 91.18233668426402,
+     "median_abs_error_pct": 27.051565881445725,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.8676,
+     "median_half_width_pct": 17.16694732670751,
+     "median_abs_error_pct": 4.9800038895459275,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8238,
+     "median_half_width_pct": 9.01367120376856,
+     "median_abs_error_pct": 3.630226269305198,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.8956,
+     "median_half_width_pct": 26.78677696485094,
+     "median_abs_error_pct": 4.810524086163997,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.943,
+     "median_half_width_pct": 46.787324702651496,
+     "median_abs_error_pct": 15.282382165979604,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9372,
+     "median_half_width_pct": 8.8465615375333,
+     "median_abs_error_pct": 2.789533729373529,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8942,
+     "median_half_width_pct": 6.3093192151592365,
+     "median_abs_error_pct": 2.0528880308115327,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9582,
+     "median_half_width_pct": 8.226398354679752,
+     "median_abs_error_pct": 2.4030706737604453,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "Nigeria": {
+  "chips": 17,
+  "true_km2": 97.3444,
+  "map_km2": 60.736799999999995,
+  "map_error_pct": -37.60627216357592,
+  "water_share_of_chips_with_water": 1.0,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.912,
+     "median_half_width_pct": 87.71215377086392,
+     "median_abs_error_pct": 26.616811033813946,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.8818,
+     "median_half_width_pct": 35.24303185467019,
+     "median_abs_error_pct": 11.587441085465617,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8684,
+     "median_half_width_pct": 25.318417635072514,
+     "median_abs_error_pct": 7.547681969636,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.906,
+     "median_half_width_pct": 57.06813572574633,
+     "median_abs_error_pct": 10.133436883203691,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.8788,
+     "median_half_width_pct": 18.86297450234626,
+     "median_abs_error_pct": 6.09981159676366,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.8286,
+     "median_half_width_pct": 7.956425526136992,
+     "median_abs_error_pct": 2.2102452734826046,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.875,
+     "median_half_width_pct": 5.288984607566589,
+     "median_abs_error_pct": 0.4369486317102288,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.8552,
+     "median_half_width_pct": 5.598527361387659,
+     "median_abs_error_pct": 0.8957200756626278,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "Pakistan": {
+  "chips": 20,
+  "true_km2": 33.62839999999999,
+  "map_km2": 70.02519999999998,
+  "map_error_pct": 108.23232743752305,
+  "water_share_of_chips_with_water": 0.7,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.6592,
+     "median_half_width_pct": 73.08718380361455,
+     "median_abs_error_pct": 62.02049458196049,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9384,
+     "median_half_width_pct": 105.89809423672584,
+     "median_abs_error_pct": 54.33264740516946,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.692,
+     "median_half_width_pct": 58.374974407476905,
+     "median_abs_error_pct": 55.69898569835089,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.8214,
+     "median_half_width_pct": 72.12465071409186,
+     "median_abs_error_pct": 60.18930427852653,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.8014,
+     "median_half_width_pct": 63.207285971454205,
+     "median_abs_error_pct": 17.015677225202527,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.8448,
+     "median_half_width_pct": 62.34815421113144,
+     "median_abs_error_pct": 16.898811718666348,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8052,
+     "median_half_width_pct": 59.9242184718313,
+     "median_abs_error_pct": 14.801401754906435,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.7958,
+     "median_half_width_pct": 68.79716502380009,
+     "median_abs_error_pct": 15.67068311308295,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "Paraguay": {
+  "chips": 65,
+  "true_km2": 140.6196,
+  "map_km2": 135.7932,
+  "map_error_pct": -3.4322384646236928,
+  "water_share_of_chips_with_water": 0.8615384615384616,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.8658,
+     "median_half_width_pct": 93.00398586653019,
+     "median_abs_error_pct": 34.5768655294141,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9896,
+     "median_half_width_pct": 70.99902349731973,
+     "median_abs_error_pct": 27.569254214917393,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8684,
+     "median_half_width_pct": 61.39644987006328,
+     "median_abs_error_pct": 30.18547275938281,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9862,
+     "median_half_width_pct": 108.89288445321048,
+     "median_abs_error_pct": 27.24620180970505,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.8954,
+     "median_half_width_pct": 59.59493520668954,
+     "median_abs_error_pct": 23.423592799296827,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.974,
+     "median_half_width_pct": 72.72362064063377,
+     "median_abs_error_pct": 23.311446270647888,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8822,
+     "median_half_width_pct": 53.17142440483112,
+     "median_abs_error_pct": 24.059769773249133,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9794,
+     "median_half_width_pct": 80.5370743602449,
+     "median_abs_error_pct": 22.245852335967804,
+     "no_interval_share": 0.0
+    }
+   },
+   "32": {
+    "labels_only": {
+     "coverage": 0.9172,
+     "median_half_width_pct": 38.958673639811096,
+     "median_abs_error_pct": 13.163278803239375,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9098,
+     "median_half_width_pct": 41.164672180856805,
+     "median_abs_error_pct": 13.759150573604254,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8608,
+     "median_half_width_pct": 40.8675349731496,
+     "median_abs_error_pct": 14.036332615246458,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9196,
+     "median_half_width_pct": 37.27896530319452,
+     "median_abs_error_pct": 12.731439998407064,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "Somalia": {
+  "chips": 25,
+  "true_km2": 37.2804,
+  "map_km2": 40.9256,
+  "map_error_pct": 9.777792083775932,
+  "water_share_of_chips_with_water": 0.76,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.896,
+     "median_half_width_pct": 82.68211680384884,
+     "median_abs_error_pct": 31.517902168431664,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9684,
+     "median_half_width_pct": 81.75457065360445,
+     "median_abs_error_pct": 25.779833370886585,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.7978,
+     "median_half_width_pct": 73.48035141915089,
+     "median_abs_error_pct": 25.361850100039455,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9694,
+     "median_half_width_pct": 101.92315787128535,
+     "median_abs_error_pct": 24.45038143367562,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.912,
+     "median_half_width_pct": 50.929764701888146,
+     "median_abs_error_pct": 16.40835398761816,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9424,
+     "median_half_width_pct": 39.66494712402606,
+     "median_abs_error_pct": 12.936053529468563,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8906,
+     "median_half_width_pct": 37.2603781285306,
+     "median_abs_error_pct": 12.549029408291752,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9448,
+     "median_half_width_pct": 39.867863625129615,
+     "median_abs_error_pct": 11.727418620585015,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "Spain": {
+  "chips": 30,
+  "true_km2": 106.6164,
+  "map_km2": 93.2416,
+  "map_error_pct": -12.544786730746859,
+  "water_share_of_chips_with_water": 1.0,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.8662,
+     "median_half_width_pct": 91.38509867602544,
+     "median_abs_error_pct": 31.677349826105555,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.843,
+     "median_half_width_pct": 22.981855557706123,
+     "median_abs_error_pct": 10.300713586277528,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.813,
+     "median_half_width_pct": 21.073198949688457,
+     "median_abs_error_pct": 10.068843450129206,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.8822,
+     "median_half_width_pct": 24.93031510888506,
+     "median_abs_error_pct": 9.391894680368106,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.9102,
+     "median_half_width_pct": 54.3623678903859,
+     "median_abs_error_pct": 17.964520467770438,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.8592,
+     "median_half_width_pct": 19.790274462527815,
+     "median_abs_error_pct": 6.198108358563977,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8498,
+     "median_half_width_pct": 15.53296084742794,
+     "median_abs_error_pct": 5.543520733124288,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.8886,
+     "median_half_width_pct": 19.66701408953321,
+     "median_abs_error_pct": 5.747239636678783,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "Sri-Lanka": {
+  "chips": 41,
+  "true_km2": 120.4664,
+  "map_km2": 112.82640000000002,
+  "map_error_pct": -6.342017359197231,
+  "water_share_of_chips_with_water": 0.9512195121951219,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.7614,
+     "median_half_width_pct": 81.63588217549986,
+     "median_abs_error_pct": 46.10468147134804,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9692,
+     "median_half_width_pct": 36.88468576373074,
+     "median_abs_error_pct": 11.409177164752995,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.7812,
+     "median_half_width_pct": 40.479727021041114,
+     "median_abs_error_pct": 12.89457571410631,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9764,
+     "median_half_width_pct": 53.05585718819305,
+     "median_abs_error_pct": 12.050663089459002,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.7988,
+     "median_half_width_pct": 84.26269319534062,
+     "median_abs_error_pct": 27.07366950452574,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9464,
+     "median_half_width_pct": 21.465249025433256,
+     "median_abs_error_pct": 6.9736457634659965,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.897,
+     "median_half_width_pct": 23.699562099667624,
+     "median_abs_error_pct": 7.695873454803088,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9458,
+     "median_half_width_pct": 21.543320522098426,
+     "median_abs_error_pct": 6.630681133613035,
+     "no_interval_share": 0.0
+    }
+   },
+   "32": {
+    "labels_only": {
+     "coverage": 0.9356,
+     "median_half_width_pct": 34.84356579979491,
+     "median_abs_error_pct": 12.45781500069729,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9446,
+     "median_half_width_pct": 8.779476536123545,
+     "median_abs_error_pct": 2.9714146434192465,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.9356,
+     "median_half_width_pct": 9.683480080646087,
+     "median_abs_error_pct": 3.1456210059220004,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9476,
+     "median_half_width_pct": 9.211083449069973,
+     "median_abs_error_pct": 3.1088984330718112,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ },
+ "USA": {
+  "chips": 67,
+  "true_km2": 84.49919999999999,
+  "map_km2": 117.47720000000001,
+  "map_error_pct": 39.02758842687272,
+  "water_share_of_chips_with_water": 1.0,
+  "n": {
+   "8": {
+    "labels_only": {
+     "coverage": 0.8142,
+     "median_half_width_pct": 95.80104161271987,
+     "median_abs_error_pct": 35.85581283609785,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.8956,
+     "median_half_width_pct": 41.50663568083013,
+     "median_abs_error_pct": 15.955269399000224,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.7948,
+     "median_half_width_pct": 36.749015432148504,
+     "median_abs_error_pct": 15.543468640750602,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.961,
+     "median_half_width_pct": 44.22536808340462,
+     "median_abs_error_pct": 13.292788570779381,
+     "no_interval_share": 0.0
+    }
+   },
+   "16": {
+    "labels_only": {
+     "coverage": 0.8786,
+     "median_half_width_pct": 61.69797216343003,
+     "median_abs_error_pct": 24.109325887108998,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9154,
+     "median_half_width_pct": 27.242530369019974,
+     "median_abs_error_pct": 10.607112256684086,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8548,
+     "median_half_width_pct": 26.074500562853032,
+     "median_abs_error_pct": 10.085992296824061,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.946,
+     "median_half_width_pct": 25.355546846953448,
+     "median_abs_error_pct": 9.047896311444406,
+     "no_interval_share": 0.0
+    }
+   },
+   "32": {
+    "labels_only": {
+     "coverage": 0.9086,
+     "median_half_width_pct": 38.92583944520389,
+     "median_abs_error_pct": 14.620707947530871,
+     "no_interval_share": 0.0
+    },
+    "difference": {
+     "coverage": 0.9268,
+     "median_half_width_pct": 17.420423337918262,
+     "median_abs_error_pct": 6.058089899075932,
+     "no_interval_share": 0.0
+    },
+    "ratio": {
+     "coverage": 0.8962,
+     "median_half_width_pct": 16.160402443496093,
+     "median_abs_error_pct": 5.733454111116122,
+     "no_interval_share": 0.0
+    },
+    "stratified_difference": {
+     "coverage": 0.9318,
+     "median_half_width_pct": 15.688436728674976,
+     "median_abs_error_pct": 5.393187154434567,
+     "no_interval_share": 0.0
+    }
+   }
+  }
+ }
+}
